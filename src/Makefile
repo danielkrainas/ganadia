@@ -7,7 +7,8 @@ CYGWIN = -DCYGWIN
 NOCRYPT =
 #Uncomment the next line if you want request support
 #DBUGFLG = -DREQUESTS
-C_FLAGS = -I/usr/lib/gcc-lib/i586-pc-linux-gnu/2.95.3/include -ggdb3
+#C_FLAGS = -I/usr/lib/gcc-lib/i586-pc-linux-gnu/2.95.3/include -ggdb3
+C_FLAGS = -I/usr/lib/gcc-lib/i686-pc-linux-gnu/2.95.3/include -ggdb3 -DMONGO_HAVE_STDINT -Wno-format-security
 L_FLAGS = $(PROF)
 
 O_FILES = act_comm.o act_info.o act_move.o act_obj.o act_wiz.o boards.o \
@@ -31,21 +32,21 @@ H_FILES = mud.h bet.h slay.h restore.h finger.h board.h
 
 all:
 #	co $(H_FILES)
-	make swreality
+	make ganadia
 #	rm -f $(H_FILES)
 
 ifdef CYGWIN
-swreality: $(O_FILES)
-	rm -f swreality
-	$(CC) $(L_FLAGS) -o swreality $(O_FILES) -lm -lcrypt
-	chmod g+w swreality
+ganadia: $(O_FILES)
+	rm -f ganadia
+	$(CC) $(L_FLAGS) -o ganadia $(O_FILES) -lm -lcrypt -lmongoc
+	chmod g+w ganadia
 	chmod g+w $(O_FILES)
 
 else
-swreality: $(O_FILES)
-	rm -f swreality
-	$(CC) $(L_FLAGS) -o swreality $(O_FILES) -lm  -lcrypt
-	chmod g+w swreality
+ganadia: $(O_FILES)
+	rm -f ganadia
+	$(CC) $(L_FLAGS) -o ganadia $(O_FILES) -lm -lcrypt -lmongoc
+	chmod g+w ganadia
 	chmod g+w $(O_FILES)
 
 endif

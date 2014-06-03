@@ -23,6 +23,8 @@
 #include <sys/cdefs.h>
 #include <sys/time.h>
 #include <math.h>
+#include <mongo.h>
+#include <bson.h>
 
 /* #include <malloc_dbg.h> */
 
@@ -73,6 +75,11 @@ typedef int				bool;
 typedef short    int			sh_int;
 typedef unsigned char			bool;
 #endif
+
+#ifndef FNDELAY
+#define FNDELAY O_NONBLOCK 
+#endif
+
 
 /*
  * Structure types.
@@ -132,6 +139,14 @@ typedef	struct	cmd_type		CMDTYPE;
 typedef	struct	killed_data		KILLED_DATA;
 typedef struct	wizent			WIZENT;
 typedef struct  ignore_data		IGNORE_DATA;
+
+/*
+ * Database Types
+ */
+typedef struct 	mongo 			DATA_CONN;
+typedef	struct	mongo_cursor		DATA_CURSOR;
+//typedef struct	bson			DATA_ENTRY;
+#define DATA_ENTRY bson
 
 /*
  * Function types.
@@ -669,6 +684,7 @@ struct	help_data
 {
     HELP_DATA *	next;
     HELP_DATA * prev;
+    char *	id;
     sh_int	level;
     char *	keyword;
     char *	text;
@@ -2706,6 +2722,7 @@ struct	area_data
     AREA_DATA *   	next_on_planet;
     AREA_DATA *    	prev_on_planet;
     char *		name;
+    char *		id;
     char *		filename;
     int                 flags;
     sh_int              status;  /* h, 8/11 */
@@ -2821,6 +2838,7 @@ struct	room_index_data
     MAP_DATA *		map;                 /* maps */
     char *		description;
     int			vnum;
+    char *		id;
     int			room_flags;
 //    int			room_flags2;
     MPROG_ACT_LIST *	mpact;               /* mudprogs */
@@ -3568,6 +3586,7 @@ struct	cmd_type
     sh_int		level;
     sh_int		log;
     sh_int		ooc;
+    char *		id;
     struct		timerset	userec;
 };
 
@@ -4609,11 +4628,22 @@ char *	crypt		args( ( const char *key, const char *salt ) );
  						     every half hour - trying to
 						     determine best reboot time */
 #define COPYOVER_FILE	SYSTEM_DIR "copyover.dat"
-#define EXE_FILE	           "../src/swreality"
+#define EXE_FILE	           "../src/ganadia"
+
+#define DATABASE_NAME	"ganadia"
+#define DSET_COMMANDS	DATABASE_NAME ".commands"
+#define DSET_AREAS	DATABASE_NAME ".areas"
+#define DSET_ROOMS	DATABASE_NAME ".rooms"
+#define DSET_HELPS	DATABASE_NAME ".helps"
+
+#define DKEY_ID		"_id"
+#define DKEY_VNUM 	"vnum"
+
 /*
  * Our function prototypes.
  * One big lump ... this is every function in Merc.
  */
+
 #define CD	CHAR_DATA
 #define MID	MOB_INDEX_DATA
 #define OD	OBJ_DATA
@@ -4868,6 +4898,51 @@ void	obj_sort	args( ( OBJ_INDEX_DATA *pObj ) );
 void	room_sort	args( ( ROOM_INDEX_DATA *pRoom ) );*/
 void	sort_area	args( ( AREA_DATA *pArea, bool proto ) );
 char *  supercapitalize      args( ( const char *str ) );
+
+/*  Functions for new data api */
+mongo * db_open		args( ( void ) );
+int		db_close		args( ( mongo * conn ) );
+DATA_CONN * 	dopen			args( ( ) );
+int 		dclose			args( (DATA_CONN *conn ) );
+
+DATA_CURSOR * 	dcursor_open 		args( ( char * setName, DATA_CONN * conn ) );
+int 		dcursor_close		args( ( DATA_CURSOR *dc ) );
+DATA_ENTRY * 	dcursor_entry 		args( ( DATA_CURSOR * dc ) );
+int 		dcursor_next		args( ( DATA_CURSOR * dc ) );
+
+int		dentry_init 		args( ( DATA_ENTRY * entry ) );
+int		dentry_finalize		args( ( DATA_ENTRY * entry ) );
+int		dentry_destroy		args( ( DATA_ENTRY * entry ) );
+int		dentry_save		args( ( DATA_ENTRY * e, char *setName, DATA_CONN * conn ) );
+
+char		dread_letter		args( ( char * field, DATA_ENTRY * e ) );
+int		dread_number		args( ( char * field, DATA_ENTRY * e ) );
+char *		dread_string		args( ( char * field, DATA_ENTRY * e ) );
+char *		dread_word		args( ( char * field, DATA_ENTRY * e ) );
+char *		dread_line		args( ( char * field, DATA_ENTRY * e ) );
+DATA_ENTRY * 	dread_entry 		args( ( char * field, DATA_ENTRY * e ) );
+char * 		dread_id		args( ( char * field, DATA_ENTRY * e ) );
+int		dwrite_id		args( ( char * field, char * id, DATA_ENTRY * e ) );
+int 		dwrite_letter		args( ( char * field, char value, DATA_ENTRY * e ) );
+int		dwrite_number		args( ( char * field, int value, DATA_ENTRY * e ) );
+int		dwrite_string		args( ( char * field, char * value, DATA_ENTRY * e ) );
+int		dwrite_word		args( ( char * field, char * value, DATA_ENTRY * e ) );
+int		dwrite_line		args( ( char * field, char * value, DATA_ENTRY * e ) );
+int		dwrite_entry		args( ( char * field, DATA_ENTRY * value, DATA_ENTRY * e ) );
+int		dwrite_push_object	args( ( char * field, DATA_ENTRY * e ) );
+int		dwrite_pop_object	args( ( DATA_ENTRY * e ) );
+int		dwrite_push_array	args( ( char * field, DATA_ENTRY * e ) );
+int		dwrite_pop_array	args( ( DATA_ENTRY * e ) );
+int		dwrite_array_number	args( ( int index, int value, DATA_ENTRY * e ) );
+int		dwrite_array_string	args( ( int index, char * value, DATA_ENTRY * e ) );
+int		dwrite_array_entry	args( ( int index, DATA_ENTRY * value, DATA_ENTRY * e) );
+int		dwrite_array_push_object args( ( int index, DATA_ENTRY * e ) );
+
+DATA_ENTRY *	dfind_by_id		args( ( char * id, char * setName, DATA_CONN * dc ) );
+DATA_ENTRY *	dfind_string		args( ( char * key, char * value, char * setName, DATA_CONN * dc ) );
+DATA_ENTRY *	dfind_number		args( ( char * key, int value, char * setName, DATA_CONN * dc ) );
+
+
 
 /* build.c */
 void	start_editing	args( ( CHAR_DATA *ch, char *data ) );

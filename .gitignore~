@@ -34,4 +34,5 @@ src/ganadia
 building/*
 area/*
 gods/*
-
+space/*
+corpses/*
