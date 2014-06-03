@@ -30,4 +30,9 @@ player/**/*
 log/*
 src/swreality
 src/ganadia
+*.bak
+building/*
+area/*
+gods/*
+space/*
 
