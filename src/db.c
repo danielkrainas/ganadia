@@ -166,7 +166,7 @@ sh_int   gsn_jumpvector;
 sh_int   gsn_weaponsystems;
 sh_int   gsn_navigation;
 sh_int   gsn_shipsystems;
-sh_int   gsn_tractorbeams;
+sh_int   gsn_tractorbeam;
 sh_int   gsn_shipmaintenance;
 sh_int   gsn_spacecombat;
 sh_int   gsn_spacecombat2;
@@ -675,6 +675,7 @@ void boot_db( bool fCopyover )
 	ASSIGN_GSN( gsn_common,		"common" );
         ASSIGN_GSN( gsn_drug,           "drug" );
 	ASSIGN_GSN( gsn_frenzy,		"frenzy");
+	ASSIGN_GSN( gsn_tractorbeam,   "tractorbeam");
 
 
     }
@@ -744,6 +745,8 @@ void boot_db( bool fCopyover )
 	load_restores( );
         log_string( "Loading space" );
         load_space( );
+	log_string( "Loading ship objects" );
+	load_ship_objs( );
         log_string( "Loading ships" );
         load_ships( );
         log_string( "Loading bounties" );
@@ -5213,11 +5216,13 @@ void load_area_file( AREA_DATA *tarea, char *filename )
 	    else
 	    {
 	      fclose( fpArea );
+	      fpArea = NULL;
 	      return;
 	    }
 	}
     }
     fclose( fpArea );
+    fpArea = NULL;
     if ( tarea )
     {
 	if ( fBootDb )

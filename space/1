@@ -1,0 +1,59 @@
+#SHIP
+Name         Public Transport Shuttle CT-336~
+Filename     1~
+Description  ~
+Owner        public~
+Pilot        ~
+Copilot      ~
+Class        0
+Tractorbeam  0
+Shipyard     200
+Hangar       0
+Turret1      0
+Turret2      0
+Statet0      0
+Statet1      0
+Statet2      0
+Lasers       0
+Missiles     0
+Maxmissiles  0
+Rockets     0
+Maxrockets  0
+Torpedos     0
+Maxtorpedos  0
+Lastdoc      200
+Firstroom    336
+Lastroom     336
+Shield       0
+Maxshield    0
+Hull         2000
+Maxhull      2000
+Maxenergy    1000
+Hyperspeed   0
+Comm         100
+Chaff        0
+Maxchaff     0
+Sensor       0
+Astro_array  0
+Realspeed    100
+Type         0
+Cockpit      336
+Coseat       336
+Pilotseat    336
+Gunseat      336
+Navseat      336
+Engineroom   0
+Entrance     336
+Shipstate    0
+Missilestate 0
+Energy       1000
+Manuever     70
+Home         Jenova~
+Hulltype  1
+Slots     4
+Payload    10
+Power     100
+Weapon	   100
+End
+
+#END

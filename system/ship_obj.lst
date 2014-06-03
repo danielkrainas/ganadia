@@ -1,0 +1,169 @@
+#weapon
+name		Vulcan Machine Gun~
+vnum		100
+desc		(null)~
+type		1
+maxammo		500
+burst		1
+maxdamage	18
+mindamage	6
+maxheat		150
+drain		0
+cooling		10
+spread		25
+req_slots	1
+req_weight	10
+act_all		%s from %s fire and hits %s.~
+act_self	%s from your ship fire hits %s!.~
+act_target	%s from %s fire and hit you!~
+range		400
+$
+
+#weapon
+name		Twin-Linked Machine Guns~
+vnum		101
+desc		(null)~
+type		1
+maxammo		500
+burst		2
+maxdamage	34
+mindamage	15
+maxheat		150
+drain		0
+cooling		6
+spread		30
+req_slots	1
+req_weight	17
+act_all		%s from %s fire and hits %s.~
+act_self	%s from your ship fire hits %s!.~
+act_target	%s from %s fire and hit you!~
+range		400
+$
+
+#weapon
+name		Hotshell Bolt Cannon~
+vnum		102
+desc		(null)~
+type		1
+maxammo		150
+burst		2
+maxdamage	60
+mindamage	20
+maxheat		50
+drain		0
+cooling		2
+spread		30
+req_slots	1
+req_weight	35
+act_all		%s from %s fire and hits %s.~
+act_self	%s from your ship fire hits %s!.~
+act_target	%s from %s fire and hit you!~
+range		300
+$
+
+#weapon
+name		Devastator Bomb Charges~
+vnum		103
+desc		(null)~
+type		0
+maxammo		35
+burst		1
+maxdamage	200
+mindamage	70
+maxheat		20
+drain		0
+cooling		3
+spread		40
+req_slots	2
+req_weight	60
+act_all		%s from %s fire and hits %s.~
+act_self	%s from your ship fire hits %s!.~
+act_target	%s from %s fire and hit you!~
+range		100
+$
+
+#weapon
+name		Heavy Railgun (Ganadian Model)~
+vnum		104
+desc		(null)~
+type		1
+maxammo		15
+burst		1
+maxdamage	140
+mindamage	100
+maxheat		5
+drain		0
+cooling		0
+spread		50
+req_slots	3
+req_weight	60
+act_all		%s from %s fire and hits %s.~
+act_self	%s from your ship fire hits %s!.~
+act_target	%s from %s fire and hit you!~
+range		1200
+$
+
+#weapon
+name		130mm Dual Shot Cannons~
+vnum		105
+desc		(null)~
+type		1
+maxammo		300
+burst		1
+maxdamage	20
+mindamage	2
+maxheat		40
+drain		0
+cooling		2
+spread		25
+req_slots	1
+req_weight	45
+act_all		%s from %s fire and hits %s.~
+act_self	%s from your ship fire hits %s!.~
+act_target	%s from %s fire and hit you!~
+range		900
+$
+
+#weapon
+name		Missle Silo (Fenris Model)~
+vnum		106
+desc		(null)~
+type		0
+maxammo		80
+burst		4
+maxdamage	40
+mindamage	23
+maxheat		120
+drain		0
+cooling		4
+spread		50
+req_slots	2
+req_weight	40
+act_all		%s from %s fire and hits %s.~
+act_self	%s from your ship fire hits %s!.~
+act_target	%s from %s fire and hit you!~
+range		250
+$
+
+#weapon
+name		Hellraiser Cannon~
+vnum		110
+desc		(null)~
+type		1
+maxammo		500
+burst		1
+maxdamage	400
+mindamage	300
+maxheat		1
+drain		0
+cooling		0
+spread		75
+req_slots	4
+req_weight	100
+act_all		%s from %s fire and hits %s.~
+act_self	%s from your ship fire hits %s!.~
+act_target	%s from %s fire and hit you!~
+range		170
+$
+
+$

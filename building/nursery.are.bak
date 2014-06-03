@@ -1,0 +1,231 @@
+#AREA   The Nursery~
+
+
+
+#AUTHOR Nikon~
+
+#RANGES
+0 0 0 0 0 0 0 0
+$
+
+#FLAGS
+0
+
+#ECONOMY 0 0
+
+#MOBILES
+#0
+
+
+#OBJECTS
+#0
+
+
+#ROOMS
+#10500
+Entrance to a Ruined Tower~
+~
+0 0 1 0
+D0
+~
+~
+0 -1 10501
+S
+#10501
+The Great Gate~
+~
+0 0 1 0
+D0
+~
+~
+0 -1 10502
+D2
+~
+~
+0 -1 10500
+S
+#10502
+The Foyer of the Ancient Tower~
+~
+0 0 1 0
+D0
+~
+~
+0 -1 10503
+D2
+~
+~
+0 -1 10501
+S
+#10503
+South Hallway~
+~
+0 0 1 0
+D1
+~
+~
+0 -1 10504
+D2
+~
+~
+0 -1 10502
+S
+#10504
+A Dark Hallway~
+~
+0 0 1 0
+D0
+~
+~
+0 -1 10505
+D3
+~
+~
+0 -1 10503
+S
+#10505
+Further into the Darkness~
+~
+0 0 1 0
+D0
+~
+~
+0 -1 10506
+D2
+~
+~
+0 -1 10504
+S
+#10506
+The North Hallway~
+~
+0 0 1 0
+D2
+~
+~
+0 -1 10505
+D3
+~
+~
+0 -1 10507
+S
+#10507
+A Deadly Encounter~
+~
+0 0 1 0
+D0
+~
+~
+0 -1 10508
+D1
+~
+~
+0 -1 10506
+S
+#10508
+Further Along the Hallway~
+~
+0 0 1 0
+D0
+~
+~
+0 -1 10509
+D2
+~
+~
+0 -1 10507
+S
+#10509
+A Massive Staircase~
+~
+0 0 1 0
+D2
+~
+~
+0 -1 10508
+D4
+~
+~
+0 -1 10510
+S
+#10510
+Into the Tower~
+~
+0 0 1 0
+D2
+~
+~
+0 -1 10511
+D5
+~
+~
+0 -1 10509
+S
+#10511
+Further into the Tower~
+~
+0 0 1 0
+D0
+~
+~
+0 -1 10510
+D4
+~
+~
+0 -1 10512
+S
+#10512
+Heights of the Tower~
+~
+0 0 1 0
+D0
+~
+~
+0 -1 10513
+D5
+~
+~
+0 -1 10511
+S
+#10513
+A Spiral Staircase~
+~
+0 0 1 0
+D2
+~
+~
+0 -1 10512
+D4
+~
+~
+0 -1 10514
+S
+#10514
+The Choice is Yours~
+~
+0 0 1 0
+D5
+~
+~
+0 -1 10513
+S
+#0
+
+
+#RESETS
+S
+
+
+#SHOPS
+0
+
+
+#REPAIRS
+0
+
+
+#SPECIALS
+S
+
+
+#$

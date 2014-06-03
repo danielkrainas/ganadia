@@ -1,0 +1,352 @@
+#AREA   {PROTO} Bender's area in progress~
+
+
+
+#AUTHOR Bender~
+
+#RANGES
+0 0 0 0 0 0 0 0
+$
+
+#FLAGS
+0
+
+#ECONOMY 0 0
+
+#MOBILES
+#0
+
+
+#OBJECTS
+#1200
+spacesaver~
+a spacesaver~
+A spacesaver is here.~
+~
+13 1073741824 0
+0 0 0 0
+1 0 0
+#0
+
+
+#ROOMS
+#1200
+Spacesaver~
+???
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 1201
+S
+#1201
+Path~
+Lightly wooded, small critters, lake to the west and towers up north. 
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 1202
+D2
+~
+~
+0 -1 1200
+S
+#1202
+Path~
+Paddock to the right, lake to the left, city up northeast
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 1203
+D2
+~
+~
+0 -1 1201
+S
+#1203
+Path~
+Fence on the right, a post up north, a bridge to the northeast
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 1204
+D2
+~
+~
+0 -1 1202
+S
+#1204
+Bend in the path~
+Woods in the south, bridge to the right over a fork in the river
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 1205
+D2
+~
+~
+0 -1 1203
+S
+#1205
+Bridge to the Village~
+Water underneath, well made, ropes, quest mob
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 1206
+D3
+~
+~
+0 -1 1204
+S
+#1206
+Village gate~
+Two posts and a wooden gate, some guardsman, secondary quest
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 1207
+D3
+~
+~
+0 -1 1205
+S
+#1207
+West township~
+Streets north, east, and south. East are huts, north are wood and
+stone structures and south is blocked by trees and shadowy paths
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 1209
+D1
+~
+~
+0 -1 1208
+D2
+~
+~
+0 -1 1210
+D3
+~
+~
+0 -1 1206
+S
+#1208
+Residential huts~
+A lot of huts, lined up, straw and clay, really not very sturdy but enough.
+Wood and weaker stone are among them, and serve as the center of any
+particular camp. 
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 1211
+D3
+~
+~
+0 -1 1207
+S
+#1209
+The trading hovels~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 1220
+D2
+~
+~
+0 -1 1207
+S
+#1210
+Towards the forest~
+A path leading into trees at oddly positioned angles and towards a
+few faint lights in the south.
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 1207
+S
+#1211
+RH~
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 1212
+D3
+~
+~
+0 -1 1208
+S
+#1212
+RH~
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 1213
+D3
+~
+~
+0 -1 1211
+S
+#1213
+East township~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 1221
+D3
+~
+~
+0 -1 1212
+S
+#1214
+Trading hovels~
+~
+0 1073741824 1 0
+D2
+~
+~
+0 -1 1221
+D7
+~
+~
+0 -1 1215
+S
+#1215
+Floating in a void~
+~
+0 1073741824 1 0
+D3
+~
+~
+0 -1 1216
+D8
+~
+~
+0 -1 1214
+S
+#1216
+Floating in a void~
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 1215
+D3
+~
+~
+0 -1 1217
+S
+#1217
+Floating in a void~
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 1216
+D3
+~
+~
+0 -1 1218
+S
+#1218
+Floating in a void~
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 1217
+D9
+~
+~
+0 -1 1219
+S
+#1219
+Floating in a void~
+~
+0 1073741824 1 0
+D6
+~
+~
+0 -1 1218
+D9
+~
+~
+0 -1 1209
+S
+#1220
+Floating in a void~
+~
+0 1073741824 1 0
+D2
+~
+~
+0 -1 1209
+D6
+~
+~
+0 -1 1219
+S
+#1221
+Trading hovels~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 1214
+D2
+~
+~
+0 -1 1213
+S
+#0
+
+
+#RESETS
+S
+
+
+#SHOPS
+0
+
+
+#REPAIRS
+0
+
+
+#SPECIALS
+S
+
+
+#$

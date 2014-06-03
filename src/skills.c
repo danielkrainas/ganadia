@@ -1858,7 +1858,7 @@ void do_steal( CHAR_DATA *ch, char *argument )
 	send_to_char( "You can't steal from that player.\n\r", ch );
 	return;
     }
-    */    
+    */
 
     WAIT_STATE( ch, skill_table[gsn_steal]->beats );
 
@@ -1962,8 +1962,8 @@ void do_steal( CHAR_DATA *ch, char *argument )
 	       learn_from_failure( ch, gsn_steal );
 	       return;
              }
-             else
-               unequip_char( victim, obj );
+             /*else
+               unequip_char( victim, obj ); */  /* Was being abused - Funf */
            }
         }
 
@@ -2045,7 +2045,7 @@ void do_backstab( CHAR_DATA *ch, char *argument )
 		send_to_char("&BYou can't stab a pacifist, you monster!\n\r" ,ch);
 		return;
 	}
-	
+
 	if( victim == ch)
 	{
 		send_to_char("&RHow could you do that?\n\r" ,ch);
@@ -2177,16 +2177,16 @@ void do_rescue( CHAR_DATA *ch, char *argument )
     act( AT_SKILL, "You rescue $N!",  ch, NULL, victim, TO_CHAR    );
     act( AT_SKILL, "$n rescues you!", ch, NULL, victim, TO_VICT    );
     act( AT_SKILL, "$n moves in front of $N!",  ch, NULL, victim, TO_NOTVICT );
-    
+
 
     ch->alignment = ch->alignment + 50;
     ch->alignment = URANGE( -1000, ch->alignment, 1000 );
 
     learn_from_success( ch, gsn_rescue );
-    
+
     stop_fighting( fch, FALSE );
     //stop_fighting( victim, FALSE );
-   
+
     if ( ch->fighting )
       stop_fighting( ch, FALSE );
 
@@ -2271,9 +2271,9 @@ void do_punch( CHAR_DATA *ch, char *argument )
 		send_to_char("Aren't you going to fight someone first?\n\r", ch);
 		return;
 	}
-	
+
 	/* 	Required because of focus	Jet/Kristen 8/11/03 */
-	
+
 	if (ch->focus == "none" || ch->focus == NULL)
 	{
 		send_to_char( "You must focus on an opponent before killing.\n\r", ch );
@@ -2283,7 +2283,7 @@ void do_punch( CHAR_DATA *ch, char *argument )
 	{
 		argument = ch->focus;
 	}
-	
+
 	one_argument( argument, arg );
 
 	if ( !IS_NPC(ch) &&   ch->pcdata->learned[gsn_punch] <= 0 )
@@ -3133,9 +3133,9 @@ bool check_dodge( CHAR_DATA *ch, CHAR_DATA *victim )
 
     if ( !IS_NPC(ch) && !IS_SET( ch->pcdata->flags, PCFLAG_GAG) )
     act( AT_SKILL, "$N dodges your attack.", ch, NULL, victim, TO_CHAR    );
-    
-    
-    act( AT_SKILL, "$N dodge $n's attack.", ch, NULL, victim, TO_NOTVICT    );  
+
+
+    act( AT_SKILL, "$N dodge $n's attack.", ch, NULL, victim, TO_NOTVICT    );
 
     learn_from_success( victim, gsn_dodge );
     return TRUE;

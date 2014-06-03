@@ -1,0 +1,16 @@
+#PLANET
+Name         zantra~
+Filename     zantra~
+BaseValue    100000
+Flags        1
+PopSupport   100.000000
+FrustLevel   0.000000
+Hospital     0
+Lowgang	   0
+Highgang	   0
+Starsystem   Ganadia~
+GovernedBy   HellRaisers~
+Area         zantra.are~
+End
+
+#END

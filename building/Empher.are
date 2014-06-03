@@ -1,0 +1,812 @@
+#AREA   {PROTO} Empher's area in progress~
+
+
+
+#AUTHOR Empher~
+
+#RANGES
+0 0 0 0 0 0 0 0
+$
+
+#FLAGS
+0
+
+#ECONOMY 0 0
+
+#MOBILES
+#2000
+Spacesaver~
+a newly created Spacesaver~
+Some god abandoned a newly created Spacesaver here.
+~
+~
+1073741825 0 0 Z
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+#2001
+A Large Thug~
+Large Thug~
+A large thug is here.
+~
+~
+16387 0 0 Z
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+> all_greet_prog 100~
+say If you wanna get in you gotta pay to get passed me.
+grin
+say Maybe for 5k I'll let you in.
+~
+> bribe_prog 5000~
+say Fine I'll let ya through..this time
+mptransfer $n 2003
+mpat $n mpforce $n look
+~
+|
+#2002
+A gang member~
+a newly created A gang member~
+Some god abandoned a newly created A gang member here.
+~
+~
+1073741827 0 0 Z
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+12 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+#2003
+A large thug~
+Large Thug~
+A large thug is here.
+~
+~
+16387 0 0 Z
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+> all_greet_prog 100~
+say If you wanna get in you gotta pay to get passed me.
+grin
+say Maybe for 5k I'll let you in.
+~
+> bribe_prog 5000~
+say Fine I'll let ya through..this time
+mptransfer $n 2022
+mpat $n mpforce $n look
+~
+|
+#2004
+A large thug~
+Large Thug~
+A large thug is here.
+~
+~
+16387 0 0 Z
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+> all_greet_prog 100~
+say If you wanna get in you gotta pay to get passed me.
+grin
+say Maybe for 5k I'll let you in.
+~
+> bribe_prog 5000~
+say Fine I'll let ya through..this time
+mptransfer $n 2037
+mpat $n mpforce $n look
+~
+|
+#0
+
+
+#OBJECTS
+#2000
+Spacesaver~
+a Spacesaver~
+A Spacesaver is here.~
+~
+13 1073741824 0
+0 0 0 0
+1 0 0
+#0
+
+
+#ROOMS
+#2000
+Spacesaver~
+~
+0 1073741828 1 0
+S
+#2001
+Baal Spaceport~
+The spaceport used to have fences to keep prisoners separated but now they
+have been pulled out to let in more room for ships. There is always a few
+ships being loaded or unloaded with "goods".
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 2021
+D1
+~
+~
+0 -1 2002
+D3
+~
+~
+0 -1 2036
+S
+#2002
+Maximum Security Checkpoint~
+The path is surrounded by a fence that slowly works it's way down to a single
+gate wide enough for only one person.
+~
+0 1073741824 1 0
+D3
+~
+~
+0 -1 2001
+S
+#2003
+West side of court yard~
+The west side of the courtyard is pretty baron and run down. The fence is still
+up but there are large holes in it now. There are a few people trying to sell
+you some useless broken down stuff not worth a thing. 
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 2004
+D3
+~
+~
+0 -1 2002
+S
+#2004
+Middle of the Court Yard~
+The middle of the courtyard is nothing but a large open area. The gate has
+been torn down to the south to allow access to the guards old mess hall and
+the kitchen.
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 2005
+D2
+~
+~
+0 -1 2006
+D3
+~
+~
+0 -1 2003
+S
+#2005
+East side of court yard~
+The east side of the courtyard is where they used to keep the weight equipment
+but that was stripped out when the prisoners took over. To the east you can see
+the prison cells.
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 2012
+D3
+~
+~
+0 -1 2004
+S
+#2006
+Walkway~
+This walkway was used by the guards to get to the sentry post and to the
+kitchen. The path is now covered in garbage.
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 2004
+D1
+~
+~
+0 -1 2007
+D2
+~
+~
+0 -1 2009
+S
+#2007
+Inside the sentry post~
+The inside of the sentry post is nothing more the a staircase to the top. It is
+made of concrete but some of the steps have begun to crack.
+~
+0 1073741824 1 0
+D3
+~
+~
+0 -1 2006
+D4
+~
+~
+0 -1 2008
+S
+#2008
+Sentry Post~
+The sentry post is a closed in box of concrete with windows on all sides.
+There is a pathways leading to the prison cells.
+~
+0 1073741824 1 0
+D5
+~
+~
+0 -1 2007
+D6
+~
+~
+0 -1 2020
+S
+#2009
+Guard's Mess Hall~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 2006
+D1
+~
+~
+0 -1 2011
+D2
+~
+~
+0 -1 2010
+S
+#2010
+Kitchen~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 2009
+S
+#2011
+Guards Bunk Room~
+~
+0 1073741828 1 0
+D3
+~
+~
+0 -1 2009
+S
+#2012
+Prison Hallway~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 2014
+D1
+~
+~
+0 -1 2013
+D3
+~
+~
+0 -1 2005
+S
+#2013
+Prison Hallway~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 2019
+D1
+~
+~
+0 -1 2015
+D2
+~
+~
+0 -1 2018
+D3
+~
+~
+0 -1 2012
+S
+#2014
+Guard Station~
+~
+0 1073741824 1 0
+D2
+~
+~
+0 -1 2012
+D4
+~
+~
+0 -1 2020
+S
+#2015
+Prison Hallway~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 2017
+D2
+~
+~
+0 -1 2016
+D3
+~
+~
+0 -1 2013
+S
+#2016
+Prison Cell~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 2015
+S
+#2017
+Prison Cell~
+~
+0 1073741824 1 0
+D2
+~
+~
+0 -1 2015
+S
+#2018
+Prison Cell~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 2013
+S
+#2019
+Prison Cell~
+~
+0 1073741824 1 0
+D2
+~
+~
+0 -1 2013
+S
+#2020
+Above the Guard Station~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 2034
+D5
+~
+~
+0 -1 2014
+D9
+~
+~
+0 -1 2008
+S
+#2021
+High Security Checkpoint~
+~
+0 1073741824 1 0
+D2
+~
+~
+0 -1 2001
+S
+#2022
+Courtyard~
+~
+0 1073741828 1 0
+D0
+~
+~
+0 -1 2023
+D2
+~
+~
+0 -1 2021
+D3
+~
+~
+0 -1 2035
+S
+#2023
+North end of courtyard~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 2024
+D2
+~
+~
+0 -1 2022
+S
+#2024
+Prison Hallway~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 2025
+D2
+~
+~
+0 -1 2023
+D3
+~
+~
+0 -1 2031
+S
+#2025
+Prison Hallway~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 2026
+D1
+~
+~
+0 -1 2029
+D2
+~
+~
+0 -1 2024
+D3
+~
+~
+0 -1 2030
+S
+#2026
+Prison Hallway~
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 2027
+D2
+~
+~
+0 -1 2025
+D3
+~
+~
+0 -1 2028
+S
+#2027
+Prison Cell~
+~
+0 1073741824 1 0
+D3
+~
+~
+0 -1 2026
+S
+#2028
+Prison Cell~
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 2026
+S
+#2029
+Prison cell~
+~
+0 1073741824 1 0
+D3
+~
+~
+0 -1 2025
+S
+#2030
+Prison Cell~
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 2025
+S
+#2031
+Guard Booth~
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 2024
+D4
+~
+~
+0 -1 2032
+S
+#2032
+Above the Guard Station~
+~
+0 1073741824 1 0
+D5
+~
+~
+0 -1 2031
+D8
+~
+~
+0 -1 2033
+S
+#2033
+Walkway~
+~
+0 1073741824 1 0
+D2
+~
+~
+0 -1 2034
+D7
+~
+~
+0 -1 2032
+S
+#2034
+Walkway~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 2033
+D2
+~
+~
+0 -1 2020
+S
+#2035
+Floating in a void~
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 2022
+S
+#2036
+Low Security Checkpoint~
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 2001
+S
+#2037
+Large Courtyard~
+~
+0 1073741828 1 0
+D0
+~
+~
+0 -1 2038
+D3
+~
+~
+0 -1 2040
+S
+#2038
+Large Courtyard~
+~
+0 1073741824 1 0
+D2
+~
+~
+0 -1 2037
+D3
+~
+~
+0 -1 2039
+S
+#2039
+Large Courtyard~
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 2038
+D2
+~
+~
+0 -1 2040
+S
+#2040
+Large Courtyard~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 2039
+D1
+~
+~
+0 -1 2037
+D3
+~
+~
+0 -1 2041
+S
+#2041
+Prison Hallway~
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 2040
+D2
+~
+~
+0 -1 2049
+D3
+~
+~
+0 -1 2042
+S
+#2042
+Prison Hallway~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 2047
+D1
+~
+~
+0 -1 2041
+D2
+~
+~
+0 -1 2046
+D3
+~
+~
+0 -1 2043
+S
+#2043
+Prison Hallway~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 2044
+D1
+~
+~
+0 -1 2042
+D2
+~
+~
+0 -1 2048
+S
+#2044
+Prison Cell~
+~
+0 1073741824 1 0
+D2
+~
+~
+0 -1 2048
+S
+#2046
+Prison Cell~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 2042
+S
+#2047
+Prison Cell~
+~
+0 1073741824 1 0
+D2
+~
+~
+0 -1 2042
+S
+#2048
+Guard Station~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 2043
+S
+#2049
+Guard Station~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 2041
+S
+#0
+
+
+#RESETS
+M 1 2001 1 2002
+M 1 2003 1 2021
+M 1 2004 1 2036
+S
+
+
+#SHOPS
+0
+
+
+#REPAIRS
+0
+
+
+#SPECIALS
+S
+
+
+#$

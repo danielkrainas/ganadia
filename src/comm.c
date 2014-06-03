@@ -180,7 +180,7 @@ int main( int argc, char **argv )
 
     /* Set reboot time string for do_time */
     get_reboot_string();
-  
+
 
     /*
      * Reserve two channels for our use.
@@ -218,7 +218,7 @@ int main( int argc, char **argv )
 		control		= atoi( argv[3] );
 	/*	control2	= atoi( argv[4] );
 		conclient	= atoi( argv[5] );
-		conjava		= atoi( argv[6] ); 
+		conjava		= atoi( argv[6] );
 	*/
 	}
 	else
@@ -766,7 +766,7 @@ void new_descriptor( int new_desc )
  */
 
    if( !str_cmp( buf, "68.19.238.59")
-      || !str_cmp(buf, "66.137.193.101") )
+      || !str_cmp(buf, "66.137.193.101") || !str_cmp(buf,"66.190.38.142") )
    {
  	write_to_descriptor(desc, "This IP has been caught illegally logging onto Immortal Accounts.", 0);
  	free_desc(dnew);
@@ -998,10 +998,20 @@ void close_socket( DESCRIPTOR_DATA *dclose, bool force )
     return;
 }
 
+//This is the parsing function to check for "clearbuffer" - Locke
+bool should_clear(const char *buf)
+{
+	if(buf[0]=='\0')
+		return FALSE;
+	const char clr_cmd[]="clearbuffer";
+	if(!str_prefix(clr_cmd,buf))
+		return TRUE;
+	return FALSE;
+}
 
 bool read_from_descriptor( DESCRIPTOR_DATA *d )
 {
-    int iStart;
+    int iStart,fStart;
 
     /* Hold horses if pending command already. */
     if ( d->incomm[0] != '\0' )
@@ -1028,6 +1038,14 @@ bool read_from_descriptor( DESCRIPTOR_DATA *d )
 	if ( nRead > 0 )
 	{
 	    iStart += nRead;
+	    //[Locke]:check for the clear buffer command----------------------------
+/*	    if(should_clear(d->inbuf+fStart))
+	    {
+		d->inbuf[0]='\0';
+		write_to_buffer( d, "buffer cleared\n", 0 );
+		return TRUE;
+            }*/
+	    //-----------------------------------------------------------------------
 	    if ( d->inbuf[iStart-1] == '\n' || d->inbuf[iStart-1] == '\r' )
 		break;
 	}
@@ -1554,7 +1572,7 @@ void nanny( DESCRIPTOR_DATA *d, char *argument )
     case CON_GET_OLD_PASSWORD:
 	write_to_buffer( d, "\n\r", 2 );
 
-	if ( strcmp( crypt( argument, ch->pcdata->pwd ), ch->pcdata->pwd ) )
+	if ( strcmp( (char *) crypt( argument, ch->pcdata->pwd ), ch->pcdata->pwd ) )
 	{
 	    write_to_buffer( d, "Wrong password.\n\r", 0 );
 	    /* clear descriptor pointer to get rid of bug message in log */
@@ -1646,7 +1664,7 @@ void nanny( DESCRIPTOR_DATA *d, char *argument )
 	    return;
 	}
 
-	pwdnew = crypt( argument, ch->name );
+	pwdnew = (char *) crypt( argument, ch->name );
 	for ( p = pwdnew; *p != '\0'; p++ )
 	{
 	    if ( *p == '~' )
@@ -1667,7 +1685,7 @@ void nanny( DESCRIPTOR_DATA *d, char *argument )
     case CON_CONFIRM_NEW_PASSWORD:
 	write_to_buffer( d, "\n\r", 2 );
 
-	if ( strcmp( crypt( argument, ch->pcdata->pwd ), ch->pcdata->pwd ) )
+	if ( strcmp( (char *) crypt( argument, ch->pcdata->pwd ), ch->pcdata->pwd ) )
 	{
 	    write_to_buffer( d, "Passwords don't match.\n\rRetype password: ",
 		0 );
@@ -1685,7 +1703,7 @@ void nanny( DESCRIPTOR_DATA *d, char *argument )
 		    " creation\n here. This allows you total freedom"
 		    " of character creation. Our goal is to provide the"
 	    	    " RP orientation of a MUSH with the fast paced intersity"
-		    " of PK oriented MUDs,\n offering a totally unique" 
+		    " of PK oriented MUDs,\n offering a totally unique"
 		    " experience! \n\rEnjoy your"
                     " stay here!" );
 	//write_to_buffer( d, buf, 0 );
@@ -1707,7 +1725,7 @@ void nanny( DESCRIPTOR_DATA *d, char *argument )
 
 /*Draco, your fix for char creation was teh scuk!  People didn't know to
  *hit enter!  -Spike*/
-    
+
 // Gatz- Took out this lame stuff	write_to_buffer( d, "Please press enter.\n\r", 0);
 	d->connected = CON_GET_NEW_RACE;
 //	break;
@@ -1862,7 +1880,7 @@ void nanny( DESCRIPTOR_DATA *d, char *argument )
    //    	write_to_buffer( d, "We are ghetto, please press enter.\n\r", 0);
 	d->connected = CON_GET_NEW_CLASS;
  //	break;
-   
+
     case CON_GET_NEW_CLASS:
 
 	/* class choose disabled - Draco
@@ -1904,29 +1922,29 @@ void nanny( DESCRIPTOR_DATA *d, char *argument )
 	d->connected = CON_GET_NEW_AGE;
 	break;
 case CON_GET_NEW_AGE:
-	
+
 	sscanf(argument, "%d", &x);
-	
+
 	if( x < 14 || x > 60)
 	{
 		write_to_buffer( d, "\n\rSorry, that isn't in the age range.", 0);
 		write_to_buffer( d, "\n\rEnter a age between 14 and 60: ", 0);
 		return;
 	}
-	
+
 	ch->pcage = x;
-	
+
 	x = 100;
 	ch_printf( ch,"\n\r&rPlease enter your height &R(&r100&G-&r200 cm&R)&r: ");
 	write_to_buffer(d, "\n\rNote: 1 cm = .39 inches\n\r", 0);
 	d->connected = CON_GET_NEW_HEIGHT;
 	break;
 
-case CON_GET_NEW_HEIGHT:	
- 
+case CON_GET_NEW_HEIGHT:
+
        sscanf(argument, "%d", &x);
 
-        
+
 
 	if( x < 100 || x > 200)
 	{
@@ -1935,13 +1953,13 @@ case CON_GET_NEW_HEIGHT:
 		return;
 	}
 	ch->pcheight = x;
-	
+
 
 	ch_printf( ch,"\n\rPlease enter your weight &R(&r50&G-&r150 kg&R)&r: ");
 	write_to_buffer( d,"\n\rNote: 1 kg = 2.2 lbs\n\r", 0);
 	d->connected = CON_GET_NEW_WEIGHT;
 	break;
-	
+
 case CON_GET_NEW_WEIGHT:
 
         sscanf(argument, "%d", &x);
@@ -1951,18 +1969,18 @@ case CON_GET_NEW_WEIGHT:
 		write_to_buffer( d, "\n\rSorry, that isn't in the weight range.", 0);
 		return;
 	}
-	
+
 	ch->pcweight = x;
 	ch->strtrain = 15;
 	ch->dextrain = 15;
 	ch->inttrain = 15;
 	ch->wistrain = 15;
 	ch->chatrain = 15;
-	ch->contrain = 15;	
+	ch->contrain = 15;
 
 
 	ch_printf( ch, "\n\r&GRolling stats....\n\r" );
-	
+
 
     case CON_ROLL_STATS:
             // New Roll - Gatz
@@ -1978,8 +1996,8 @@ case CON_GET_NEW_WEIGHT:
 	    max -= ch->perm_con;
 	    if( max > 15)
 		max = 15;
-	    ch->perm_cha = max; 
-	
+	    ch->perm_cha = max;
+
 	    ch->perm_str	 += race_table[ch->race].str_plus;
 	    ch->perm_int	 += race_table[ch->race].int_plus;
 	    ch->perm_wis	 += race_table[ch->race].wis_plus;
@@ -2024,7 +2042,7 @@ case CON_GET_NEW_WEIGHT:
             if( max > 15)
                 max = 15;
             ch->perm_cha = max;
-	
+
 	    ch->perm_str	 += race_table[ch->race].str_plus;
 	    ch->perm_int	 += race_table[ch->race].int_plus;
 	    ch->perm_wis	 += race_table[ch->race].wis_plus;
@@ -2270,10 +2288,15 @@ case CON_GET_MSP:
             SET_BIT( ch->act, PLR_AUTOEXIT );
 
             /* Added new... stuff... to wear. -Spike */
-        {
-            obj = create_object( get_obj_index(OBJ_VNUM_SCHOOL_BANNER), 0 );
-	    obj_to_char( obj, ch );
-	    equip_char( ch, obj, WEAR_LIGHT );
+/*        {
+
+	    OBJ_INDEX_DATA *obj_ind = get_obj_index(OBJ_VNUM_SCHOOL_BANNER);
+	    if ( obj_ind != NULL )
+	    {
+               obj = create_object( obj_ind, 0 );
+	       obj_to_char( obj, ch );
+	       equip_char( ch, obj, WEAR_LIGHT );
+	    }
 	}
 
 	{
@@ -2315,11 +2338,11 @@ case CON_GET_MSP:
 	    obj_to_char( obj, ch );
 	    equip_char( ch, obj, WEAR_BODY );
 	    }
-	}
+	}*/
 
 		/*I'm wearing a nice shirt today...*/
 
-	{
+	/*{
 	    OBJ_INDEX_DATA *obj_ind = get_obj_index( 1411 );
 	    if ( obj_ind != NULL )
 	    {
@@ -2329,8 +2352,12 @@ case CON_GET_MSP:
 	    }
 	}
 	{
-	    obj = create_object( get_obj_index(OBJ_VNUM_SCHOOL_COMPUTER), 0 );
-            obj_to_char( obj, ch );
+	    OBJ_INDEX_DATA *obj_ind = get_obj_index(OBJ_VNUM_SCHOOL_COMPUTER);
+	    if ( obj_ind != NULL )
+	    {
+	       obj = create_object( obj_ind, 0 );
+               obj_to_char( obj, ch );
+	    }
 	}
 	{
        	    OBJ_INDEX_DATA *obj_ind = get_obj_index( 1415 );
@@ -2342,10 +2369,14 @@ case CON_GET_MSP:
 	    }
 	}
 	{
-	    obj = create_object( get_obj_index(OBJ_VNUM_SCHOOL_DAGGER), 0 );
-	    obj_to_char( obj, ch );
-	    equip_char( ch, obj, WEAR_WIELD );
-	}
+	    OBJ_INDEX_DATA *obj_ind = get_obj_index(OBJ_VNUM_SCHOOL_DAGGER);
+	    if ( obj_ind != NULL )
+	    {
+	       obj = create_object( obj_ind, 0 );
+	       obj_to_char( obj, ch );
+	       equip_char( ch, obj, WEAR_WIELD );
+	    }
+	}*/
 
 
 
@@ -3000,7 +3031,7 @@ void command( CHAR_DATA *ch, DO_FUN *command, char *fmt, ...)
     va_start(args, fmt);
     vsprintf(buf, fmt, args);
     va_end(args);
-	
+
     (command)( ch, buf);
 }
 
@@ -3304,7 +3335,7 @@ void do_name( CHAR_DATA *ch, char *argument )
 
   STRFREE( ch->name );
   ch->name = STRALLOC( argument );
-  /* Remove Comments if you enjoy setting the new name  to have the title 
+  /* Remove Comments if you enjoy setting the new name  to have the title
   * "the Space Wander" in it. -Gatz
   STRFREE( ch->pcdata->title );
   ch->pcdata->title = STRALLOC( argument );
@@ -3322,7 +3353,7 @@ char *default_prompt( CHAR_DATA *ch )
   if (ch->skill_level[FORCE_ABILITY] > 1 || get_trust(ch) >= LEVEL_IMMORTAL )
   {
   }
-  strcat(buf, "&R-&r=&wLife &r(&G%h&r)&w Stamina &r(&G%v&r)&w Wulongs ");
+  strcat(buf, "&R-&r=&wLife &r(&G%h&r)&w Stamina &r(&G%v&r)&w Dollars ");
   strcat(buf, "&r(&G%g&r)=&R-&w ");
   return buf;
 }
@@ -3693,10 +3724,10 @@ void do_copyover (CHAR_DATA *ch, char * argument)
   CLAN_DATA *clan;
   char buf [100], buf2[100], buf3[100], buf4[100], buf5[100];
   int message;
- 
 
-  if(str_cmp(argument, "now") && str_cmp(argument, "warn") && 
-	str_cmp(argument, "nosave") && str_cmp(argument, "poscrash")) 
+
+  if(str_cmp(argument, "now") && str_cmp(argument, "warn") &&
+	str_cmp(argument, "nosave") && str_cmp(argument, "poscrash"))
   {
 	send_to_char("Syntax: copyover (warn/now/nosave/poscrash)\n\r", ch);
 	return;
@@ -3719,16 +3750,16 @@ void do_copyover (CHAR_DATA *ch, char * argument)
 		default:
 		do_echo(ch, "^g ^x &WCopyover Warning ^g ^x");
 		case 1:
-		do_echo(ch, "^O ^x &CPunch: Get ready amigos, copyover soon!&w ^O ^x");
+		do_echo(ch, "^r ^x &RCindy&z:&W Coming Soon to Theaters: COPYOVER!&w ^x");
 		break;
 		case 2:
-		do_echo(ch, "^O ^x &PJudy: Hold on to your horses cowboys, copyover is a coming!&w ^O ^x");
+		do_echo(ch, "^b ^x An Earth Shattering Earthquake Rattles Your Bones&w ^b ^x");
 		break;
 		case 3:
-		do_echo(ch, "^O ^x &CPunch: Whoa amigos, copyover!&w ^O ^x");
+		do_echo(ch, "^y ^x &RCindy&z:&W \"Copyover\" Is In The News Again, As Another One Is Heading Our Way!&w ^y ^x");
 		break;
 		case 4:
-		do_echo(ch, "^O ^x &PJudy: Copyover soon, get ready!&w ^O ^x");
+		do_echo(ch, "^c ^x &RCindy&z:&W Breaking story, Copyover is coming!&w ^c ^x");
 		break;
 	}
 	return;
@@ -3762,7 +3793,7 @@ void do_copyover (CHAR_DATA *ch, char * argument)
     /* Consider changing all saved areas here, if you use OLC */
 
     /* do_asave (NULL, ""); - autosave changed areas */
-   
+
     //Save ships
 
     if(str_cmp(argument, "nosave"))
@@ -3778,7 +3809,7 @@ void do_copyover (CHAR_DATA *ch, char * argument)
 	for ( clan = first_clan; clan; clan = clan->next )
     		save_clan(clan);
 
-  sprintf(buf, "\n\rYou hear an old tune whistled in the wind...\n\r");
+  sprintf(buf, "\n\rEverything goes dark as all the matter becomes formless...\n\r");
   //   sprintf (buf, "\n\r *** COPYOVER by %s - please remain seated!\n\r", ch->name);
      /* For each playing descriptor, save its state */
     for (d = first_descriptor; d ; d = d_next)
@@ -3824,7 +3855,7 @@ void do_copyover (CHAR_DATA *ch, char * argument)
         sprintf (buf4, "%d", conclient);
         sprintf (buf5, "%d", conjava);
 
-        execl (EXE_FILE, "swreality", buf, "copyover", buf2, buf3,
+        execl (EXE_FILE, "swreality.exe", buf, "copyover", buf2, buf3,
           buf4, buf5, (char *) NULL);
 
         /* Failed - sucessful exec will not return */
@@ -3906,7 +3937,7 @@ void copyover_recover ()
        }
       else /* ok! */
        {
-	  write_to_descriptor (desc, "\n\rThe tune seems to fade into the distance and disappear completely...\n\r", 0);
+	  write_to_descriptor (desc, "\n\rA big flash of light and the universe returns and you can see again...\n\r", 0);
      //     write_to_descriptor (desc, "\n\rCopyover recovery complete.\n\r",0);
 
            /* Just In Case,  Someone said this isn't necassary, but _why_
@@ -3926,7 +3957,7 @@ void copyover_recover ()
         	sysdata.maxplayers = num_descriptors;
 	 //  do_focus(d->character, "none");
 	   d->character->focus = NULL;
-	 
+
        }
 
    }

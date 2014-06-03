@@ -237,7 +237,7 @@ void do_addbounty( CHAR_DATA *ch, char *argument )
 	return;
    }
 
-    if ( ch->pcdata && ch->pcdata->clan && ( !str_cmp(ch->pcdata->clan->name, "RBH") || ch->pcdata->clan->clan_type == CLAN_GUILD ) )
+    if ( ch->pcdata && ch->pcdata->clan && ( !str_cmp(ch->pcdata->clan->name, "Hunters") || ch->pcdata->clan->clan_type == CLAN_GUILD ) )
 	{
 		send_to_char( "Your job is to capture bounties not post them!\n\r", ch );
 		return;
@@ -246,7 +246,7 @@ void do_addbounty( CHAR_DATA *ch, char *argument )
   
     if ( ch->pcdata->clan == NULL  && !IS_IMMORTAL(ch))
 	{
-		send_to_char("You aren't in ISSP! You can't post bounties!\n\r", ch );
+		send_to_char("You can't post bounties!\n\r", ch );
 		return;
 	}
     if ( ch->pcdata && ch->pcdata->clan && ( !str_cmp(ch->pcdata->clan->name, "GLM") ) )
@@ -268,7 +268,7 @@ void do_addbounty( CHAR_DATA *ch, char *argument )
 
    	if ( amount < 5000 )
    	{
-   		send_to_char( "A bounty should be at least 5000 wulongs.\n\r", ch );
+   		send_to_char( "A bounty should be at least 5000 dollars.\n\r", ch );
    		return;
    	}
 
@@ -294,25 +294,25 @@ void do_addbounty( CHAR_DATA *ch, char *argument )
 
    	if (amount <= 0)
    	{
-   	    send_to_char( "Nice try! How about 1 or more wulongs instead.\n\r", ch );
+   	    send_to_char( "Nice try! How about 1 or more dollars instead.\n\r", ch );
    	    return;
    	}
 
    	if (ch->gold < amount)
    	{
-   		send_to_char( "You don't have that many wulongs!\n\r", ch );
+   		send_to_char( "You don't have that many dollars!\n\r", ch );
    		return;
    	}
 	
 	if(bounty && (bounty->amount + amount) > 2000000000)
 	{
-		send_to_char("No way a bounty could be over 2 billion wulongs!\r\n", ch);
+		send_to_char("No way a bounty could be over 2 billion dollars!\r\n", ch);
 		return;
 	}
 
    	ch->gold = ch->gold - amount;
    	send_to_char( "Bounty has been added.\n\r", ch );
-   	sprintf( buf, "%s has added %s wulongs to the bounty on %s.", ch->name, num_punct(amount) , victim->name );
+   	sprintf( buf, "%s has added %s dollars to the bounty on %s.", ch->name, num_punct(amount) , victim->name );
     echo_to_all ( AT_RED , buf, 0 );
    	disintigration( ch, victim, amount);
 
@@ -321,9 +321,23 @@ void do_addbounty( CHAR_DATA *ch, char *argument )
 void do_rembounty(  CHAR_DATA *ch, char *argument )
 {
   BOUNTY_DATA *bounty = get_disintigration( argument );
+  CHAR_DATA *victim;
 
+  if(!(victim = get_char_world( ch, argument )))
+  {
+	send_to_char("&RPlayer must be online to remove the bounty\n\r",ch);
+	return;
+  }
+
+  if(0>(victim->pcdata->quest_curr-5))
+  {
+	send_to_char("&RThat person needs atleast 5QP to remove the bounty\n\r",ch);
+	return;
+  }
   if ( bounty != NULL )
   {
+    victim->pcdata->quest_curr-=5;	
+    send_to_char("&RYou are charged 5QP to remove your bounty\n\r",victim);
     remove_disintigration(bounty);
 	send_to_char( "Bounty has been removed.\n\r", ch );
   }
@@ -406,7 +420,7 @@ void claim_disintigration( CHAR_DATA *ch , CHAR_DATA *victim )
 		{
 			case 1:
 				ch->gold += 300000;
-				send_to_char("You are rewarded 300,000 wulongs!\n\r", ch);
+				send_to_char("You are rewarded 300,000 dollars!\n\r", ch);
 				break;
 			case 2:
 				ch->strtrain += 300;
@@ -436,7 +450,7 @@ void claim_disintigration( CHAR_DATA *ch , CHAR_DATA *victim )
 	gain_exp( ch , exp , HUNTING_ABILITY );
 
 	set_char_color( AT_BLOOD, ch );
-	ch_printf( ch, "You receive %ld experience and %ld wulongs\n\r from the bounty on %s\n\r", exp, bounty->amount, bounty->target );
+	ch_printf( ch, "You receive %ld experience and %ld dollars\n\r from the bounty on %s\n\r", exp, bounty->amount, bounty->target );
 	bigshot( victim, ch, "capture");
 	/*
 	sprintf( buf, "The bounty on %s has been claimed!", victim->name);
@@ -480,35 +494,33 @@ void  bigshot( CHAR_DATA *ch , CHAR_DATA *victim , char *argument)
 	switch(number_range(0,4))
 	{
 		case 4:
-			do_bigshot(victim, "&CPunch: Well Amigos, this is a special bulletin!");
-			sprintf( buf, "&PJudy: That's right, %s has finally been caught by %s!", ch->name, victim->name);
+			do_bigshot(victim, "&RCindy&z:&W Well folks, this is a special bulletin!");
+			sprintf( buf, "&RCindy&z:&W %s has finally been caught by %s!", ch->name, victim->name);
 			do_bigshot( victim, buf);
-			do_bigshot(victim, "&CPunch: Thank Goodness! ISSP is keeping the universe safe!");
+			do_bigshot(victim, "&RCindy&z:&W Thank Goodness! The Guardians are well... guarding us, hehe!");
 		break;
 		case 3:
-			do_bigshot( victim, "&PJudy: A big thanks to the boys in blue of ISSP!");
-			sprintf( buf, "&CPunch: That's right, %s of ISSP caught %s today!", victim->name, ch->name);
+			do_bigshot( victim, "&RCindy&z:&W Looks like we have a guardian angel among us.");
+			sprintf( buf, "&RCindy&z:&W That's right, %s of the Guardians caught %s today!", victim->name, ch->name);
 			do_bigshot( victim, buf);
-			do_bigshot( victim, "&PJudy: Keep up the hard work boys!");
+			do_bigshot( victim, "&RCindy&z:&W Keep up the hard work boys!");
 		break;
 		case 2:
-			do_bigshot( victim, "&CPunch: Whoa Amigos! The universe has shrunk by one criminal today!");
-			sprintf( buf, "&PJudy: Yeah, %s of ISSP has caught the violent %s today!", victim->name, ch->name);
+			do_bigshot( victim, "&RCindy&z:&W Whoa! The universe has shrunk by one criminal today!");
+			sprintf( buf, "&RCindy&z:&W Yeah, %s of the Guardians has caught the violent %s today!", victim->name, ch->name);
 			do_bigshot( victim, buf);
-			do_bigshot( victim, "&CPunch: ISSP, lets see this be a continuing trend!");
+			do_bigshot( victim, "&RCindy&z:&W Well Guardians, stay sharp guys.");
 		break;
 		case 1:
-			do_bigshot( ch, "&PJudy: Hey all you bounty hunters out in the universe!");
-			sprintf( buf, "&CPunch: Yee haw! %s has been caught today. By ISSP's own %s!",ch->name, victim->name);
+			do_bigshot( ch, "&RCindy&z:&W Hey all you Hunters out in the universe!");
+			sprintf( buf, "&RCindy&z:&W %s has been caught today. By Guardian's own %s!",ch->name, victim->name);
 			do_bigshot( victim, buf);
-			do_bigshot( victim, "&PJudy: Now, now Punch. Your blood pressure!");
-			do_bigshot( victim, "&CPunch: You are not my Mother!");
-			do_bigshot( victim, "Judy glares at Punch evilly.");
-			do_bigshot( victim, "&CPunch: Sorry Ma'am.");
+			do_bigshot( victim, "&RCindy&z:&W Reminds me, I'm free and looking!");
+			do_bigshot( victim, "&RCindy&z:&W Any of you Guardians like red heads im right here");
 		break;
 		default:
-			do_bigshot( victim, "&CPunch: Special Report folks, listen in!");
-			sprintf( buf, "&PJudy: %s was caught today by %s of ISSP, good job!", ch->name, victim->name);
+			do_bigshot( victim, "&RCindy&z:&W Special Report folks, listen in!");
+			sprintf( buf, "&RCindy&z:&W %s was caught today by %s of the Guardians, good job!", ch->name, victim->name);
 			do_bigshot( victim, buf);
 		break;
 	}
@@ -517,33 +529,33 @@ void  bigshot( CHAR_DATA *ch , CHAR_DATA *victim , char *argument)
 	switch(number_range(0,4))
 	{
 		case 4:
-			do_bigshot( victim, "&CPunch: Hola Amigos! Aye dios mio, we got hot news!");
-			sprintf( buf, "&PJudy: That notourious bad guy, %s, has been caught by %s!", ch->name, victim->name);
+			do_bigshot( victim, "&RCindy&z:&W Hi again, its me Cindy for another news report!");
+			sprintf( buf, "&RCindy&z:&W That notourious bad guy, %s, has been caught by %s!", ch->name, victim->name);
 			do_bigshot( victim, buf);
-			do_bigshot( victim, "&CPunch: We will keep you posted for more details!");
+			do_bigshot( victim, "&RCindy&z:&W We will keep you posted for more details!");
 		break;
 		case 3:
-			do_bigshot( victim, "&PJudy: Big news bounty hunters! There is one less bounty to get!");
-			sprintf( buf, "&CPunch: The person named %s has been captured by %s!", ch->name, victim->name);
+			do_bigshot( victim, "&RCindy&z:&W Big news! There is one less bounty to get!");
+			sprintf( buf, "&RCindy&z:&W The person named %s has been captured by %s!", ch->name, victim->name);
 			do_bigshot( victim, buf);
 		break;
 		case 2:
-			do_bigshot( victim, "&CPunch: Hola Amigos! Special news flash here!");
-			sprintf( buf, "&PJudy: %s has been caught by %s!", ch->name, victim->name);
+			do_bigshot( victim, "&RCindy&z:&W Hola Amigos! Special news flash here!");
+			sprintf( buf, "&RCindy&z:&W %s has been caught by %s!", ch->name, victim->name);
 			do_bigshot( victim, buf);
-			do_bigshot( victim, "&CPunch: Good work! You did good!");
+			do_bigshot( victim, "&RCindy&z:&W Good work! You did good!");
 		break;
 		case 1:
-			do_bigshot( victim, "&PJudy: Hey everyone, we got some big news!");
-			sprintf( buf, "&CPunch: %s has just been captured! %s was able to get him!", ch->name, victim->name);
+			do_bigshot( victim, "&RCindy&z:&W Hey everyone, we got some big news!");
+			sprintf( buf, "&RCindy&z:&W %s has just been captured! %s was able to get him!", ch->name, victim->name);
 			do_bigshot( victim, buf);
-			do_bigshot( victim, "&PJudy: Kudos to you bounty hunter!");
+			do_bigshot( victim, "&RCindy&z:&W Kudos to you bounty hunter!");
 		break;
 		default:
-			do_bigshot( victim, "&CPunch: We got a big news flash for y'all!");
-			sprintf(buf, "&PJudy: The bounty on %s's head has been claimed by %s!", ch->name, victim->name);
+			do_bigshot( victim, "&RCindy&z:&W We got a big news flash for you all!");
+			sprintf(buf, "&RCindy&z:&W The bounty on %s's head has been claimed by %s!", ch->name, victim->name);
 			do_bigshot( victim, buf);
-			do_bigshot( victim, "&CPunch: Good job and keep up the good work!");
+			do_bigshot( victim, "&RCindy&z:&W Good job and keep up the good work!");
 		break;
 	}
     }
@@ -554,33 +566,34 @@ void  bigshot( CHAR_DATA *ch , CHAR_DATA *victim , char *argument)
         switch(number_range(0,4))
         {
 		case 4:
-			do_bigshot( victim, "&CPunch: Whoa, big news on the bounty scene amigos!");
-			sprintf( buf, "&PJudy: %s has just turned himself into ISSP's %s!", ch->name, victim->name);
+			do_bigshot( victim, "&RCindy&z:&W Whoa, big news on the bounty scene guys!");
+			sprintf( buf, "&RCindy&z:&W %s has just turned himself into Guardian's %s!", ch->name, victim->name);
 			do_bigshot( victim, buf);
-			do_bigshot( victim, "&CPunch: The ISSP is cleaning house! Good work!");
+			do_bigshot( victim, "&RCindy&z:&W The Guardians are cleaning house! Good work!");
 			break;
 		case 3:
-			do_bigshot( victim, "&PJudy: Shucks howdy everyone!");
-			sprintf( buf, "&CPunch: The violent %s surrendered to ISSP's %s today!", ch->name, victim->name);
+			do_bigshot( victim, "&RCindy&z:&W How is everyone doing, Cindy again!");
+			sprintf( buf, "&RCindy&z:&W The violent %s surrendered to Guardian's %s today!", ch->name, victim->name);
 			do_bigshot( victim, buf);
-			do_bigshot( victim, "&PJudy: Keep up the good work guys!");
+			do_bigshot( victim, "&RCindy&z:&W Keep up the good work guys!");
 		break;
 		case 2:
-			do_bigshot( victim, "&CPunch: Howdy Amigos! We got some special news for you today!");
-			sprintf( buf, "&PJudy: %s just gave up to ISSP today! The surrender was to %s.", ch->name, victim->name);
+			do_bigshot( victim, "&RCindy&z:&W Hidi ho! I got some special news for you today!");
+			sprintf( buf, "&RCindy&z:&W %s just gave up to Guardian today! The surrender was to %s.", ch->name, victim->name);
 			do_bigshot( victim, buf);
-			do_bigshot( victim, "&CPunch: Well, ISSP must be proud and they should be. Good work!");
+			do_bigshot( victim, "&RCindy&z:&W Well, Guardian must be proud and they should be. Good work!");
 		break;
 		case 1:
-			do_bigshot( victim, "&PJudy: Big news today folks! Tell 'em Punch!");
-			sprintf( buf, "&CPunch: %s just surrendered to ISSP today! %s was the supervising ISSP!", ch->name, victim->name);
+			do_bigshot( victim, "&RCindy&z:&W Big news today folks!");
+			sprintf( buf, "&RCindy&z:&W %s just surrendered to Guardian today! %s was the supervising Guardian!", ch->name, victim->name);
 			do_bigshot( victim, buf);
-			do_bigshot( victim, "&PJudy: Good job ISSP!");
+			do_bigshot( victim, "&RCindy&z:&W Good job Guardian!");
 		break;
 		default:
-			do_bigshot( victim, "&CPunch: Hey there folks, we got some hot news!");
-			sprintf( buf, "&PJudy: %s surrendered to %s of ISSP, alright!", ch->name, victim->name);
+			do_bigshot( victim, "&RCindy&z:&W Hey there folks, I got some hot news!");
+			sprintf( buf, "&RCindy&z:&W %s surrendered to %s of Guardian, alright!", ch->name, victim->name);
 			do_bigshot( victim, buf);
+			do_bigshot( victim, "&RCindy&z:&W Good job Guardian!");
 		break;
 	}
 	}
@@ -588,44 +601,44 @@ void  bigshot( CHAR_DATA *ch , CHAR_DATA *victim , char *argument)
 	switch(number_range(0,4))
 	{
 		case 4:
-			do_bigshot( victim, "&CPunch: Hola amigos! Listen up, this is a special news break!");
-			sprintf( buf, "&PJudy: %s has just turned themself into %s of RBH!",
+			do_bigshot( victim, "&RCindy&z:&W Okay! Listen up, this is a special news break!");
+			sprintf( buf, "&RCindy&z:&W %s has just turned themself into %s of Hunters!",
 				ch->name, victim->name);
 			do_bigshot( victim, buf);
 			sprintf( buf, "Good work %s!",
-				(victim->sex == 1)? "amigo": "amiga");
+				(victim->sex == 1)? "dude": "dudet");
 			do_bigshot( victim, buf);
 		break;
 		case 3:
-			do_bigshot( victim, "&PJudy: Howdy partners! We got some big news!");
-			sprintf( buf, "&CPunch: The bounty on %s has been claimed!",
+			do_bigshot( victim, "&RCindy&z:&W Hi guys! I got some big news!");
+			sprintf( buf, "&RCindy&z:&W The bounty on %s has been claimed!",
 				ch->name);
 			do_bigshot( victim, buf);
-			sprintf( buf, "&PJudy: %s turned %self into %s eariler today!",
+			sprintf( buf, "&RCindy&z:&W %s turned %self into %s eariler today!",
 				ch->name, (ch->sex == 1)? "his":"her", victim->name);
 			do_bigshot( victim, buf);
-			do_bigshot( victim, "&CPunch: Good job!");
+			do_bigshot( victim, "&RCindy&z:&W Good job!");
 		break;
 		case 2:
-			do_bigshot( victim, "&CPunch: Hold it bounty hunters out there, we got an news update!");
-			sprintf( buf, "&PJudy: %s surrendered himself to %s of RBH today!", ch->name, victim->name);
+			do_bigshot( victim, "&RCindy&z:&W Hold it bounty hunters out there, I got an news update!");
+			sprintf( buf, "&RCindy&z:&W %s surrendered himself to %s of Hunters today!", ch->name, victim->name);
 			do_bigshot( victim, buf);
-			do_bigshot( victim, "&CPunch: Just another fine example of good bounty hunting!");
+			do_bigshot( victim, "&RCindy&z:&W Just another fine example of good bounty hunting!");
 		break;
 		case 1:
-			do_bigshot( victim, "&PJudy: Hey cowboys we got some news for you!");
-			sprintf( buf, "&CPunch: %s has surrender today! %s handled the process.",
+			do_bigshot( victim, "&RCindy&z:&W Hey its me, Cindy and do I have some news for you!");
+			sprintf( buf, "&RCindy&z:&W %s has surrender today! %s handled the process.",
 				ch->name, victim->name);
 			do_bigshot( victim, buf);
-			do_bigshot( victim, "&PJudy: That is one less bounty to catch! Good work!");
+			do_bigshot( victim, "&RCindy&z:&W That is one less bounty to catch! Good work!");
 		break;
 		default:
-			do_bigshot( victim, "&CPunch: This is a special news break!");
-			sprintf( buf, "&PJudy: %s of RBH has caught the criminal %s!",
+			do_bigshot( victim, "&RCindy&z:&W This is a special news break!");
+			sprintf( buf, "&RCindy&z:&W %s of Hunters has caught the criminal %s!",
 				victim->name,
 				ch->name);
 			do_bigshot( victim, buf);
-			do_bigshot( victim, "&CPunch: Good luck guys!");
+			do_bigshot( victim, "&RCindy&z:&W Good luck guys!");
 		break;
 	}
     }
@@ -635,28 +648,27 @@ void  bigshot( CHAR_DATA *ch , CHAR_DATA *victim , char *argument)
 	// A just in case crash proofer - Gatz
 	if( !bounty )
 		return; 
-	do_bigshot( victim, "Big Shot's theme song American Money begins to play.");
+	do_bigshot( victim, "&r---------------------------------=Bulletin=-----------------------------------");
 	switch(number_range(0,2))
 	{
 		case 2:
-		do_bigshot( victim, "&CPunch: Amigo! Welcome to another exciting episode of Big Shot!");
-		do_bigshot( victim, "&PJudy: That's right cowboys, get ready for another hot bounty of the day!");
+		do_bigshot( victim, "&RCindy&z:&W We interrupt you for this special report!");
 		break;
 		case 1:
-		clan = get_clan( "RBH" );
+		clan = get_clan( "Hunters" );
 		if(!clan)
-		do_bigshot( victim, "&PJudy: Hey all you 300,000 bounty hunters out there!");
+		do_bigshot( victim, "&RCindy&z:&W Vigilantes be on the alert!");
 		else
 		{
-			sprintf(buf, "&PJudy: Hey all you %d bounty hunters out there!",
+			sprintf(buf, "&RCindy&z:&W Hey all you %d bounty hunters out there!",
 				clan->members);
 			do_bigshot( victim, buf);
 		}
-		do_bigshot( victim, "&CPunch: Howdy Partners! We got another sizzling episode of Big Shot today!");
+		do_bigshot( victim, "&RCindy&z:&W This is Cindy from Gandadia News, thank you for joining us.");
 		break;
 		default:
-		do_bigshot( victim, "&CPunch: Hey bounty hunters, welcome to another episode of Big Shot.");
-		do_bigshot( victim, "&PJudy: Today we have a hot, hot, hot bounty for y'all!");
+		do_bigshot( victim, "&RCindy&z:&W Do I have a hot lead on a bounty today.");
+		//do_bigshot( victim, "&PJudy: Today we have a hot, hot, hot bounty for y'all!");
 	}
 	SHIP_DATA *ship;
 	bool checkship;
@@ -697,67 +709,66 @@ void  bigshot( CHAR_DATA *ch , CHAR_DATA *victim , char *argument)
 	{
 		case 4:
 		if( bounty->amount > 5000000)
-		sprintf( buf, "&CPunch: Wow folks, we got a hot bounty today of %s!",
+		sprintf( buf, "&RCindy&z:&W Wow folks, have I found a hot bounty today of %s!",
 			num_punct( bounty->amount));
 		else
-		sprintf( buf, "&CPunch: Looks like we got a small fry bounty of %s.",
+		sprintf( buf, "&RCindy&z:&W Looks like we got a small fry of %s.",
 			num_punct( bounty->amount));
 		do_bigshot( victim, buf);
-		sprintf( buf, "&PJudy: The bounty is on %s's head!", ch->name);
+		sprintf( buf, "&RCindy&z:&W The bounty is on %s's head!", ch->name);
 		do_bigshot( victim, buf);
-		sprintf( buf, "&CPunch: This %s has been seen lurking around %s from reports!",
-			( ch->sex == 1)? "bandido": "bandida",
+		sprintf( buf, "&RCindy&z:&W This fugitive has been seen lurking around %s from reports!",
 			(ch->in_room->area->planet != NULL)
                         ? ch->in_room->area->planet->name :
 			(checkship)? shipbuf: "space" );
 		do_bigshot( victim, buf);
-		sprintf( buf, "&PJudy: Good luck catching %s!",
+		sprintf( buf, "&RCindy&z:&W Good luck catching %s!",
 			( ch->sex == 1)? "him" : "her");
 		break;
 		case 3:
-		sprintf( buf, "&CPunch: This sneaky character has been seen hiding in %s!",
+		sprintf( buf, "&RCindy&z:&W This sneaky character has been seen hiding in %s!",
                         (ch->in_room->area->planet != NULL)
                         ? ch->in_room->area->planet->name : 
 			(checkship)? shipbuf : "space" );
 		do_bigshot( victim, buf);
-		sprintf( buf, "&PJudy: %s has been reported to be armed and dangerous!",
+		sprintf( buf, "&RCindy&z:&W %s has been reported to be armed and dangerous!",
 			ch->name);
 		do_bigshot( victim, buf);
-		do_bigshot( victim, "&CPunch: So be careful amigos!");
+		do_bigshot( victim, "&RCindy&z:&W So please be careful!");
 		break;
 		case 2:
 		if( bounty->amount > 40000000)
 		{
-		sprintf( buf, "&PJudy: We got a real hot one today! %s has a large bounty of %s!",
+		sprintf( buf, "&RCindy&z:&W We got a real hot one today! %s has a large bounty of %s!",
 			ch->name, num_punct(bounty->amount));
 		do_bigshot( victim, buf);
-		sprintf( buf, "&CPunch: This person is shifty! Last reports claim %s was on %s!",
+		sprintf( buf, "&RCindy&z:&W This person is shifty! Last reports claim %s was on %s!",
 			( ch->sex == 1)? "he" : "she",
                         (ch->in_room->area->planet != NULL)
                         ? ch->in_room->area->planet->name : 
                         (checkship)? shipbuf :"space" );
 		do_bigshot( victim, buf);
-		do_bigshot( victim, "&PJudy: Good luck on this one guys, it seems difficult!");
+		do_bigshot( victim, "&RCindy&z:&W Good luck on this one guys, it seems difficult!");
 		}
 		else
 		{
-		sprintf( buf, "&PJudy: Today has been sort of a slow day, however %s has picked things up!",
+		sprintf( buf, "&RCindy&z:&W Today has been sort of a slow day, however %s has made it worth getting up this morning!",
 			ch->name);
 		do_bigshot( victim, buf);
-		sprintf( buf, "&CPunch: This guy has been avoiding ISSP and RBH grasp for awhile! %s was last spotted on %s, however.",
+		sprintf( buf, "&RCindy&z:&W This guy has been avoiding Guardians and Hunters grasp for awhile! %s was last spotted on %s, however.",
 			(ch->sex == 1)? "He" : "She",
                         (ch->in_room->area->planet != NULL)
                         ? ch->in_room->area->planet->name : 
                         (checkship)? shipbuf : "space" );
 		do_bigshot( victim, buf);
-		do_bigshot( victim, "&PJudy: Good luck ISSP and RBH!");
+		do_bigshot( victim, "&RCindy&z:&W Good luck all you Hunters and Guardians!");
 		}
 		break;
 		case 1:
-		sprintf( buf, "&CPunch: %s is on the loose!",
+		sprintf( buf, "&RCindy&z:&W %s is on the loose!",
 			ch->name);
 		do_bigshot( victim, buf);
-		sprintf( buf, "&PJudy: Our sources say %s has been seen around %s.",
+		sprintf( buf, "&RCindy&z:&W Our sources say %s has been seen around %s.",
 			(ch->sex == 1)? "he" : "she",
                         (ch->in_room->area->planet != NULL)
                         ? ch->in_room->area->planet->name : 
@@ -765,11 +776,11 @@ void  bigshot( CHAR_DATA *ch , CHAR_DATA *victim , char *argument)
 		do_bigshot( victim, buf);
 		break;
 		default:
-		sprintf( buf, "&PJudy: The bounty of the day is %s!", ch->name);
+		sprintf( buf, "&RCindy&z:&W The bounty of the day is %s!", ch->name);
 		do_bigshot( victim, buf); 
-		sprintf( buf, "&CPunch: This sly %s can be seen hanging around %s!",
+		sprintf( buf, "&RCindy&z:&W This cunning %s can be seen hanging around %s!",
 			( ch->sex == 1)
-			? "hombre" : "chica",
+			? "mick" : "shelia",
 			( ch->in_room->area->planet != NULL)
 			? ch->in_room->area->planet->name : 
                         (checkship)? shipbuf : "space" );
@@ -779,31 +790,25 @@ void  bigshot( CHAR_DATA *ch , CHAR_DATA *victim , char *argument)
 	switch( number_range(0,5))
 	{
 		case 5:
-			do_bigshot( victim, "&CPunch: Good bye and so long Amigos!");
-			do_bigshot( victim, "&PJudy: Happy hunting y'all!");
+			do_bigshot( victim, "&RCindy&z:&W Good bye and so long!");
 		break;
 		case 4:
-			do_bigshot( victim, "&CPunch: That is all for today!");
-			do_bigshot( victim, "&PJudy: Adios cowboys!");
+			do_bigshot( victim, "&RCindy&z:&W That is all for today!");
 		break;
 		case 3:
-			do_bigshot( victim, "&PJudy: See ya Space Cowboy!");
-			do_bigshot( victim, "&CPunch: Till Next time Amigos!");
+			do_bigshot( victim, "&RCindy&z:&W Till next time!");
 		break;
 		case 2:
-			do_bigshot( victim, "&CPunch: Adios Amigos!");
-			do_bigshot( victim, "&PJudy: Shucks howdy, that was fun. Bye!");
+			do_bigshot( victim, "&RCindy&z:&W Maybe i can find a man at the bar.... oh yea, sorry bye!");
 		break;
 		case 1:
-			do_bigshot( victim, "&PJudy: See all you guys later!");
-			do_bigshot( victim, "&CPunch: Goodbye and Adios from all of us at Big Shot!");
+			do_bigshot( victim, "&RCindy&z:&W See you guys later!");
 		break;
 		default:
-			do_bigshot( victim, "&CPunch: So long Amigos!");
-			do_bigshot( victim, "&PJudy: See y'all next time!");
+			do_bigshot( victim, "&RCindy&z:&W Time for me to bail out!");
 		break;
 	}
-	do_bigshot( victim, "A large gun comes on the screen and goes \"BANG!\"");	
+	do_bigshot( victim, "&rThe sound of a phone hanging up is all you can hear as the report ends.");	
     }
     return;    
 }
@@ -897,7 +902,7 @@ void do_surrender( CHAR_DATA *ch, char *argument )
 
 	if( (ch->pcdata->bank - amount) >= 0 && amount > 0)
 	{
-		ch_printf(ch,"&RThe Prison forces you to 'donate' %d wulongs to pay for expenses.\n\r", amount);
+		ch_printf(ch,"&RThe Prison forces you to 'donate' %d dollars to pay for expenses.\n\r", amount);
 		ch->pcdata->bank -= amount;
 	}
 	char_from_room(ch);

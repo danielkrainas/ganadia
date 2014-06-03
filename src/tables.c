@@ -150,6 +150,7 @@ DO_FUN *skill_function( char *name )
     case 'a':
 	if ( !str_cmp( name, "do_aassign" ))		return do_aassign;
 	if ( !str_cmp( name, "do_addbounty" ))          return do_addbounty;
+	if ( !str_cmp( name, "do_addweapon" ))		return do_addweapon;
 	if ( !str_cmp( name, "do_addsenator" ))         return do_addsenator;
 	if ( !str_cmp( name, "do_addpilot" ))  		return do_addpilot;
 	if ( !str_cmp( name, "do_add_patrol" ))  	return do_add_patrol;
@@ -281,6 +282,7 @@ DO_FUN *skill_function( char *name )
 	if ( !str_cmp( name, "do_east" ))		return do_east;
 	if ( !str_cmp( name, "do_eat" ))		return do_eat;
 	if ( !str_cmp( name, "do_echo" ))		return do_echo;
+	if ( !str_cmp( name, "do_ein" ))		return do_ein;
 	if ( !str_cmp( name, "do_elite_guard" ))	return do_elite_guard;
 	if ( !str_cmp( name, "do_emote" ))		return do_emote;
 	if ( !str_cmp( name, "do_empty" ))		return do_empty;
@@ -297,6 +299,7 @@ DO_FUN *skill_function( char *name )
 	if ( !str_cmp( name, "do_fill" ))		return do_fill;
 	if ( !str_cmp( name, "do_finger" ))		return do_finger;
 	if ( !str_cmp( name, "do_fire" ))               return do_fire;
+	if ( !str_cmp( name, "do_fire2" ))		return do_fire2;
 	if ( !str_cmp( name, "do_first_aid" ))          return do_first_aid;
         if ( !str_cmp( name, "do_firstweapon" ))        return do_firstweapon;
 	if ( !str_cmp( name, "do_fixchar" ))		return do_fixchar;
@@ -492,6 +495,8 @@ DO_FUN *skill_function( char *name )
 	if ( !str_cmp( name, "do_mwhere" ))		return do_mwhere;
 	if ( !str_cmp( name, "do_makelaptop"))		return do_makelaptop;
 	if ( !str_cmp( name, "do_mpwarkill"))		return do_mpwarkill;
+	if ( !str_cmp( name, "do_mpreloadship"))	return do_mpreloadship;
+	if ( !str_cmp( name, "do_mprepairship"))	return do_mprepairship;
 	break;
     case 'n':
 	if ( !str_cmp( name, "do_name" ))		return do_name;
@@ -576,6 +581,7 @@ DO_FUN *skill_function( char *name )
 	if ( !str_cmp( name, "do_qpstat" ))		return do_qpstat;
 	if ( !str_cmp( name, "do_quaff" ))		return do_quaff;
 	if ( !str_cmp( name, "do_qui" ))		return do_qui;
+	/*if ( !str_cmp( name, "do_quickdraw" ))		return do_quickdraw; */
 	if ( !str_cmp( name, "do_quit" ))		return do_quit;
 	break;
     case 'r':
@@ -596,6 +602,7 @@ DO_FUN *skill_function( char *name )
 	if ( !str_cmp( name, "do_regoto" ))		return do_regoto;
 	if ( !str_cmp( name, "do_reload" ))  		return do_reload;
 	if ( !str_cmp( name, "do_rembounty" ))		return do_rembounty;
+	if ( !str_cmp( name, "do_remweapon" ))		return do_remweapon;
 	if ( !str_cmp( name, "do_remove" ))		return do_remove;
 	if ( !str_cmp( name, "do_rempilot" ))           return do_rempilot;
 	if ( !str_cmp( name, "do_remsenator" ))         return do_remsenator;
@@ -696,10 +703,15 @@ DO_FUN *skill_function( char *name )
 	if ( !str_cmp( name, "do_starsystems" ))        return do_starsystems;
         if ( !str_cmp( name, "do_status" ))             return do_status;
 	if ( !str_cmp( name, "do_steal" ))		return do_steal;
+	if ( !str_cmp( name, "do_stealth"))		return do_stealth;
 	if ( !str_cmp( name,  "do_study" ) )             return do_study;
 	if ( !str_cmp( name, "do_stretch" )) 		return do_stretch;
 	if ( !str_cmp( name, "do_socialize" ))		return do_socialize;
 	if ( !str_cmp( name, "do_switch" ))		return do_switch;
+	if ( !str_cmp( name, "do_swlist" ))		return do_swlist;//Locke
+	if ( !str_cmp( name, "do_swcreate"))		return do_swcreate;//Locke
+	if ( !str_cmp( name, "do_swset"))		return do_swset;//Locke
+	if ( !str_cmp( name, "do_swstat"))		return do_swstat;//Locke
 	if ( !str_cmp( name, "do_shiphail" ))		return do_shiphail;
 	if ( !str_cmp( name, "do_shiptalk" ))		return do_shiptalk;
 	if ( !str_cmp( name, "do_spacetalk" ))		return do_spacetalk;
@@ -750,6 +762,7 @@ DO_FUN *skill_function( char *name )
 	if ( !str_cmp( name, "do_value" ))		return do_value;
 	if ( !str_cmp( name, "do_vassign" ))            return do_vassign;
 	if ( !str_cmp( name, "do_visible" ))		return do_visible;
+	if ( !str_cmp( name, "do_visitors" ))		return do_visitors;
 	if ( !str_cmp( name, "do_vnums" ))		return do_vnums;
 	if ( !str_cmp( name, "do_vsearch" ))		return do_vsearch;
 	break;
@@ -1013,6 +1026,7 @@ char *skill_name( DO_FUN *skill )
     if ( skill == do_hyperspace )         return "do_hyperspace";
     if ( skill == do_target )         return "do_target";
     if ( skill == do_fire )         return "do_fire";
+    if ( skill == do_fire2 )		return "do_fire2";
     if ( skill == do_calculate )         return "do_calculate";
     if ( skill == do_repairship )         return "do_repairship";
     if ( skill == do_refuel )         return "do_refuel";
@@ -1022,6 +1036,7 @@ char *skill_name( DO_FUN *skill )
     if ( skill == do_aassign )		return "do_aassign";
     if ( skill == do_accelerate )	return "do_accelerate";
     if ( skill == do_addbounty )        return "do_addbounty";
+    if ( skill == do_addweapon )	return "do_addweapon";
     if ( skill == do_advance )		return "do_advance";
     if ( skill == do_affected )		return "do_affected";
     if ( skill == do_afk )		return "do_afk";
@@ -1111,6 +1126,7 @@ char *skill_name( DO_FUN *skill )
     if ( skill == do_east )		return "do_east";
     if ( skill == do_eat )		return "do_eat";
     if ( skill == do_echo )		return "do_echo";
+    if ( skill == do_ein )		return "do_ein";
     if ( skill == do_emote )		return "do_emote";
     if ( skill == do_empty )		return "do_empty";
     if ( skill == do_enter )		return "do_enter";
@@ -1300,7 +1316,7 @@ char *skill_name( DO_FUN *skill )
     if ( skill == do_overthrow )	return "do_overthrow";
     if ( skill == do_override )		return "do_override";
     if ( skill == do_owhere )		return "do_owhere";
-    if ( skill == do_osay )             return "do_osay"; 
+    if ( skill == do_osay )             return "do_osay";
     if ( skill == do_pager )		return "do_pager";
     if ( skill == do_paint )		return "do_paint";
     if ( skill == do_pardon )		return "do_pardon";
@@ -1319,6 +1335,7 @@ char *skill_name( DO_FUN *skill )
     if ( skill == do_qpstat )		return "do_qpstat";
     if ( skill == do_quaff )		return "do_quaff";
     if ( skill == do_qui )		return "do_qui";
+    /*if ( skill == do_quickdraw )		return "do_quickdraw";*/
     if ( skill == do_quit )		return "do_quit";
     if ( skill == do_rank )		return "do_rank";
     if ( skill == do_rassign )		return "do_rassign";
@@ -1331,6 +1348,7 @@ char *skill_name( DO_FUN *skill )
     if ( skill == do_redit )		return "do_redit";
     if ( skill == do_regoto )		return "do_regoto";
     if ( skill == do_rembounty )	return "do_rembounty";
+    if ( skill == do_remweapon )	return "do_remweapon";
     if ( skill == do_remove )		return "do_remove";
     if ( skill == do_renameship )	return "do_renameship";
     if ( skill == do_rent )		return "do_rent";
@@ -1415,9 +1433,14 @@ char *skill_name( DO_FUN *skill )
     if ( skill == do_status )		return "do_status";
     if ( skill == do_starsystems )      return "do_starsystems";
     if ( skill == do_steal )		return "do_steal";
+    if ( skill == do_stealth )		return "do_stealth";
     if ( skill == do_switch )		return "do_switch";
     if ( skill == do_study )		return "do_study";
     if ( skill == do_socialize)		return "do_socialize";
+    if ( skill == do_swlist)		return "do_swlist";
+    if ( skill == do_swcreate)		return "do_swcreate";
+    if ( skill == do_swset)		return "do_swset";
+    if ( skill == do_swstat)		return "do_swstat";
     if ( skill == do_tamp )		return "do_tamp";
     if ( skill == do_tell )		return "do_tell";
     if ( skill == do_time )		return "do_time";
@@ -1439,6 +1462,7 @@ char *skill_name( DO_FUN *skill )
     if ( skill == do_value )		return "do_value";
     if ( skill == do_vassign )           return "do_vassign";
     if ( skill == do_visible )		return "do_visible";
+    if ( skill == do_visitors )		return "do_visitors"; /* added by Funf */
     if ( skill == do_vnums )		return "do_vnums";
     if ( skill == do_vsearch )		return "do_vsearch";
     if ( skill == do_wake )		return "do_wake";

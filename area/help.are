@@ -400,7 +400,7 @@ will work provided your terminal has a compatible mode.
 Syntax: Appeal (Target) (Clan)
 
 The user tries to get the target mobile to donate some, if not all, of
-their wulongs to their current clan. This skill can only be used by people
+their dollars to their current clan. This skill can only be used by people
 in a clan.
 ~
 
@@ -745,7 +745,7 @@ anti-criminal pursuits. Thus, in 2060 it was able to secure security of
 the Universal Banking System (UBS) and now, due to financial problems,
 ISSP has taken a priority share in UBS, allowing them a large array of
 abilites through the Bank itself. Namely, freezing an account so the
-wulongs stored no longer can gain direct deposit pay checks or interest.
+dollars stored no longer can gain direct deposit pay checks or interest.
 ~
 
 101 BANNED~
@@ -945,7 +945,7 @@ considered Botting. Simply being at the computer is not enough, literally
 watching the screen with no other screens above it, ie an Instant
 Messenger program or e-mail etc. Botting is illegal in Cowboy  Bebop:
 Space Cowboy and punishable in strict means. Generally the punishment will
-reflect how the player was botting. Lose of stats, wulongs or even skills
+reflect how the player was botting. Lose of stats, dollars or even skills
 is possible. Immortals may check on players occasionally to see if they
 are botting, and if they are usually give a roughly ten seconds or so to
 respond before punishment. If the player is spamming, or lagging badly
@@ -964,7 +964,7 @@ MUD clients with triggers.
 1 BOWCASTERS "FORCE PIKES" LIGHTSABERS VIBRO-BLADES VIBRO-BLADE 
 
 
-LIGHTSABER "FORCE PIKE" BOWCASTER~
+LIGHTSABER "FORCE PIKE" BOWCASTER~
 These skills allow you to successfully wield some of the weapons found in the
 Galaxy.
 ~
@@ -1019,7 +1019,7 @@ governed by your clan.
 0 BROADCAST~
 Have a message you need the solar system to see?  Well, you need to hop on down
 to your local broadcast station.  Beware, though, airtime costs money, 
-(100,000 wulongs, to be exact) and no one under 200 diplomacy will be able
+(100,000 dollars, to be exact) and no one under 200 diplomacy will be able
 to use this command.  So if you have a pressing message, you should find one of
 your local diplomats.  Happy broadcasting!
  
@@ -1314,8 +1314,8 @@ See SHIPS
 Listing of recent changes
 Changed msweapons to be more CB-ish -Spike
 Fixed OOC chan -Spike
-Changed credits to wulongs -Spike
-Fixed some wulong things -Vicious
+Changed credits to dollars -Spike
+Fixed some dollar things -Vicious
 Changed score, took out level commands (you're blind!)  -Spike
 Set the level of other various commands (so you can't screw the game up)
 -Spike
@@ -1345,7 +1345,7 @@ Date     IMM       Change
 03-06-04 Gatz       Hide tells you when you succeed now.
 03-07-04 Gatz       Got rid of a nasty bug in attack command.
 03-07-04 Gatz       Added height/weight displays for look.
-03-07-04 Gatz       Bank transfer now says wulongs, not wuongs....
+03-07-04 Gatz       Bank transfer now says dollars, not wuongs....
 03-08-04 Gatz       Made RP Age displayed in score, whois and finger
 .                   , also weight and height is fixed.
 03-09-04 Gatz       Added Age, Weight and Height to character creation.
@@ -1387,7 +1387,7 @@ Date     IMM       Change
 03-20-04 Gatz       Fixed mob fighting so damage gives you condition training.
 03-20-04 Gatz       Fixed bad bio-buffer bug which caused players to be deleted
 03-20-04 Gatz       Lowered the inttraining gained from using skills, too high.
-03-21-04 Gatz       Changed credits to wulongs when selling.
+03-21-04 Gatz       Changed credits to dollars when selling.
 --Continued in help changes11--
 ~
 
@@ -1648,7 +1648,7 @@ Date     IMM       Change
 08-05-04 Gatz      Can outcast players who are offline.
 08-05-04 Gatz      Added new command for ISSPers 'bankfreeze'
 08-05-04 Gatz      People can't hack players with less than 6 hours played.
-08-07-04 Gatz      A account with bankfreeze can not deposit or have wulongs
+08-07-04 Gatz      A account with bankfreeze can not deposit or have dollars
 .                  transfered into it.
 08-07-04 Gatz      Introduce a strange concept called "Capitalization" to slist
 08-08-04 Spike     You now get a laptop on char creation.
@@ -1656,7 +1656,7 @@ Date     IMM       Change
 .                  members who have bounties.
 08-08-04 Gatz      Fixed Appoint bug.
 08-09-04 Gatz      Clan HQs will sell to anyone, regaurdless of wars.
-08-10-04 Gatz      Hack Bounty is now capped for adding wulongs.
+08-10-04 Gatz      Hack Bounty is now capped for adding dollars.
 08-10-04 Gatz      Fixed minor bug in the name command.
 08-11-04 Gatz      Suicide and Destroy will now correctly adjust member limits.
 08-13-04 Gatz      Planetary Frustration tweaked so it will actually happen.
@@ -1825,7 +1825,7 @@ Date     IMM       Change
 08-06-03 Jet       Fixed mprog_death_trigger in fight.c
 08-07-03 Jet       Changed AUTOGOLD. It is now based on your
 .                  steal skill. In other words you steal a part of
-.                  the victims wulong. Also changed some of the steal
+.                  the victims dollar. Also changed some of the steal
 .                  code so that it is a bit easier to steal.
 .                  New Area opened on Pluto. Have fun.
 08-08-03 Spike     Fixed character creation to make it more clear to
@@ -1988,9 +1988,9 @@ Date     IMM       Change
 .                   Strength. Backstab has been moved to Level 95
 12-21-03 Kristen    AC now only matters between 500 and -500. This number
 .                   may change in the future.
-12-21-03 Kristen    Bank accounts hold only 2 billion wulongs and stop
+12-21-03 Kristen    Bank accounts hold only 2 billion dollars and stop
 .                   receiving interest after 1 billion.
-12-21-03 Kristen    Now a player drops all wulongs when stunned/killed.
+12-21-03 Kristen    Now a player drops all dollars when stunned/killed.
 12-23-03 Kristen    Heavy weapons now can not be dual wielded.
 12-23-03 Kristen    Buffers can now hold 96 lines. Help and Mprog buffers
 .                   can go up to 192.
@@ -2019,7 +2019,7 @@ Date     IMM       Change
 12-29-03 Kristen    Fixed two bugs involving the hyperspace gates. You now lose
 .                   your calculations once you've gone through once (preventing
 .                   re-entry.) Also, fixed it so you can't use the gates
-.                   without the required wulongs.
+.                   without the required dollars.
 12-29-03 Kristen    Quitting is now allowed in spacecrafts.
 12-29-03 Kristen    All clan members can pilot clan space crafts now.
 12-30-03 Kristen    Pick ship lock only alarms the room. Hijack's message
@@ -2049,7 +2049,7 @@ Date     IMM       Change
 01-07-04 Kristen    Immortals can now take on mortal form.
 01-07-04 Kristen    Recharge command prepares ship for launch.
 01-08-04 Kristen    Modified Space code further. Changed all (I hope)
-.                   credits mentioning to wulongs. Added 6 slots for
+.                   credits mentioning to dollars. Added 6 slots for
 .                   hyperspace gates, since I'm planning on making a
 .                   gate for each location like the show. Removed lots
 .                   of star wars references the players will probably 
@@ -2071,7 +2071,7 @@ Date     IMM       Change
 01-22-04 Kristen    Heightened Accuracy renamed to Heighten Accuracy. Message
 .                   changed too. Berserk removed.
 01-22-04 Gatz       Custom weapon skills all got lowered.
-01-31-04 Gatz       Fixed Repair Messeges to use Wulongs and not Credits.
+01-31-04 Gatz       Fixed Repair Messeges to use Dollars and not Credits.
 02-06-04 Gatz       Added a messege when you recieve QP, fixed Addbounty so
 .                   Non-ISSP can't use it. Next time report things like that!
 02-12-04 Gatz       Stat Max is now 25, max you can buy is still 18 though.
@@ -3614,7 +3614,7 @@ A:  You have a bounty, which means you've done something bad
  
 Q:  How do I surrender?
 A:  Go up to an ISSP or RBH officer and type "surrender [that 
-person's name]".  You will lose ten percent of your wulongs and
+person's name]".  You will lose ten percent of your dollars and
 be sent to jail for a periodic amount of time (depending on how 
 high your bounty is).
  
@@ -3661,10 +3661,10 @@ A:  Ships can only be bought at ship auctions, which are held
 periodically.
  
 Q:  How much do ships cost?
-A:  Ships go anywhere from 50 million wulongs to 700 million wulongs, 
+A:  Ships go anywhere from 50 million dollars to 700 million dollars, 
 depending on the model and make.
  
-Q:  Why do you spell it wulong and not woolong?
+Q:  Why do you spell it dollar and not woolong?
 A:  Just a little quirk misspelling that Gatz and Spike liked 
 so much they kept it in.
  
@@ -4107,9 +4107,9 @@ See related topics for more information.
 ~
 
 1 GOLD WULONGS WULONG~
-Syntax:  Wulongs
+Syntax:  Dollars
  
-Displays the current total Wulongs you are carrying.
+Displays the current total Dollars you are carrying.
 ~
 
 1 GOSSIP~
@@ -4136,16 +4136,22 @@ See REDIT.
 ~
 
 -1 GREETING~
-.Welcome to a new mud using the open source Bebop codebase!
-  
-&wBebop &G copyright &g(&zc&g)&w 2003-2006 - Bebop Team
-&wSWR 1.0 &Gcopyright &g(&wc&g) &w1997&G, &w1998 &Gwas created by &wSean Cooper
-&wDikuMud &g(&Wc&g) &Gprogram and concept by &wSebastian Hammer 
-&wMerc 2.1 &g(&Wc&g) &Gwas created by Furey &g(&wmec@shell.portal.com&g) 
-&wSMAUG &g(&Wc&g) &Gwas created by &wDerek Snider
- 
-&GName&r:&w
-~
+&R  ________                             .___.__         
+&R /  _____/ _____     ____  _____     __| _/|__|_____   
+&R/   \  ___ \__  \   /    \ \__  \   / __ | |  |\__  \  
+&R\    \_\  \ / __ \_|   |  \ / __ \_/ /_/ | |  | / __ \_
+&R \______  /(____  /|___|  /(____  /\____ | |__|(____  /
+&R        \/      \/      \/      \/      \/          \/ 
+
+&rGanadia &z(&wc&z)&w 2006 Ganadia Team
+&rBebop &z(&wc&z)&w 2003-2006 - Bebop Team
+&rSWR 1.0 &z(&wc&z)&w 1997, 1998 was created by Sean Cooper
+&rSMAUG &z(&wc&z)&w was created by Derek Snider
+&rMerc 2.1 &z(&wc&z)&w was created by Furey &z(&wmec@shell.portal.com&z)
+&rDikuMud &z(&wc&z)&w program and concept by Sebastian Hammer
+
+&wEnter your name or enter &z"&Wnew&z"&w to create a new character
+&RName&z:&W~
 
 1 GRENADES~
 .
@@ -4217,7 +4223,7 @@ the solar system.  Your mission, space cowboys?  Use his littering to
 track down that villan, kill him, and bring his goods back to the doorstep of 
 ISSP HQ where we will meet you!
  
-The team that brings in the bag of bloody eye will get 5 million wulongs
+The team that brings in the bag of bloody eye will get 5 million dollars
 to split and 3 QP each; however, teams can also earn QP during the 
 RP itself, so everyone wins! :)
 ~
@@ -4416,7 +4422,7 @@ Syntax: hacklaunch
  
 In order to use hacklaunch, one must have a computer or laptop.
 One must be in the cockpit of a ship in order to use hacklaunch.
-The fee for launching while using hacklaunch is only 20 wulongs,
+The fee for launching while using hacklaunch is only 20 dollars,
 this fee is also applicable to public ships.
 ~
 
@@ -4786,6 +4792,18 @@ See also: HEDIT
 ~
 
 101 HSET HEDIT~
+~
+
+110 HULLTYPES~
+A list of hull types for ships that can be set with setship:
+ 
+Value3 | Name          | Description
+-----------------------------------------------------
+   0   | Uknown        | General initialization type
+   1   | Steel         | Generic hull type
+   2   | Astro Steel   | An Immortal hull type
+ 
+See SETSHIP
 ~
 
 1 HYPERSPACE LIGHTSPEED~
@@ -5252,23 +5270,23 @@ Drugs: Drug use is illegal, period. Rawdrugs are the exception to this
 law, any variation of the 'eye' drug will constitute a violation of this
 law. Any persons found, or suspected with this drug will find
 themselves bountied and hunted until caught. A violation of this law
-constitutes a minimum of 400k wulong bounty, with no maximum bounty.
+constitutes a minimum of 400k dollar bounty, with no maximum bounty.
 Note: Applicators also fall into this area, with a lesser bounty of
-200k wulongs, a maximum of 500k wulongs.
+200k dollars, a maximum of 500k dollars.
  
 Hacking: The illegal use of computers has always been a problem, even
 during old earth. Those caught using Computers, laptops, palm PC's,
 datapads, or any other such variation of electronics to damage,
  change, transfer, or attack other electronic systems will be bountied
 and hunted until caught. A violation of this law constitutes a minimum
-of 500k wulong bounty, with no maximum bounty.
+of 500k dollar bounty, with no maximum bounty.
 
 Threats:  Anyone found threatening any other player verbally or physically 
-can be bountied from 5,000 wulongs to 500,000 wulongs.
+can be bountied from 5,000 dollars to 500,000 dollars.
  
 Theft: Theft is always, and will always be a problem. And is always
  hard to prove. A violation of this law constitutes a bounty of 300k
-minimum wulong bounty, with a maximum of 500k wulong bounty.
+minimum dollar bounty, with a maximum of 500k dollar bounty.
 Note: Stealing from mobs is also theft.
  
 Murder: Murder is a serious offense, and will be punished to the
@@ -6677,6 +6695,29 @@ See also Help coordinates. help hyperspace , help course
 0 NEGOTIATE~
 This is an automatic skill which has the users power of persuasion to
 Police or Guards which might take the users weapons. 
+~
+
+115 NEW START NEWBIE BEGIN~
+If you are new to Ganadia, here are a few help files that will help you
+get acquainted with our world. Please remember as much as we would love
+to handle every case personally, we just do not have enough free staff.
+So we have tried to make the help system as detailed as possible for 
+everyone's benefit:
+ 
+RULES -       Will lead you through the laws of the land.
+SPAM -        Will explain what spam is, and why you should not do it.
+CONFIG -      Will teach you about our configuration menu.
+SCORE -       Will show your character's personal score sheet at level 2.
+MOVEMENT -    Will teach you various commands for moving about the world.
+OBJECTS -     Will teach you various commands to use your equipment.
+CONTAINER -   Will teach you about using containers to hold belongings.
+CHANNELS -    Will teach you about communication with other players.
+GROUP -       Will help you with grouping with other players.
+COMBAT -      Will teach you how to choose, start and stop a fight.
+PRACTICE -    Will teach you about training skills, and weapons.
+INFORMATION - Will cover ways to find certain types of information.
+ 
+To use these files, type HELP <topic>.  Type 'help' for general commands.
 ~
 
 1 NEWBIE~
@@ -9258,8 +9299,8 @@ Shows ships status. Shows current ship when no ship specified.
 
 0 STEAL~
 Syntax: STEAL money <character>
-Syntax: STEAL wulong <character>
-Syntax: STEAL wulongs <character>
+Syntax: STEAL dollar <character>
+Syntax: STEAL dollars <character>
 Syntax: STEAL <object> <character>
 
 STEAL attempts to steal coins, or an object, from a mob or another player.
@@ -9774,19 +9815,19 @@ they themselves can purchase for it. Clan ships can only
 purchase upgrades through the leader, although the Clan 
 Immortal is allowed to add more rules to that.
  
-1 Million Wulongs:
+1 Million Dollars:
 Renaming a Ship (Class Data can not be removed however) 
 Changing a description to a room (No lewdness)
  
-5 Million Wulongs:
+5 Million Dollars:
 Changing the Ships Build (EG moving the rooms around in 
 a different order, but not actually adding or subtracting the 
 room total)
  
-10 Million Wulongs:
+10 Million Dollars:
 Adding a Door to a Room (Limit of 1 per ship)
  
-30 Million Wulongs:
+30 Million Dollars:
 Adding a Prog (Program) to a room. (EG when you walk 
 into a room it may do this: "A Hologram lights up and a 
 picture of young girl appears. A young girl says 'I am ready 

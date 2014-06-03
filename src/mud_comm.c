@@ -2116,3 +2116,120 @@ void do_mpwarkill( CHAR_DATA *ch, char *argument )
     return;
 }
 
+void do_mprepairship( CHAR_DATA *ch, char *argument )
+{
+    char arg1[ MAX_INPUT_LENGTH ];
+    CHAR_DATA *victim;
+    SHIP_DATA *ship;
+
+    if (!ch )
+    {
+        bug( "Nonexistent ch in do_mprepairship!", 0 );
+        return;
+    }
+/*
+    if ( IS_AFFECTED( ch, AFF_CHARM ) )
+      return;
+*/
+    if ( !IS_NPC( ch ) )
+    {
+        send_to_char( "Huh?\n\r", ch );
+        return;
+    }
+
+    argument = one_argument( argument, arg1 );
+    
+    if ( arg1[0] == '\0')
+    {
+        progbug( "MpRepairShip - no argument", ch );
+        return;
+    }
+   
+    if ( ( victim = get_char_room_mp( ch, arg1 ) ) == NULL )
+    {
+        progbug( "mprepairship - Victim not in room", ch );
+        return;
+    }
+    if(IS_NPC(victim))
+	return;
+
+    if((ship=get_ship(argument))==NULL)
+    {
+	progbug("mprepairship - Ship not in room",ch);
+	return;
+    }
+   
+    if(!str_cmp(ship->owner,victim->name)||!str_cmp(ship->pilot,victim->name)||!str_cmp(ship->copilot,victim->name))
+    {
+	do_emote(ch,"takes his tools and begins to fix the ship.");
+	ship->hull+=200;
+	if(ship->hull>ship->maxhull)
+		ship->hull=ship->maxhull;
+    }else{
+	do_say(ch,"I'm sorry, that is not your ship");
+    }
+
+
+    return;
+}
+
+void do_mpreloadship( CHAR_DATA *ch, char *argument )
+{
+    char arg1[ MAX_INPUT_LENGTH ];
+    CHAR_DATA *victim;
+    SHIP_DATA *ship;
+    SHIP_WEAPON_DATA *weapon;
+
+    if (!ch )
+    {
+        bug( "Nonexistent ch in do_mpreloadship!", 0 );
+        return;
+    }
+/*
+    if ( IS_AFFECTED( ch, AFF_CHARM ) )
+      return;
+*/
+    if ( !IS_NPC( ch ) )
+    {
+        send_to_char( "Huh?\n\r", ch );
+        return;
+    }
+
+    argument = one_argument( argument, arg1 );
+    
+    if ( arg1[0] == '\0')
+    {
+        progbug( "MpReloadShip - no argument", ch );
+        return;
+    }
+   
+    if ( ( victim = get_char_room_mp( ch, arg1 ) ) == NULL )
+    {
+        progbug( "mpreloadship - Victim not in room", ch );
+        return;
+    }
+    if(IS_NPC(victim))
+	return;
+
+    if((ship=get_ship(argument))==NULL)
+    {
+	progbug("mpreloadship - Ship not in room",ch);
+	return;
+    }
+   
+    if(!str_cmp(ship->owner,victim->name)
+	||!str_cmp(ship->pilot,victim->name)
+	||!str_cmp(ship->copilot,victim->name))
+    {
+	do_emote(ch,"hammers on a missle head as $e finishes reloading the ship's weapons.");
+	weapon=ship->first_weapon;
+	for(weapon;weapon;weapon=weapon->next_in_ship)
+	{
+		weapon->ammo=weapon->maxammo;
+	}
+    }else{
+	do_say(ch,"I'm sorry, that is not your ship");
+    }
+
+    return;
+}

@@ -1,0 +1,3505 @@
+#AREA   {PROTO} Danube's area in progress~
+
+
+
+#AUTHOR Danube~
+
+#RANGES
+0 0 0 0 0 0 0 0
+$
+
+#FLAGS
+0
+
+#ECONOMY 0 3248194
+
+#MOBILES
+#200
+Shuttle Attendant~
+Shuttle Attendant~
+A Shuttle Attendant is here directing people onto shuttles.
+~
+~
+16387 0 0 Z
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 2
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+> greet_prog 100~
+say Welcome, please select a destination from the "list".
+~
+|
+#201
+Male Zantra Citizen~
+A Male Zantra Citizen~
+A Male Zantra Citizen Stands Here.
+~
+~
+1 0 0 Z
+10 0 40 2d10+100 1d4+2
+1500 0
+8 8 0
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+2 2 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+#202
+Female Zantra Citizen~
+A Female Zantra Citizen~
+A Female Zantra Citizen Stands Here.
+~
+~
+1 0 0 Z
+9 0 50 1d10+90 0d4+2
+2500 0
+8 8 2
+10 10 10 10 10 13 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+1 1 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+#203
+High Class Zantra Citizen~
+A High Class Citizen~
+A High Class Zantra Citizen Stands Here.
+~
+~
+1 0 0 Z
+20 0 -10 4d10+200 2d4+2
+10000 0
+8 8 0
+12 15 8 12 10 10 12
+0 0 0 0 0
+0 0 0 0 1 1 0
+4 4 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+#204
+Large Bouncer~
+The Large Bouncer~
+A Large Bouncer Blocks the way.
+~
+~
+3 0 0 Z
+20 0 120 4d10+200 2d4+2
+0 0
+8 8 1
+18 6 10 10 15 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+4 4 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+> greet_prog 50~
+emote surveys the area.
+say Those shoes are horrible, no way im letting you in...
+emote glares at you icely.
+say Beat it loser!
+~
+> bribe_prog 5000~
+if ispc($n)
+say I like your style. Go on in, $n.
+mptransfer $n 245
+endif
+~
+|
+#205
+Drunk Young Girl~
+The Young Drunk Girl~
+A Young Drunk Girl Relaxes at the bar.
+~
+~
+3 0 0 Z
+15 0 20 3d10+150 1d4+2
+1000 0
+8 8 2
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+3 3 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+> rand_prog 5~
+emote burps loudly.
+say Another martini bartender!
+say My boss promoted me and now im gonna live the life!!
+~
+> speech_prog information~
+emote looks at you blankly.
+say the hot springs lady sent you? Alright heres the recent information....
+give Data Diskette $n
+say now leave me alone, this is a time for me to celebrate...
+~
+|
+#206
+Zantra Shopkeeper~
+Zantra Shopkeeper~
+A Zantra Shopkeeper Stands Behind A Desk Here.
+~
+~
+16387 0 0 Z
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+10 10 8 10 10 12 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+#207
+Young Pickpocket~
+A Young Pickpocket~
+A Young Pickpocket Walks Around Casually.
+~
+~
+133 32768 0 Z
+12 0 40 2d10+120 1d4+2
+5000 0
+8 8 0
+10 10 10 12 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+2 2 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+#208
+Zantra Enforcer~
+The Law Enforcer~
+A Law Enforcer stands here.
+~
+~
+3 0 0 Z
+100 0 -150 20d10+1000 10d4+2
+0 0
+8 8 1
+12 10 10 12 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+20 20 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+#209
+Dojo Master Hihatchi~
+Dojo Master Hihatchi~
+The Dojo Master Hihatchi Stands Here Looking Very Intimidating.
+~
+~
+1027 0 0 Z
+105 0 -162 21d10+1050 10d4+2
+0 0
+8 8 0
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+21 21 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+> greet_prog 100~
+emote bows before you.
+say Welcome to my dojo, it is a place of learning...
+say I have many "students" if you wish to train yourself further.
+~
+|
+#210
+Repair Engineer~
+A Repair Engineer~
+A Repair Engineer Is Fixing Some Old Armor Here.
+~
+~
+16387 0 0 Z
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 2
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+#211
+Blueroom Bartender~
+The Blueroom Bartender~
+The Blueroom Bartender stands behind a counter pouring drinks.
+~
+~
+16387 0 0 Z
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+#212
+Shop Keeper Bill~
+Shop Keeper Bill~
+Shop Keeper Bill Stands here behind a counter.
+~
+~
+16387 0 0 Z
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+#213
+Sexy Pornstar Julie~
+Sexy Pornstar Julie~
+Sexy Pornstar Julie sits here putting on makeup.
+~
+~
+3 0 0 Z
+20 0 50 4d10+200 2d4+2
+10000 0
+8 8 2
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+4 4 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+> greet_prog 100~
+mpechoat $n Julie turns around and looks suprised to see you.
+say Who the fuck are you?!! No one but the boss is allowed in here.
+mpechoat $n Julie Scoffs at you.
+~
+|
+#214
+Weapon Shopkeeper~
+The Weapon Shopkeeper~
+The Weapon Shopkeeper Stands here.
+~
+~
+16387 0 0 Z
+20 0 50 4d10+200 2d4+2
+0 0
+8 8 1
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+4 4 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+#215
+Chong~
+Uncle Chong~
+Uncle Chong serves some customers here.
+~
+~
+3 0 0 Z
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+#216
+Chubby Business Man~
+The Chubby Business Man~
+The Chubby Business Man walks around ordering people.
+~
+~
+3 0 0 Z
+40 0 0 8d10+400 4d4+2
+0 0
+8 8 0
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+8 8 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+> greet_prog 100~
+emote yells at some business employee's.
+say Your all worthless!! Get back to work or ill cut your pay by 50%.
+mea $n The Chubby Business Man notices you.
+say Who are you? Oh you here for the "jobs"?
+say If not, get outta here before I call security...
+~
+> speech_prog jobs~
+say There's this bitch named Julie, she owes me a ton of money....
+say I need you to take her out, she works over at the Stripclub: Passion.
+emote grins evilly
+say Do this, and Ill give you a nice paycheck, but do it quiet.
+say Just bring me her necklace as proof, then youll get your money.
+~
+|
+#217
+Young Flowershop Girl~
+The Young Flowershop Girl~
+The Young Flowershop Girl relaxes here.
+~
+~
+3 0 0 Z
+10 0 75 2d10+100 1d4+2
+0 0
+8 8 2
+10 10 10 10 10 15 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+2 2 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+> speech_prog ~
+~
+> speech_prog promotion~
+say A promotion? Oh yea this girl came by shouting about her big promotion.
+emote smiles.
+say I beleive she was heading to a bar to relax.
+emote pauses.
+say Why so interested in her? Is she your friend?
+~
+> greet_prog 100~
+say Hi there, weve got some beautiful lillys in stock.
+mea $n The Young Flowershop Girl smiles at you.
+say What are you interested in?
+~
+|
+#218
+Stripclub Owner~
+The Stripclub Owner~
+The Stripclub Owner sits at a distant table.
+~
+~
+3 0 0 Z
+34 0 15 6d10+340 3d4+2
+5000 0
+8 8 1
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+6 6 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+> speech_prog julie~
+say What? You want to know about Julie?
+emote shrugs.
+say Yea she works here, but your not gonna see her. You seem too fishy...
+~
+|
+#219
+Stripper~
+A Stripper~
+A Stripper is dancing on stage.
+~
+~
+16387 0 0 Z
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 2
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+#220
+Hot Springs Supervisor~
+The Hot Springs Supervisor~
+The Hot Springs Supervisor reads a magazine here.
+~
+~
+3 0 0 Z
+80 0 -100 16d10+800 8d4+2
+10000 0
+8 8 2
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+16 16 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+> greet_prog 100~
+emote puts her magazine down.
+say Welcome to the hot springs, if your here for a "job" then I have one.
+say If not, enjoy the hotsprings.
+say No clothes beyond the locker rooms, towels are okay.
+emote goes back to reading her magazine.
+~
+> speech_prog job~
+say Ah your here for the job? Ok.
+emote pauses for a moment.
+say I have an informant ive been bribing, she recently got a new promotion.
+say Your job is to find out where she is right now.
+say and tell her that I need more "information".
+emote grins evilly.
+say that chubby assholes going down.
+say anyway the girl at the main city flower shop normally see's her.
+say talk to her to get the data.
+~
+|
+#221
+Van Green~
+Van Green~
+A Man Named Van Green stands here.
+~
+~
+3 0 0 Z
+60 0 -50 12d10+600 6d4+2
+10000 0
+8 8 1
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 0 0 0
+12 12 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+> greet_prog 50~
+say Psst.. Hey, need some work? Ive got some "jobs" if your interested.
+emote looks around the room cauciously.
+~
+> speech_prog jobs~
+say Ah, so you are interested... I need you to deliver a package.
+emote coughs.
+say Deliver it to a man over at Ganadia city, he'll respond to the "word".
+say Heres the package, get out of here...
+emote hands a small package to you.
+~
+> speech_prog word~
+say The word? The word is "grasshoppers" I thought I already told you that.
+emote frowns.
+say I really need you to deliver that package asap...
+~
+|
+#0
+
+
+#OBJECTS
+#200
+Blue Cloth~
+&z&wA roll of &z&bBlue Cloth&z&w~
+&z&wA roll of &z&bBlue Cloth&z&w lays here.~
+~
+74 0 1
+1 1 0 0
+1 200 20
+#201
+Blueroom VIP Pass~
+&YA &z&BBlueroom &z&Y(&zVIP&Y) &z&YPass&z&w~
+&YA &z&BBlueroom &z&Y(&zVIP&Y) &z&YPass&z&w lays here.~
+~
+13 8192 5
+0 0 0 0
+1 500 50
+#202
+Colt 45 Pistol~
+&z&wA Colt 45 Pistol~
+&z&wA Discarded Colt 45 Pistol Lays Here.~
+~
+5 0 8193
+12 4 6 9 12 12
+1 15000 1500
+#203
+Round Clip~
+&z&wA Clip of 12 Rounds~
+&z&wA Clip of 12 Rounds was discarded here.~
+~
+86 0 16385
+12 0 0 0
+5 100 10
+#204
+Combat Survival Knife~
+&z&wA Combat Survival Knife~
+&z&wA Combat Survival Knife lays here.~
+~
+5 0 8193
+12 3 6 2
+1 4900 490
+#205
+Combat Assault Rifle~
+A Combat Assault Rifle~
+A Combat Assault Rifle lies against a wall here~
+~
+5 0 8193
+12 8 3 6 25 25
+10 158000 100000
+#206
+Magazine Clip of 25 Rounds~
+&z&wA Magazine Clip of 25 Rounds~
+&z&wA Magazine Clip of 25 Rounds lays discarded here.~
+~
+57 0 16385
+25 0 0 0
+1 1400 140
+#207
+Sharp Bladed Sword~
+&z&wA Sharp Bladed Sword~
+&z&wA Sharp Bladed Sword lays sheathed here.~
+~
+5 0 8193
+0 6 6 3
+5 54800 5480
+#208
+Hot Tea~
+A Cup of Hot Tea~
+A Cup of Chineese Hot Tea lays here.~
+~
+17 0 16385
+5 5 11 0
+1 50 5
+#209
+A Plate of Chow Mein~
+A Plate of Chow Mein~
+A A Plate of Chow Mein is here.~
+~
+19 0 16385
+2 0 0 0
+3 120 12
+#210
+A Rice Ball~
+A Rice Ball~
+A Rice Ball lays on the floor.~
+~
+19 0 16385
+1 0 0 0
+1 32 3
+#211
+Military Bazooka~
+A Military Bazooka~
+A Military Bazooka lies here.~
+~
+5 0 8193
+15 4 3 11 1 1
+1 890000 45000
+#212
+Bazooka Ammo~
+Bazooka Ammunition~
+Some Bazooka Ammunition lies here.~
+~
+65 0 0
+1 0 0 0
+20 50000 5000
+#213
+Stripclub Keycard~
+A Stripclub Keycard~
+A Stripclub Keycard was dropped here.~
+~
+18 0 16385
+334 0 0 0
+1 0 0
+#214
+Julie's Necklace~
+Julie's Necklace~
+Julie's Necklace was dropped here.~
+~
+13 0 5
+0 0 0 0
+1 0 0
+#215
+Data Diskette~
+a Data Diskette~
+A Data Diskette is here.~
+~
+13 1073741824 0
+0 0 0 0
+1 0 0
+#216
+A Strange Package From Van Green~
+a A Strange Package From Van Green~
+A A Strange Package From Van Green is here.~
+~
+13 1073741824 0
+0 0 0 0
+1 0 0
+#0
+
+
+#ROOMS
+#200
+Space Colony: Zantra Landing Pad~
+The landing pad of Zantra is the life of the space colony, Zantra gets most
+its food from trading with other nearby planets. Busy men and women hurry
+from one transport ship to another in this crowded enviroment.
+~
+0 1073741840 1 0
+D1
+~
+~
+0 -1 201
+S
+#201
+Zantra Spaceport Checkpoint~
+This Checkpoint has standard scanning equipment, preventing anyone from
+bringing anything illegal into the space colony of course people still
+often sneak things through. The checkpoint is busy and crowded.
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 202
+D1
+~
+~
+0 -1 206
+D2
+~
+~
+0 -1 203
+D3
+~
+~
+0 -1 200
+S
+#202
+Spaceport Lounge~
+The Lounge of Zantra is full of civilian's waiting for their transport
+ships. Young Pickpocketers comb the area for any suckers not paying enough
+attention.
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 367
+D2
+~
+~
+0 -1 201
+> rand_prog 100~
+MPECHOAT $n Calm, Peaceful music is played through the lounge speakers.
+~
+|
+S
+#203
+To Spaceport Bathrooms~
+This small hallway leads to the men and womans restrooms, nothing special
+can be seen along the way except some graffiti on the walls. 
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 201
+D2
+~
+~
+0 -1 205
+D3
+~
+~
+0 -1 204
+S
+#204
+Male bathroom~
+The mens bathroom is dirty with some blood on the floor, the sinks look
+sickening and the toilets, disturbing. 
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 203
+S
+#205
+Female Bathroom~
+The Womans Bathroom is Clean with a couch to relax, and soft music in the
+background. Much better than the mens room.
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 203
+S
+#206
+Spaceport Entrance~
+The Zantra Spaceport is a very large building built in a circular structure
+with docks on several layers around the inside of the building. This
+Spaceport is only for interplanitary ships, if you want a colony transport
+you should look elsewhere.
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 207
+D3
+~
+~
+0 -1 201
+S
+#207
+Cooper Street~
+Cooper street is a large street going under the colony shuttle roadways,
+from here you can walk or drive to any location needed in this sector of
+Zantra. 
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 208
+D3
+~
+~
+0 -1 206
+S
+#208
+Cooper Street~
+Cooper street is a large street going under the colony shuttle roadways,
+from here you can walk or drive to any location needed in this sector of
+Zantra. 
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 333
+D1
+~
+~
+0 -1 209
+D3
+~
+~
+0 -1 207
+D8
+~
+~
+0 -1 236
+S
+#209
+Turn In Cooper Street~
+Large Corp buildings force this street to make a sharp left turn, many
+natural planetlife surrounds the sides of the street.
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 210
+D1
+~
+~
+0 -1 332
+D3
+~
+~
+0 -1 208
+S
+#210
+Cooper Street~
+Cooper street is a large street going under the colony shuttle roadways,
+from here you can walk or drive to any location needed in this sector of
+Zantra.
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 211
+D2
+~
+~
+0 -1 209
+D3
+~
+~
+0 -1 335
+S
+#211
+Intersection: Cooper and Titan~
+The Intersection of these two large streets has many lanes weaving up and
+down merging to other roadways, further east is a towering skyscraper the
+fake sky looks quite nice from here.
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 212
+D1
+~
+~
+0 -1 213
+D2
+~
+~
+0 -1 210
+D3
+~
+~
+0 -1 214
+S
+#212
+Cooper Street: Business District~
+The Business District is very dark and dull, production is the most
+important factor here, not appearance.
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 230
+D2
+~
+~
+0 -1 211
+S
+#213
+Titan Street~
+Titan Street is a large street merging with Cooper, the street was given
+its name from the war, apparantly a supertank was created by Zantra
+scientists and was first used in defense against a large raid 
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 215
+D2
+~
+~
+0 -1 325
+D3
+~
+~
+0 -1 211
+S
+#214
+Titan Street~
+Titan Street is a large street merging with Cooper, the street was given
+its name from the war, apparantly a supertank was created by Zantra
+scientists and was first used in defense against a large raid.
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 211
+D2
+~
+~
+0 -1 229
+D3
+~
+~
+0 -1 222
+S
+#215
+Titan Street~
+Titan Street is a large street merging with Cooper, the street was given
+its name from the war, apparantly a supertank was created by Zantra
+scientists and was first used in defense against a large raid 
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 216
+D3
+~
+~
+0 -1 213
+S
+#216
+Titan Street~
+From here the street becomes more compact, the large towering buildings
+block the view of most everything. Businessmen and bigshots walk in and
+out the buildings, a person could get lost if they dont know where their
+going.
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 235
+D1
+~
+~
+0 -1 217
+D3
+~
+~
+0 -1 215
+S
+#217
+Titan Street~
+A Gigantic Corporation Building is just northeast and a small bar to the
+east, the street is full of people wearing trenchcoats and suspicious
+looking characters. 
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 218
+D3
+~
+~
+0 -1 216
+D6
+~
+~
+0 -1 219
+S
+#218
+Titan Street: Dead End Bar~
+Inside the dead end bar you can see good looking men and women drinking
+their lifes away, often a stripper will come out to entertain the crowd.
+Its a good place to relax from a hard days work if you enjoy drinking and
+watching.
+~
+0 1073741824 1 0
+D3
+~
+~
+0 -1 217
+S
+#219
+In Sight Of A Large -=Corporation Building=-~
+&z&RWarning! &zYou are entering the Zantra clan headquarters, please be
+sure to read &z&Rhelp clan&z and &z&Rhelp pk&z before entering any
+further.
+~
+0 1073741824 1 0
+D6
+~
+~
+0 -1 220
+D9
+~
+~
+0 -1 217
+S
+#220
+In Sight Of A Large -=Corporation Building=-~
+The Large building is quite intimidating at first, it towers over
+everything else, you should probably tread carefully a wrong step could
+send you to the hospital.
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 221
+D9
+~
+~
+0 -1 219
+S
+#221
+Zantra Clan Headquarter's~
+Inside the Building is a huge lobby with a clerk at a desc and several
+large guards watching the area like hawks. A sign can be seen behind the
+clerks desc. 
+~
+0 1073741824 1 0
+D2
+~
+~
+0 -1 220
+E
+sign~
+To enter please say the Headquarter's passcode.
+~
+S
+#222
+Titan Street~
+Titan Street is a large street merging with Cooper, the street was given
+its name from the war, apparantly a supertank was created by Zantra
+scientists and was first used in defense against a large raid.
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 326
+D1
+~
+~
+0 -1 214
+D3
+~
+~
+0 -1 223
+S
+#223
+Turn In Titan Street~
+A Long Drop Down where you can see Zantra's large wildlife park, the colony
+adopted many forms of plantlife from Ganadia and it is said to be the most
+beautiful park in the galaxy. 
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 222
+D9
+~
+~
+0 -1 224
+S
+#224
+Sharp Turn Of Titan~
+A Long Drop Down where you can see Zantra's large wildlife park, the colony
+adopted many forms of plantlife from Ganadia and it is said to be the most
+beautiful park in the galaxy.  
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 225
+D6
+~
+~
+0 -1 223
+S
+#225
+Titan Street~
+From here the Street continues to run along to cliff giving a great view of
+the large colonys park, shuttle's can be seen transporting civilians to
+the location. The view is peaceful and air is clean.
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 226
+D2
+~
+~
+0 -1 224
+S
+#226
+Titan Street~
+The Street ends here and becomes more unique, to the east is a strange
+building made of wood and paper. Its design is unique from a far east
+culture of Ganadia, to the west is a paved walkway heading to a building
+specificly labled "Zantra Colony Gym"
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 327
+D1
+~
+~
+0 -1 227
+D2
+~
+~
+0 -1 225
+D3
+~
+~
+0 -1 228
+S
+#227
+Business Building~
+Filled with snooty high class workers and people you could consider
+"criminals" this building is flashy, and a chubby man walks around
+ordering everyone around.
+~
+0 1073741828 1 0
+D3
+~
+~
+0 -1 226
+E
+sign~
+~
+E
+remove~
+~
+E
+none~
+~
+E
+sing~
+~
+S
+#228
+Flower Shop~
+Filled with the scent of real flowers, this place is renoun for romantic
+types. Nothing beats a non synthasized flower from old ganadia for a
+lover.
+~
+0 1073741828 1 0
+D1
+~
+~
+0 -1 226
+S
+#229
+Residential Zone 001~
+Building 001 is the oldest and most historical building in Zantra, people
+can still buy and sell homes here and the service is a five star rating.
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 214
+D2
+~
+~
+0 -1 372
+D4
+~
+~
+0 -1 369
+S
+#230
+Cooper Street: Business District~
+The Business District is very dark and dull, production is the most
+important factor here, not appearance.
+~
+0 1073741824 1 0
+D2
+~
+~
+0 -1 212
+D7
+~
+~
+0 -1 231
+S
+#231
+Cooper Street: Business District~
+From here to road leads to several business areas, if your looking to
+design your own equipment or get transportation to a different sector.
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 243
+D1
+~
+~
+0 -1 232
+D3
+~
+~
+0 -1 233
+D8
+~
+~
+0 -1 230
+S
+#232
+Public Assembly Room~
+This assembly room has everything you need to start crafting the equipment
+needed in everyday life. Tools are not supplied however and if you dont
+already have some you may be in trouble 
+~
+0 1140850688 1 0
+D3
+~
+~
+0 -1 231
+S
+#233
+Dark Alleyway~
+The dark alleyway is an unsafe enviroment, all types of scum relax against
+the walls. Hopefully none of them will give anyone any trouble.
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 231
+D3
+~
+~
+0 -1 234
+S
+#234
+Dark Alleyway~
+The dark alleyway is an unsafe enviroment, all types of scum relax against
+the walls. Hopefully none of them will give anyone any trouble.
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 233
+D3
+~
+~
+0 -1 244
+S
+#235
+Zantra Parts && Accessories ~
+This Store is renoun as the only place to get all types of circuitry and
+other elecronic devices not sold elsewhere. Theres also rumors its tied
+into the black market as well.
+~
+0 1073741824 1 0
+D2
+~
+~
+0 -1 216
+S
+#236
+Orion Road~
+Along this Road are residential signs, also the main Zantra Hospital is in
+this direction. 
+~
+0 1073741824 1 0
+D7
+~
+~
+0 -1 208
+D8
+~
+~
+0 -1 237
+S
+#237
+Orion Road~
+Along this Road are residential signs, also the main Zantra Hospital is in
+this direction.  
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 238
+D7
+~
+~
+0 -1 236
+S
+#238
+Orion Road~
+This is the residential district of Zantra many of the orginal buildings
+were destroyed in previous wars, this is the newest development created
+only a year ago. 
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 240
+D2
+~
+~
+0 -1 239
+D3
+~
+~
+0 -1 237
+D6
+~
+~
+0 -1 241
+S
+#239
+Residential Zone 012~
+This is the residential district of Zantra many of the orginal buildings
+were destroyed in previous wars, this is the newest development created
+only a year ago. 
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 238
+D1
+~
+~
+0 -1 282
+D3
+~
+~
+0 -1 283
+D4
+~
+~
+0 -1 279
+S
+#240
+Residential Zone 023~
+This building is very new and fitted with up to date technology, however
+unlike Zone 001 there is no services provided at all. The housing is still
+modest though. 
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 314
+D2
+~
+~
+0 -1 238
+D3
+~
+~
+0 -1 315
+D4
+~
+~
+0 -1 311
+S
+#241
+Orion Road~
+The local hospital can be seen to the north, along the roads green grass
+and plantlife can be seen.
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 242
+D9
+~
+~
+0 -1 238
+S
+#242
+Zantra Hospital~
+Here almost any wound can be treated no matter how serious or close to
+death the patient's condition is. It may take a little time for nurses to
+get to you though.
+~
+0 1073741828 1 8
+D2
+~
+~
+0 -1 241
+> rand_prog 100~
+MPECHOAT $n A Nurse Comes In and Treats your Wounds.
+mprestore $n 200
+if hps($n) >= 990
+mea $n A nurse escorts you out and says "We only have room for the injured!"
+mptransfer $n 241
+mpat $n mpforce $n look
+endif
+~
+> entry_prog 100~
+if hps($n) >= 990
+mea $n A nurse escorts you out and says "We only have room for the injured!"
+mptransfer $n 241
+mpat $n mpforce $n look
+endif
+~
+|
+S
+#243
+Colony Transportation Entrance: Dock IV~
+Zantra Passed a law that non colony ships cannot travel around freely, in
+order to get around you must use the local shuttles funded by a large
+corporation.  The shuttles are clean and a little slow, but theres no
+other way to get around.
+~
+0 1073741824 1 0
+D2
+~
+~
+0 -1 231
+E
+list~
+Zantra Colony Shuttle Destinations
+----------------------------------
+"Zantra Park"
+~
+> speech_prog park~
+mpforce attendant say Have a nice trip.
+mptransfer $n 250
+~
+|
+S
+#244
+Nightclub Entrance: Blue Room~
+The Alleyway ends here and a large door with night lights and a sign named
+Blueroom. The blueroom only accepts people "sexy" enough to promote their
+danceclub.
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 234
+S
+#245
+Nightclub Lobby~
+The Blueroom lobby looks gorgeous, often bigshots come here to relax and
+find high quality entertainment.
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 247
+D1
+~
+~
+0 -1 244
+D7
+~
+~
+0 -1 246
+S
+#246
+Dancefloor~
+The dancefloor is full of sexy men and women, lights surround the area and
+techno is played. The bar can be seen further west.
+~
+0 1073741824 1 0
+D3
+~
+~
+0 -1 249
+D8
+~
+~
+0 -1 245
+> rand_prog 100~
+MPECHOAT $n &z&BSeveral different colored lights move along the dancefloor.
+~
+|
+S
+#247
+VIP Entrance~
+This room is only permitted for special VIP members, youll need a special
+wristband to get further in. 
+~
+0 1073741824 1 0
+D2
+~
+~
+0 -1 245
+S
+#248
+Black Market~
+This room is dark and quiet, a strange man stands behind a desk and a door
+can be seen northeast, but its blocked by a large man.
+~
+0 1073741824 1 0
+D2
+~
+~
+0 -1 247
+S
+#249
+Nightclub Bar~
+The Bar is large with just about any drink you could possibly want. It sits
+near the wall with many seats for relaxing.
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 246
+S
+#250
+Shuttle To Zantra Colony Park~
+This shuttle takes Personnel to the local park, said to be the largest park
+in the galaxy. The shuttle moves slowly over buildings and may take some
+time to arrive at its destination.
+~
+0 1073741828 1 0
+> rand_prog 100~
+mpecho You are hurried off the ship by the attendants.
+mptransfer $n 251
+mpat $n mpforce $n look
+~
+|
+S
+#251
+Colony Transportation Entrance: Dock II~
+This Dock is a large circular concrete structure with room for two to three
+shuttles to land and take off at once. The area is surrounded with
+plantlife reminding people of what ganadia used to look like before the
+great war.
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 253
+D2
+~
+~
+0 -1 254
+D7
+~
+~
+0 -1 252
+E
+list~
+Zantra Colony Shuttle Destinations
+----------------------------------
+"Zantra Main City"
+~
+> speech_prog main~
+MPECHOAT $n you board the ship.
+mptransfer $n 278
+mpat $n mpforce $n look
+~
+|
+S
+#252
+Flowerbed Road~
+This road is filled with all types of flowers imaginable, its a beautiful
+sight to behold, to the southeast is a shuttle landing zone. 
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 255
+D8
+~
+~
+0 -1 251
+S
+#253
+Along A Small Stream~
+Along the Stream Koi fish can be seen in the water, the scent of flowers
+can be smelled from the north, and beautiful roses line along the stream.
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 260
+D3
+~
+~
+0 -1 251
+S
+#254
+Colony Weather Control and Broadcast Building~
+Used to control the colonys weather and broadcast messages everywhere, this
+company allows civilians to use the broadcast station for a price.
+~
+0 1073741824 1 4
+D0
+~
+~
+0 -1 251
+S
+#255
+Flowerbed Road~
+This road is filled with all types of flowers imaginable, its a beautiful
+sight to behold, a young couple makes out nearby. 
+~
+0 1073741824 1 0
+D2
+~
+~
+0 -1 252
+D3
+~
+~
+0 -1 256
+S
+#256
+Flowerbed Road~
+The walkway open up here and connects to a small waterfountain in the
+center connected to a nearby stream, you can faintly hear birds although
+none can be seen.
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 257
+D1
+~
+~
+0 -1 255
+S
+#257
+A Small Waterfountain~
+This small square shaped fountain is surrounded by varous trees and unusual
+plantlife, benches stand around the fountain and something is written in
+the stone below the fountain.
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 259
+D2
+~
+~
+0 -1 256
+D3
+~
+~
+0 -1 258
+S
+#258
+Along A Small Stream~
+Along the Stream Koi fish can be seen in the water, the scent of flowers
+can be smelled from the north, and beautiful roses line along the stream.
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 257
+D3
+~
+~
+0 -1 264
+S
+#259
+View of Zantra Main Sector~
+From here the path ends and a fence stands. Zantra's Main city sector can
+be seen clearly from across the water, its a nice place to watch
+civilization from a distance.
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 366
+D3
+~
+~
+0 -1 257
+S
+#260
+Along A Small Stream~
+Along the Stream Koi fish can be seen in the water, the scent of flowers
+can be smelled from the north, and beautiful roses line along the stream.
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 261
+D3
+~
+~
+0 -1 253
+S
+#261
+Along A Small Stream~
+Along the Stream Koi fish can be seen in the water, the scent of flowers
+can be smelled from the north, and beautiful roses line along the stream.
+~
+0 1073741824 1 0
+D2
+~
+~
+0 -1 260
+D6
+~
+~
+0 -1 262
+S
+#262
+Along A Small Stream~
+Along the Stream Koi fish can be seen in the water, the scent of flowers
+can be smelled from the north, and beautiful roses line along the stream.
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 263
+D1
+~
+~
+0 -1 365
+D9
+~
+~
+0 -1 261
+S
+#263
+Along A Small Stream~
+A small Waterfall sprays mist in this area, also the path north has a
+unique concrete design, to the east is a small arched bridge right before
+the waterfall.
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 265
+D1
+~
+~
+0 -1 264
+D2
+~
+~
+0 -1 262
+S
+#264
+Bridge Over The Stream~
+This wooden bridge was built right in front of the small waterfall, its a
+very short bridge but was probably designed for appearance not out of
+necessity. 
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 258
+D3
+~
+~
+0 -1 263
+S
+#265
+Concrete Walkway~
+This walkway has several arches overhead and further north a new type of
+garden can be seen. Paper Lamps are lighted during the night and to the
+far east you can see a few tall buildings, separated by water. 
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 266
+D2
+~
+~
+0 -1 263
+S
+#266
+Concrete Walkway~
+From here the ground suddenly changes from cold concrete to a very soft
+brown dirt. A warm breeze can be felt running along the path and birds can
+be heard as you go deeper into the Gardens. 
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 267
+D2
+~
+~
+0 -1 265
+S
+#267
+Japanese Radiant Garden~
+The garden is a beautiful elegant dirt path with walking stones along the
+way, many different types of flowers and tree's taken from a far east part
+of Ganadia showing what gardens would look like before the war.
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 270
+D2
+~
+~
+0 -1 266
+D6
+~
+~
+0 -1 268
+D9
+~
+~
+0 -1 269
+S
+#268
+Large Japanese Fountain~
+As you walk into the center first thing noticed is a large fountain sitting
+directly in the middle spraying crystal clear water in the air. All around
+the fountain area are large lotus blossom trees, and to the southwest is
+the Japanese garden. A sign reads "Please Keep Our Park Clean"
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 368
+D9
+~
+~
+0 -1 267
+S
+#269
+Japanese Radiant Garden~
+The garden is a beautiful elegant dirt path with walking stones along the
+way, many different types of flowers and tree's taken from a far east part
+of Ganadia showing what gardens would look like before the war.
+~
+0 1073741824 1 0
+D3
+~
+~
+0 -1 271
+D6
+~
+~
+0 -1 267
+S
+#270
+Public Bathroom~
+This unisex bathroom only has room for one at a time, calm music can be
+heard from the speakers. Its just an ordinary public bathroom. 
+~
+0 1073741824 1 0
+D3
+~
+~
+0 -1 267
+S
+#271
+Japanese Radiant Garden~
+The garden is a beautiful elegant dirt path with walking stones along the
+way, many different types of flowers and tree's taken from a far east part
+of Ganadia showing what gardens would look like before the war.
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 269
+D7
+~
+~
+0 -1 272
+S
+#272
+Japanese Radiant Garden~
+The garden is a beautiful elegant dirt path with walking stones along the
+way, many different types of flowers and tree's taken from a far east part
+of Ganadia showing what gardens would look like before the war.
+~
+0 1073741824 1 0
+D6
+~
+~
+0 -1 273
+D8
+~
+~
+0 -1 271
+S
+#273
+Hot Spring's Entrance~
+This Bamboo Building is surrounded in steam from the hotsprings, a old
+woman dressed in a kimono stands behind a modist desk directing people
+east and west.
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 274
+D3
+~
+~
+0 -1 276
+D9
+~
+~
+0 -1 272
+S
+#274
+Female Locker Room~
+Upon entering the locker room the first thing noticed is a very large sign
+reading "Girls Only" many lockers with pad locks and benches run along the
+path and further east steam can be seen through a cloth doorway, multiple
+girls stand here changing out of their normal clothes.
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 275
+D3
+~
+~
+0 -1 273
+S
+#275
+Female Hot Spring~
+Here a burst of heat hits your face, large stone slabs lay around the large
+circular pool. Multiple girls sit in the pool chatting or enjoying the
+water. 
+~
+0 1073741824 1 0
+D3
+~
+~
+0 -1 274
+S
+#276
+Male Locker Room~
+The Male locker room is large with many lockers with padlocks running along
+the way, further west is a cloth door leading to the hotsprings. The room
+smells a little but is still pretty clean.
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 273
+D3
+~
+~
+0 -1 277
+S
+#277
+Male Hot Spring~
+This hotspring is almost deserted, a few large men relax and others attempt
+to peek over to the female spring. There isnt alot of talking and most
+everyone seems uncomfortable.
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 276
+S
+#278
+Shuttle To Zantra Main City~
+This shuttle takes Personnel to the main part of the colony, The shuttle
+moves slowly over buildings and may take some time to arrive at its
+destination.
+~
+0 1073741828 1 0
+> rand_prog 100~
+MPECHOAT $n You are hurried off the ship by the attendants.
+mptransfer $n 243
+mpat $n mpforce $n look
+~
+|
+S
+#279
+Zone 012 Second Floor~
+~
+0 1073741824 1 0
+D2
+~
+~
+0 -1 284
+D4
+~
+~
+0 -1 280
+D5
+~
+~
+0 -1 239
+S
+#280
+Zone 012 Third Floor~
+~
+0 1073741824 1 0
+D2
+~
+~
+0 -1 294
+D4
+~
+~
+0 -1 281
+D5
+~
+~
+0 -1 279
+S
+#281
+Zone 012 Fourth Floor~
+~
+0 1073741824 1 0
+D2
+~
+~
+0 -1 304
+D5
+~
+~
+0 -1 280
+S
+#282
+Apartment~
+~
+0 1073741824 1 0
+D3
+~
+~
+0 -1 239
+S
+#283
+Apartment~
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 239
+S
+#284
+Second Floor Hallway~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 279
+D1
+~
+~
+0 -1 287
+D2
+~
+~
+0 -1 285
+D3
+~
+~
+0 -1 288
+S
+#285
+Second Floor Hallway~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 284
+D1
+~
+~
+0 -1 289
+D2
+~
+~
+0 -1 286
+D3
+~
+~
+0 -1 290
+S
+#286
+Second Floor Hallway~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 285
+D1
+~
+~
+0 -1 292
+D2
+~
+~
+0 -1 291
+D3
+~
+~
+0 -1 293
+S
+#287
+Apartment~
+~
+0 1073741824 1 0
+D3
+~
+~
+0 -1 284
+S
+#288
+Apartment~
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 284
+S
+#289
+Apartment~
+~
+0 1073741824 1 0
+D3
+~
+~
+0 -1 285
+S
+#290
+Apartment~
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 285
+S
+#291
+Apartment~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 286
+S
+#292
+Apartment~
+~
+0 1073741824 1 0
+D3
+~
+~
+0 -1 286
+S
+#293
+Apartment~
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 286
+S
+#294
+Third Floor Hallway~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 280
+D1
+~
+~
+0 -1 297
+D2
+~
+~
+0 -1 295
+D3
+~
+~
+0 -1 298
+S
+#295
+Third Floor Hallway~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 294
+D1
+~
+~
+0 -1 299
+D2
+~
+~
+0 -1 296
+D3
+~
+~
+0 -1 300
+S
+#296
+Third Floor Hallway~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 295
+D1
+~
+~
+0 -1 302
+D2
+~
+~
+0 -1 301
+D3
+~
+~
+0 -1 303
+S
+#297
+Apartment~
+~
+0 1073741824 1 0
+D3
+~
+~
+0 -1 294
+S
+#298
+Apartment~
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 294
+S
+#299
+Apartment~
+~
+0 1073741824 1 0
+D3
+~
+~
+0 -1 295
+S
+#300
+Apartment~
+~
+0 1073741828 1 0
+D1
+~
+~
+0 -1 295
+S
+#301
+Apartment~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 296
+S
+#302
+Apartment~
+~
+0 1073741824 1 0
+D3
+~
+~
+0 -1 296
+S
+#303
+Apartment~
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 296
+S
+#304
+Fourth Floor Hallway~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 281
+D1
+~
+~
+0 -1 306
+D2
+~
+~
+0 -1 305
+D3
+~
+~
+0 -1 307
+S
+#305
+Fourth Floor Hallway~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 304
+D1
+~
+~
+0 -1 309
+D2
+~
+~
+0 -1 308
+D3
+~
+~
+0 -1 310
+S
+#306
+Apartment~
+~
+0 1073741824 1 0
+D3
+~
+~
+0 -1 304
+S
+#307
+Apartment~
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 304
+S
+#308
+Apartment~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 305
+S
+#309
+Apartment~
+~
+0 1073741824 1 0
+D3
+~
+~
+0 -1 305
+S
+#310
+Apartment~
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 305
+S
+#311
+Zone 023 Second Floor~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 318
+D1
+~
+~
+0 -1 316
+D3
+~
+~
+0 -1 317
+D4
+~
+~
+0 -1 312
+D5
+~
+~
+0 -1 240
+S
+#312
+Zone 023 Third Floor~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 321
+D1
+~
+~
+0 -1 319
+D3
+~
+~
+0 -1 320
+D4
+~
+~
+0 -1 313
+D5
+~
+~
+0 -1 311
+S
+#313
+Zone 023 Fourth Floor~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 324
+D1
+~
+~
+0 -1 322
+D3
+~
+~
+0 -1 323
+D5
+~
+~
+0 -1 312
+S
+#314
+Apartment~
+~
+0 1073741824 1 0
+D3
+~
+~
+0 -1 240
+S
+#315
+Apartment~
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 240
+S
+#316
+Apartment~
+~
+0 1073741824 1 0
+D3
+~
+~
+0 -1 311
+S
+#317
+Apartment~
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 311
+S
+#318
+Apartment~
+~
+0 1073741824 1 0
+D2
+~
+~
+0 -1 311
+S
+#319
+Apartment~
+~
+0 1073741824 1 0
+D3
+~
+~
+0 -1 312
+S
+#320
+Apartment~
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 312
+S
+#321
+Apartment~
+~
+0 1073741824 1 0
+D2
+~
+~
+0 -1 312
+S
+#322
+Apartment~
+~
+0 1073741824 1 0
+D3
+~
+~
+0 -1 313
+S
+#323
+Apartment~
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 313
+S
+#324
+Apartment~
+~
+0 1073741824 1 0
+D2
+~
+~
+0 -1 313
+S
+#325
+Zantra City Bank~
+The bank features up to date security programs and the vault technology is
+amazing, not to mention their main currency is said to be hidden virtually
+protected beyond imagination.
+~
+0 1073742080 1 0
+D0
+~
+~
+0 -1 213
+> rand_prog 80~
+MPECHOAT $n A Banker Leaves for their break.
+~
+|
+S
+#326
+Repair Center~
+At this place almost anything can be repaired, the room is dark and filled
+with parts and monitor screens all along the walls filled with repair and
+billing information. It may cost alot but theyll get the job done.
+~
+0 1073741824 1 0
+D2
+~
+~
+0 -1 222
+S
+#327
+Entrance: "Starships and Upgrades"~
+This building is solely dedicated to the buying and selling of ship parts,
+zantra is well known for its ship scientists so you may find some unique
+parts being sold here.
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 328
+D2
+~
+~
+0 -1 226
+S
+#328
+Inside: "Starships and Upgrades"~
+This is a circular hallway, leading to shops in every direction. From here
+you have the option of what type of ship you wish to upgrade. The walls
+are bright white with many commercial adds along them.
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 331
+D1
+~
+~
+0 -1 329
+D2
+~
+~
+0 -1 327
+D3
+~
+~
+0 -1 330
+S
+#329
+Starfighter: Parts and Assesories~
+This room has blueprints and all info on current upgrades and parts for
+starfighter ships. Not every part can be found in one shop, so browsing
+may be a good idea.
+~
+0 1073741824 1 0
+D3
+~
+~
+0 -1 328
+S
+#330
+Small Transport: Parts and Assesories~
+This section is plain and only has one worker, serveral vechicles such as
+tanks and helecopters can be seen through the glass window. The room may
+not look pretty but they get the job done.
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 328
+S
+#331
+Large Transport: Parts and Assesories~
+Known for its quick service, the Large Transport section has many high
+class workers. Guiding people along the steps, of upgrading your ship.
+~
+0 1073741824 1 0
+D2
+~
+~
+0 -1 328
+S
+#332
+Quickie Mart~
+A small gas station sitting on the side of Orion street, the store is old
+fashioned and upopulated. Nothing much of value can be bought here. 
+~
+0 1073741824 1 0
+D3
+~
+~
+0 -1 209
+S
+#333
+Strip Club: Passion~
+First thing you smell is smoke from the cigaretts and alcohole from all the
+drinks. Dark, sexy music is played from the north and a woman can be seen
+dancing on the floor, several tables and chairs are free and waiters walk
+around serving others.
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 334
+D2
+~
+~
+0 -1 208
+S
+#334
+Strip Club: Passion~
+A dancefloor with a pole in the middle of a circular stage lies in the
+middle, here you can give tips to the strippers. A strict no touching rule
+is labled above everything. 
+~
+0 1073741824 1 0
+D2
+~
+~
+0 -1 333
+D7
+~
+~
+7 213 341
+> speech_prog 'Now leave me alone, I dont want trouble.'~
+mppurge owner
+~
+|
+S
+#335
+Weapon Shop: Guns and Knifes~
+Many weapons are lined along the walls of this shop. The room is filled
+with gun adds sporting sexy women in bikini's. A plain wooden and glass
+counter shows several pistols and knifes, you can get all the basics here.
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 210
+S
+#336
+Public Transport Shuttle CT-336~
+~
+0 1610612740 1 0
+S
+#337
+Public Transport Shuttle CT-337~
+~
+0 1610612740 1 0
+S
+#338
+Public Transport Shuttle CT-338~
+~
+0 1610612740 1 0
+S
+#339
+Public Transport Shuttle CT-339~
+~
+0 1610612740 1 0
+S
+#340
+Public Transport Shuttle CT-340~
+~
+0 1610612740 1 0
+S
+#341
+The Backroom~
+This room is reserved for the strippers to get changed into their various
+outfits. Mirrors line the area and makeup all around the table. No one
+else seems to be around.
+~
+0 1073741824 1 0
+D8
+~
+~
+39 -1 334
+S
+#342
+Military Starfighter TX-342 Cockpit~
+~
+0 1610612740 1 0
+S
+#343
+Small Transport Shuttle MT-343 Loading Bay~
+~
+0 1610612736 1 0
+D0
+~
+~
+0 -1 344
+S
+#344
+Small Transport Shuttle MT-343 Cockpit~
+~
+0 1610612736 1 0
+D2
+~
+~
+0 -1 343
+S
+#345
+Large Transport Midship VM-345 Cockpit~
+~
+0 1610612736 1 0
+D1
+~
+~
+0 -1 346
+S
+#346
+Large Transport Midship VM-345 Lounge~
+~
+0 1610612736 1 0
+D1
+~
+~
+0 -1 347
+D3
+~
+~
+0 -1 345
+D4
+~
+~
+0 -1 348
+D9
+~
+~
+0 -1 349
+S
+#347
+Large Transport Midship VM-345 Ship Bay~
+~
+0 1610612736 1 0
+D3
+~
+~
+0 -1 346
+S
+#348
+Large Transport Midship VM-345 Gunner Room~
+~
+0 1610612736 1 0
+D5
+~
+~
+0 -1 346
+S
+#349
+Large Transport Midship VM-345 Engine Room~
+~
+0 1073741824 1 0
+D6
+~
+~
+0 -1 346
+S
+#350
+Odin Class Capital Ship VRT-350 Pilot Stations~
+~
+0 1610612740 1 0
+D0
+~
+~
+0 -1 351
+S
+#351
+Odin Class Capital Ship VRT-350 Bridge~
+~
+0 1610612736 1 0
+D0
+~
+~
+0 -1 354
+D1
+~
+~
+0 -1 352
+D2
+~
+~
+0 -1 350
+D9
+~
+~
+0 -1 353
+S
+#352
+Odin Class Capital Ship VRT-350 Navigation Room~
+~
+0 1610612736 1 0
+D3
+~
+~
+0 -1 351
+S
+#353
+Odin Class Capital Ship VRT-350 Targeting Room~
+~
+0 1610612736 1 0
+D6
+~
+~
+0 -1 351
+S
+#354
+Odin Class Capital Ship VRT-350 Brige Elevator~
+~
+0 1610612736 1 0
+D2
+~
+~
+0 -1 351
+D5
+~
+~
+0 -1 355
+S
+#355
+Odin Class Capital Ship VRT-350 Bay Elevator~
+~
+0 1610612736 1 0
+D0
+~
+~
+0 -1 356
+D4
+~
+~
+0 -1 354
+D9
+~
+~
+0 -1 358
+S
+#356
+Odin Class Capital Ship VRT-350 Spare Room~
+~
+0 1610612736 1 0
+D0
+~
+~
+0 -1 357
+D2
+~
+~
+0 -1 355
+S
+#357
+Odin Class Capital Ship VRT-350 Ship Bay~
+~
+0 1073741824 1 0
+D2
+~
+~
+0 -1 356
+S
+#358
+Odin Class Capital Ship VRT-350 Engine Room~
+~
+0 1073741824 1 0
+D6
+~
+~
+0 -1 355
+S
+#359
+Clan Headquarters Entrance~
+~
+0 1073741824 1 0
+D5
+~
+~
+0 -1 221
+D6
+~
+~
+0 -1 360
+S
+#360
+Main Hallway~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 361
+D9
+~
+~
+0 -1 359
+S
+#361
+Main Hallway~
+~
+0 1073741824 1 0
+D2
+~
+~
+0 -1 360
+D3
+~
+~
+0 -1 362
+D6
+~
+~
+0 -1 363
+S
+#362
+Corridor~
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 361
+D9
+~
+~
+0 -1 364
+S
+#363
+Main Hallway~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 397
+D9
+~
+~
+0 -1 361
+S
+#364
+Clan Vehicle Hangar~
+~
+0 1073741824 1 0
+D6
+~
+~
+0 -1 362
+S
+#365
+Zantra Library~
+Filled with records of the old even normal paperback books, this large
+library hold alot of what is considered relics of ganadia. You can see
+several "books" on the shelfs, maybe you should look closer to see what
+there is.
+~
+0 1073741824 1 2
+D3
+~
+~
+0 -1 262
+S
+#366
+Chino's Mexicana Resturant~
+A mexican resturant surveying over the water separating the main city and
+the park, here you can buy anything from burrito's to chips and salsa.
+~
+0 1073741824 1 0
+D2
+~
+~
+0 -1 259
+S
+#367
+Italian Cottage~
+This Italian resturant is connected to the zantra spaceport and is quite
+popular. The tables are crowded and waiters walk around all over, most
+people are getting food to go.
+~
+0 1073741824 1 0
+D3
+~
+~
+0 -1 202
+S
+#368
+Uncle Chong's~
+Uncle Chong's is a chineese resturant mimicing the way food was served long
+ago.  The walls are wooden and paper and servants are dressed in kimono's.
+~
+0 1073741824 1 0
+D2
+~
+~
+0 -1 268
+S
+#369
+Zone 001 First Floor~
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 376
+D2
+~
+~
+0 -1 382
+D3
+~
+~
+0 -1 374
+D4
+~
+~
+0 -1 370
+D5
+~
+~
+0 -1 229
+S
+#370
+Zone 001 Second Floor~
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 380
+D2
+~
+~
+0 -1 384
+D3
+~
+~
+0 -1 378
+D4
+~
+~
+0 -1 371
+D5
+~
+~
+0 -1 369
+S
+#371
+Zone 001 Third Floor~
+~
+0 1073741824 1 0
+D3
+~
+~
+0 -1 386
+D5
+~
+~
+0 -1 370
+S
+#372
+High Class Apartment Entrance~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 229
+D1
+~
+~
+0 -1 373
+S
+#373
+High Class Apartment Bedroom~
+~
+0 1073741824 1 0
+D3
+~
+~
+0 -1 372
+S
+#374
+High Class Apartment Entrance~
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 369
+D2
+~
+~
+0 -1 375
+S
+#375
+High Class Apartment Bedroom~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 374
+S
+#376
+High Class Apartment Entrance~
+~
+0 1073741824 1 0
+D2
+~
+~
+0 -1 377
+D3
+~
+~
+0 -1 369
+S
+#377
+High Class Apartment Bedroom~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 376
+S
+#378
+High Class Apartment Entrance~
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 370
+D2
+~
+~
+0 -1 379
+S
+#379
+High Class Apartment Bedroom~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 378
+S
+#380
+High Class Apartment Entrance~
+~
+0 1073741824 1 0
+D2
+~
+~
+0 -1 381
+D3
+~
+~
+0 -1 370
+S
+#381
+High Class Apartment Bedroom~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 380
+S
+#382
+High Class Apartment Entrance~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 369
+D2
+~
+~
+0 -1 383
+S
+#383
+High Class Apartment Bedroom~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 382
+S
+#384
+High Class Apartment Entrance~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 370
+D2
+~
+~
+0 -1 385
+S
+#385
+High Class Apartment Bedroom~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 384
+S
+#386
+Hallway~
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 371
+D3
+~
+~
+0 -1 387
+S
+#387
+Hallway~
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 386
+D2
+~
+~
+0 -1 388
+D3
+~
+~
+0 -1 392
+S
+#388
+High Class Apartment Grand Entrance~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 387
+D2
+~
+~
+0 -1 389
+S
+#389
+High Class Apartment Living Room~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 388
+D3
+~
+~
+0 -1 390
+D9
+~
+~
+0 -1 391
+S
+#390
+High Class Apartment Bedroom~
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 389
+S
+#391
+High Class Apartment Shower~
+~
+0 1073741824 1 0
+D6
+~
+~
+0 -1 389
+S
+#392
+High Class Apartment Grand Entrance~
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 387
+D3
+~
+~
+0 -1 393
+S
+#393
+High Class Apartment Living Room~
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 392
+D2
+~
+~
+0 -1 394
+S
+#394
+High Class Apartment Bedroom~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 393
+D3
+~
+~
+0 -1 395
+S
+#395
+High Class Apartment Shower~
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 394
+S
+#396
+Floating in a void~
+~
+0 1073741828 1 0
+S
+#397
+Large Clan Halls~
+~
+0 1073741824 1 1
+D1
+~
+~
+0 -1 398
+D2
+~
+~
+0 -1 363
+D3
+~
+~
+0 -1 399
+S
+#398
+Barracks~
+~
+0 1073741824 1 2
+D3
+~
+~
+0 -1 397
+S
+#399
+Lobby~
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 397
+S
+#0
+
+
+#RESETS
+M 0 201 5 240
+M 0 202 5 239
+M 0 203 5 229
+M 0 200 1 243
+M 0 204 1 244
+M 0 201 3 211
+M 0 202 3 211
+M 0 202 2 224
+M 0 205 1 218
+M 0 207 2 202
+M 0 201 1 216
+M 0 201 1 203
+M 0 202 1 207
+M 0 201 1 210
+M 0 210 1 326
+M 0 211 1 249
+M 1 208 1 201
+M 1 206 1 235
+G 1 200 1
+M 1 212 1 332
+G 1 427 1
+G 1 10424 1
+M 0 200 1 251
+M 1 214 1 335
+G 1 202 1
+G 1 203 1
+G 1 206 1
+G 1 204 1
+G 1 205 1
+M 1 215 1 368
+G 1 208 1
+G 1 209 1
+G 1 210 1
+M 1 216 1 227
+M 1 213 1 341
+E 1 214 1 3
+M 1 218 1 334
+G 1 213 1
+M 1 219 1 334
+D 0 334 7 2
+M 1 217 1 228
+M 1 220 1 273
+M 1 207 2 257
+M 1 221 1 247
+S
+
+
+#SHOPS
+ 206    5  0  0  0  0   100  20         0 23    ; Zantra Shopkeeper
+ 212    0  0  0  0  0   120  90         0 23    ; Shop Keeper Bill
+ 214    0  0  0  0  0   120  90         0 23    ; The Weapon Shopkeeper
+ 215    0  0  0  0  0   120  90         0 23    ; Uncle Chong
+0
+
+
+#REPAIRS
+ 210    5  9  6         100   1         0 23    ; A Repair Engineer
+0
+
+
+#SPECIALS
+M  207 spec_thief
+S
+
+
+#$

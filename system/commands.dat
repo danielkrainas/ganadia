@@ -323,6 +323,15 @@ Ooc	 0
 End
 
 #COMMAND
+Name        addweapon~
+Code        do_addweapon
+Position    0
+Level       110
+Log         1
+Ooc	 0
+End
+
+#COMMAND
 Name        bomb~
 Code        do_bomb
 Position    5
@@ -675,7 +684,7 @@ End
 
 #COMMAND
 Name        clans~
-Code        do_newclans
+Code        do_clans
 Position    0
 Level       0
 Log         0
@@ -803,7 +812,7 @@ End
 Name        copyover~
 Code        do_copyover
 Position    0
-Level       112
+Level       115
 Log         0
 Ooc	 0
 End
@@ -827,10 +836,10 @@ Ooc	 0
 End
 
 #COMMAND
-Name        capture2~
-Code        do_capture
+Name        cloak~
+Code        do_stealth
 Position    0
-Level       115
+Level       2
 Log         0
 Ooc	 0
 End
@@ -1097,11 +1106,11 @@ Ooc	 0
 End
 
 #COMMAND
-Name        endurance~
-Code        do_newendurance
+Name        ein~
+Code        do_ein
 Position    0
-Level       0
-Log         0
+Level       115
+Log         1
 Ooc	 0
 End
 
@@ -1236,6 +1245,15 @@ Name        firstweapon~
 Code        do_firstweapon
 Position    0
 Level       1
+Log         0
+Ooc	 0
+End
+
+#COMMAND
+Name        fire~
+Code        do_fire2
+Position    0
+Level       2
 Log         0
 Ooc	 0
 End
@@ -2402,6 +2420,33 @@ Ooc	 0
 End
 
 #COMMAND
+Name        money~
+Code        do_gold
+Position    0
+Level       1
+Log         0
+Ooc	 0
+End
+
+#COMMAND
+Name        mprepairship~
+Code        reserved
+Position    0
+Level       115
+Log         0
+Ooc	 0
+End
+
+#COMMAND
+Name        mpreloadship~
+Code        reserved
+Position    0
+Level       115
+Log         0
+Ooc	 0
+End
+
+#COMMAND
 Name        north~
 Code        do_north
 Position    8
@@ -2439,7 +2484,7 @@ End
 
 #COMMAND
 Name        note~
-Code        do_noteroom
+Code        do_global_note
 Position    5
 Level       0
 Log         0
@@ -2771,15 +2816,6 @@ Ooc	 0
 End
 
 #COMMAND
-Name        ownertalk~
-Code        reserved
-Position    0
-Level       114
-Log         0
-Ooc	 0
-End
-
-#COMMAND
 Name        ooc~
 Code        do_ooc
 Position    0
@@ -2901,15 +2937,6 @@ Name        pull~
 Code        do_pull
 Position    5
 Level       0
-Log         0
-Ooc	 0
-End
-
-#COMMAND
-Name        purge~
-Code        do_purge
-Position    0
-Level       101
 Log         0
 Ooc	 0
 End
@@ -3428,11 +3455,11 @@ Ooc	 0
 End
 
 #COMMAND
-Name        research~
-Code        do_newresearch
+Name        remweapon~
+Code        do_remweapon
 Position    0
-Level       0
-Log         0
+Level       110
+Log         1
 Ooc	 0
 End
 
@@ -3559,15 +3586,6 @@ Code        do_sedit
 Position    0
 Level       103
 Log         1
-Ooc	 0
-End
-
-#COMMAND
-Name        setblaster~
-Code        reserved
-Position    5
-Level       115
-Log         0
 Ooc	 0
 End
 
@@ -3824,15 +3842,6 @@ Ooc	 0
 End
 
 #COMMAND
-Name        speak~
-Code        reserved
-Position    5
-Level       115
-Log         0
-Ooc	 0
-End
-
-#COMMAND
 Name        speed~
 Code        do_accelerate
 Position    5
@@ -3936,15 +3945,6 @@ Name        speeders~
 Code        reserved
 Position    0
 Level       1
-Log         0
-Ooc	 0
-End
-
-#COMMAND
-Name        senate~
-Code        do_senate
-Position    0
-Level       105
 Log         0
 Ooc	 0
 End
@@ -4058,24 +4058,6 @@ Ooc	 0
 End
 
 #COMMAND
-Name        study~
-Code        do_newstudy
-Position    0
-Level       0
-Log         0
-Ooc	 0
-End
-
-#COMMAND
-Name        socialize~
-Code        do_newsocialize
-Position    0
-Level       0
-Log         0
-Ooc	 0
-End
-
-#COMMAND
 Name        semote~
 Code        do_semote
 Position    5
@@ -4094,28 +4076,10 @@ Ooc	 0
 End
 
 #COMMAND
-Name        stret~
-Code        do_newstretch
-Position    0
-Level       0
-Log         0
-Ooc	 0
-End
-
-#COMMAND
 Name        surrender~
 Code        do_surrender
 Position    8
 Level       0
-Log         0
-Ooc	 0
-End
-
-#COMMAND
-Name        shadowbox~
-Code        do_shadowbox
-Position    0
-Level       1
 Log         0
 Ooc	 0
 End
@@ -4135,6 +4099,42 @@ Code        do_setclantalk
 Position    0
 Level       0
 Log         0
+Ooc	 0
+End
+
+#COMMAND
+Name        swlist~
+Code        do_swlist
+Position    0
+Level       110
+Log         0
+Ooc	 0
+End
+
+#COMMAND
+Name        swcreate~
+Code        do_swcreate
+Position    0
+Level       110
+Log         1
+Ooc	 0
+End
+
+#COMMAND
+Name        swstat~
+Code        do_swstat
+Position    0
+Level       110
+Log         0
+Ooc	 0
+End
+
+#COMMAND
+Name        swset~
+Code        do_swset
+Position    0
+Level       110
+Log         1
 Ooc	 0
 End
 
@@ -4196,15 +4196,6 @@ End
 Name        title~
 Code        do_title
 Position    0
-Level       0
-Log         0
-Ooc	 0
-End
-
-#COMMAND
-Name        tractorbaem~
-Code        reserved
-Position    5
 Level       0
 Log         0
 Ooc	 0
@@ -4539,15 +4530,6 @@ Name        whisper~
 Code        do_whisper
 Position    0
 Level       0
-Log         0
-Ooc	 0
-End
-
-#COMMAND
-Name        wulongs~
-Code        do_gold
-Position    0
-Level       1
 Log         0
 Ooc	 0
 End

@@ -1,0 +1,67 @@
+Sender  Nikon~
+Date    Fri Feb  3 15:47:57 2006~
+Stamp   1139003303
+Expire  1140817686
+To      all~
+Subject test gnote~
+Text
+testicles testicles 1...2....3
+~
+
+Sender  Scape~
+Date    Sun Feb  5 01:41:07 2006~
+Stamp   1139125342
+Expire  1139989279
+To      all~
+Subject coliseum~
+Text
+Ok i added in the coliseum with 3 starter mobs for noobs to fight.
+goto 3546 and check it out
+and the hospital works too... from coliseum its n w s
+Scape
+~
+
+Sender  Nikon~
+Date    Sun Feb  5 09:49:58 2006~
+Stamp   1139154650
+Expire  1140969007
+To      all~
+Subject Heh, very funny~
+Text
+Whoever coded in the little im gay crap.... nice gag, 
+actually it was funny. Well fun to do and thank god
+for 'grep' so i can find shit like that easily. Later
+~
+
+Sender  Jamie~
+Date    Mon Feb  6 11:46:57 2006~
+Stamp   1139248097
+Expire  1620064045
+To      all Re: Heh, very funny~
+Subject all Re: Heh, very funny~
+Text
+Hehe, thanks for the compliment... 
+was only payback for puttin my ip in ban in comm.c
+~
+
+Sender  Danube~
+Date    Fri Feb 10 15:11:59 2006~
+Stamp   1139606016
+Expire  1226005928
+To      all~
+Subject Ship weapons~
+Text
+I found some bugs on ship weapons that need fixed bigtime.
+ 
+First when you add a weapon it does add to slots and
+payload but when you remweapon the slots and payload stays
+the same.
+Also there no way to replenish weapon ammo at all, maybe
+a "reload" command would be cool.
+ 
+Thats all of the bugs i can think of so far, but there could
+be more, range is working great btw.
+ 
+Danube
+~
+

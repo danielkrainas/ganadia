@@ -29,6 +29,9 @@
 SHIP_DATA * first_ship;
 SHIP_DATA * last_ship;
 
+SHIP_WEAPON_DATA * first_ship_weapon;
+SHIP_WEAPON_DATA * last_ship_weapon;
+
 MISSILE_DATA * first_missile;
 MISSILE_DATA * last_missile;
 
@@ -45,6 +48,16 @@ int corus_shuttle =0;
 #define MAX_BUS_STOP 10
 
 #define STOP_PLANET     202
+
+char * const ship_weapon_type [MAX_SW_TYPES] =
+{
+    "Energy" , "Solid Ammo" , "Unknown"
+};
+
+char * const ship_hull_type [MAX_HULL_TYPES] =
+{
+	"Unknown" , "Steel" , "Astro Steel"
+};
 
 int     const   station_vnum [MAX_STATION] =
 {
@@ -72,6 +85,8 @@ char *  const   bus_stop [MAX_BUS_STOP+1] =
 };
 
 /* local routines */
+void	equip_ship_weapon	args( ( SHIP_WEAPON_DATA *proto, SHIP_DATA *ship ) );
+void	fread_ship_weapon	args( ( SHIP_WEAPON_DATA *obj, FILE *fp ) );
 void	fread_ship	args( ( SHIP_DATA *ship, FILE *fp ) );
 bool	load_ship_file	args( ( char *shipfile ) );
 void	write_ship_list	args( ( void ) );
@@ -260,6 +275,36 @@ void update_bus( )
     if ( bus2_planet >= MAX_BUS_STOP )
        bus2_planet = 0;
 
+}
+
+
+SHIP_WEAPON_DATA *sw_dup(SHIP_WEAPON_DATA *orig,SHIP_WEAPON_DATA *copy)
+{
+	if(!orig)
+		return NULL;
+	CREATE(copy,SHIP_WEAPON_DATA,1);
+	copy->name=STRALLOC(orig->name);
+	copy->desc=STRALLOC(orig->desc);
+//	copy->action=STRALLOC(orig->action);
+	copy->act_self=STRALLOC(orig->act_self);
+	copy->act_target=STRALLOC(orig->act_target);
+	copy->act_all=STRALLOC(orig->act_all);
+	copy->vnum=orig->vnum;
+	copy->type=orig->type;
+	copy->ammo=orig->ammo;
+	copy->maxammo=orig->maxammo;
+	copy->burst=orig->burst;
+	copy->maxdamage=orig->maxdamage;
+	copy->mindamage=orig->mindamage;
+	copy->heat=orig->heat;
+	copy->maxheat=orig->maxheat;
+	copy->drain=orig->drain;
+	copy->cooling=orig->cooling;
+	copy->spread=orig->spread;
+	copy->req_slots=orig->req_slots;
+	copy->req_weight=orig->req_weight;
+	copy->range=orig->range;
+	return copy;
 }
 
 void move_ships( )
@@ -524,6 +569,7 @@ void update_space( )
 {
    SHIP_DATA *ship;
    SHIP_DATA *target;
+   SHIP_WEAPON_DATA *weapon;
    char buf[MAX_STRING_LENGTH];
    int too_close, target_too_close;
    int recharge;
@@ -709,6 +755,11 @@ void update_space( )
         }
 
         ship->energy = URANGE( 0 , ship->energy, ship->maxenergy );
+	   /*if (ship->power < ship->maxpower && ship->starsystem )
+	   {
+			echo_to_cockpit( AT_RED , ship, "Warning: Low power.");
+	   }*/
+	   ship->power=URANGE(0,ship->power,ship->maxpower);
    }
 
    for ( ship = first_ship; ship; ship = ship->next )
@@ -1655,7 +1706,7 @@ void do_renameship( CHAR_DATA *ch, char *argument )
 
     if( ch->gold < 50000 )
     {
-        send_to_char( "&RYou do not have enough wulongs for this request.\n\r", ch);
+        send_to_char( "&RYou do not have enough dollars for this request.\n\r", ch);
         return;
     }
 
@@ -2359,7 +2410,8 @@ void echo_to_system( int color , SHIP_DATA *ship , char *argument , SHIP_DATA *i
 
     if (!ship->starsystem)
     	return;
-
+    if(ship==ignore&&ship->hull_type==2&&ship->stealth)
+	return;
     for ( target = ship->starsystem->first_ship; target; target = target->next_in_starsystem )
     {
     	if (target != ship && target != ignore )
@@ -2494,6 +2546,22 @@ SHIP_DATA * ship_in_room( ROOM_INDEX_DATA *room, char *name )
         	return ship;
 
     return NULL;
+}
+
+
+/*
+ * Get pointer to ship weapon structure from weapon vnum - Locke
+ */
+SHIP_WEAPON_DATA *get_ship_weapon( int vnum )
+{
+	SHIP_WEAPON_DATA *w=first_ship_weapon;
+	while(w)
+	{
+		if(w->vnum==vnum)
+			return w;
+		w=w->next;
+	}
+	return NULL;
 }
 
 /*
@@ -2663,12 +2731,59 @@ SHIP_DATA *ship_from_hangar( int vnum )
     return NULL;
 }
 
+/*
+ *  Save all the ship objects and weapons
+ */
+void save_ship_objs( void )
+{
+	FILE *fp;
+	char filename[256];
+	SHIP_WEAPON_DATA *weapon;
+	//SHIP_OBJ_DATA *obj;
+
+	sprintf(filename,"%s%s",SYSTEM_DIR,SHIP_OBJ_LIST);
+	if((fp=fopen(filename,"w"))==NULL)
+	{
+		bug("save_ship_objs: fopen",0);
+		perror(filename);
+		return;
+	}
+	weapon=first_ship_weapon;
+	while(weapon)
+	{
+		fprintf(fp,"#weapon\n");
+		fprintf(fp,"name		%s~\n",weapon->name);
+		fprintf(fp,"vnum		%d\n",weapon->vnum);
+		fprintf(fp,"desc		%s~\n",weapon->desc);
+		//fprintf(fp,"action		%s~\n",weapon->action);
+		fprintf(fp,"type		%d\n",weapon->type);
+		fprintf(fp,"maxammo		%d\n",weapon->maxammo);
+		fprintf(fp,"burst		%d\n",weapon->burst);
+		fprintf(fp,"maxdamage	%d\n",weapon->maxdamage);
+		fprintf(fp,"mindamage	%d\n",weapon->mindamage);
+		fprintf(fp,"maxheat		%d\n",weapon->maxheat);
+		fprintf(fp,"drain		%d\n",weapon->drain);
+		fprintf(fp,"cooling		%d\n",weapon->cooling);
+		fprintf(fp,"spread		%d\n",weapon->spread);
+		fprintf(fp,"req_slots	%d\n",weapon->req_slots);
+		fprintf(fp,"req_weight	%d\n",weapon->req_weight);
+		fprintf(fp,"act_all		%s~\n",weapon->act_all);
+		fprintf(fp,"act_self	%s~\n",weapon->act_self);
+		fprintf(fp,"act_target	%s~\n",weapon->act_target);
+		fprintf(fp,"range		%d\n",weapon->range);
+		fprintf(fp,"$\n\n");
+		weapon=weapon->next;
+	}
+	fprintf(fp,"$");
+	fclose(fp);
+}
 
 void save_ship( SHIP_DATA *ship )
 {
     FILE *fp;
     char filename[256];
     char buf[MAX_STRING_LENGTH];
+    SHIP_WEAPON_DATA *weapon;
 
     if ( !ship )
     {
@@ -2724,8 +2839,8 @@ void save_ship( SHIP_DATA *ship )
 		fprintf( fp, "Hull         %d\n",	ship->hull		);
 		fprintf( fp, "Maxhull      %d\n",	ship->maxhull		);
 		fprintf( fp, "Maxenergy    %d\n",	ship->maxenergy		);
-        fprintf( fp, "Maxammo      %d\n",       ship->maxammo 		);
-        fprintf( fp, "Ammo         %d\n",       ship->ammo              );
+        //fprintf( fp, "Maxammo      %d\n",       ship->maxammo 		);
+        //fprintf( fp, "Ammo         %d\n",       ship->ammo              );
         fprintf( fp, "Hyperspeed   %d\n",	 ship->hyperspeed	);
 		fprintf( fp, "Comm         %d\n",	ship->comm		);
 		fprintf( fp, "Chaff        %d\n",	ship->chaff		);
@@ -2743,9 +2858,9 @@ void save_ship( SHIP_DATA *ship )
 		fprintf( fp, "Entrance     %d\n",       ship->entrance          );
 		fprintf( fp, "Shipstate    %d\n",	ship->shipstate		);
 		fprintf( fp, "Missilestate %d\n",	ship->missilestate	);
-        fprintf( fp, "Firstweapon  %d\n",       ship->firstweapon 	);
-        fprintf( fp, "Secondweapon %d\n",       ship->secondweapon 	);
-        fprintf( fp, "Thirdweapon  %d\n",       ship->thirdweapon       );
+        //fprintf( fp, "Firstweapon  %d\n",       ship->firstweapon 	);
+        //fprintf( fp, "Secondweapon %d\n",       ship->secondweapon 	);
+        //fprintf( fp, "Thirdweapon  %d\n",       ship->thirdweapon       );
 		fprintf( fp, "Energy       %d\n",	ship->energy		);
 		fprintf( fp, "Manuever     %d\n",       ship->manuever          );
 		fprintf( fp, "Home         %s~\n",      ship->home              );
@@ -2767,6 +2882,16 @@ void save_ship( SHIP_DATA *ship )
 			fprintf( fp, "Location		%d\n",	ship->location);	
 		} 
 	*/
+		fprintf( fp, "Hulltype  %d\n", ship->hull_type );
+		fprintf( fp, "Slots     %d\n",	ship->maxslots		);
+		fprintf( fp, "Payload    %d\n", 	ship->maxweight		);
+		fprintf( fp, "Power     %d\n",	ship->maxpower		);
+		weapon=ship->first_weapon;
+		while(weapon)
+		{
+			fprintf( fp, "Weapon	   %d\n",	weapon->vnum		);
+			weapon=weapon->next_in_ship;
+		}
 		fprintf( fp, "End\n\n"						);
 		fprintf( fp, "#END\n"						);
     }
@@ -2792,14 +2917,78 @@ void save_ship( SHIP_DATA *ship )
 				    break;				\
 				}
 
+void fread_ship_weapon( SHIP_WEAPON_DATA *weapon, FILE *fp )
+{
+   if(!weapon)
+	return;
+   char buf[MAX_STRING_LENGTH];
+   char *word;
+   bool fMatch;
+   int dummy_number;
+   for ( ; ; )
+   {
+	word = feof( fp ) ? "$" : fread_word( fp );
+        
+	switch( UPPER(word[0]) )
+	{
+	   case '$':
+		weapon->heat=0;
+		if(weapon->maxammo>=0)
+			weapon->ammo=weapon->maxammo;
+		else
+			weapon->ammo=weapon->maxammo=0;
+		if(!weapon->name)
+			weapon->name=STRALLOC("Unknown");
+		if(!weapon->desc)
+			weapon->desc=STRALLOC("");
+		if(!weapon->act_self)
+			weapon->act_self=STRALLOC("");
+		if(!weapon->act_all)
+			weapon->act_all=STRALLOC("");
+		if(!weapon->act_target)
+			weapon->act_target=STRALLOC("");
+		return;
+	   case 'A':
+		//KEY( "action", 	weapon->action,	fread_string( fp ) );
+		KEY( "act_all", weapon->act_all, fread_string( fp ) );
+		KEY( "act_self", weapon->act_self, fread_string( fp ) );
+		KEY( "act_target", weapon->act_target, fread_string( fp ) );
+	   case 'B':
+		KEY( "burst",	weapon->burst,	fread_number( fp ) );
+	   case 'C':
+		KEY( "cooling",	weapon->cooling,	fread_number( fp ) );
+	   case 'D':
+		KEY( "desc",	weapon->desc,	fread_string( fp ) );
+		KEY( "drain",	weapon->drain,	fread_number( fp ) );
+	   case 'M':
+		KEY( "maxammo", weapon->maxammo,	fread_number( fp ) );
+		KEY( "maxdamage",	weapon->maxdamage,	fread_number( fp ) );
+		KEY( "mindamage",	weapon->mindamage,	fread_number( fp ) );
+		KEY( "maxheat", weapon->maxheat,	fread_number( fp ) );
+	   case 'N':
+		KEY( "name",	weapon->name,	fread_string( fp ) );
+	   case 'R':
+		KEY( "req_slots",weapon->req_slots, fread_number( fp ) );
+		KEY( "req_weight",weapon->req_weight, fread_number( fp ) );
+		KEY( "range", weapon->range, fread_number( fp ) );
+	   case 'S':
+		KEY( "spread",  weapon->spread,	fread_number( fp ) );
+	   case 'T':
+		KEY( "type",	weapon->type,	fread_number( fp ) );
+	   case 'V':
+		KEY( "vnum",	weapon->vnum,	fread_number( fp ) );
+	};
+   }
+}
 void fread_ship( SHIP_DATA *ship, FILE *fp )
 {
     char buf[MAX_STRING_LENGTH];
     char *word;
     bool fMatch;
     int dummy_number;
-
-
+    SHIP_WEAPON_DATA *weapon;
+    ship->first_weapon=NULL;
+    ship->last_weapon=NULL;
     for ( ; ; )
     {
 	word   = feof( fp ) ? "End" : fread_word( fp );
@@ -2884,6 +3073,7 @@ void fread_ship( SHIP_DATA *ship, FILE *fp )
 		ship->ammo = ship->maxammo;
 		ship->energy = ship->maxenergy;
 		ship->hull = ship->maxhull;
+		ship->power=ship->maxpower;
 		ship->in_room=NULL;
                 ship->next_in_room=NULL;
                 ship->prev_in_room=NULL;
@@ -2913,6 +3103,7 @@ void fread_ship( SHIP_DATA *ship, FILE *fp )
         KEY( "Hyperspeed",   ship->hyperspeed,      fread_number( fp ) );
         KEY( "Hull",      ship->hull,        fread_number( fp ) );
         KEY( "Hangar",  ship->hangar,      fread_number( fp ) );
+		KEY( "Hulltype", ship->hull_type,	fread_number( fp ) );
         break;
 
     case 'L':
@@ -2951,6 +3142,8 @@ void fread_ship( SHIP_DATA *ship, FILE *fp )
    	case 'P':
         KEY( "Pilot",            ship->pilot,            fread_string( fp ) );
         KEY( "Pilotseat",     ship->pilotseat,          fread_number( fp ) );
+		KEY( "Power",		ship->maxpower,		fread_number( fp ) );
+		KEY( "Payload",	ship->maxweight,		fread_number( fp ) );
         break;
 
    	case 'R':
@@ -2967,13 +3160,14 @@ void fread_ship( SHIP_DATA *ship, FILE *fp )
         KEY( "Statet0",   ship->statet0,        fread_number( fp ) );
         KEY( "Statet1",   ship->statet1,        fread_number( fp ) );
         KEY( "Statet2",   ship->statet2,        fread_number( fp ) );
+		KEY( "Slots",	ship->maxslots,		fread_number( fp ) );
 	/*
             if ( !str_cmp( word, "System" ) )
             {
                 ship->starsystem = starsystem_from_name ( fread_string(fp) );
                 fMatch = TRUE;
             }
-           
+
         break;
 	*/
 
@@ -2985,6 +3179,18 @@ void fread_ship( SHIP_DATA *ship, FILE *fp )
 	    KEY( "Turret2",	ship->turret2,	fread_number( fp ) );
 	    KEY( "Torpedos",	ship->torpedos,	fread_number( fp ) );
 	    break;
+	case 'W':
+	    if(!str_cmp(word,"Weapon"))
+	    {
+		dummy_number=fread_number(fp);
+		weapon=get_ship_weapon(dummy_number);
+		if(weapon)
+		{
+			equip_ship_weapon(weapon,ship);
+		}
+		weapon=NULL;
+		break;
+            }
 
 	/*
 	case 'W':
@@ -3001,6 +3207,41 @@ void fread_ship( SHIP_DATA *ship, FILE *fp )
 	{
 	    sprintf( buf, "Fread_ship: no match: %s", word );
 	    bug( buf, 0 );
+	}
+    }
+}
+
+/*
+ * Load in all the ship objs - Locke
+ */
+void load_ship_objs( void )
+{
+    first_ship_weapon=NULL;
+    last_ship_weapon=NULL;
+    char buf[MAX_STRING_LENGTH];
+    char filename[256];
+    char *word;
+    FILE *fp;
+    SHIP_WEAPON_DATA *weapon;
+//    SHIP_OBJ_DATA obj;    
+
+    sprintf( filename, "%s%s",SYSTEM_DIR,SHIP_OBJ_LIST);
+    if((fp=fopen(filename,"r"))==NULL)
+    {
+	perror( filename );
+	exit( 1 );
+    }
+
+    for( ; ; )
+    {
+	word = feof( fp ) ? "$" : fread_word( fp );
+	if(word[0]=='$')
+		break;
+	if(!str_cmp(word,"#weapon"))
+	{
+	    CREATE(weapon,SHIP_WEAPON_DATA,1);
+	    fread_ship_weapon( weapon , fp );
+	    LINK( weapon, first_ship_weapon, last_ship_weapon, next, prev );
 	}
     }
 }
@@ -3326,10 +3567,10 @@ void do_setship( CHAR_DATA *ch, char *argument )
 		send_to_char( "cockpit entrance turret1 turret2 hangar\n\r", ch );
 		send_to_char( "engineroom firstroom lastroom shipyard\n\r", ch );
 		send_to_char( "manuever speed\n\r", ch );
-		send_to_char( "hull energy chaff\n\r", ch );
+		send_to_char( "hull energy chaff hulltype\n\r", ch );
 		send_to_char( "comm sensor astroarray class\n\r", ch );
 		send_to_char( "pilotseat coseat gunseat navseat\n\r", ch );
-		send_to_char( "firstweapon secondweapon thirdweapon\n\r", ch );
+		send_to_char( "tractorbeam power payload slots\n\r", ch );
 		return;
     }
 
@@ -3842,7 +4083,7 @@ void do_setship( CHAR_DATA *ch, char *argument )
 		save_ship( ship );
 		return;
     }
-
+/*
     if ( !str_cmp( arg2, "firstweapon" ) )
     {
         ship->firstweapon = URANGE( 0, atoi(argument) , 10 );
@@ -3864,7 +4105,7 @@ void do_setship( CHAR_DATA *ch, char *argument )
         save_ship( ship );
         return;
     }
-
+*/
     if ( !str_cmp( arg2, "ammo" ) )
     {
         ship->ammo = URANGE( 1, atoi(argument) , 50000 );
@@ -3883,13 +4124,444 @@ void do_setship( CHAR_DATA *ch, char *argument )
 		return;
     }
 
+    if ( !str_cmp( arg2, "tractorbeam" ) )
+    {   
+		ship->tractorbeam = URANGE( 0, atoi(argument) , 255 );
+		send_to_char( "Done.\n\r", ch );
+		save_ship( ship );
+		return;
+    }
+
+    if ( !str_cmp( arg2, "slots" ) )
+    {
+		ship->maxslots=atoi(argument);
+		if(ship->slots>ship->maxslots)
+			ship->slots=ship->maxslots;
+		save_ship( ship );
+		return;
+    }
+
+    if ( !str_cmp( arg2, "payload" ) )
+    {
+		ship->maxweight=atoi(argument);
+		if(ship->weight>ship->maxweight)
+			ship->weight=ship->maxweight;
+		save_ship( ship );
+		return;
+    }
+	
+	if ( !str_cmp( arg2, "power" ) )
+	{
+		ship->maxpower=atoi(argument);
+		if(ship->power>ship->maxpower)
+			ship->power=ship->maxpower;
+		save_ship( ship );
+		return;
+	}
+
+	if ( !str_cmp( arg2, "hulltype" ) )
+	{
+		ship->hull_type=atoi(argument);
+		if(ship->hull_type>(MAX_HULL_TYPES-1)||ship->hull_type<0)
+		{
+			send_to_char("Invalid Type, 'help hulltypes' for a list",ch);
+			return;
+		}
+		save_ship( ship );
+		return;
+	}
+
     do_setship( ch, "" );
     return;
+}
+
+
+//for auto equipping purposes - Locke
+void equip_ship_weapon(SHIP_WEAPON_DATA *proto,SHIP_DATA *ship)
+{
+	if(!ship||!proto)
+		return;
+	SHIP_WEAPON_DATA *weapon;
+	weapon=sw_dup(proto,weapon);
+
+        LINK( weapon, ship->first_weapon, ship->last_weapon, next_in_ship, prev_in_ship );
+	ship->weight=ship->weight+weapon->req_weight;
+	ship->slots=ship->slots+weapon->req_slots;;
+}
+
+void do_remweapon( CHAR_DATA *ch, char *arg)
+{
+	char ship_name[MAX_STRING_LENGTH];
+	char vnum[MAX_STRING_LENGTH];
+	SHIP_WEAPON_DATA *weapon;
+	SHIP_DATA *ship;	
+	arg=one_argument(arg,ship_name);
+	arg=one_argument(arg,vnum);
+	if(ship_name[0]=='\0'||vnum[0]=='\0')
+	{
+		send_to_char("Usage: remweapon <ship> <vnum>\n\r",ch);
+		return;
+	}
+	if((ship=get_ship(ship_name))==NULL)
+	{
+		send_to_char("No such ship.\n\r",ch);
+		return;
+	}
+	weapon=ship->first_weapon;
+	for(;;)
+	{
+		if(!weapon)
+			break;
+		if(weapon->vnum==atoi(vnum))
+			break;
+		weapon=weapon->next_in_ship;
+	}
+	if(!weapon)
+	{
+		send_to_char("That weapon isn't equipped\n\r",ch);
+		return;
+	}
+	UNLINK( weapon, ship->first_weapon, ship->last_weapon, next_in_ship, prev_in_ship );
+	ship->weight+=weapon->req_weight;
+	ship->slots+=weapon->req_slots;
+	if(ship->weight>ship->maxweight)
+		ship->weight=ship->maxweight;
+	if(ship->slots>ship->maxslots)
+		ship->slots=ship->maxslots;
+	DISPOSE(weapon);
+	save_ship( ship );
+	send_to_char("Ok.\n\r",ch);
+}
+
+//adds a weapon to a ship - Locke
+void do_addweapon( CHAR_DATA *ch, char *arg)
+{
+	char ship_name[MAX_STRING_LENGTH];
+	char vnum[MAX_STRING_LENGTH];
+	SHIP_WEAPON_DATA *weapon;
+	SHIP_WEAPON_DATA *dup;
+	SHIP_DATA *ship;
+	int newslots;
+	int newweight;
+	arg=one_argument(arg,ship_name);
+	arg=one_argument(arg,vnum);
+	if(ship_name[0]=='\0'||vnum[0]=='\0')
+	{
+		send_to_char("Usage: addweapon <ship> <vnum>\n\r",ch);
+		return;
+	}
+	
+	if((ship=get_ship(ship_name))==NULL)
+	{
+		send_to_char("No such ship.\n\r",ch);
+		return;
+	}
+	if((weapon=get_ship_weapon(atoi(vnum)))==NULL)
+	{
+		send_to_char("No such weapon\n\r",ch);
+		return;
+	}
+		
+	newslots=ship->slots+weapon->req_slots;
+	newweight=ship->weight+weapon->req_weight;
+	
+	if(newslots>ship->maxslots)
+	{
+		send_to_char("That is too big to equip\n\r",ch);
+		return;
+	}
+	if(newweight>ship->maxweight)
+	{
+		send_to_char("That weighs too much\n\r",ch);
+		return;
+	}
+	
+	dup=sw_dup(weapon,dup);
+        LINK( dup, ship->first_weapon, ship->last_weapon, next_in_ship, prev_in_ship );
+	ship->weight=newweight;
+	ship->slots=newslots;
+	save_ship( ship );
+	send_to_char("Ok.\n\r",ch);
+}
+
+//list all ship weapons loaded - Locke
+void do_swlist( CHAR_DATA *ch, char *arg )
+{
+	SHIP_WEAPON_DATA *w=first_ship_weapon;
+	char buf[MAX_STRING_LENGTH];
+	for( ; ; )
+	{
+	    if(!w)
+		break;
+	    sprintf(buf,"%5d) %s\n",w->vnum,w->name);
+	    send_to_char(buf,ch);
+	    w=w->next;
+	}
+	return;
+}
+
+//create a new ship weapon - Locke
+void do_swcreate( CHAR_DATA *ch, char *arg)
+{
+	char vnum[MAX_INPUT_LENGTH];
+	SHIP_WEAPON_DATA *weapon;
+	int id;
+	arg=one_argument(arg,vnum);
+	id=atoi(vnum);
+	if(arg[0]=='\0')
+	{
+		send_to_char("Usage: swcreate <vnum> <name>\n\r",ch);
+		return;
+	}
+	if(id<=0)
+	{
+		send_to_char("Invalid vnum\n\r",ch);
+		return;
+	}
+	if(get_ship_weapon(id)!=NULL)
+	{
+		send_to_char("That vnum is already in use\n\r",ch);
+		return;
+	}
+	CREATE(weapon,SHIP_WEAPON_DATA,1);
+        LINK( weapon, first_ship_weapon, last_ship_weapon, next, prev );
+	weapon->name=STRALLOC(arg);
+	weapon->vnum=id;
+	weapon->act_all=STRALLOC("%s from %s fire and hits %s.");
+	weapon->act_self=STRALLOC("%s from your ship fire hits %s!.");
+	weapon->act_target=STRALLOC("%s from %s fire and hit you!");
+	save_ship_objs();
+	send_to_char("Ok.\n\r",ch);
+}
+
+//Set the data on a ship weapon - Locke
+void do_swset( CHAR_DATA *ch, char *arg )
+{
+	if(!ch)
+		return;
+	SHIP_WEAPON_DATA *weapon;
+	char field[MAX_INPUT_LENGTH];
+	char vnum[MAX_INPUT_LENGTH];
+
+	if(!str_cmp(arg,"save"))
+	{
+		save_ship_objs();
+		send_to_char("Ok.",ch);
+		return;
+	}
+
+	arg=one_argument(arg,vnum);
+	arg=one_argument(arg,field);
+
+	if(arg[0]=='\0'||vnum[0]=='\0'||field[0]=='\0')
+	{
+		send_to_char("Usage: swset save\n\r",ch);
+		send_to_char("       swset <vnum> <field> <value>\n\r",ch);
+		send_to_char("field being one of the following:\n\r",ch);
+		send_to_char("name desc type maxammo burst\n\r",ch);
+		send_to_char("maxdamage mindamage maxheat drain\n\r",ch);
+		send_to_char("cooling spread range weight slots\n\r",ch);
+		send_to_char("act_self act_all act_target\n\r",ch);
+		return;
+	}
+
+	if((weapon=get_ship_weapon(atoi(vnum)))==NULL)
+	{
+		send_to_char("No such weapon exists\n\r",ch);
+		return;
+	}
+	
+	if(!str_cmp(field,"name"))
+	{
+		STRFREE(weapon->name);
+		weapon->name=STRALLOC(arg);
+	}
+	if(!str_cmp(field,"desc"))
+	{
+		STRFREE(weapon->desc);
+		weapon->desc=STRALLOC(arg);
+	}
+/*	if(!str_cmp(field,"action"))
+	{
+		STRFREE(weapon->action);
+		weapon->action=STRALLOC(arg);
+	}*/
+	if(!str_cmp(field,"type"))
+	{
+		if(atoi(arg)>1||atoi(arg)<0)
+		{
+			send_to_char("Invalid weapon type\n\r",ch);
+			return;
+		}
+		weapon->type=atoi(arg);
+	}
+	if(!str_cmp(field,"maxammo"))
+	{
+		if(atoi(arg)<0)
+		{
+			send_to_char("Invalid value for field\n\r",ch);
+			return;
+		}
+		weapon->maxammo=atoi(arg);
+		if(weapon->maxammo<weapon->ammo)
+			weapon->ammo=weapon->maxammo;
+	}
+	if(!str_cmp(field,"burst"))
+	{
+		if(atoi(arg)<1)
+		{
+			send_to_char("Weapon must have a burst of atleast 1\n\r",ch);
+			return;
+		}
+		weapon->burst=atoi(arg);
+	}
+	if(!str_cmp(field,"maxdamage"))
+	{
+		if(atoi(arg)<0)
+		{
+			send_to_char("Weapon must have a maxdamage of atleast 1\n\r",ch);
+			return;
+		}
+		weapon->maxdamage=atoi(arg);
+		if(weapon->maxdamage<weapon->mindamage)
+			weapon->mindamage=weapon->maxdamage;
+	}
+	if(!str_cmp(field,"mindamage"))
+	{
+		if(atoi(arg)<0)
+		{
+			send_to_char("Weapon must have a mindamage of atleast 1\n\r",ch);
+			return;
+		}
+		weapon->mindamage=atoi(arg);
+		if(weapon->mindamage>weapon->maxdamage)
+			weapon->maxdamage=weapon->mindamage;
+	}
+	if(!str_cmp(field,"maxheat"))
+	{
+		if(atoi(arg)<0)
+		{
+			send_to_char("Value must be atleast 0\n\r",ch);
+			return;
+		}
+		weapon->maxheat=atoi(arg);
+	}
+	if(!str_cmp(field,"drain"))
+	{
+		if(atoi(arg)<0)
+		{
+			send_to_char("Value must be atleast 0\n\r",ch);
+			return;
+		}
+		weapon->drain=atoi(arg);
+	}
+	if(!str_cmp(field,"cooling"))
+	{
+		if(atoi(arg)<0)
+		{
+			send_to_char("Value must be atleast 0\n\r",ch);
+			return;
+		}
+		weapon->cooling=atoi(arg);
+	}
+	if(!str_cmp(field,"spread"))
+	{
+		if(atoi(arg)<0)
+		{
+			send_to_char("Value must be atleast 0\n\r",ch);
+			return;
+		}
+		weapon->spread=atoi(arg);
+	}
+	if(!str_cmp(field,"range"))
+	{
+		if(atoi(arg)<0)
+		{
+			send_to_char("Value must be atleast 0\n\r",ch);
+			return;
+		}
+		weapon->range=atoi(arg);
+	}
+	if(!str_cmp(field,"slots"))
+	{
+		if(atoi(arg)<0)
+		{
+			send_to_char("Value must be atleast 0\n\r",ch);
+			return;
+		}
+		weapon->req_slots=atoi(arg);
+	}
+	if(!str_cmp(field,"weight"))
+	{
+		if(atoi(arg)<0)
+		{
+			send_to_char("Value must be atleast 0\n\r",ch);
+			return;
+		}
+		weapon->req_weight=atoi(arg);
+	}
+	if(!str_cmp(field,"act_self"))
+	{
+		STRFREE(weapon->act_self);
+		weapon->act_self=STRALLOC(arg);
+	}
+	if(!str_cmp(field,"act_all"))
+	{
+		STRFREE(weapon->act_all);
+		weapon->act_all=STRALLOC(arg);
+	}
+	if(!str_cmp(field,"act_target"))
+	{
+		STRFREE(weapon->act_target);
+		weapon->act_target=STRALLOC(arg);
+	}
+
+}
+
+//Stat a ship weapon - Locke
+void do_swstat( CHAR_DATA *ch, char *arg )
+{
+	SHIP_WEAPON_DATA *weapon;
+	if(arg[0]=='\0')
+	{
+		send_to_char("Usage: swstat <vnum>\n\r",ch);
+		return;
+	}
+	if((weapon=get_ship_weapon(atoi(arg)))==NULL)
+	{
+		send_to_char("No such weapon\n\r",ch);
+		return;
+	}
+	
+	ch_printf(ch,"%5d) %s\n\r",weapon->vnum,weapon->name);
+	ch_printf(ch,"Description: %s\n\r",weapon->desc);
+	//ch_printf(ch,"Action: %s\n\r",weapon->action);
+	ch_printf(ch,"Act_All: %s\n\r",weapon->act_all);
+	ch_printf(ch,"Act_Self: %s\n\r",weapon->act_self);
+	ch_printf(ch,"Act_Target: %s\n\r",weapon->act_target);
+	if(weapon->type>3||weapon->type<0)
+	{
+		weapon->type=2;
+	}
+	ch_printf(ch,"Type	     %s\n\r",ship_weapon_type[weapon->type]);
+	ch_printf(ch,"Range          %d\n\r",weapon->range);
+	ch_printf(ch,"Maxammo        %d\n\r",weapon->maxammo);
+	ch_printf(ch,"Burst          %d\n\r",weapon->burst);
+	ch_printf(ch,"Maxdamage      %d\n\r",weapon->maxdamage);
+	ch_printf(ch,"Mindamage      %d\n\r",weapon->mindamage);
+	ch_printf(ch,"Maxheat        %d\n\r",weapon->maxheat);
+	ch_printf(ch,"Drain          %d\n\r",weapon->drain);
+	ch_printf(ch,"Cooling        %d\n\r",weapon->cooling);
+	ch_printf(ch,"Spread         %d\n\r",weapon->spread);
+	ch_printf(ch,"Slots          %d\n\r",weapon->req_slots);
+	ch_printf(ch,"Weight         %d\n\r",weapon->req_weight);
 }
 
 void do_showship( CHAR_DATA *ch, char *argument )
 {
 	SHIP_DATA *ship;
+	SHIP_WEAPON_DATA *weapon;
+	char let='A';
 
     if ( IS_NPC( ch ) )
     {
@@ -3954,17 +4626,28 @@ void do_showship( CHAR_DATA *ch, char *argument )
     ch_printf( ch, "Hull: %d/%d  Ship Condition: %s\n\r",
                ship->hull, ship->maxhull,
     		   ship->shipstate == SHIP_DISABLED ? "Disabled" : "Running");
+	ch_printf( ch, "Hull Type: %s\n\r",ship_hull_type[ship->hull_type]);
     ch_printf( ch, "Energy(fuel): %d/%d   Chaff: %d/%d\n\r",
     		   ship->energy,
     		   ship->maxenergy,
     		   ship->chaff,
     		   ship->maxchaff);
+	ch_printf( ch, "Power: %d/%d\n\r",ship->power,ship->maxpower);
     ch_printf( ch, "Current Coordinates: %.0f %.0f %.0f\n\r",
                ship->vx, ship->vy, ship->vz );
     ch_printf( ch, "Current Heading: %.0f %.0f %.0f\n\r",
                ship->hx, ship->hy, ship->hz );
-    ch_printf( ch, "Speed: %d/%d   Manueverability: %d",
+    ch_printf( ch, "Speed: %d/%d   Manueverability: %d\n\r",
                ship->currspeed, ship->realspeed, ship->manuever );
+    send_to_char("-=Equipped Weapons=-\n\r",ch);
+    weapon=ship->first_weapon;
+    while(weapon)
+    {
+	ch_printf(ch,"[%c] %s\n\r",let,weapon->name);
+	weapon=weapon->next_in_ship;
+	let++;
+    }
+
 	return;
 }
 
@@ -4590,7 +5273,7 @@ void damage_ship( SHIP_DATA *ship , int min , int max )
         	echo_to_cockpit( AT_BLOOD + AT_BLINK , ship , "Ships Drive DAMAGED!" );
         	ship->shipstate = SHIP_DISABLED;
         }
-        if ( number_range(1, 100) <= 2 && ship->statet1 != LASER_DAMAGED && ship->turret1 )
+/*        if ( number_range(1, 100) <= 2 && ship->statet1 != LASER_DAMAGED && ship->turret1 )
         {
            	echo_to_room( AT_BLOOD + AT_BLINK , get_room_index(ship->turret1) , "Turret DAMAGED!" );
            	ship->statet1 = LASER_DAMAGED;
@@ -4599,7 +5282,7 @@ void damage_ship( SHIP_DATA *ship , int min , int max )
         {
            	echo_to_room( AT_BLOOD + AT_BLINK , get_room_index(ship->turret2) , "Turret DAMAGED!" );
            	ship->statet2 = LASER_DAMAGED;
-        }
+        }*/
     }
 
     ship->hull -= damage*5;
@@ -4765,12 +5448,12 @@ bool rent_ship( CHAR_DATA *ch , SHIP_DATA *ship )
 
     if ( ch->gold < price )
     {
-    	ch_printf(ch, "&RRenting this ship costs %ld. You don't have enough wulongs!\n\r" , price );
+    	ch_printf(ch, "&RRenting this ship costs %ld. You don't have enough dollars!\n\r" , price );
         return FALSE;
     }
 
     ch->gold -= price;
-    ch_printf(ch, "&GYou pay %ld wulongs to rent the ship.\n\r" , price );
+    ch_printf(ch, "&GYou pay %ld dollars to rent the ship.\n\r" , price );
     return TRUE;
 
 }
@@ -4931,7 +5614,7 @@ void do_launch( CHAR_DATA *ch, char *argument )
             }
 
             ch->pcdata->clan->funds -= price;
-            ch_printf(ch, "&GIt costs %s %ld wulongs to ready this ship for launch.\n\r", ch->pcdata->clan->name, price );
+            ch_printf(ch, "&GIt costs %s %ld dollars to ready this ship for launch.\n\r", ch->pcdata->clan->name, price );
         }
         else if ( str_cmp( ship->owner , "Public" ) )
         {
@@ -4942,7 +5625,7 @@ void do_launch( CHAR_DATA *ch, char *argument )
             }
 
             ch->gold -= price;
-            ch_printf(ch, "&GYou pay %ld wulongs to ready the ship for launch.\n\r", price );
+            ch_printf(ch, "&GYou pay %ld dollars to ready the ship for launch.\n\r", price );
 
        	}
 
@@ -5764,14 +6447,14 @@ void do_buyship(CHAR_DATA *ch, char *argument )
 
    	if ( ch->gold < price )
     {
-    	ch_printf(ch, "&RThis ship costs %ld. You don't have enough wulongs!\n\r" , price );
+    	ch_printf(ch, "&RThis ship costs %ld. You don't have enough dollars!\n\r" , price );
        	return;
     }
 
     ch->gold -= price;
-    ch_printf(ch, "&GYou pay %ld wulongs to purchace the ship.\n\r" , price );
+    ch_printf(ch, "&GYou pay %ld dollars to purchace the ship.\n\r" , price );
 
-    act( AT_PLAIN, "$n walks over to a terminal and makes a wulong transaction.", ch, NULL, argument , TO_ROOM );
+    act( AT_PLAIN, "$n walks over to a terminal and makes a money transaction.", ch, NULL, argument , TO_ROOM );
 
     STRFREE( ship->owner );
 	ship->owner = STRALLOC( ch->name );
@@ -5827,7 +6510,7 @@ void do_clansellship(CHAR_DATA *ch, char *argument )
 
 	price = get_ship_value( ship );
 	clan->funds += ( price - price/10 );
-	ch_printf(ch, "&G%s receive %ld wulongs from selling %s's ship.\n\r" , clan->name, price - price/10, clan->name );
+	ch_printf(ch, "&G%s receive %ld dollars from selling %s's ship.\n\r" , clan->name, price - price/10, clan->name );
     act( AT_PLAIN, "$n walks over to a terminal and makes a credit transaction.",ch, NULL, argument , TO_ROOM );
 	STRFREE( ship->owner );
 	ship->owner = STRALLOC( "Unowned" );
@@ -5889,12 +6572,12 @@ void do_clanbuyship(CHAR_DATA *ch, char *argument )
 
     if ( ch->pcdata->clan->funds < price )
     {
-       ch_printf(ch, "&RThis ship costs %ld. You don't have enough wulongs!\n\r" , price );
+       ch_printf(ch, "&RThis ship costs %ld. You don't have enough dollars!\n\r" , price );
        return;
     }
 
     clan->funds -= price;
-    ch_printf(ch, "&G%s pays %ld wulongs to purchace the ship.\n\r", clan->name , price );
+    ch_printf(ch, "&G%s pays %ld dollars to purchace the ship.\n\r", clan->name , price );
 
     act( AT_PLAIN, "$n walks over to a terminal and makes a credit transaction.",ch,
        NULL, argument , TO_ROOM );
@@ -5930,7 +6613,7 @@ void do_sellship(CHAR_DATA *ch, char *argument )
    	price = get_ship_value( ship );
 
     ch->gold += ( price - price/10 );
-    ch_printf(ch, "&GYou receive %ld wulongs from selling your ship.\n\r" , price - price/10 );
+    ch_printf(ch, "&GYou receive %ld dollars from selling your ship.\n\r" , price - price/10 );
 
     act( AT_PLAIN, "$n walks over to a terminal and makes a credit transaction.",ch, NULL, argument , TO_ROOM );
 
@@ -5944,6 +6627,8 @@ void do_info(CHAR_DATA *ch, char *argument )
 {
     SHIP_DATA *ship;
     SHIP_DATA *target;
+    SHIP_WEAPON_DATA *weapon;
+    char wep='A';
 
     if (  (ship = ship_from_cockpit(ch->in_room->vnum))  == NULL )
     {
@@ -5999,17 +6684,20 @@ void do_info(CHAR_DATA *ch, char *argument )
     ch_printf( ch, "&CDescription&R: &W%s\n\r&COwner&R: &W%s   &CPilot&R: &W%s   &CCopilot&R: &W%s\n\r",
     			target->description,
     			target->owner, target->pilot,  target->copilot );
-    ch_printf( ch, "&CMax Hull&R: &B(&W%d&B)  ",
-                target->maxhull);
-    ch_printf( ch, "&CMax Energy&c(&wfuel&c)&R: &B(&W%d&B)\n\r",
-                target->maxenergy);
+    ch_printf( ch, "&CMax Hull&R: &B(&W%d&B)  &CComposite&R:&W%s\n\r",
+                target->maxhull,ship_hull_type[target->hull_type]);
+    ch_printf( ch, "&CMax Fuel&R: &B(&W%d&B)  &CMax Power&B(&W%d&B)\n\r",
+                target->maxenergy,target->maxpower);
     ch_printf( ch, "&CMaximum Speed&R: &B(&W%d&B)   &CManuever&R: &B(&W%d&B)\n\r",
                 target->realspeed,
                 target->manuever );
     ch_printf( ch, "&CComm Range&R: &B(&W%d&B)   &CMax Chaff&R: &B(&W%d&B)&W\n\r",
 				target->comm,
 				target->maxchaff);
-    ch_printf( ch, "&gMaxAmmo&b: &w%d\n\r", ship->maxammo);
+	ch_printf( ch, "&CMax Payload&R: &B(&W%d&B)   &CMax Slots&R: &B(&W%d&B)&W\n\r",
+				target->maxweight,
+				target->maxslots);
+/*    ch_printf( ch, "&gMaxAmmo&b: &w%d\n\r", ship->maxammo);
     ch_printf( ch, "&gFirstWeapon&b:   &w%s\n\r", target->firstweapon == 0 ? "Dual Machine Guns"  :
                        (target->firstweapon == 1 ? "105mm Rifle" :
                        (target->firstweapon == 2 ? "30mm Cannon" :
@@ -6040,7 +6728,21 @@ void do_info(CHAR_DATA *ch, char *argument )
                        (target->thirdweapon == 7 ? "Plasma Cannon" :
                        (target->thirdweapon == 8 ? "Gatling Gun"  :
                        (target->thirdweapon == 9 ? "Super Plasma Cannon" :"None" ) ) ) ) ) ) ) ) ) );
-
+*/
+    send_to_char("&R-=&C Equipped Weapons &R=-\n\r",ch);
+    if(target->first_weapon)
+    {
+    weapon=target->first_weapon;
+    for(weapon;weapon;weapon=weapon->next_in_ship)
+    {
+	if(!weapon)
+		break;
+	ch_printf(ch, "&z&r[&W%c&r]&g %-15s&b:&w%-25s &r(&C%d&cMA&r|&C%d&cMH&r)\n\r",wep,weapon->name,weapon->desc,weapon->maxammo,weapon->maxheat);
+	wep++;
+    }
+    }else{
+	send_to_char("&RNo Weapons Equipped\n\r",ch);
+    }
     act( AT_PLAIN, "$n checks various gages and displays on the control panel.", ch,
          NULL, argument , TO_ROOM );
 
@@ -6228,6 +6930,8 @@ void do_status(CHAR_DATA *ch, char *argument )
     int chance;
     SHIP_DATA *ship;
     SHIP_DATA *target;
+    SHIP_WEAPON_DATA *weapon; 
+    char wep='A';
 
 	if (  (ship = ship_from_cockpit(ch->in_room->vnum))  == NULL )
     {
@@ -6276,14 +6980,26 @@ void do_status(CHAR_DATA *ch, char *argument )
                     target->hull,
     		        target->maxhull,
     				target->shipstate == SHIP_DISABLED ? "Disabled" : "Running");
-    ch_printf( ch, "&CEnergy&c(&wfuel&c)&R:&W %d&R/&W%d   &CAmmo&c&R:&W %d&R/&W%d\n\r",
+    ch_printf( ch, "&CFuel&c&R:&W %d&R/&W%d   &CPower&c&R:&W %d&R/&W%d\n\r",
     		        target->energy,
     		        target->maxenergy,
-    		        target->ammo,
-    		        target->maxammo);
+    		        target->power,
+    		        target->maxpower);
+	ch_printf( ch, "&CPayload&R:&W %d&R/&W%d   &CSlots&R:&W %d&R/&W%d\n\r",
+					target->weight,
+					target->maxweight,
+					target->slots,
+					target->maxslots);
     ch_printf( ch, "&CCurrent Target&R:&W %s\n\r",
     		        target->target0 ? target->target0->name : "&cnone&W");
-
+	weapon=target->first_weapon;
+	for(weapon;weapon;weapon=weapon->next_in_ship)
+	{
+		if(!weapon)
+			break;
+		ch_printf(ch, "&z&r[&W%c&r]&g %-15s &r(&C%d&R/&C%d&r)&cAmmo &r(&C%d&R/&C%d&r)&cHeat\n\r",wep,weapon->name,weapon->ammo,weapon->maxammo,weapon->heat,weapon->maxheat);
+		wep++;
+	}
     learn_from_success( ch, gsn_shipsystems );
 }
 
@@ -6384,7 +7100,7 @@ void do_hyperspace( CHAR_DATA *ch, char *argument )
     {
 		if ( ch->pcdata->bank >= fee || ch->pcdata->bank > 1000000 )
 		{
-            sprintf( buf ,"You are charged %d wulongs for the use of the gate." , fee );
+            sprintf( buf ,"You are charged %d dollars for the use of the gate." , fee );
             echo_to_room( AT_GREEN , get_room_index(ship->pilotseat),  buf );
 			ch->pcdata->bank -= fee;
 		}
@@ -6559,6 +7275,186 @@ void do_target(CHAR_DATA *ch, char *argument )
 	    target->target0 = ship;
     }
 }
+
+//New fire command to work with new weapon systems - Locke
+void do_fire2(CHAR_DATA *ch, char *arg)
+{
+	int chance,heat,i;
+	SHIP_DATA *ship;
+	SHIP_DATA *target;
+	SHIP_WEAPON_DATA *weapon;
+	char buf[MAX_STRING_LENGTH];
+	int w='A';
+	
+	if(arg[0]=='\0')
+	{
+		send_to_char("&RYou must specify the weapon you want to fire!\n",ch);
+		return;
+	}
+
+	if (  (ship = ship_from_turret(ch->in_room->vnum))  == NULL )
+    	{
+    		send_to_char("&RYou must be in the gunners chair or turret of a ship to do that!\n\r",ch);
+        	return;
+    	}
+
+    	if ( ship->class > SHIP_PLATFORM )
+        {
+	        send_to_char("&RThis isn't a spacecraft!\n\r",ch);
+	        return;
+	}
+
+        if (ship->shipstate == SHIP_HYPERSPACE)
+        {
+             send_to_char("&RYou can only do that in realspace!\n\r",ch);
+             return;
+        }
+    	if (ship->starsystem == NULL)
+    	{
+    	     send_to_char("&RYou can't do that until after you've finished launching!\n\r",ch);
+    	     return;
+    	}
+    	if ( ship->energy <5 )
+        {
+             send_to_char("&RTheres not enough energy left to fire!\n\r",ch);
+             return;
+        }
+        if ( autofly(ship) )
+        {
+	        send_to_char("&RYou'll have to turn off the ships autopilot first.\n\r",ch);
+		return;
+        }
+        chance = IS_NPC(ch) ? ch->top_level
+                 : (int) ( ch->perm_dex*2 + ch->pcdata->learned[gsn_spacecombat]/3
+                           + ch->pcdata->learned[gsn_spacecombat2]/3 + ch->pcdata->learned[gsn_spacecombat3]/3 );	
+
+	weapon=ship->first_weapon;
+	for( ; ; )
+	{
+		if(!weapon)
+			break;
+		if(w==UPPER(arg[0]))
+			break;
+		//sprintf(buf,"&C%c!=%c\n\r",w,UPPER(arg[0]));
+		//send_to_char(buf,ch);
+		w++;
+		weapon=weapon->next_in_ship;
+	}
+	if(!weapon)
+	{
+		send_to_char("&RYou don't have that weapon\n\r",ch);
+		return;
+	}
+	if(weapon->in_use)
+	{
+		send_to_char("&RThat weapon is already being used\n\r",ch);
+		return;
+	}
+	heat=ch->perm_lck*2;
+	heat+=(weapon->heat%5);
+	if(weapon->type==1)
+		heat=heat/2;
+
+    	if (ship->target0 == NULL )
+	{
+    	     	send_to_char("&RYou need to choose a target first.\n\r",ch);
+  	     	return;
+        }
+        target = ship->target0;
+        if (ship->target0->starsystem != ship->starsystem)
+        {
+    	     	send_to_char("&RYour target seems to have left.\n\r",ch);
+    	        ship->target0 = NULL;
+	     	return;
+        }
+        if ( abs(target->vx - ship->vx) > weapon->range ||
+             abs(target->vy - ship->vy) > weapon->range ||
+             abs(target->vz - ship->vz) > weapon->range )
+        {
+                send_to_char("&RThat ship is out of range.\n\r",ch);
+	     	return;
+	}
+	if(weapon->broken)
+	{
+		send_to_char("&RThat weapon is out of order.\n\r",ch);
+		return;
+	}
+	
+	if((ship->power-weapon->drain)<0)
+	{
+		send_to_char("&RNot enough power to fire that.\n\r",ch);
+		return;
+	}
+
+	weapon->in_use=TRUE;
+
+
+             chance += target->class*25;
+	     chance -= weapon->spread*2;
+             chance -= target->manuever/10;
+             chance -= target->currspeed/20;
+             chance -= ( abs(target->vx - ship->vx)/70 );
+             chance -= ( abs(target->vy - ship->vy)/70 );
+             chance -= ( abs(target->vz - ship->vz)/70 );
+             act( AT_PLAIN, "$n presses the fire button.", ch,
+                  NULL, arg , TO_ROOM );
+	     i=weapon->burst;
+	     while(i>0)
+	     {
+	     i--;
+	     weapon->ammo--;
+             if(weapon->ammo<0)
+	     {
+		sprintf( buf, "ALERT!!! %s is out of ammo",weapon->name);
+		echo_to_cockpit(AT_BLOOD, ship, buf);
+		break;
+	     }
+             chance = URANGE( 10 , chance , 90 );
+             if ( number_percent( ) > chance )
+             {
+                sprintf( buf , "%s fire from %s at you but miss." ,weapon->name, ship->name);
+                echo_to_cockpit( AT_ORANGE , target , buf );
+                sprintf( buf , "%s fire at %s but miss." ,weapon->name, target->name);
+                echo_to_cockpit( AT_ORANGE , ship , buf );
+                learn_from_failure( ch, gsn_spacecombat );
+    	        learn_from_failure( ch, gsn_spacecombat2 );
+    	        learn_from_failure( ch, gsn_spacecombat3 );
+    	        sprintf( buf, "%s from %s fires and barely misses %s." ,weapon->name, ship->name , target->name );
+                echo_to_system( AT_ORANGE , ship , buf , target );
+    	        return;
+             }
+             sprintf( buf, "%s from %s fire and hits %s." ,weapon->name, ship->name, target->name );
+             echo_to_system( AT_ORANGE , ship , buf , target );
+             sprintf( buf , "%s from %s fire and hit you!" , weapon->name,ship->name);
+             echo_to_cockpit( AT_BLOOD , target , buf );
+             sprintf( buf , "%s from your ship fire hits %s!." , weapon->name,target->name);
+             echo_to_cockpit( AT_YELLOW , ship , buf );
+
+             learn_from_success( ch, gsn_spacecombat );
+             learn_from_success( ch, gsn_spacecombat2 );
+             learn_from_success( ch, gsn_spacecombat3 );
+
+             echo_to_ship( AT_RED , target , "A small explosion vibrates through the ship." );
+	     damage_ship_ch( target , weapon->mindamage , weapon->maxdamage , ch );
+	}
+             if ( autofly(target) && target->target0 != ship )
+             {
+                target->target0 = ship;
+             }
+	ship->power-=weapon->drain;
+	     weapon->heat+=heat;
+     	if(weapon->heat>=weapon->maxheat)
+	{
+		sprintf(buf,"ALERT!! %s is overheated!",weapon->name);
+		echo_to_cockpit(AT_BLOOD,ship,buf);
+		weapon->broken=TRUE;
+	}else if((weapon->heat+10)>=weapon->maxheat)
+	{
+		sprintf(buf,"WARNING!! %s is overheating!",weapon->name);
+		echo_to_cockpit(AT_BLOOD,ship,buf);
+	}
+	return;
+}	    
 
 void do_fire(CHAR_DATA *ch, char *argument )
 {
@@ -7217,6 +8113,7 @@ void do_repairship(CHAR_DATA *ch, char *argument )
     char arg[MAX_INPUT_LENGTH];
     int chance, change;
     SHIP_DATA *ship;
+    SHIP_WEAPON_DATA *weapon;
     SPACE_DATA *starsystem;
 
     strcpy( arg, argument );
@@ -7238,11 +8135,10 @@ void do_repairship(CHAR_DATA *ch, char *argument )
 		
 
                 if ( str_cmp( argument , "hull" ) && str_cmp( argument , "drive" ) &&
-                     str_cmp( argument , "launcher" ) && str_cmp( argument , "laser" ) &&
-                     str_cmp( argument , "turret 1" ) && str_cmp( argument , "turret 2") )
+                     str_cmp( argument , "launcher" ) && str_cmp( argument , "weapon" ) )
                 {
                    send_to_char("&RYou need to specify something to repair:\n\r",ch);
-                   send_to_char("&rTry: hull, drive, launcher, laser, turret 1, or turret 2\n\r",ch);
+                   send_to_char("&rTry: hull, drive, launcher or weapon\n\r",ch);
                    return;
                 }
 
@@ -7254,9 +8150,9 @@ void do_repairship(CHAR_DATA *ch, char *argument )
     		   act( AT_PLAIN, "$n begins repairing the ships $T.", ch,
 		        NULL, argument , TO_ROOM );
     		   if ( !str_cmp(arg,"hull") )
-    		     add_timer ( ch , TIMER_DO_FUN , 15 , do_repairship , 1 );
-    		   else
     		     add_timer ( ch , TIMER_DO_FUN , 5 , do_repairship , 1 );
+    		   else
+    		     add_timer ( ch , TIMER_DO_FUN , 15 , do_repairship , 1 );
     		   ch->dest_buf = str_dup(arg);
     		   return;
 	        }
@@ -7289,7 +8185,7 @@ void do_repairship(CHAR_DATA *ch, char *argument )
 
     if ( !str_cmp(arg,"hull") )
     {
-        change = URANGE( 0, number_range( (int)( ship->maxhull * .005 ), (int)( ship->maxhull * .01) ),
+        change = URANGE( 0, number_range( (int)( ship->maxhull * 0.1 ), (int)( ship->maxhull * .01) ),
                          ( ship->maxhull - ship->hull ) );
         ship->hull += change;
         ch_printf( ch, "&GRepair complete. Hull strength inreased by %d points.\n\r", change );
@@ -7309,7 +8205,7 @@ void do_repairship(CHAR_DATA *ch, char *argument )
        ship->missilestate = MISSILE_READY;
        send_to_char("&GMissile launcher repaired.\n\r", ch);
     }
-
+/*
     if ( !str_cmp(arg,"laser") )
     {
        ship->statet0 = LASER_READY;
@@ -7326,6 +8222,20 @@ void do_repairship(CHAR_DATA *ch, char *argument )
     {
        ship->statet2 = LASER_READY;
        send_to_char("&Laser Turret 2 repaired.\n\r", ch);
+    }*/
+    if ( !str_cmp(arg,"weapon") )
+    {
+	weapon=ship->first_weapon;
+	for(weapon;weapon;weapon=weapon->next_in_ship)
+	{
+		if(weapon->broken)
+		{
+			weapon->broken=FALSE;
+			weapon->heat=0;
+			ch_printf(ch,"&G%s is restored to working condition.\n\r",weapon->name);
+			break;
+		}
+	}
     }
 
     act( AT_PLAIN, "$n finishes the repairs.", ch,
@@ -7397,14 +8307,14 @@ void do_refuel(CHAR_DATA *ch, char *argument )
 	if ( arg1[0] == '\0' )
 	{
 		send_to_char( "Syntax: refuel <amount/full>\n\r", ch );
-		send_to_char( "Price: 1 wulong for 2 fuel units\n\r", ch);
+		send_to_char( "Price: 1 dollar for 2 fuel units\n\r", ch);
 		return;
 	}
 
         if ( !str_cmp("1",arg1) )
         {
                 price = value;
-                ch_printf( ch, "You pay %d wulongs for %d units of fuel.\n\r", price, value );
+                ch_printf( ch, "You pay %d dollars for %d units of fuel.\n\r", price, value );
                 ship->energy += value;
 				ch->gold -= price;
                 return;
@@ -7414,14 +8324,14 @@ void do_refuel(CHAR_DATA *ch, char *argument )
 	{
 		value = ship->maxenergy-ship->energy;
 		price = value/2;
-		ch_printf( ch, "You pay %d wulongs for %d units of fuel.\n\r", price, value );
+		ch_printf( ch, "You pay %d dollars for %d units of fuel.\n\r", price, value );
 		ship->energy += value;
 		ch->gold -= price;
 		return;
 	}
 	value = atoi(arg1);
 	price = value/2;
-	ch_printf( ch, "You pay %d wulongs for %d units of fuel.\n\r", price, value );
+	ch_printf( ch, "You pay %d dollars for %d units of fuel.\n\r", price, value );
 	ship->energy += value;
 	ch->gold -= price;
 }
@@ -7673,8 +8583,14 @@ void do_radar( CHAR_DATA *ch, char *argument )
     	           ch_printf(ch,"\n\r");
     	           for ( target = ship->starsystem->first_ship; target; target = target->next_in_starsystem )
                    {
-                        if ( target != ship )
+                        if ( target != ship && !target->stealth)
                            ch_printf(ch, "%s    %.0f %.0f %.0f\n\r",
+                           	target->name,
+                           	target->vx,
+                           	target->vy,
+                           	target->vz);
+                        else if (IS_IMMORTAL(ch) && target->stealth)
+                           ch_printf(ch, "&z&W(&BSTEALTH&W)&C%s    %.0f %.0f %.0f\n\r",
                            	target->name,
                            	target->vx,
                            	target->vy,
@@ -7891,7 +8807,7 @@ void do_reload( CHAR_DATA *ch, char *argument )
     }
 
     ch->pcdata->clan->funds -= price;
-    ch_printf(ch, "&GIt costs %s %ld wulongs to ready this ship for launch.\n\r", ch->pcdata->clan->name, price );
+    ch_printf(ch, "&GIt costs %s %ld dollars to ready this ship for launch.\n\r", ch->pcdata->clan->name, price );
   }
   else if ( str_cmp( ship->owner , "Public" ) )
   {
@@ -7902,7 +8818,7 @@ void do_reload( CHAR_DATA *ch, char *argument )
     }
 
     ch->gold -= price;
-    ch_printf(ch, "&GYou pay %ld wulongs to ready the ship for launch.\n\r", price );
+    ch_printf(ch, "&GYou pay %ld dollars to ready the ship for launch.\n\r", price );
   }
 
   ship->energy = ship->maxenergy;
@@ -8148,7 +9064,7 @@ void do_tractorbeam( CHAR_DATA *ch, char *argument )
 
 
 	chance = IS_NPC(ch) ? ch->top_level
-	: (int)  (ch->pcdata->learned[gsn_tractorbeams]);
+	: (int)  (ch->pcdata->learned[gsn_tractorbeam]);
 
 	/* This is just a first guess chance modifier, feel free to change if needed */
 
@@ -8172,7 +9088,7 @@ void do_tractorbeam( CHAR_DATA *ch, char *argument )
 		target->shipstate = SHIP_LAND;
 		target->currspeed = 0;
 
-		learn_from_success( ch, gsn_tractorbeams );
+		learn_from_success( ch, gsn_tractorbeam );
 		return;
 
 	}
@@ -8184,7 +9100,7 @@ void do_tractorbeam( CHAR_DATA *ch, char *argument )
 		target->target0 = ship;
 
 
-	learn_from_failure( ch, gsn_tractorbeams );
+	learn_from_failure( ch, gsn_tractorbeam );
 
    	return;
 }
@@ -8609,7 +9525,54 @@ bool autofly( SHIP_DATA *ship )
 
 }
 
+void do_stealth( CHAR_DATA *ch, char * arg )
+{
+    char buf[MAX_STRING_LENGTH];	
+    SHIP_DATA *ship;
 
+    if (  (ship = ship_from_cockpit(ch->in_room->vnum))  == NULL )
+    {
+            send_to_char("&RYou must be in the cockpit of a ship to do that!\n\r",ch);
+            return;
+    }
+                if (ship->shipstate == SHIP_HYPERSPACE)
+                {
+                  send_to_char("&RYou can only do that in realspace!\n\r",ch);
+                  return;
+                }
+                if (ship->shipstate == SHIP_DISABLED)
+    	        {
+    	            send_to_char("&RThe ships drive is disabled. Unable to manuever.\n\r",ch);
+    	            return;
+    	        }
+    	        if (ship->shipstate == SHIP_DOCKED)
+    	        {
+    	            send_to_char("&RYou can't do that until after you've launched!\n\r",ch);
+    	            return;
+    	        }
+    	        if (ship->shipstate != SHIP_READY)
+    	        {
+    	            send_to_char("&RPlease wait until the ship has finished its current manouver.\n\r",ch);
+    	            return;
+    	        }
+	if(ship->hull_type!=2)
+	{
+		send_to_char("&RYour ship isn't equipped with that.\n\r",ch);
+		return;
+	}
+	if(ship->stealth)
+	{
+		ship->stealth=FALSE;
+		sprintf(buf,"&z&YA bright light flashes as %s appears out of no where",ship->name);		
+		echo_to_system( AT_ORANGE , ship , buf , ship );
+		echo_to_cockpit( AT_WHITE , ship , "The ships hull glows bright as it becomes visible again." );
+	}else{
+		ship->stealth=TRUE;
+		sprintf(buf,"&z&Y%s shimmers as it disappears from your scanners",ship->name);
+		echo_to_system( AT_ORANGE , ship , buf , ship );	
+		echo_to_cockpit( AT_WHITE , ship , "The ships hull glistens as it becomes transparent." );
+	}
+}
 
 /* Generic Pilot Command To use as template
 

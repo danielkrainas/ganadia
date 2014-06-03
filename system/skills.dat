@@ -26,24 +26,6 @@ Minlevel     9
 End
 
 #SKILL
-Name         acute awareness~
-Type         Skill
-Flags        0
-Target       3
-Minpos       8
-Rounds       20
-Guild        3
-Code         spell_smaug
-Dammsg       ~
-Wearoff      Your awareness becomes less acute.~
-Hitchar      You focus your senses to find those that would hide from you.~
-Misschar     You fail to make your awareness more acute.~
-Teachers     32050~
-Affect       'l*5' 26 'detect hidden' 32
-Minlevel     25
-End
-
-#SKILL
 Name         aid~
 Type         Skill
 Flags        0
@@ -480,7 +462,7 @@ Minpos       8
 Guild        7
 Code         do_hackbounty
 Dammsg       ~
-Minlevel     120
+Minlevel     200
 End
 
 #SKILL
@@ -1421,6 +1403,19 @@ Dammsg       ~
 Wearoff      !Track!~
 Teachers     407~
 Minlevel     3
+End
+
+#SKILL
+Name         tractorbeam~
+Type         Skill
+Flags        0
+Minpos       8
+Guild        1
+Code         do_tractorbeam
+Dammsg       ~
+Wearoff      !Tractorbeam!~
+Teachers     407~
+Minlevel     30
 End
 
 #SKILL

@@ -1,0 +1,124 @@
+#AREA   {PROTO} Kratos's area in progress~
+
+
+
+#AUTHOR Kratos~
+
+#RANGES
+0 0 0 0 0 0 0 0
+$
+
+#FLAGS
+0
+
+#ECONOMY 0 0
+
+#MOBILES
+#1500
+Spacesaver~
+a newly created Spacesaver~
+Some god abandoned a newly created Spacesaver here.
+~
+~
+1073741825 0 0 Z
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+#1599
+Spacesaver~
+a newly created Spacesaver~
+Some god abandoned a newly created Spacesaver here.
+~
+~
+1073741825 0 0 Z
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+#0
+
+
+#OBJECTS
+#1500
+Spacesaver~
+a Spacesaver~
+A Spacesaver is here.~
+~
+13 1073741824 0
+0 0 0 0
+1 0 0
+#1501
+cigarette~
+a cigarette~
+A cigarette is here.~
+~
+13 1073741824 0
+0 0 0 0
+1 0 0
+#1599
+Spacesaver~
+a Spacesaver~
+A Spacesaver is here.~
+~
+13 1073741824 0
+0 0 0 0
+1 0 0
+#0
+
+
+#ROOMS
+#1500
+Spacesaver~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 1599
+S
+#1599
+Spacesaver~
+~
+0 1073741824 1 0
+D2
+~
+~
+0 -1 1500
+S
+#0
+
+
+#RESETS
+M 1 5099 1 5099
+M 1 5000 1 5099
+O 1 5099 1 5099
+O 1 5000 1 5099
+M 1 1500 1 1599
+M 1 1599 1 1599
+O 1 1500 1 1599
+O 1 1599 1 1599
+S
+
+
+#SHOPS
+0
+
+
+#REPAIRS
+0
+
+
+#SPECIALS
+S
+
+
+#$

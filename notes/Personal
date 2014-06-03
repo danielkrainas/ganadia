@@ -1,0 +1,336 @@
+Sender  Nikon~
+Date    Fri Feb  3 16:13:38 2006~
+Stamp   1139004874
+Expire  1141424065
+To      Scape~
+Subject Email~
+Text
+Roket84@gmail.com
+~
+
+Sender  Scape~
+Date    Fri Feb  3 17:59:18 2006~
+Stamp   1139011725
+Expire  1140825567
+To      imm~
+Subject tuff~
+Text
+Ok guys as you can see some colors have been changed thanks to Nikon.
+And he fixed the boards so we can write each other notes now too.
+The official mud name will be Ganadia, its nice and original.
+were going to get to who, and a greet asap.
+Im gonna work thru the night to get Ganadia up, im really tired cause of 60
+hour work week this week. Well anyway ill talk to you all later.
+And please, all im worried about is cosmetic stuff. The bounty, the jail stuff.
+Issp kicking you out of glm and RBH, i just want rescripting stuff done for now.
+Also he redid the stat stuff too, its gonna be sooooo cool.
+but i gotta run now i got a date, ill be back in a few hours tho...
+9-10 east coast time
+~
+
+Sender  Nikon~
+Date    Fri Feb  3 19:35:00 2006~
+Stamp   1139016974
+Expire  1141436118
+To      Scape~
+Subject wulongs command~
+Text
+Hey, i removed the wulongs command and replaced it with
+'money' instead since the currency seems to be dollars.
+tell me if you dont want that, or of course just change
+it back.
+~
+
+Sender  Scape~
+Date    Fri Feb  3 22:36:34 2006~
+Stamp   1139027858
+Expire  1140842201
+To      gaden~
+Subject greet~
+Text
+ ......._...|..____________________, , 
+ ....../ `---___________----_____|] = = = Ganadia = = D
+ ...../_==o;;;;;;;;_______.:/
+ .....), ---.(_(__) /
+ ....// (..) ), ----"
+ ...//___//
+ ..//___//
+ .//___//
+~
+
+Sender  Scape~
+Date    Sat Feb  4 14:54:01 2006~
+Stamp   1139086474
+Expire  1139950454
+To      jamie~
+Subject greet~
+Text
+ ......._...|..____________________, , 
+ ....../ `---___________----_____|] = = = Ganadia = = D
+ ...../_==o;;;;;;;;_______.:/
+ .....), ---.(_(__) /
+ ....// (..) ), ----"
+ ...//___//
+ ..//___//
+ .//___//
+~
+
+Sender  Scape~
+Date    Sun Feb  5 11:07:34 2006~
+Stamp   1139159348
+Expire  1140023263
+To      nikon~
+Subject sorry~
+Text
+it was jamie, the ip that was blocked was his.
+He had a hard time removing the ban and he got mad.
+he said he did something and said it was "fun between coders"
+Im sorry about that :(
+/f
+scape
+~
+
+Sender  Nikon~
+Date    Mon Feb  6 11:31:48 2006~
+Stamp   1139247314
+Expire  1141666394
+To      Scape~
+Subject I edited the greet screen~
+Text
+Hey scape hope you didnt mind but i thought up a cool design so 
+i put it up as the greeting, if you dont like it, sorry just thought it
+might help the cosmetics of the place
+and well change it, lol. sorry again if you dont like it.
+ 
+-= Nikoon =-
+damn telnet...
+~
+
+Sender  Scape~
+Date    Mon Feb  6 19:31:46 2006~
+Stamp   1139275951
+Expire  1140139917
+To      nikon~
+Subject greet~
+Text
+well nikon, i dont really like it.
+I absolutely thinks its great ;)
+It is perfect, thank you.
+Scape
+~
+
+Sender  Scape~
+Date    Tue Feb  7 17:57:03 2006~
+Stamp   1139356693
+Expire  1140220655
+To      nikon~
+Subject mess up~
+Text
+I messed up, i noticed tractorbeam has to be a skill to work
+Thought i new how to add it correctly...
+~
+
+Sender  Nikon~
+Date    Wed Feb  8 12:09:42 2006~
+Stamp   1139422249
+Expire  1141841393
+To      Scape~
+Subject jefros got a weapon~
+Text
+I gave jefro a whip, made it antievil so he has to be
+good to wear it. Im thinking you should nerf it a bit.
+It does seem very powerful
+Well later
+~
+
+Sender  Nikon~
+Date    Wed Feb  8 12:20:49 2006~
+Stamp   1139422883
+Expire  1141842060
+To      Scape~
+Subject Took it back~
+Text
+took the whip back, so ignore the last note
+Later
+~
+
+Sender  Danube~
+Date    Thu Feb  9 13:57:08 2006~
+Stamp   1139515077
+Expire  1225915040
+To      Nikon~
+Subject Score~
+Text
+Score for <character>.
+=============================================================
+Age: <age>  Years Old    Hours Played:  <number>
+Logged In: <time>     Saved: <time>
+Alignment: <number   Fallback: <wimpy>  Toggle: <type>
+-------------------------------------------------------------
+Hitpoints: <#>    Stamina: <#>   Quest Points: <#>
+Str:{#}  Dex:{#}  Con:{#}  Int:{#}  Wis:{#}  Cha:{#} Lck:{?}
+-------------------------------------------------------------
+Holding <number> Dollars  ACCOUNT: <number>
+Weight: <#> (MAX #)  Items: <#> (MAX #)
+-------------------------------------------------------------
+AutoExit ( )  AutoLoot ( )  Autosac ( )
+AFK Message: <message>
+<status> You are standing...
+Commands bestowed...
+=============================================================
+~
+
+Sender  Danube~
+Date    Thu Feb  9 14:03:23 2006~
+Stamp   1139515798
+Expire  2003515530
+To      immortals~
+Subject Hellena~
+Text
+Im working on finishing hellena and, I dont have the skills
+to put in everything i want to... i need someone who knows
+how to do programs really well to finish it up.
+ 
+Some of the things that needs to be done is a program
+where a group of high tech raider mobs, very agressive
+pop in certain areas (via emote of a shuttle flying by)
+and attack any other mob in the area. I also need to do
+quests which i cant seem to get working even at zantra.
+ 
+Other such things are items that are searchable, programs
+that act like a light switch and light up several rooms
+for a certain amount of time, etc etc. Even special mob
+status im not sure of how to do. like getting the two gang
+groups to fight each other occationally.
+Theres alot that needs to be done to finish it, its an area
+of 134 rooms so far im going to finish up the descriptions
+and rooms at 150, let me know if anyone can help me finish
+cuz im doing a poor job at it myself.
+ 
+Thanks
+~
+
+Sender  Scape~
+Date    Thu Feb  9 20:37:26 2006~
+Stamp   1139539428
+Expire  1139971055
+To      imm~
+Subject status~
+Text
+Hey guys, last night we had our first IMM meeting and
+I feel as tho the status of the mud is going along good
+This weekend im gonna be on most of the time, im gonna
+try gettin on super early to complete some stuff. As
+for the rest of the weekend, I plan on having some one
+on one time with everyone. I want to work with everyone
+for a short period of time to see how everything is going.
+Well not everyone, I meant with the builders. I just want
+make sure everyone knows what there doing, and go over 
+there areas. I would like a hands on feel for them and
+add my input. Dan your doing a great job, and maybe we can
+get Gaden to help with those progs. I really wanna have a
+sit in with Empher, shira, and schmitty. I havent assigned
+any vnum for schmitty since hes a new hire and want to show
+him and I feel as tho I should try helping out more with Shira.
+Well anyway just wanted to give everyones a heads up as of
+what im planning. Shira will be away for a few days.
+There was other stuff I wanted to talk about but its late.
+/f
+Scape
+~
+
+Sender  Nikon~
+Date    Thu Feb  9 21:55:20 2006~
+Stamp   1139543738
+Expire  1141962928
+To      Empher~
+Subject Code~
+Text
+ 
+cout<<"[1] option one "<<endl
+cout<<"[2] option two "<<endl
+cout<<"[3] option three"<<endl
+cout<<"[4] option four"<<endl
+cout<<"Please enter your choice"<<endl
+cout<<":"
+int var=0
+while(var>4||var<1)
+{
+cin>>var
+}
+//logic crap
+~
+
+Sender  Danube~
+Date    Fri Feb 10 23:19:19 2006~
+Stamp   1139635370
+Expire  1226035165
+To      scape~
+Subject quest 1~
+Text
+mob 216, the chubby business man wants to you kill a
+prostitute at the stripclub near the zantra spaceport.
+ 
+Shes behind a locked door and in order to get the key
+you gotta talk to the owner or kill him for it, then
+you kill the girl and get a necklace.
+ 
+All that ive already done, once you turn in the necklace
+youll get a reward from the chubby businessman.
+ 
+Thats the only part i havent done, the reward should be
+an amount of cash and however much xp in an area you
+feel is appropriate. Its Judys necklace im not sure
+of the item vcnm but you can ofind necklace.
+~
+
+Sender  Danube~
+Date    Fri Feb 10 23:24:06 2006~
+Stamp   1139635616
+Expire  1226035457
+To      scape~
+Subject quest 2~
+Text
+mob 220 hot springs supervisor, has someone whos giving
+her info to bring the chubby businessman down, she doesnt
+say the name but the person just got a promotion and
+the flowergirl is suppose to know where to find her.
+ 
+After asking the flowergirl you find out shes at the bar
+at the far east of zantra. you go there and ask her for
+the "information" which then shes suppose to give you
+a data disk but its not made yet, its just a simple quest
+item.
+ 
+Give that disk to the hot springs girl to get a cash
+reward.
+~
+
+Sender  Scape~
+Date    Sat Feb 11 12:14:44 2006~
+Stamp   1139681825
+Expire  1140113693
+To      nikon~
+Subject Gaden~
+Text
+Gaden just told me today that he doesnt think he will be
+sticking around much longer... He wishes to start his mud up
+again... :( he craves "FoTe" hes gonna stick around for a bit
+to help with progs and whatever else, just wanted to give you
+a heads up... :'(
+scape
+~
+
+Sender  Scape~
+Date    Sat Feb 11 13:07:16 2006~
+Stamp   1139684905
+Expire  1140116845
+To      nikon~
+Subject mud host~
+Text
+I looked into mudmagic, its 15 dollars a month for 500mb.
+we will have 2 ports, so a builder and a player... will
+that be enough room?
+scape
+~
+

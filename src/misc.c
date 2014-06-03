@@ -75,7 +75,7 @@ void do_buyhome( CHAR_DATA *ch, char *argument )
 
      if ( ch->gold < 500000 )
      {
-         send_to_char( "&RThis room costs 500000 wulongs. You don't have enough!\n\r&w", ch);
+         send_to_char( "&RThis room costs 500000 dollars. You don't have enough!\n\r&w", ch);
          return;
      }
 
@@ -163,14 +163,14 @@ void do_clone( CHAR_DATA *ch, char *argument )
 
      if ( ch->gold < ch->top_level*200 )
      {
-       ch_printf( ch, "You don't have enough wulongs... You need %d.\n\r" , ch->top_level*200 );
+       ch_printf( ch, "You don't have enough money... You need %d.\n\r" , ch->top_level*200 );
        return;
      }
      else
      {
        ch->gold -= ch->top_level*200;
 
-       ch_printf( ch, "You pay %d wulongs for cloning.\n\r" , ch->top_level*200 );
+       ch_printf( ch, "You pay %d dollars for cloning.\n\r" , ch->top_level*200 );
        ch_printf( ch, "You are escorted into a small room.\n\r\n\r" );
      }
 
@@ -454,14 +454,14 @@ void do_lift( CHAR_DATA *ch, char *argument)
    int fail, succeed;
 
    argument = one_argument( argument, arg );
-   
+
    exercise = 0;
    if ( arg[0] == '\0' )
 	rep = 1;
    else
 	rep = atoi( arg );
-  
-/*   if(IS_SET( ch->in_room->room_flags2, ROOM_GYM ) )	
+
+/*   if(IS_SET( ch->in_room->room_flags2, ROOM_GYM ) )
    {
 	exercise += 2;
    } */
@@ -479,7 +479,7 @@ void do_lift( CHAR_DATA *ch, char *argument)
 
    tired = ch->move;
    tired -= 30*rep;
-   fail = 0;  
+   fail = 0;
 
    if(ch->move < 100 || tired < 100)
    {
@@ -492,13 +492,13 @@ void do_lift( CHAR_DATA *ch, char *argument)
 	return;
    }
 
-   
+
 	WAIT_STATE(ch, 2);
 //	act( AT_RED, "$n tries to lift some free weights.", ch, NULL, NULL, TO_ROOM);
 	act( AT_RED, "You try to lift some free weights.", ch, NULL, NULL, TO_CHAR);
-   
+
    luck = ch->perm_lck/2;
-      
+
    WAIT_STATE( ch, (rep*3));
 
    for(round = 0; round < rep; round++)
@@ -522,7 +522,7 @@ void do_lift( CHAR_DATA *ch, char *argument)
    if( exercise > 0 )
 	ch->strtrain += exercise;
 
-   succeed = rep - fail;   	
+   succeed = rep - fail;
 
   ch_printf( ch, "You succeed %d out of %d tries.\n\r", succeed, round);
    if(ch->hit < 0)
@@ -576,7 +576,7 @@ void do_study( CHAR_DATA *ch, char *argument)
    }
 
 
-   
+
 
    act( AT_RED, "You try to study some books.", ch, NULL, NULL, TO_CHAR);
 
@@ -600,7 +600,7 @@ void do_study( CHAR_DATA *ch, char *argument)
    {
         ch->wistrain += exercise;
 	ch->inttrain += exercise/2;
-   }	
+   }
 
    return;
 }
@@ -618,7 +618,7 @@ void do_research( CHAR_DATA *ch, char *argument )
 		send_to_char("&RYou need to be outside for this!\n\r", ch);
 		return;
 	}
-	
+
 	if(ch->position != POS_STANDING)
 	{
 		send_to_char("&RYou can't do this in your current position!\n\r", ch);
@@ -648,14 +648,14 @@ void do_research( CHAR_DATA *ch, char *argument )
 			ch->dest_buf = str_dup(arg);
 			act( AT_PLAIN, "$n begins to do some field research.\n\r", ch, NULL, NULL, TO_ROOM);
 			return;
-		
+
 		case 1:
 			if (!ch->dest_buf )
 			   return;
-			strcpy( arg, ch->dest_buf); 
+			strcpy( arg, ch->dest_buf);
 			DISPOSE( ch->dest_buf );
 			break;
-		
+
 		case SUB_TIMER_DO_ABORT:
 			DISPOSE( ch->dest_buf );
 			ch->substate = SUB_NONE;
@@ -666,7 +666,7 @@ void do_research( CHAR_DATA *ch, char *argument )
 	ch->substate = SUB_NONE;
 
 
-	luck = ch->perm_lck / 2;		
+	luck = ch->perm_lck / 2;
 	chance = number_range( 0, luck);
 
 	if(chance == 0)
@@ -700,7 +700,7 @@ void do_research( CHAR_DATA *ch, char *argument )
 		default:
 			send_to_char("&RYou notice the breeze is coming from a certain direction.\n\r", ch);
 	}
-	time = atoi(arg);	
+	time = atoi(arg);
 
 	act( AT_PLAIN, "$n finishes their research!\n\r", ch, NULL, NULL, TO_ROOM);
 	send_to_char("Your research proves fruitful!\n\r" ,ch);
@@ -787,13 +787,13 @@ void do_endurance( CHAR_DATA *ch, char *argument )
                         strcpy( arg, ch->dest_buf);
                         DISPOSE( ch->dest_buf );
                         break;
-	
+
                 case SUB_TIMER_DO_ABORT:
                         DISPOSE( ch->dest_buf );
                         ch->substate = SUB_NONE;
                         send_to_char("&RYou are distracted and lose focus!\n\r", ch);
                         return;
-	
+
         }
 
         ch->substate = SUB_NONE;
@@ -807,15 +807,15 @@ void do_endurance( CHAR_DATA *ch, char *argument )
                 send_to_char("&RYou gasp and fall over, failing to raise any endurance.\n\r", ch);
                 return;
         }
-	
+
         time = atoi(arg);
-	
-	
+
+
 
         act( AT_PLAIN, "$n finishes their endurance training!\n\r", ch, NULL, NULL, TO_ROOM);
         send_to_char("Your blood, sweat and tears prove successful!\n\r" ,ch);
         ch->contrain += time*2;
-	ch->hit -= time;	
+	ch->hit -= time;
 
         return;
 }
@@ -850,7 +850,7 @@ void do_stretch( CHAR_DATA *ch, char *argument)
                 return;
 	}
 	*/
-      
+
       if ( arg[0] == '\0')
       {
                send_to_char("&RUsage: stret #\n\r" , ch);
@@ -868,8 +868,8 @@ void do_stretch( CHAR_DATA *ch, char *argument)
 	{
 		send_to_char("&RThat is a little extreme, don't you think?\n\r", ch);
 		return;
-	}     
-       
+	}
+
         if( (ch->move - time/2) < 100)
         {
                   send_to_char("&RYour body couldn't handle that!\n\r", ch);
@@ -877,13 +877,13 @@ void do_stretch( CHAR_DATA *ch, char *argument)
         }
         send_to_char("&RYou begin to do some stretching\n\r", ch);
         act( AT_PLAIN, "$n begins to do some stretching\n\r", ch, NULL, NULL, TO_ROOM);
-	
+
 	if(number_range(0,5) > 3)
 		extra = ch->perm_lck/2;
 	else
-		extra =0;        
+		extra =0;
 
-        WAIT_STATE( ch, (time*2 - extra));             
+        WAIT_STATE( ch, (time*2 - extra));
 
         luck = ch->perm_lck / 2;
         chance = number_range( 0, luck);
@@ -895,7 +895,7 @@ void do_stretch( CHAR_DATA *ch, char *argument)
                 return;
         }
 
-        
+
 
         act( AT_PLAIN, "$n finishes their stretching!\n\r", ch, NULL, NULL, TO_ROOM);
         send_to_char("You feel like your stretching was a success!\n\r" ,ch);
@@ -923,7 +923,7 @@ void do_socialize( CHAR_DATA *ch , char *argument )
 
     argument = one_argument( argument, arg1 );
 
-   
+
     if ( arg1[0] == '\0' )
     {
         send_to_char( "Socialize with whom?\n\r", ch );
@@ -959,24 +959,24 @@ void do_socialize( CHAR_DATA *ch , char *argument )
         send_to_char( "You might want to wake them first...\n\r" , ch );
         return;
     }
- 
+
     if( ch->hit <= 100)
     {
 	send_to_char("You might wanna clean up the blood on your body first.\n\r" ,ch);
 	return;
     }
 
-    
-    act( AT_ACTION, "$n tries to strike up a conversation with you.\n\r", 
+
+    act( AT_ACTION, "$n tries to strike up a conversation with you.\n\r",
 ch, NULL, victim, TO_VICT    );
-    act( AT_ACTION, "$n tries to socialize with $N.\n\r",  ch, NULL, 
+    act( AT_ACTION, "$n tries to socialize with $N.\n\r",  ch, NULL,
 victim, TO_NOTVICT );
 
     luck = ch->perm_lck/4;
     chance = number_range( 0, luck);
 
     WAIT_STATE( ch, (luck*2) );
-	
+
     if(chance != 0)
     {
 	  if( ch->sex == 1)
@@ -1124,8 +1124,8 @@ void do_takedrug( CHAR_DATA *ch, char *argument )
    {
    	if (obj->item_type == ITEM_APPLICATOR)
                     checkapp = TRUE;
-   } 
-   
+   }
+
    if(checkapp == FALSE)
     {
 	send_to_char("You need an Applicator to use this!\n\r",ch);
@@ -1156,7 +1156,7 @@ void do_takedrug( CHAR_DATA *ch, char *argument )
 
     drug = obj->value[0];
     purity = obj->value[1];
-    duration = drug*(purity*4) + 100;	
+    duration = drug*(purity*4) + 100;
 
 
     separate_obj( obj );
@@ -1185,11 +1185,11 @@ void do_takedrug( CHAR_DATA *ch, char *argument )
           return;
         }
 
-        
+
         WAIT_STATE( ch, PULSE_PER_SECOND/4 );
 
 //	gain_condition( ch, COND_THIRST, 1 );
-         // Affects change from drugs = Gatz	
+         // Affects change from drugs = Gatz
 	ch->pcdata->drug_level[drug] += duration;
 	/*
 	if ( ch->pcdata->drug_level[drug] >=255
@@ -1208,7 +1208,7 @@ void do_takedrug( CHAR_DATA *ch, char *argument )
 	     ch->hit = 1;
 	}
 	*/
-	
+
         sn = skill_lookup("drug");
 
 	if (purity == 0)
@@ -1221,14 +1221,14 @@ void do_takedrug( CHAR_DATA *ch, char *argument )
 		af.duration = 10;
 		af.bitvector = AFF_NONE;
 		affect_to_char( ch, &af);
-		
+
 		af.type = sn;
 		af.location = APPLY_DEX;
 		af.modifier = -5;
 		af.duration = 10;
 		af.bitvector = AFF_NONE;
 		affect_to_char( ch, &af);
-		
+
 		if ( cur_obj == obj->serial )
 	          global_objcode = rOBJ_EATEN;
 	        extract_obj( obj );
@@ -1236,7 +1236,7 @@ void do_takedrug( CHAR_DATA *ch, char *argument )
 	}
 
 	ch->pcdata->addiction[drug] = purity;
- 	
+
 	// Bloody Eye, Red Eye
 	if(drug == 0)
 	{
@@ -1247,14 +1247,14 @@ void do_takedrug( CHAR_DATA *ch, char *argument )
 		af.duration = duration;
 		af.bitvector = AFF_BLOODYEYE;
 		affect_to_char( ch, &af );
-	
+
 		af.type = sn;
 		af.location = APPLY_DEX;
 		af.modifier = purity;
 		af.duration = duration;
 		af.bitvector = AFF_BLOODYEYE;
 		affect_to_char( ch, &af);
-		
+
 		af.type = sn;
 		af.location = APPLY_STR;
 		af.modifier = purity;
@@ -1266,10 +1266,10 @@ void do_takedrug( CHAR_DATA *ch, char *argument )
                 extract_obj( obj );
                 return;
 
-	}	
+	}
 	// Yellow Eye
 	if(drug == 1)
-	{ 
+	{
 			send_to_char("&YUrge to kill rising...\n\r",ch);
 			af.type = sn;
 			af.location = APPLY_LCK;
@@ -1357,8 +1357,8 @@ void do_takedrug( CHAR_DATA *ch, char *argument )
                 return;
 
 	}
-	
-				
+
+
 	// Just used for reference - Gatz
 	/*
 	switch (drug)
@@ -1438,16 +1438,16 @@ void do_takedrug( CHAR_DATA *ch, char *argument )
 	  	   affect_to_char( ch, &af );
 
 	       break;
-	
+
         }
 	*/
-    } 
-   
+    }
+
     if ( cur_obj == obj->serial )
-      global_objcode = rOBJ_EATEN;  
-   
+      global_objcode = rOBJ_EATEN;
+
     extract_obj( obj );
- 
+
     return;
 }
 
@@ -3062,7 +3062,7 @@ void do_hail( CHAR_DATA *ch , char *argument )
 
     if ( ch->gold < (ch->top_level-9)  )
     {
-       send_to_char( "You don't have enough wulongs!\n\r", ch );
+       send_to_char( "You don't have enough money!\n\r", ch );
        return;
     }
 
@@ -3092,7 +3092,7 @@ void do_hail( CHAR_DATA *ch , char *argument )
     char_from_room( ch );
     char_to_room( ch, room );
 
-    send_to_char( "A speederbike picks you up and drives you to a safe location.\n\rYou pay the driver 20 wulongs.\n\r\n\n" , ch );
+    send_to_char( "A speederbike picks you up and drives you to a safe location.\n\rYou pay the driver 20 dollars.\n\r\n\n" , ch );
     act( AT_ACTION, "$n $T", ch, NULL, "arrives on a speederbike, gets off and pays the driver before it leaves.",  TO_ROOM );
 
     do_look( ch, "auto" );
@@ -3334,7 +3334,7 @@ void do_suicide( CHAR_DATA *ch, char *argument )
 	    return;
     }
 
-    if ( strcmp( crypt( argument, ch->pcdata->pwd ), ch->pcdata->pwd ) )
+    if ( strcmp( (char *) crypt( argument, ch->pcdata->pwd ), ch->pcdata->pwd ) )
 	{
 	    send_to_char( "Sorry wrong password.\n\r", ch );
 	    sprintf( logbuf , "%s attempting to commit suicide... WRONG PASSWORD!" , ch->name );
@@ -3343,7 +3343,7 @@ void do_suicide( CHAR_DATA *ch, char *argument )
 	}
     act( AT_BLOOD, "With a sad determination and trembling hands you slit your own throat!",  ch, NULL, NULL, TO_CHAR    );
     act( AT_BLOOD, "Cold shivers run down your spine as you watch $n slit $s own throat!",  ch, NULL, NULL, TO_ROOM );
-    // Clan Member List gets lowered	
+    // Clan Member List gets lowered
     if(ch->pcdata && ch->pcdata->clan)
     {
 	ch->pcdata->clan->members--;
@@ -3382,10 +3382,10 @@ void do_suicide( CHAR_DATA *ch, char *argument )
               ship->pilot = STRALLOC( "" );
               STRFREE( ship->copilot );
               ship->copilot = STRALLOC( "" );
-             
+
               save_ship( ship );
          }
-              
+
     }
     quitting_char = ch;
     save_char_obj( ch );
@@ -3487,7 +3487,7 @@ void do_bank( CHAR_DATA *ch, char *argument )
 
        if ( ch->gold < amount )
        {
-          send_to_char( "&CYou don't have that many wulongs on you.&W\n\r", ch );
+          send_to_char( "&CYou don't have that many dollars on you.&W\n\r", ch );
           return;
        }
 
@@ -3500,7 +3500,7 @@ void do_bank( CHAR_DATA *ch, char *argument )
        ch->gold -= amount;
        ch->pcdata->bank += amount;
 
-       ch_printf( ch , "&CYou deposit &Y%s &Cwulongs into your account.&W\n\r" ,num_punct(amount) );
+       ch_printf( ch , "&CYou deposit &Y%s &Cdollars into your account.&W\n\r" ,num_punct(amount) );
        return;
     }
     else if ( !str_prefix( arg1 , "withdrawl" ) )
@@ -3514,27 +3514,27 @@ void do_bank( CHAR_DATA *ch, char *argument )
 
        if ( ch->pcdata->bank < amount )
        {
-          send_to_char( "&CYou don't have that many wulongs in your account.&W\n\r", ch );
+          send_to_char( "&CYou don't have that much money in your account.&W\n\r", ch );
           return;
        }
 
 
        if ( ( amount + ch->gold ) > 2000000000 )
        {
-          send_to_char( "&CYou can only carry 2 billion wulongs.&W\n\r", ch );
+          send_to_char( "&CYou can only carry 2 billion dollars.&W\n\r", ch );
           return;
        }
 
        ch->gold += amount;
        ch->pcdata->bank -= amount;
 
-       ch_printf( ch , "&CYou withdraw &Y%s &Cwulongs from your account.&W\n\r" ,num_punct(amount) );
+       ch_printf( ch , "&CYou withdraw &Y%s &Cdollars from your account.&W\n\r" ,num_punct(amount) );
        return;
 
     }
     else if ( !str_prefix( arg1 , "balance" ) )
     {
-        ch_printf( ch , "&CYou have &Y%s&C wulongs in your account.&W\n\r" , num_punct(ch->pcdata->bank) );
+        ch_printf( ch , "&CYou have &Y%s&C dollars in your account.&W\n\r" , num_punct(ch->pcdata->bank) );
         return;
     }
     else if ( !str_prefix( arg1 , "transfer" ) )
@@ -3565,7 +3565,7 @@ void do_bank( CHAR_DATA *ch, char *argument )
 
        if ( ch->pcdata->bank < amount )
        {
-          send_to_char( "&CYou don't have that many wulongs in your account.&W\n\r", ch );
+          send_to_char( "&CYou don't have that much money in your account.&W\n\r", ch );
           return;
        }
 
@@ -3578,8 +3578,8 @@ void do_bank( CHAR_DATA *ch, char *argument )
        ch->pcdata->bank -= amount;
        victim->pcdata->bank += amount;
 
-       ch_printf( ch , "&CYou transfer &Y%s &Cwulongs to %s's account.&W\n\r" ,num_punct(amount), victim->name );
-       ch_printf( victim , "&R%s &Ctransfers &Y%s &Cwulongs to your account.&W\n\r" , ch->name , num_punct(amount));
+       ch_printf( ch , "&CYou transfer &Y%s &Cdollars to %s's account.&W\n\r" ,num_punct(amount), victim->name );
+       ch_printf( victim , "&R%s &Ctransfers &Y%s &Cdollars to your account.&W\n\r" , ch->name , num_punct(amount));
        return;
 
     }
@@ -3607,9 +3607,9 @@ void do_frenzy(CHAR_DATA *ch, char *argument)
 	}
 	if( ch->perm_frc < 4)
 	{
-		send_to_char("Your adrenaline isn't pumping enough!\n\r", ch);	
+		send_to_char("Your adrenaline isn't pumping enough!\n\r", ch);
 		return;
-	}	
+	}
 	check = FALSE;
         for ( drug=0 ; drug <= 9 ; drug ++ )
         {
@@ -3627,7 +3627,7 @@ void do_frenzy(CHAR_DATA *ch, char *argument)
 	act( AT_FIRE,"You enter into a frenzy!\n\r", ch, NULL, NULL, TO_CHAR);
 	act( AT_FIRE,"$n enters into a frenzy!\n\r", ch, NULL, NULL, TO_ROOM);
 
-	level = IS_NPC(ch) ? ch->top_level : 
+	level = IS_NPC(ch) ? ch->top_level :
 		(int) (ch->pcdata->learned[gsn_frenzy]);
 
         sn =  skill_lookup("frenzy");
@@ -3667,7 +3667,7 @@ void do_applylicense(CHAR_DATA *ch, char *argument)
 	if(IS_NPC(ch))
 		return;
 
-        if ( !IS_SET( ch->in_room->room_flags , ROOM_R_RECRUIT ) 
+        if ( !IS_SET( ch->in_room->room_flags , ROOM_R_RECRUIT )
          && !IS_SET( ch->in_room->room_flags , ROOM_E_RECRUIT ) )
 	{
 		send_to_char("You need to be in a RBH or GLM enlistment office to do this!\r\n", ch);
@@ -3684,12 +3684,12 @@ void do_applylicense(CHAR_DATA *ch, char *argument)
 	{
 		if((ch->gold - (ch->top_level * 20000)) < 0)
 		{
-			send_to_char("&RYou don't have enough Wulongs!\r\n", ch);
+			send_to_char("&RYou don't have enough dollars!\r\n", ch);
 			return;
 		}
 		else
 		{
-			ch->gold -= (ch->top_level * 20000); 
+			ch->gold -= (ch->top_level * 20000);
 			send_to_char("&RYou have regained your Weapon License!\r\n", ch);
 			ch->pcdata->weaponl = 0;
 			return;
@@ -3699,13 +3699,13 @@ void do_applylicense(CHAR_DATA *ch, char *argument)
 	send_to_char("&RYou can't apply for a License yet!\r\n", ch);
 
 	return;
-} 
+}
 
 
 void do_shadowbox( CHAR_DATA *ch, char *argument)
 {
 	int timer = 0;
-	
+
 
 	switch(ch->substate)
 	{
@@ -3730,14 +3730,14 @@ void do_shadowbox( CHAR_DATA *ch, char *argument)
 				send_to_char("You need to Shadow Box for at least 3 second!\r\n", ch);
 				return;
 			}
-			
+
 			if(ch->hit < 300 || ch->move < 300)
 			{
 				send_to_char("Your body shudders slightly and refuses to start!\r\n", ch);
 				return;
 			}
-	
-			
+
+
 			add_timer( ch, TIMER_DO_FUN, 3, do_shadowbox, 1);
 			ch->stimer = timer;
 			act(AT_GREEN, "You get ready to Shadow Box!", ch, NULL, NULL, TO_CHAR);
@@ -3866,7 +3866,7 @@ void do_shadowbox( CHAR_DATA *ch, char *argument)
 							ch, NULL, NULL, TO_ROOM);
 					}
 					else
-					{	
+					{
 						act(AT_YELLOW, "You do a palm thrust right into the punching bag!", ch, NULL, NULL, TO_CHAR);
 						act(AT_YELLOW, "$n does a palm thrust right into the punching bag!", ch, NULL, NULL, TO_ROOM);
 					}
@@ -3897,7 +3897,7 @@ void do_shadowbox( CHAR_DATA *ch, char *argument)
 						act(AT_YELLOW, "$n takes a deep breath and does a charing roundhouse!", ch, NULL, NULL, TO_ROOM);
 					}
 				break;
-			}		
+			}
 			ch->strtrain += number_range(1, get_curr_lck(ch)/5);
 			if(IS_SET(ch->in_room->room_flags2, ROOM_GYM))
 				ch->strtrain += number_range(1, 5);
@@ -3910,7 +3910,7 @@ void do_shadowbox( CHAR_DATA *ch, char *argument)
 				return;
 			}
 			ch->stimer -= 3;
-			
+
                 break;
 
                 case SUB_TIMER_DO_ABORT:
@@ -3925,7 +3925,7 @@ void do_shadowbox( CHAR_DATA *ch, char *argument)
 }
 
 
-		
+
 
 
 void do_newstudy( CHAR_DATA *ch, char *argument)
@@ -3944,7 +3944,7 @@ void do_newstudy( CHAR_DATA *ch, char *argument)
 				send_to_char("You need to be in a library for this!\r\n", ch);
 				return;
 			}
- 
+
 			int time = 0;
 			time = atoi(argument);
 			if(time < 3)
@@ -4009,7 +4009,7 @@ void do_newstudy( CHAR_DATA *ch, char *argument)
 				case 6:
 					if(get_curr_int(ch) < 14)
 					{
-						act(AT_YELLOW, "You grimace slightly as you notice there are 2,000 pages left to read.", 
+						act(AT_YELLOW, "You grimace slightly as you notice there are 2,000 pages left to read.",
 							ch, NULL, NULL, TO_CHAR);
 						act(AT_YELLOW, "$n grimaces over something in $s book.", ch, NULL, NULL, TO_ROOM);
 					}
@@ -4019,7 +4019,7 @@ void do_newstudy( CHAR_DATA *ch, char *argument)
 							ch, NULL, NULL, TO_CHAR);
 						act(AT_YELLOW, "$n beams a bright smile over something in $s book.", ch, NULL, NULL, TO_ROOM);
 					}
-				break;	
+				break;
 				case 5:
 					if(get_curr_int(ch) > 16)
 					{
@@ -4069,7 +4069,7 @@ void do_newstudy( CHAR_DATA *ch, char *argument)
 				return;
 			}
 			add_timer(ch, TIMER_DO_FUN, 3, do_newstudy, 1);
-		return; 
+		return;
 		case 2:
 			ch->substate = SUB_NONE;
 			if(ch->stimer < 3)
@@ -4137,7 +4137,7 @@ void do_newstudy( CHAR_DATA *ch, char *argument)
 					act(AT_YELLOW, "$n cringes after reading something.", ch, NULL, NULL, TO_ROOM);
 				break;
 			}
-				
+
 			ch->stimer -= 3;
 			ch->inttrain += number_range(1, get_curr_lck(ch)) + 1;
 			ch->wistrain += number_range(1, get_curr_lck(ch)) + 1;
@@ -4149,7 +4149,7 @@ void do_newstudy( CHAR_DATA *ch, char *argument)
 				return;
 			}
 			add_timer(ch, TIMER_DO_FUN, 3, do_newstudy, 2);
-		return; 		
+		return;
 		case 3:
 			ch->substate = SUB_NONE;
 			if(ch->stimer < 3)
@@ -4232,7 +4232,7 @@ void do_newstudy( CHAR_DATA *ch, char *argument)
 				return;
 			}
 			add_timer(ch, TIMER_DO_FUN, 3, do_newstudy, 3);
-		return; 
+		return;
 		case SUB_TIMER_DO_ABORT:
 			ch->substate = SUB_NONE;
 			act(AT_GREEN, "You yawn slightly and close the book.", ch, NULL, NULL, TO_CHAR);
@@ -4255,7 +4255,7 @@ void do_newendurance( CHAR_DATA *ch, char *argument)
 				send_to_char("&RYou must be in a gym for this.\r\n", ch);
 				return;
 			}
-			
+
 			if(argument[0] == '\0')
 			{
 				send_to_char("&RSyntax: Endurance X (Time in Seconds)\r\n" ,ch );
@@ -4269,13 +4269,13 @@ void do_newendurance( CHAR_DATA *ch, char *argument)
 			}
 
 			int time = atoi(argument);
-		
+
 			if(time < 3)
 			{
 				send_to_char("&RYou need to do at least 3 seconds to make it worth it!\r\n", ch);
 				return;
 			}
-			
+
 			ch->stimer = time;
 
 			switch(number_range(0,3))
@@ -4308,7 +4308,7 @@ void do_newendurance( CHAR_DATA *ch, char *argument)
 					time = 1;
 				break;
 			}
-			
+
 			add_timer(ch, TIMER_DO_FUN, 3, do_newendurance, time);
 		return;
 		case 1:
@@ -4326,22 +4326,22 @@ void do_newendurance( CHAR_DATA *ch, char *argument)
 				case 8:
 					if(ch->hit > 500)
 					{
-						act(AT_YELLOW, "You grin slightly as you complete two handstand pushups rapidly.", ch, NULL, NULL, 
+						act(AT_YELLOW, "You grin slightly as you complete two handstand pushups rapidly.", ch, NULL, NULL,
 TO_CHAR);
-						act(AT_YELLOW, "$n grins slightly as $e completes two handstand pushups rapidly.", ch, NULL, NULL, 
+						act(AT_YELLOW, "$n grins slightly as $e completes two handstand pushups rapidly.", ch, NULL, NULL,
 TO_ROOM);
 					}
 					else
 					{
-						act(AT_YELLOW, "A tear of pain rolls down your cheek and mixes with your sweat.", ch, NULL, NULL, 
+						act(AT_YELLOW, "A tear of pain rolls down your cheek and mixes with your sweat.", ch, NULL, NULL,
 TO_CHAR);
 						act(AT_YELLOW, "A tear rolls down $n's cheek and mixes with $s sweat.", ch, NULL, NULL, TO_ROOM);
 					}
 				break;
 				case 7:
-					act(AT_YELLOW, "You bite your lip softly as you try to complete another handstand pushup.", ch, NULL, NULL, 
+					act(AT_YELLOW, "You bite your lip softly as you try to complete another handstand pushup.", ch, NULL, NULL,
 TO_CHAR);
-					act(AT_YELLOW, "$n bites $s lip softly as $e tries to complete another handstand pushup.", ch, NULL, NULL, 
+					act(AT_YELLOW, "$n bites $s lip softly as $e tries to complete another handstand pushup.", ch, NULL, NULL,
 TO_ROOM);
 				break;
 				case 6:
@@ -4367,7 +4367,7 @@ TO_ROOM);
 				case 3:
 					if(ch->alignment < 300)
 					{
-						act(AT_YELLOW, "You swear under your breath, struggling to do another pushup.", ch, NULL, NULL, 
+						act(AT_YELLOW, "You swear under your breath, struggling to do another pushup.", ch, NULL, NULL,
 TO_CHAR);
 						act(AT_YELLOW, "$n swears under $s breath, struggling to do another pushup.", ch, NULL, NULL, TO_ROOM);
 					}
@@ -4418,7 +4418,7 @@ TO_CHAR);
 			ch->stimer -= 3;
 			add_timer(ch, TIMER_DO_FUN, 3, do_newendurance, 1);
 		return;
-	
+
 		case 2:
 			ch->substate = SUB_NONE;
 			if(ch->stimer < 3)
@@ -4430,7 +4430,7 @@ TO_CHAR);
 			}
 			// Messages go here!
 			switch(number_range(0,5))
-			{	
+			{
 				case 5:
 					act(AT_YELLOW, "You try to headbutt the board but stumble dizzily back.", ch, NULL, NULL, TO_CHAR);
 					act(AT_YELLOW, "$n tries to headbutt the board but stumbles dizzily back.", ch, NULL, NULL, TO_ROOM);
@@ -4465,7 +4465,7 @@ TO_CHAR);
 				break;
 				case 2:
 					if(ch->alignment < 300)
-					{	
+					{
 						act(AT_YELLOW, "You release an ear spliting scream and deliver a hard palm thrust into the board!",
 							ch, NULL, NULL, TO_CHAR);
 						act(AT_YELLOW, "$n releases an ear spliting scream and delivers a hard palm thrust into the board!",
@@ -4473,9 +4473,9 @@ TO_CHAR);
 					}
 					else
 					{
-						act(AT_YELLOW, "You leap into the air and do a front chop down on the board!", ch, NULL, NULL, 
+						act(AT_YELLOW, "You leap into the air and do a front chop down on the board!", ch, NULL, NULL,
 TO_CHAR);
-						act(AT_YELLOW, "$n leaps into the air and does a front chop down on the board!", ch, NULL, NULL, 
+						act(AT_YELLOW, "$n leaps into the air and does a front chop down on the board!", ch, NULL, NULL,
 TO_ROOM);
 					}
 				break;
@@ -4508,7 +4508,7 @@ TO_ROOM);
 						act(AT_YELLOW, "You do a double palm thrust, shattering the board!",
 							ch, NULL, NULL, TO_CHAR);
 						act(AT_YELLOW, "$n does a double pam thrust, shattering the board!", ch, NULL, NULL, TO_ROOM);
-						act(AT_YELLOW, "You quickly setup an new board and prepare to continue your routine.", 
+						act(AT_YELLOW, "You quickly setup an new board and prepare to continue your routine.",
 							ch, NULL, NULL, TO_CHAR);
 						act(AT_YELLOW, "$n quickly sets up a new board and gets ready to continue $s routine.",
 							ch, NULL, NULL, TO_ROOM);
@@ -4534,7 +4534,7 @@ TO_ROOM);
 			ch->stimer -= 3;
 			add_timer(ch, TIMER_DO_FUN, 3, do_newendurance, 2);
 		return;
-				
+
 		case 3:
 			ch->substate = SUB_NONE;
 			if(ch->stimer < 3)
@@ -4564,7 +4564,7 @@ TO_ROOM);
 					}
 				break;
 				case 3:
-					act(AT_YELLOW, "You take a deep breath and try to lift your legs higher when you run.", ch, NULL, NULL, 
+					act(AT_YELLOW, "You take a deep breath and try to lift your legs higher when you run.", ch, NULL, NULL,
 TO_CHAR);
 					act(AT_YELLOW, "$n takes a deep breath and lifts $s legs higher when $e runs.", ch, NULL, NULL, TO_ROOM);
 				break;
@@ -4614,7 +4614,7 @@ TO_CHAR);
 				return;
 			}
 			// Messages go here!
-			switch(number_range(0,6))	
+			switch(number_range(0,6))
 			{
 				case 6:
 					act(AT_YELLOW, "Some of the water in your buckets spill out, as you shake with tension.",
@@ -4672,7 +4672,7 @@ TO_CHAR);
 							ch, NULL, NULL, TO_ROOM);
 					}
 				break;
-			}							
+			}
 			ch->contrain += number_range(1, get_curr_lck(ch)/5);
 			ch->contrain += number_range(0,2);
 			ch->hit -= number_range(5, 30);
@@ -4701,7 +4701,7 @@ void do_newstretch(CHAR_DATA *ch, char *argument)
 		default:
 			if(IS_NPC(ch))
 				return;
-			
+
 			if(ch->position != POS_SITTING)
 			{
 				send_to_char("&RYou must be sitting for this!\r\n", ch);
@@ -4713,14 +4713,14 @@ void do_newstretch(CHAR_DATA *ch, char *argument)
 				send_to_char("&RYour body is far to sore to stretch!\r\n", ch);
 				return;
 			}
-			
+
 			ch->stimer = atoi(argument);
 
 			if(ch->stimer < 3)
 			{
 				send_to_char("&RYou need to do at least 3 seconds of stretching!\r\n", ch);
 				return;
-			}		
+			}
 
 			act(AT_GREEN, "You begin to do some intense stretching.", ch, NULL, NULL, TO_CHAR);
 			act(AT_GREEN, "$n begins to do some intense stretching.", ch, NULL, NULL, TO_ROOM);
@@ -4734,7 +4734,7 @@ void do_newstretch(CHAR_DATA *ch, char *argument)
 				act(AT_GREEN, "$n relaxes slightly, recovering from stretching.", ch, NULL, NULL, TO_ROOM);
 				return;
 			}
-			
+
 			// Lets display a message to the user!
 			switch(number_range(0,11))
 			{
@@ -4757,7 +4757,7 @@ void do_newstretch(CHAR_DATA *ch, char *argument)
 				case 9:
 					act(AT_YELLOW, "You try to extend your arms as far apart as possible.", ch, NULL, NULL, TO_CHAR);
 					act(AT_YELLOW, "$n tries to extend $s arms as far apart as possible.", ch, NULL, NULL, TO_ROOM);
-				break;	
+				break;
 				case 8:
 					act(AT_YELLOW, "You lean over with one hand and try to extend your fingers beyond your foot.",
 						ch, NULL, NULL, TO_CHAR);
@@ -4812,7 +4812,7 @@ void do_newstretch(CHAR_DATA *ch, char *argument)
 						act(AT_YELLOW, "$n gets into a dog stretch.", ch, NULL, NULL, TO_ROOM);
 					}
 				break;
-			} 
+			}
 			ch->stimer -= 3;
 			ch->dextrain += number_range(0, get_curr_lck(ch)/5);
 			if(IS_SET(ch->in_room->room_flags2, ROOM_YOGA))
@@ -4842,7 +4842,7 @@ void do_newresearch(CHAR_DATA *ch, char *argument)
 		default:
 			if(IS_NPC(ch))
 				return;
-	
+
 			if(ch->move < 300)
 			{
 				send_to_char("&RYou are far too tired to research!\r\n", ch);
@@ -4863,7 +4863,7 @@ void do_newresearch(CHAR_DATA *ch, char *argument)
 				check = 2;
 			else
 				check = 3;
-			
+
 			act(AT_GREEN, "You begin your research.", ch, NULL, NULL, TO_CHAR);
 			act(AT_GREEN, "$n begins $s research.", ch, NULL, NULL, TO_ROOM);
 			add_timer(ch, TIMER_DO_FUN, 3, do_newresearch, check);
@@ -4920,7 +4920,7 @@ void do_newresearch(CHAR_DATA *ch, char *argument)
 			if(check < 1)
 				check = 1;
 			ch->move -= check;
-			
+
 			if(ch->move < 300)
 			{
 				act(AT_GREEN, "You become too tired to continue your research.", ch, NULL, NULL, TO_CHAR);
@@ -4928,7 +4928,7 @@ void do_newresearch(CHAR_DATA *ch, char *argument)
 				return;
 			}
 			add_timer(ch, TIMER_DO_FUN, 3, do_newresearch, 1);
-			
+
 		return;
 
 		// In Doors
@@ -4969,7 +4969,7 @@ void do_newresearch(CHAR_DATA *ch, char *argument)
 					act(AT_YELLOW, "$n looks at a window intently.", ch, NULL, NULL, TO_ROOM);
 				break;
 				default:
-					act(AT_YELLOW, "You look at the floor and wonder if the structure was built on a cement base.", 
+					act(AT_YELLOW, "You look at the floor and wonder if the structure was built on a cement base.",
 						ch, NULL, NULL, TO_CHAR);
 					act(AT_YELLOW, "$n looks at the floor with a intense gaze.", ch, NULL, NULL, TO_ROOM);
 				break;
@@ -4981,7 +4981,7 @@ void do_newresearch(CHAR_DATA *ch, char *argument)
 			if(check < 1)
 				check = 1;
 			ch->move -= check;
-			
+
 			if(ch->move < 300)
 			{
 				act(AT_GREEN, "You become too tired to continue your research.", ch, NULL, NULL, TO_CHAR);
@@ -4989,7 +4989,7 @@ void do_newresearch(CHAR_DATA *ch, char *argument)
 				return;
 			}
 			add_timer(ch, TIMER_DO_FUN, 3, do_newresearch, 2);
-		
+
 		return;
 
 		// Regular old Outdoors Research
@@ -5022,7 +5022,7 @@ void do_newresearch(CHAR_DATA *ch, char *argument)
 					act(AT_YELLOW, "$n looks around the room.", ch, NULL, NULL, TO_ROOM);
 				break;
 				case 2:
-					act(AT_YELLOW, "You notice a small bug, and try to see if you can tell how it's body is setup.", 
+					act(AT_YELLOW, "You notice a small bug, and try to see if you can tell how it's body is setup.",
 						ch, NULL, NULL, TO_CHAR);
 					act(AT_YELLOW, "$n notices a something and then focuses in on it.", ch, NULL, NULL, TO_ROOM);
 				break;
@@ -5044,7 +5044,7 @@ void do_newresearch(CHAR_DATA *ch, char *argument)
 			if(check < 1)
 				check = 1;
 			ch->move -= check;
-			
+
 			if(ch->move < 300)
 			{
 				act(AT_GREEN, "You become too tired to continue your research.", ch, NULL, NULL, TO_CHAR);
@@ -5068,23 +5068,23 @@ void do_newsocialize(CHAR_DATA *ch, char *argument)
 	char arg[MAX_STRING_LENGTH];
 	char buf[MAX_STRING_LENGTH];
 	bool mad = FALSE;
-	
+
 
 	if(IS_NPC(ch))
 		return;
 
-	
+
 	switch(ch->substate)
 	{
 		default:
 			strcpy(arg, argument);
 			if(arg[0] == '\0')
-			{	
+			{
 				send_to_char("&RSyntax: Socialize (Target)\r\n", ch);
 				return;
 			}
 
-			// Maybe in the future there can be some situational dialogue which can be setup for ships	
+			// Maybe in the future there can be some situational dialogue which can be setup for ships
 			planet = ch->in_room->area->planet;
 			if(!planet)
 			{
@@ -5097,7 +5097,7 @@ void do_newsocialize(CHAR_DATA *ch, char *argument)
 				send_to_char("&RThe person you selected to socialize with is not here.\r\n", ch);
 				return;
 			}
-			
+
 			if(!IS_NPC(victim))
 			{
 				send_to_char("&RYou can only Socialize with NPC's. \r\n", ch);
@@ -5109,7 +5109,7 @@ void do_newsocialize(CHAR_DATA *ch, char *argument)
 				ch_printf(ch, "%s can't talk to you like this!\r\n", victim->name);
 				return;
 			}
-			
+
 			// Different styles of approaching to talk
 			switch(number_range(0,4))
 			{
@@ -5175,7 +5175,7 @@ void do_newsocialize(CHAR_DATA *ch, char *argument)
 					act(AT_GREEN, "$n walks up to $N.", ch, NULL, victim, TO_NOTVICT);
 				break;
 			}
-			
+
 			// Now it is time to see the Mobile's responce! Let the fun begin!
 			/*
 			 * Funny thing, frustration and frustrated_by basicly is how a
@@ -5201,10 +5201,10 @@ void do_newsocialize(CHAR_DATA *ch, char *argument)
 				}
 				return;
 			}
-		
+
 
 			int flevel = 0;
-		
+
 			flevel = victim->frustration/10;
 			if(flevel < 1)
 				flevel = 1;
@@ -5255,7 +5255,7 @@ void do_newsocialize(CHAR_DATA *ch, char *argument)
 					}
 				break;
 			}
-			
+
 			add_timer(ch, TIMER_DO_FUN, 3, do_newsocialize, 1);
 			ch->dest_buf = str_dup(arg);
 		return;
@@ -5271,7 +5271,7 @@ void do_newsocialize(CHAR_DATA *ch, char *argument)
 				act(AT_GREEN, "$n looks around the room, looking for someone.", ch, NULL, NULL, TO_ROOM);
 				return;
 			}
-			
+
 			if(victim->position == POS_FIGHTING)
 			{
 				switch(number_range(0,3))
@@ -5289,7 +5289,7 @@ void do_newsocialize(CHAR_DATA *ch, char *argument)
 						do_say(victim, "I am fighting right now, go away.");
 					break;
 				}
-			
+
 				return;
 			}
                         if(!IS_NPC(victim))
@@ -5375,7 +5375,7 @@ void do_newsocialize(CHAR_DATA *ch, char *argument)
 				break;
 			}
 
-								
+
 			do_say(ch, buf);
 			ch->chatrain += number_range(0,3);
 			add_timer(ch, TIMER_DO_FUN, 3, do_newsocialize, 2);
@@ -5413,7 +5413,7 @@ void do_newsocialize(CHAR_DATA *ch, char *argument)
 				}
 
 				return;
-			}                        
+			}
 			if(!IS_NPC(victim))
                         {
                                 send_to_char("&RYou can only Socialize with NPC's. \r\n", ch);
@@ -5714,8 +5714,8 @@ void do_newsocialize(CHAR_DATA *ch, char *argument)
 							break;
 						}
 					}
-				break;		
-				case 8:	
+				break;
+				case 8:
 					if(number_range(0, (victim->frustration/2) + 1) > 10)
 					{
 						if(victim->alignment > 300)
@@ -5765,7 +5765,7 @@ void do_newsocialize(CHAR_DATA *ch, char *argument)
 							case 3:
 								if(victim->alignment > 300)
 									sprintf(buf, "Thanks! That is sweet of you to say!");
-								else	
+								else
 									sprintf(buf, "Uh, thanks, I think.");
 								ch->stimer = 44;
 							break;
@@ -5809,14 +5809,14 @@ void do_newsocialize(CHAR_DATA *ch, char *argument)
 					}
 				break;
 			}
-			
-						
-			do_say(victim, buf);			
+
+
+			do_say(victim, buf);
 			ch->chatrain += number_range(0,3);
 			add_timer(ch, TIMER_DO_FUN, 3, do_newsocialize, 3);
 			ch->dest_buf = str_dup(arg);
 		break;
-		// This is the conclusion of the mini-dialogue		
+		// This is the conclusion of the mini-dialogue
 
 		case 3:
 			if ( !ch->dest_buf )
@@ -5847,7 +5847,7 @@ void do_newsocialize(CHAR_DATA *ch, char *argument)
 						do_say(victim, "I am fighting right now, go away.");
 					break;
 				}
-		
+
 				return;
 			}
                         if(!IS_NPC(victim))
@@ -6011,7 +6011,7 @@ void do_newsocialize(CHAR_DATA *ch, char *argument)
 						do_say(ch, "Sorry! I was just wondering.");
 					else
 					{
-						sprintf(buf, "Don't be a %s! It was a simple question!", (victim->sex == 1)? "ass" : "bitch");	
+						sprintf(buf, "Don't be a %s! It was a simple question!", (victim->sex == 1)? "ass" : "bitch");
 						do_say(ch, buf);
 					}
 				break;
@@ -6030,7 +6030,7 @@ void do_newsocialize(CHAR_DATA *ch, char *argument)
 						do_say(ch, "Heh, I think there are better clans out there.");
 					else
 						do_say(ch, "Interesting pick.");
-				break;					
+				break;
 				case 11:
 					if(ch->pcdata->clan && !str_cmp(ch->pcdata->clan->name, "ISSP"))
 						do_say(ch, "Good choice!");
@@ -6121,7 +6121,7 @@ void do_newsocialize(CHAR_DATA *ch, char *argument)
 						case 1:
 							do_say(ch, "Why would they attack you?");
 							if(victim->sex == 1)
-								do_say(victim, "Wulongs I guess.");
+								do_say(victim, "Money I guess.");
 							else
 								do_say(victim, "Jewelry I have, I think.");
 							do_say(ch, "Really? That is...interesting. Heh.");
@@ -6553,7 +6553,7 @@ void do_newsocialize(CHAR_DATA *ch, char *argument)
 						do_say(ch, "I don't need your sympathy.");
 				break;
 			}
-											
+
 			ch->chatrain += number_range(0,3);
 			// Random case for mishaps
 			if(number_range(0,6) == 3)
@@ -6563,7 +6563,7 @@ void do_newsocialize(CHAR_DATA *ch, char *argument)
 				if(number_range(0,30) > 25)
 				{
 					do_say(victim, "Consider this conversation over, I am done talking to you.");
-				
+
 					victim->frustrated_by = ch;
 					victim->frustration += 3;
 					return;
@@ -6584,7 +6584,7 @@ void do_newsocialize(CHAR_DATA *ch, char *argument)
 
     return;
 }
-			
+
 void do_gainage(CHAR_DATA *ch, char *argument)
 {
         int maxstr = 12000;
@@ -6607,7 +6607,7 @@ void do_gainage(CHAR_DATA *ch, char *argument)
 
 	tempint = ch->inttrain;
 	tempint = tempint/maxint * 100;
-	
+
 	tempcon = ch->contrain;
 	tempcon = tempcon/maxcon * 100;
 
@@ -6623,7 +6623,7 @@ void do_gainage(CHAR_DATA *ch, char *argument)
 	pcon = tempcon;
 	pdex = tempdex;
 	pcha = tempcha;
-        
+
 
         send_to_char("&R[NOTE] This reflect how close you are to getting 18 to a statistic -without-\r\n", ch);
         send_to_char("&Rfactoring in Stat Limits, so numbers may not be true. Also, the percent may go over\r\n", ch);
@@ -6636,5 +6636,35 @@ void do_gainage(CHAR_DATA *ch, char *argument)
         ch_printf(ch, "&CWis&R:&B(&W%d%%&B) &CCha&R:&B(&W%d%%&B) \r\n", pwis, pcha);
 
         return;
+}
+
+/* Allows player to let people into thier home, added by Funf */
+void do_visitors(CHAR_DATA *ch, char *argument)
+{
+	ROOM_INDEX_DATA *location;
+
+	location = ch->in_room;
+
+	if ( ch->plr_home )
+	{
+		if ( ch->plr_home->vnum == location->vnum )
+		{
+			TOGGLE_BIT( location->room_flags2, ROOM_VISITORS );
+			if ( location->room_flags2 & ROOM_VISITORS )
+			{
+				send_to_char("Visitors are now allowed in your home.\r\n", ch);
+			}
+			else
+			{
+				send_to_char("Visitors are now no longer allowed in your home.\r\n", ch);
+			}
+			return;
+		}
+
+		send_to_char("You can only use this in your home!\r\n", ch);
+		return;
+	}
+
+	send_to_char("You must own a home to use this command!\r\n", ch);
 }
 

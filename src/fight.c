@@ -25,7 +25,12 @@
 #include <time.h>
 #include <unistd.h>
 #include <sys/stat.h>
+#if defined(__CYGWIN__)
+#include <io.h>
+#include <dirent.h>
+#else
 #include <sys/dir.h>
+#endif
 #include "mud.h"
 
 extern char		lastplayercmd[MAX_INPUT_LENGTH];
@@ -249,7 +254,7 @@ void violence_update( void )
 		{
 		    int tempsub;
 		    DO_FUN *fun;
-	
+
 		    fun = timer->do_fun;
 		    tempsub = ch->substate;
 		    ch->substate = timer->value;
@@ -310,11 +315,11 @@ void violence_update( void )
 	if ( ( victim = who_fighting( ch ) ) == NULL
 	||   IS_AFFECTED( ch, AFF_PARALYSIS ) )
 	    continue;
-	// Anti-tank code! - Gatz
-	if( IS_NPC(ch) && !IS_NPC(victim) 
+	// Anti-tank code! - Gatz. Code was stupid - Funf
+	/* if( IS_NPC(ch) && !IS_NPC(victim)
 	&& check_anti_tanking(ch, victim) )
-		victim = who_fighting(ch);
-	
+		victim = who_fighting(ch); */
+
         retcode = rNONE;
 
 	if ( IS_SET(ch->in_room->room_flags, ROOM_SAFE ) && victim->perm_frc == 0
@@ -341,7 +346,7 @@ void violence_update( void )
 			act( AT_BLOOD, "$n is losing blood...", ch, NULL, NULL, TO_ROOM);
 		}
 	}
-	   
+
 
 	if ( char_died(ch) )
 	    continue;
@@ -454,7 +459,7 @@ ch_ret multi_hit( CHAR_DATA *ch, CHAR_DATA *victim, int dt )
       if ( (retcode = one_hit( ch, victim, dt )) != rNONE ||
             who_fighting( ch ) != victim )
         return retcode;
-	// Fighting type progs movedh ere - Gatz
+	// Fighting type progs moved here - Gatz
         rprog_rfight_trigger( ch );
        // if ( char_died(ch) )
          //   continue;
@@ -464,7 +469,7 @@ ch_ret multi_hit( CHAR_DATA *ch, CHAR_DATA *victim, int dt )
         mprog_fight_trigger( ch, victim );
       //  if ( char_died(ch) )
         //    continue;
-   
+
 
     if ( get_eq_char( ch, WEAR_DUAL_WIELD ) )
     {
@@ -533,7 +538,7 @@ ch_ret multi_hit( CHAR_DATA *ch, CHAR_DATA *victim, int dt )
     if ( retcode == rNONE )
     {
 	int move;
-	
+
 	if ( !IS_AFFECTED(ch, AFF_FLYING)
 	&&   !IS_AFFECTED(ch, AFF_FLOATING) )
 	  move = encumbrance( ch, movement_loss[UMIN(SECT_MAX-1, ch->in_room->sector_type)] );
@@ -542,7 +547,7 @@ ch_ret multi_hit( CHAR_DATA *ch, CHAR_DATA *victim, int dt )
 	if ( ch->move )
 	  ch->move = UMAX( 0, ch->move - move );
     }
-     
+
 
     return retcode;
 }
@@ -675,47 +680,47 @@ ch_ret one_hit( CHAR_DATA *ch, CHAR_DATA *victim, int dt )
     &&   IS_NPC(ch)
     &&   ch->attacks != 0 )
     {
-	cnt = 0;
-	for ( ;; )
-	{
-	   x = number_range( 0, 6 );
-	   attacktype = 1 << x;
-	   if ( IS_SET( ch->attacks, attacktype ) )
-	     break;
-	   if ( cnt++ > 16 )
-	   {
-	     attacktype = 0;
-	     break;
-	   }
-	}
-	if ( attacktype == ATCK_BACKSTAB )
-	  attacktype = 0;
-	if ( wield && number_percent( ) > 25 )
-	  attacktype = 0;
-	switch ( attacktype )
-	{
-	  default:
-	    break;
-	  case ATCK_PUNCH:
-	    ch->focus = victim->name;
-	    WAIT_STATE(ch , 3);
-	    do_punch( ch, ch->focus );
-	    WAIT_STATE(ch, 2);
-	    retcode = global_retcode;
-	    break;
-	  case ATCK_KICK:
-	    ch->focus = victim->name;
-	    WAIT_STATE(ch, 2);
-	    do_kick( ch, ch->focus );
-	    WAIT_STATE(ch, 3);
-	    retcode = global_retcode;
-	    break;
-	  case ATCK_TRIP:
+	  cnt = 0;
+	  for ( ;; )
+	  {
+	     x = number_range( 0, 6 );
+	     attacktype = 1 << x;
+	     if ( IS_SET( ch->attacks, attacktype ) )
+	       break;
+	     if ( cnt++ > 16 )
+	     {
+	       attacktype = 0;
+	       break;
+	     }
+	  }
+	  if ( attacktype == ATCK_BACKSTAB )
 	    attacktype = 0;
-	    break;
-	}
-	if ( attacktype )
-	  return retcode;
+	  if ( wield && number_percent( ) > 25 )
+	    attacktype = 0;
+	  switch ( attacktype )
+	  {
+	    default:
+	      break;
+	    case ATCK_PUNCH:
+	      ch->focus = victim->name;
+	      WAIT_STATE(ch , 3);
+	      do_punch( ch, ch->focus );
+	      WAIT_STATE(ch, 2);
+	      retcode = global_retcode;
+	      break;
+	    case ATCK_KICK:
+	      ch->focus = victim->name;
+	      WAIT_STATE(ch, 2);
+	    do_kick( ch, ch->focus );
+	      WAIT_STATE(ch, 3);
+	      retcode = global_retcode;
+	      break;
+	    case ATCK_TRIP:
+	      attacktype = 0;
+	      break;
+	  }
+	  if ( attacktype )
+	    return retcode;
     }
 
     if ( dt == TYPE_UNDEFINED )
@@ -758,11 +763,11 @@ ch_ret one_hit( CHAR_DATA *ch, CHAR_DATA *victim, int dt )
             if( wield != NULL)
             {
                 if(wield->value[3] == WEAPON_RIFLE || wield->value[3] == WEAPON_PISTOL)
-		{
-                        wield->value[4] -= 1;
-			if( wield->value[4] < 0)
-				wield->value[4] = 0;
-		}
+				{
+                	wield->value[4] -= 1;
+					if( wield->value[4] < 0)
+					wield->value[4] = 0;
+				}
             }
 
 		    /* Physical hit with no damage (hit natural AC) -Shade */
@@ -832,19 +837,21 @@ ch_ret one_hit( CHAR_DATA *ch, CHAR_DATA *victim, int dt )
 
     /* Damage is too low!! -Kristen */
     dam *= 4;
-	
+
     // Rocket Launchers and LAW does boosted damage! - Gatz
     if(wield != NULL)
     	if(wield != NULL && wield->value[3] == WEAPON_HEAVY_WEAPON)
     	{
 		dam *= 3;
-    	}	
-	
+    	}
+
     // Too high! - Gatz
     if ( !IS_AWAKE(victim) )
 	dam *= 1.5;
     if ( dt == gsn_backstab )
 	dam *= 2;
+	/*if ( dt == gsn_quickdraw )
+	dam *= 1.8;*/
 
     if ( dt == gsn_circle )
  	dam *= 1.25;
@@ -1338,7 +1345,7 @@ ch_ret damage( CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt )
 	damobj = get_eq_char(victim, dameq);
 	if ( damobj )
 	{
-	  if ( dam > get_obj_resistance(damobj) )
+	  if ( dam > get_obj_resistance(damobj) && victim->position > POS_STUNNED && victim->hit > 100 ) /* prevent armor bashing - Funf */
 	  {
 	     set_cur_obj(damobj);
 	     damage_obj(damobj);
@@ -1724,7 +1731,7 @@ bool is_safe( CHAR_DATA *ch, CHAR_DATA *victim )
 	return FALSE;
     if(IS_SET(victim->in_room->room_flags, ROOM_SAFE)
 	&& victim->perm_frc > 0)
-	return FALSE;	
+	return FALSE;
 
     if ( IS_SET( victim->in_room->room_flags, ROOM_SAFE ) ||
 	 IS_SET( victim->in_room->room_flags, ROOM_PLR_HOME)  )
@@ -2057,7 +2064,7 @@ void raw_kill( CHAR_DATA *ch, CHAR_DATA *victim )
       return;
     }
 
-    if ( victim->in_room && IS_NPC(victim) && victim->vip_flags != 0 && victim->in_room->area && victim->in_room->area->planet 
+    if ( victim->in_room && IS_NPC(victim) && victim->vip_flags != 0 && victim->in_room->area && victim->in_room->area->planet
 	&& !IS_NPC(ch))
     {
        victim->in_room->area->planet->population--;
@@ -2074,8 +2081,8 @@ void raw_kill( CHAR_DATA *ch, CHAR_DATA *victim )
 		victim->in_room->area->planet->pop_support -= .5;
           // New planetary frustration code - Gatz
 	  PLANET_DATA *planet;
-	  CLAN_DATA   *clan;	
-		
+	  CLAN_DATA   *clan;
+
 	  if(!IS_NPC(ch))
 		clan = ch->pcdata->clan;
 	  planet = ch->in_room->area->planet;
@@ -2132,7 +2139,7 @@ void raw_kill( CHAR_DATA *ch, CHAR_DATA *victim )
 	check_killer( ch, victim );
 
     // BIG bug fix, ANSI off would make morts get a coprse.
-    // 
+    //
     if ( !IS_SET( victim->act, ACT_NOKILL  ) && !IS_SET( victim->act, ACT_NOCORPSE ) && IS_NPC(victim) )
     	make_corpse( victim, ch );
     if ( victim->in_room->sector_type == SECT_OCEANFLOOR
@@ -2176,10 +2183,10 @@ void raw_kill( CHAR_DATA *ch, CHAR_DATA *victim )
 
     if( ch
 	&& victim
-	&& !IS_NPC(ch) 
-	&&  !IS_NPC(victim) 
-	&& ch->pcdata 
-	&& ch->pcdata->clan 
+	&& !IS_NPC(ch)
+	&&  !IS_NPC(victim)
+	&& ch->pcdata
+	&& ch->pcdata->clan
 	&& ch != victim
         && (!str_cmp(ch->pcdata->clan->name, "RBH"))
 	&&  bounty
@@ -2204,10 +2211,10 @@ void raw_kill( CHAR_DATA *ch, CHAR_DATA *victim )
 
    if(canget)
 	victim->pcdata->arrestcount++;
-    
+
     extract_char( victim, FALSE, canget);
-    
-    	
+
+
 
     // Moved here to not be a pest with extract_char and moving folks with a bounty - Gatz
     if ( ch && !IS_NPC(ch) && !IS_NPC(victim) && ch != victim )
@@ -2266,7 +2273,7 @@ void raw_kill( CHAR_DATA *ch, CHAR_DATA *victim )
           unequip_char( victim, obj );
        if ( ( obj = get_eq_char( victim, WEAR_BACK ) ) != NULL )
           unequip_char( victim, obj );
-  */  
+  */
     do_remove(victim, "all");
 
     while ( victim->first_affect )
@@ -2357,7 +2364,7 @@ void group_gain( CHAR_DATA *ch, CHAR_DATA *victim )
     CHAR_DATA *lch;
     int xp;
     int members, domlevel = 0, weaklevel = 200;
-   
+
 
     /*
      * Monsters don't get kill xp's or alignment changes.
@@ -2378,11 +2385,11 @@ void group_gain( CHAR_DATA *ch, CHAR_DATA *victim )
 
     members = 0;
 
-  
+
     for ( gch = ch->in_room->first_person; gch; gch = gch->next_in_room )
     {
 	if ( is_same_group( gch, ch ) )
-	{	
+	{
 	    members++;
 	}
     }
@@ -2406,13 +2413,13 @@ void group_gain( CHAR_DATA *ch, CHAR_DATA *victim )
  	}
     }
 
-  
+
 
     if(domlevel - weaklevel > 30)
     {
 	// 1 member added per 10 levels over 30 difference
 	members += (domlevel - weaklevel)/10;
-    }	
+    }
 
     lch = ch->leader ? ch->leader : ch;
 
@@ -2680,7 +2687,7 @@ void dam_message( CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt )
     if (!gvflag) act( AT_HITME, buf3, ch, NULL, victim, TO_VICT );
 
    //Adrenaline - Gatz
-   
+
     adren = number_range(0,3);
 
     if(!IS_NPC(ch) && !IS_NPC(victim))
@@ -2689,7 +2696,7 @@ void dam_message( CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt )
             acmessage == 0;
         if(victim->perm_frc == 0)
             avmessage == 0;
-	
+
 	if(adren > 0)
 	{
 		if(victim->perm_frc < 5)
@@ -2705,7 +2712,7 @@ void dam_message( CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt )
 				send_to_char( "&RYou feel your chest start to burn with Adrenaline!\n\r", victim);
 				victim->perm_frc = 5;
 			}
-		
+
 		}
 		if(ch->perm_frc < 5)
 		{
@@ -2720,12 +2727,12 @@ void dam_message( CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt )
 				send_to_char( "&RYou feel your chest start to burn with Adrenaline!\n\r", ch);
 				ch->perm_frc = 5;
 			}
-		
+
 		}
 	}
-       
+
   }
- 	
+
 
     return;
 }
@@ -2740,7 +2747,7 @@ void do_attack( CHAR_DATA *ch, char *argument )
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
-	OBJ_DATA *wield;	
+	OBJ_DATA *wield;
 
         // BIG bug fix - Gatz
         if(IS_NPC(ch) && ch->position != POS_FIGHTING)
@@ -2790,7 +2797,7 @@ void do_attack( CHAR_DATA *ch, char *argument )
 	//Custom Wait_stats - Gatz
 	if(!IS_NPC(ch))
 	{
-	  if(wield != NULL)	 
+	  if(wield != NULL)
 	  {
 		if(wield->item_type == ITEM_WEAPON && wield->value[3] == WEAPON_SWORD)
 		  WAIT_STATE(ch, 8);
@@ -2798,10 +2805,10 @@ void do_attack( CHAR_DATA *ch, char *argument )
 		  WAIT_STATE(ch, 5);
 	   }
 	}
-	
+
 	multi_hit( ch, victim, TYPE_UNDEFINED );
      	// Mobile Frustration Code - Gatz
-	
+
 	if(IS_NPC(victim) && number_range(0,3) == 3)
 	{
 		if(victim->frustration == 0 && victim->frustrated_by)
@@ -2810,7 +2817,7 @@ void do_attack( CHAR_DATA *ch, char *argument )
 		if(victim->frustration > 100)
 			victim->frustration = 100;
 	}
-	
+
 
 	// Lag for Guns/Rifles - Gatz
        if(!IS_NPC(ch))
@@ -2829,7 +2836,7 @@ void do_attack( CHAR_DATA *ch, char *argument )
 	if(!IS_NPC(ch))
 	{
 		if(ch->perm_str < 15 || ch->strtrain < 200)
-			ch->strtrain++;	
+			ch->strtrain++;
 		if(ch->perm_con < 15)
 			victim->contrain++;
 	}
@@ -2992,7 +2999,7 @@ void do_focus(CHAR_DATA *ch,  char *argument )
 	char arg[MAX_INPUT_LENGTH];
     CHAR_DATA *victim;
 	char buf1[256];
-	char log_buf [MAX_INPUT_LENGTH];	
+	char log_buf [MAX_INPUT_LENGTH];
 	bool check = FALSE;
 	if (ch->focus == NULL)
 		ch->focus = "none";
@@ -3061,7 +3068,7 @@ void do_focus(CHAR_DATA *ch,  char *argument )
 	}
     }
 
-    // Ick! Can't attack people who are in your group or following!	
+    // Ick! Can't attack people who are in your group or following!
 	if ( ch->master == victim )
     {
 		send_to_char("You can't attack the person you are following!\n\r",ch);
@@ -3096,11 +3103,11 @@ void do_focus(CHAR_DATA *ch,  char *argument )
 			check = TRUE;
 		 if(ch->pcdata->clan && !str_cmp(ch->pcdata->clan->name, "ISSP") && bounty)
                         check = TRUE;
-		if(ch->pcdata->clan && victim->pcdata->clan 
+		if(ch->pcdata->clan && victim->pcdata->clan
 			&& (ch->pcdata->clan->war1 == victim->pcdata->clan || ch->pcdata->clan->war2 == victim->pcdata->clan))
 			check = TRUE;
 	}
-	
+
 	if(!check && !IS_NPC(victim) && !IS_NPC(ch))
 	{
 		sprintf(log_buf, "%s has focused on %s! Possible Illegal Action!", ch->name, victim->name);
@@ -3111,7 +3118,7 @@ void do_focus(CHAR_DATA *ch,  char *argument )
 	act( AT_PLAIN, "$n focuses $s attention on you.", ch, NULL, victim, TO_VICT );
 	act( AT_PLAIN, "$n focuses $s attention on $N.", ch, NULL, victim, TO_NOTVICT );
 	// Auto-focus - Gatz
-	
+
 	if( !IS_NPC(victim) && !IS_NPC(ch) && IS_SET(victim->pcdata->flags, PCFLAG_AUTOFOCUS)
 	    && (victim->focus == "none" || victim->focus == NULL))
 	{
@@ -3122,8 +3129,8 @@ void do_focus(CHAR_DATA *ch,  char *argument )
 		act( AT_PLAIN, "$N quickly focuses on $n.", ch, NULL, victim, TO_NOTVICT);
 		victim->focus = ch->name;
 		}
-	} 
-	
+	}
+
 	return;
 }
 /*
@@ -3151,10 +3158,10 @@ bool check_anti_tanking( CHAR_DATA *ch, CHAR_DATA *victim )
 	for( lowbie = ch->in_room->first_person ; lowbie ; lowbie = lowbie->next_in_room )
 	{
 		if( lowbie == ch
-		|| lowbie == victim 
+		|| lowbie == victim
 		|| IS_NPC(lowbie) )
 			continue;
-		if( who_fighting(lowbie) == ch 
+		if( who_fighting(lowbie) == ch
 		&& lowbie->skill_level[COMBAT_ABILITY] < victim->skill_level[COMBAT_ABILITY] - 20 )
 		{
 			act( AT_CARNAGE, "$n sees that $N has joined the fight, and decides $e is a much better prey!",
@@ -3178,12 +3185,12 @@ bool check_anti_tanking( CHAR_DATA *ch, CHAR_DATA *victim )
 
 void ricochet( CHAR_DATA *ch)
 {
-    CHAR_DATA *rch = NULL; 
+    CHAR_DATA *rch = NULL;
     sh_int count, turn, damage, round;
-    bool weaponcheck = FALSE;   
+    bool weaponcheck = FALSE;
     OBJ_DATA *wield;
 
-    
+
 
     if(!IS_NPC(ch))
     {
@@ -3213,9 +3220,9 @@ void ricochet( CHAR_DATA *ch)
 		round = number_range(1, count);
 		rch = ch->in_room->first_person;
 		for ( turn = 1; turn == round; turn++)
-    		{	
+    		{
 			rch = rch->next_in_room;
-			
+
 		}
 		if( !rch )
 		{
@@ -3234,5 +3241,5 @@ void ricochet( CHAR_DATA *ch)
 	}
     }
     return;
-}		
+}
 

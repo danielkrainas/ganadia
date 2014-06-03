@@ -48,4 +48,20 @@ Rmessage	&R$n takes some bloody eye and screams:
 ~
 End
 
+#SLAY
+Type		tset~
+Owner		Gaden~
+Color		1
+Cmessage	You raise your hand at $N and they slowly melt into a pile of 1s and 0s,
+eventually dissapearing into oblivion.
+~
+Vmessage	Without warning $n raises his hand towards you. You look down in horror
+and realise that you are slowly melting away into a pile of 1s and 0s.
+~
+Rmessage	Without warning $n raises his hand towards $N. In a matter of moments
+the horrified $n begins to melt into a pile of 1s and 0s, eventually
+dissapearing into oblivion.
+~
+End
+
 #END

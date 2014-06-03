@@ -1,0 +1,17 @@
+#PLANET
+Name         Ganadia~
+Filename     ganadia~
+BaseValue    0
+Flags        1
+PopSupport   -100.000000
+FrustLevel   2.600000
+Hospital     3547
+Lowgang	   3202
+Highgang	   3205
+GovernedBy   Guardians~
+FrustratedBy   HellRaisers~
+Area         dayton.are~
+Area         ganadia.are~
+End
+
+#END

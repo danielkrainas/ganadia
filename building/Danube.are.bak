@@ -1,0 +1,2851 @@
+#AREA   {PROTO} Danube's area in progress~
+
+
+
+#AUTHOR Danube~
+
+#RANGES
+0 0 0 0 0 0 0 0
+$
+
+#FLAGS
+0
+
+#ECONOMY 0 0
+
+#MOBILES
+#2200
+Reaver Ghast~
+A Reaver Ghast~
+A Reaver Ghast stands here looking for victims.
+~
+~
+33 512 -1000 Z
+50 0 -25 10d10+500 5d4+2
+0 0
+8 8 0
+15 10 10 17 15 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+10 5 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+#2201
+Robed Figure~
+A Robed Figure~
+A Robed Figure lurks in the shadows.
+~
+~
+134217733 65536 0 Z
+5 0 87 1d10+50 0d4+2
+0 0
+8 8 0
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+1 1 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+#2202
+Criminal~
+A Criminal from Haven~
+A Criminal from Haven stands here.
+~
+~
+1 0 0 Z
+20 0 50 4d10+200 2d4+2
+5000 0
+8 8 1
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+4 4 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+#2203
+Pawn Shop Owner~
+The Pawn Shop Owner~
+A Pawn Shop Owner Stands here
+~
+~
+1073741827 0 0 Z
+30 0 25 6d10+300 3d4+2
+0 0
+8 8 1
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+6 6 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+> greet_prog 100~
+emote puts something on the counter.
+say Ah! My friend, how can I help you today?
+say Please... take your time, unless the guardians show up..
+~
+|
+#2204
+Gang Member with a Red Bandana~
+A Gang Member with a &z&RRed Bandana~
+A Gang Member with a &z&RRed Bandana hangs here.
+~
+~
+1 0 0 Z
+40 0 0 8d10+400 4d4+2
+0 0
+8 8 1
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+8 8 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+#2205
+Red Tiger Boss~
+The Red Tiger Boss~
+The Red Tiger Boss sits here.
+~
+~
+1073741827 0 0 Z
+70 0 -75 14d10+700 7d4+2
+0 0
+8 8 0
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+14 14 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+> greet_prog 100~
+say Who are you? Get outta my crib bitch....
+emote looks at you closer.
+say Wait... are you here for some "work"?
+say If not get outta here.
+~
+> speech_prog work~
+say I knew it! Your here to help us out.
+grin
+say Those white snake bitches are giving us alot of trouble, take as many
+say of them down as you can. Bring me their bandana's and ill reward ya.
+~
+|
+#2206
+Parts Shop Owner~
+The Parts Shop Owner~
+A Parts Shop Owner is cleaning his shelves here.
+~
+~
+1073741827 0 0 Z
+30 0 25 6d10+300 3d4+2
+0 0
+8 8 0
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+6 6 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+> greet_prog 100~
+emote frowns..
+say sorry.. but the boss hasnt been keeping up to date on parts.
+say Come back later and maybe well be back in business.
+~
+|
+#2207
+Jimmy~
+Jimmy~
+Jimmy, The Electronic Store Owner stands here.
+~
+~
+3 0 0 Z
+30 0 25 6d10+300 3d4+2
+0 0
+8 8 1
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+6 6 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+#2208
+Harry~
+Harry~
+Harry, The Store Owner stands here.
+~
+~
+3 0 0 Z
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+> greet_prog 100~
+say Sorry... were out of stock right now, maybe later ill have something.
+~
+|
+#2209
+Gang Member with a White Bandana~
+A Gang Member with a &z&wWhite Bandana~
+A Gang Member with a &z&wWhite Bandanan hangs here.
+~
+~
+1 0 0 Z
+50 0 -25 10d10+500 5d4+2
+0 0
+8 8 1
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+10 10 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+#2210
+White Snake Boss~
+The White Snake Boss~
+The White Snake Boss stands here.
+~
+~
+1073741827 0 0 Z
+80 0 -100 16d10+800 8d4+2
+0 0
+8 8 0
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+16 16 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+#2211
+Hotel Manager~
+The Hotel Manager~
+The Hotel Manager stands here.
+~
+~
+1073758211 0 0 Z
+10 0 75 2d10+100 1d4+2
+0 0
+8 8 2
+10 10 10 10 10 17 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+2 2 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+> greet_prog 100~
+emote bows.
+say Hey there sexy, welcome to veronica's.
+emote looks for your wallet.
+say For a listing of our services, look at our list
+~
+|
+#2212
+Young Teen Judy~
+Judy~
+Young Teenager Judy lays on your bed.
+~
+~
+1073741827 0 0 Z
+54 0 -35 10d10+540 5d4+2
+0 0
+8 8 2
+12 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+10 10 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+#2213
+Red Tiger Guard~
+The Red Tiger Guard~
+A Red Tiger Gangmember blocks the way.
+~
+~
+1073741825 0 0 Z
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+#2214
+White Snake Guard~
+The White Snake Guard~
+A White Snake Member blocks the way
+~
+~
+1073741827 0 0 Z
+65 0 -62 13d10+650 6d4+2
+0 0
+8 8 2
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+13 13 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+#2215
+invis mprog~
+a newly created invis mprog~
+Some god abandoned a newly created invis mprog here.
+~
+~
+1075838979 2 0 Z
+80 0 -100 16d10+800 8d4+2
+0 0
+8 8 0
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 0 0 0
+16 16 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+> all_greet_prog 100~
+mpechoat $n A Transport suddenly roars by above, sweeping up dust and sand
+mpechoat $n By the time it has cleared, you're surrounded by reavers.
+mpechoaround $n A Transport suddenly roars by above, sweeping up dust and.
+mpechoaround $n sand. By the time it's cleared, a group of reavers have
+mpechoaround $n surrounded $n.
+ 
+mpat 2 mpmload 2200
+mpoload 2200
+mpat 2 mpforce reaver mpmload 2200
+mpat 2 mpforce reaver wield reaver
+mptrans reaver
+ 
+mpat 2 mpmload 2200
+mpoload 2200
+mpat 2 mpforce reaver mpmload 2200
+mpat 2 mpforce reaver wield reaver
+mptrans reaver
+ 
+mpat 2 mpmload 2200
+mpoload 2200
+mpat 2 mpforce reaver mpmload 2200
+mpat 2 mpforce reaver wield reaver
+mptrans reaver
+ 
+mpforce 1.reaver focus $n
+mpforce 2.reaver focus $n
+mpforce 3.reaver focus $n
+mpforce 1.reaver attack
+mpforce 2.reaver attack
+mpforce 3.reaver attack
+~
+|
+#0
+
+
+#OBJECTS
+#2200
+Reaver Assault Rifle~
+A Reaver Assault Rifle~
+A Reaver Assault Rifle lies here~
+~
+5 0 8193
+12 4 4 6 50 50
+10 1 0
+#2201
+Reaver Rifle Ammo~
+Reaver Rifle Ammunition~
+Some Reaver Rifle Ammunition lays here.~
+~
+57 0 16385
+50 0 0 0
+2 0 0
+#2202
+Flashlight~
+&z&YA Flashlight&z&w~
+&z&YA Flashlight lies here.&z&w~
+~
+1 0 1
+0 0 50 0
+2 340 34
+#0
+
+
+#ROOMS
+#2200
+Spaceport Landing Pad: Hellena~
+This spaceport is almost completly deserted, old ships lie wrecked along
+the landing zone pushed aside to make room for working ones. Fires are lit
+in several garbage cans and some people wearing lots of cloths warm
+themselves there.
+~
+0 1073741840 0 0
+D6
+~
+~
+0 -1 2201
+S
+#2201
+Deserted Space Station~
+This spacestation is no longer used by any type of government, only bums
+inhabit it now, scrounging to find parts to sell for food or drugs.
+Everything looks ages old, its rusted and the computer screens are blank.
+~
+0 1073741824 0 0
+D0
+~
+~
+0 -1 2203
+D3
+~
+~
+0 -1 2202
+D9
+~
+~
+0 -1 2200
+S
+#2202
+Deserted Space Station: Lobby~
+This old lobby has the foul stench of death, chairs and equipment was
+thrown everywhere and theres no sign of civilized beings. Some people
+wearing lots of clothing stare at you in a way that would make most people
+uncomfortable.
+~
+0 1073741824 0 0
+D1
+~
+~
+0 -1 2201
+S
+#2203
+Outside a Deserted Spacestation~
+Many wrecked cars can be seen along the road, the area seems to be a
+downtown location of a large city. Occationally a robed figure can be seen
+walking in the shadows, stalking anyone theyve never seen before. 
+~
+0 1073741824 0 0
+D0
+~
+~
+0 -1 2204
+D2
+~
+~
+0 -1 2201
+S
+#2204
+South Intersection~
+From this intersection a red glow can be seen to the north, perhaps
+civilization starts there. The road going east and west is dark with a few
+fires lighting some of the way.
+~
+0 1073741824 0 0
+D0
+~
+~
+0 -1 2205
+D1
+~
+~
+0 -1 2237
+D2
+~
+~
+0 -1 2203
+D3
+~
+~
+0 -1 2240
+S
+#2205
+South Street~
+Warm air can be felt further ahead, but the feeling of the street can send
+chills up your spine. The robed figures continue to run around through the
+shadows though their features cant be determined.
+~
+0 1073741824 0 0
+D2
+~
+~
+0 -1 2204
+D6
+~
+~
+0 -1 2206
+S
+#2206
+South Street~
+Warm air can be felt further ahead, but the feeling of the street can send
+chills up your spine. The robed figures continue to run around through the
+shadows though their features cant be determined.
+~
+0 1073741824 0 0
+D0
+~
+~
+0 -1 2207
+D9
+~
+~
+0 -1 2205
+S
+#2207
+South Street~
+Warm air can be felt further ahead, but the feeling of the street can send
+chills up your spine. The robed figures continue to run around through the
+shadows though their features cant be determined.
+~
+0 1073741824 0 0
+D0
+~
+~
+0 -1 2208
+D2
+~
+~
+0 -1 2206
+S
+#2208
+South Street~
+Warm air can be felt further ahead, but the feeling of the street can send
+chills up your spine. The robed figures continue to run around through the
+shadows though their features cant be determined. 
+~
+0 1073741828 0 0
+D2
+~
+~
+0 -1 2207
+D6
+~
+~
+0 -1 2209
+S
+#2209
+South Street~
+A sign up above reads, "Haven" City of Crime. This seems to be the only
+city in the area. Lights flash and music can be heard booming from Haven.
+~
+0 1073741824 0 0
+D0
+~
+~
+0 -1 2210
+D9
+~
+~
+0 -1 2208
+S
+#2210
+Entrance: Crime City Haven~
+A small wire fence and some tough looking brutes are the only things that
+guard this small town from danger. Though the city itself looks dangerous
+enough on the inside. 
+~
+0 1073741824 0 0
+D0
+~
+~
+0 -1 2211
+D2
+~
+~
+0 -1 2209
+S
+#2211
+City Street~
+The boundries of this city are tall buildings with the alleyways blocked by
+cars and other various peices of junk. Prostitutes walk around and gang
+members patrol the streets, drugs are being sold in plain sight and the
+lowest forms of life imaginable can be seen.
+~
+0 1073741824 0 0
+D0
+~
+~
+0 -1 2213
+D1
+~
+~
+0 -1 2212
+D2
+~
+~
+0 -1 2210
+D7
+~
+~
+0 -1 2341
+S
+#2212
+Pawn Shop~
+Inside the pawn shop are all types of illegal weapons, drugs, items etc.
+Some of these items may be illegal on planets, but their legal here.
+~
+0 1073741824 0 0
+D3
+~
+~
+0 -1 2211
+S
+#2213
+City Street~
+The open street turns right here heading eastward, some drug addicts beg
+people for money and sometimes are shot by some upset criminal. Several
+male prostitutes walks along the sidewalks dressed as women.
+~
+0 1073741824 0 0
+D0
+~
+~
+0 -1 2221
+D1
+~
+~
+0 -1 2215
+D2
+~
+~
+0 -1 2211
+D3
+~
+~
+0 -1 2214
+S
+#2214
+Veronica's Hotel~
+A bright red and black hotel, this place is very popular in Haven due to
+its beautiful men and ladies. For the right price service comes to anyone
+in need. 
+~
+0 1073741836 0 0
+D1
+~
+~
+0 -1 2213
+E
+list~
+"Veronica's Services"
+---------------------
+Judy
+Heather
+Tasana
+Lani
+~
+S
+#2215
+City Street~
+The main street continues east and west, a large bunker is just to the
+north and some shops to the south. Some rough looking guys beat up on a
+man nearby. 
+~
+0 1073741824 0 0
+D0
+~
+~
+0 -1 2329
+D1
+~
+~
+0 -1 2216
+D2
+~
+~
+0 -1 2218
+D3
+~
+~
+0 -1 2213
+S
+#2216
+City Street~
+The main street continues east and west, some stores can be seen on the way
+and the local hospital said to be run by a madman is to the south.
+~
+0 1073741824 0 0
+D0
+~
+~
+0 -1 2217
+D1
+~
+~
+0 -1 2219
+D2
+~
+~
+0 -1 2236
+D3
+~
+~
+0 -1 2215
+S
+#2217
+Harry's Pills~
+Renoun for its good quality drugs, harry's drugs are developed by both
+gangs and shipped from Hellena to all over the galaxy.
+~
+0 1073741824 0 0
+D2
+~
+~
+0 -1 2216
+S
+#2218
+Electronic Shop~
+Filled with all types of eletronic junk, this shop looks a little
+unreliable. Several piles of leftovers lie around and strange parts lie on
+the shelves, the owner wears large glasses and looks a bit like a mole.
+~
+0 1073741836 0 0
+D0
+~
+~
+0 -1 2215
+S
+#2219
+City Street~
+Nothing special can be seen on this part of the street, some peddlers some
+beggars and some gangsters. 
+~
+0 1073741824 0 0
+D3
+~
+~
+0 -1 2216
+D8
+~
+~
+0 -1 2220
+S
+#2220
+City Street~
+The street ends here at a dead end to the north is an old casino that still
+seems to be working. A small house can be seen further south but nothing
+looks special about it. 
+~
+0 1073741824 0 0
+D0
+~
+~
+0 -1 2227
+D2
+~
+~
+0 -1 2235
+D7
+~
+~
+0 -1 2219
+S
+#2221
+Old Caryard: Entrance~
+The caryard has been fixed to be one of the two gang hideouts. Known as the
+Red Tigers, this gang is harsh and mean. They often cause alot of trouble
+in Haven but are feared. 
+~
+0 1073741824 0 0
+D0
+~
+~
+0 -1 2222
+D2
+~
+~
+0 -1 2213
+S
+#2222
+Old Caryard~
+Old vehicles from the pre war days still lie around here, most of the
+caryard is out of commision, many people who walk around wear red
+bandana's. 
+~
+0 1073741824 0 0
+D2
+~
+~
+0 -1 2221
+D3
+~
+~
+0 -1 2224
+D7
+~
+~
+0 -1 2225
+D8
+~
+~
+0 -1 2223
+S
+#2223
+Vehicle Parts Shop~
+The Vehicle shop is the second largest business in hellena, all kinds of
+tanks and ships are sold here. 
+~
+0 1073741832 0 0
+D7
+~
+~
+0 -1 2222
+S
+#2224
+Junkyard Section~
+Filled with the leftover junk that isnt usable for much this section is
+where the Red Tiger gang throws everything they get rid of. Everything..
+~
+0 1073741824 0 0
+D1
+~
+~
+0 -1 2222
+S
+#2225
+The Management Building~
+This is the Red Tiger gang's main headquarters, their leaders office is
+just to the north, unfortunatly you cant get pass the guards without
+permission. 
+~
+0 1073741832 0 0
+D0
+~
+~
+0 -1 2226
+D8
+~
+~
+0 -1 2222
+S
+#2226
+Boss's Office~
+This office is decorated with everything to look like a beautiful house.
+Many items just laying around a person would die to try to get outside the
+city. 
+~
+0 1073741832 0 0
+D2
+~
+~
+0 -1 2225
+S
+#2227
+Casino: Entrance~
+This casino doesnt look so much as a casino as it does a gang hideout, in
+fact its the White Snake's main headquarters, everyone that works here is
+affiliated with the gang. 
+~
+0 1073741832 0 0
+D0
+~
+~
+0 -1 2228
+D2
+~
+~
+0 -1 2220
+S
+#2228
+Casino~
+The Casino is well kept, it has the best interior of all Haven. The White
+Snake gang is known to keep its cool and therefore they have alot of
+diplomatic ties. 
+~
+0 1073741832 0 0
+D1
+~
+~
+0 -1 2229
+D2
+~
+~
+0 -1 2227
+D3
+~
+~
+0 -1 2230
+D6
+~
+~
+0 -1 2231
+S
+#2229
+Old Slots Room~
+This rooms still functions as a small moneymaking part of the casino, some
+thugs walk around stealing what they can from unsespecting fools. The
+machines seem rigged. 
+~
+0 1073741832 0 0
+D3
+~
+~
+0 -1 2228
+S
+#2230
+Entertainment Stage~
+This room has many seats and a large stage at the far west end, before the
+war musicians and other such performers would entertain people here. Now
+its a storage area for weapons, drugs and other such items.
+~
+0 1073741832 0 0
+D1
+~
+~
+0 -1 2228
+S
+#2231
+Hallway~
+A decorated hallway with red carpets and fancy furnature, the White Snake
+gang's leader has a unique sense of style that is reflected on the casino.
+~
+0 1073741832 0 0
+D6
+~
+~
+0 -1 2232
+D9
+~
+~
+0 -1 2228
+S
+#2232
+Hallway~
+A decorated hallway with red carpets and fancy furnature, the White Snake
+gang's leader has a unique sense of style that is reflected on the casino.
+~
+0 1073741832 0 0
+D1
+~
+~
+0 -1 2233
+D9
+~
+~
+0 -1 2231
+S
+#2233
+Casino Control Room~
+This room has computers with camras all over the casino, from here they can
+see almost anything, which is ideal in a gang hideout.
+~
+0 1073741832 0 0
+D3
+~
+~
+0 -1 2232
+D4
+~
+~
+0 -1 2234
+S
+#2234
+Boss's Office~
+This office overlooks the main part of the casino, nothing special seems to
+be happening right now. The room has been changed into a comfortable
+bedroom for the leader. 
+~
+0 1073741832 0 0
+D5
+~
+~
+0 -1 2233
+S
+#2235
+Abandoned Home~
+All the furnature of this place has been wrecked or pushed over, papers
+have been thrown around as if the place was searched. Someone important
+must have orginally lived here. 
+~
+0 1073741824 0 0
+D0
+~
+~
+0 -1 2220
+S
+#2236
+Dirty Hospital~
+The hospital is a horrible place to go, but its the only location that will
+treat the wounded for free on Hellena. The equipment looks outdated and
+dirty. The doctor looks manic like hes off some horror movie..
+~
+0 1073741836 0 8
+D0
+~
+~
+0 -1 2216
+> greet_prog 100~
+if hps($n) >= 990
+mea $n A nurse escorts you out and says "We only have room for the injured!"
+mpforce $n north
+mpat $n mpforce $n look
+endif
+~
+> rand_prog 100~
+MPECHOAT $n A Nurse Comes In and Treats your Wounds.
+mprestore $n 200
+if hps($n) >= 990
+mea $n A nurse escorts you out and says "We only have room for the injured!"
+mpforce $n north
+mpat $n mpforce $n look
+endif
+~
+|
+S
+#2237
+Dark Street~
+The Street has no working lights at all. Wrecked cars, and rubble lie
+everywhere. Not many people travel this direction unless their searching
+for sellable junk.
+~
+0 1073741825 1 0
+D1
+~
+~
+0 -1 2238
+D3
+~
+~
+0 -1 2204
+S
+#2238
+Dark Street~
+The Street has no working lights at all. Wrecked cars, and rubble lie
+everywhere. Not many people travel this direction unless their searching
+for sellable junk.
+~
+0 1073741825 1 0
+D1
+~
+~
+0 -1 2239
+D3
+~
+~
+0 -1 2237
+S
+#2239
+A Burning Vehicle~
+A large Car like vehicle has been tipped over and is burning intensely,
+there isnt anyway to get by but maybe a passage could be found through the
+building to the south.
+~
+0 1073741824 1 0
+D2
+~
+~
+0 -1 2253
+D3
+~
+~
+0 -1 2238
+> rand_prog 100~
+mpecho &z&rThe Large Fire Burns with Intense Heat.
+~
+|
+S
+#2240
+Dark Street~
+The Street has no working lights at all. Wrecked cars, and rubble lie
+everywhere. Not many people travel this direction unless their searching
+for sellable junk.
+~
+0 1073741825 1 0
+D1
+~
+~
+0 -1 2204
+D7
+~
+~
+0 -1 2241
+S
+#2241
+Dark Street~
+The Street has no working lights at all. Wrecked cars, and rubble lie
+everywhere. Not many people travel this direction unless their searching
+for sellable junk.
+~
+0 1073741825 1 0
+D3
+~
+~
+0 -1 2242
+D8
+~
+~
+0 -1 2240
+S
+#2242
+Dark Street~
+The Street has no working lights at all. Wrecked cars, and rubble lie
+everywhere. Not many people travel this direction unless their searching
+for sellable junk.
+~
+0 1073741825 1 0
+D0
+~
+~
+0 -1 2243
+D1
+~
+~
+0 -1 2241
+S
+#2243
+Dark Street~
+The Street has no working lights at all. Wrecked cars, and rubble lie
+everywhere. Not many people travel this direction unless their searching
+for sellable junk.
+~
+0 1073741825 1 0
+D0
+~
+~
+0 -1 2244
+D2
+~
+~
+0 -1 2242
+S
+#2244
+Deserted City~
+This part of the city doesnt look like its been touched in years,
+everything is motionless and quiet. Cars and skeletons lie everywhere and
+the dust on the ground moves with your every footstep. Occationally you
+can see a hooded figure hiding from you but its unsure why.
+~
+0 1073741825 1 0
+D0
+~
+~
+0 -1 2249
+D2
+~
+~
+0 -1 2243
+D3
+~
+~
+0 -1 2245
+D8
+~
+~
+0 -1 2250
+S
+#2245
+Dust Covered Road~
+A thick layer of soft dust lays across the road, it almost seems as if its
+snowing from the hail of dust falling slowly down. The weather on Hellena
+is very gloomy, and sunlight is a rare thing. 
+~
+0 1073741825 1 0
+D1
+~
+~
+0 -1 2244
+D9
+~
+~
+0 -1 2246
+S
+#2246
+Dust Covered Road~
+A thick layer of soft dust lays across the road, it almost seems as if its
+snowing from the hail of dust falling slowly down. The weather on Hellena
+is very gloomy, and sunlight is a rare thing.  
+~
+0 1073741825 1 0
+D3
+~
+~
+0 -1 2247
+D6
+~
+~
+0 -1 2245
+S
+#2247
+Dust Covered Road~
+A thick layer of soft dust lays across the road, it almost seems as if its
+snowing from the hail of dust falling slowly down. The weather on Hellena
+is very gloomy, and sunlight is a rare thing.  
+~
+0 1073741825 1 0
+D0
+~
+~
+0 -1 2248
+D1
+~
+~
+0 -1 2246
+S
+#2248
+Old Abandoned Building~
+This building still has some lights on strangely, dead bodys lie on the
+floors, they seem to be shot by a automatic weapon a few days ago. The
+rotting corpses fill the room with a bad stench.
+~
+0 1073741824 1 0
+D2
+~
+~
+0 -1 2247
+D5
+~
+~
+0 -1 2286
+S
+#2249
+Dark Street~
+The Street has no working lights at all. Wrecked cars, and rubble lie
+everywhere. Not many people travel this direction unless their searching
+for sellable junk.
+~
+0 1073741825 1 0
+D0
+~
+~
+0 -1 2252
+D2
+~
+~
+0 -1 2244
+S
+#2250
+Small Building~
+This building seems to orginally been a residential zone. Now its just
+runes of a deserted city, left behind during the war.
+~
+0 1073741825 1 0
+D7
+~
+~
+0 -1 2244
+S
+#2251
+Small Building~
+This building has been emptied out a long time ago, the walls are cracked
+from impact, and some rubble from the roof lies in the middle of the
+floor. 
+~
+0 1073741825 1 0
+D3
+~
+~
+0 -1 2252
+S
+#2252
+Dark Street~
+The Street has no working lights at all. Wrecked cars, and rubble lie
+everywhere. Not many people travel this direction unless their searching
+for sellable junk.
+~
+0 1073741825 1 0
+D1
+~
+~
+0 -1 2251
+D2
+~
+~
+0 -1 2249
+S
+#2253
+Inside a Building~
+Light pours in from the burning vehicle outside. Nothing special can be
+seen, this used to be a large glass door entrance now its just a hole. 
+~
+0 1073741825 1 0
+D0
+~
+~
+0 -1 2239
+D1
+~
+~
+0 -1 2256
+D2
+~
+~
+0 -1 2254
+S
+#2254
+Inside a Building~
+This building looks as if its ready to collapse, the pillars that normally
+support the rooftop look weak and ready to snap. The room has already been
+searched so there isnt much reason to stand here.
+~
+0 1073741825 1 0
+D0
+~
+~
+0 -1 2253
+D1
+~
+~
+0 -1 2255
+> rand_prog 104~
+mpecho &zThe Building Shakes and Rumbles...
+~
+|
+S
+#2255
+Inside a Building~
+There is a pile of junk lying in this section, perhaps something useful
+could be found if you spent the time to "search". The rooftop creaks every
+so often, a warning that the building might collapse.
+~
+0 1073741825 1 0
+D0
+~
+~
+0 -1 2256
+D3
+~
+~
+0 -1 2254
+S
+#2256
+Inside a Building~
+This building looks as if its ready to collapse, the pillars that normally
+support the rooftop look weak and ready to snap. The room has already been
+searched so there isnt much reason to stand here.
+~
+0 1073741825 1 0
+D1
+~
+~
+0 -1 2257
+D2
+~
+~
+0 -1 2255
+D3
+~
+~
+0 -1 2253
+> rand_prog 110~
+mpecho &zThe Building Shakes and Rumbles...
+~
+|
+S
+#2257
+Inside a Building~
+This building looks as if its ready to collapse, the pillars that normally
+support the rooftop look weak and ready to snap. The room has already been
+searched so there isnt much reason to stand here.
+~
+0 1073741825 1 0
+D1
+~
+~
+0 -1 2258
+D3
+~
+~
+0 -1 2256
+S
+#2258
+Inside a Building~
+Light pours in from the burning vehicle outside. Nothing special can be
+seen, this is merely a blasted open exit in the wall of a tall building.
+~
+0 1073741825 1 0
+D0
+~
+~
+0 -1 2259
+D3
+~
+~
+0 -1 2257
+S
+#2259
+A Burning Vehicle~
+A large crashed vehicle blocks the street, it would be dangerous to get too
+close. To the south is an opening into a large building structure. Not
+much can be seen to the east just a continous road. 
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 2260
+D2
+~
+~
+0 -1 2258
+> rand_prog 104~
+mpecho &z&rThe Fire Burns with Intense Heat.
+~
+|
+S
+#2260
+Dark Street~
+The Street has no working lights at all. Wrecked cars, and rubble lie
+everywhere. Not many people travel this direction unless their searching
+for sellable junk. 
+~
+0 1073741825 1 0
+D0
+~
+~
+0 -1 2261
+D3
+~
+~
+0 -1 2259
+S
+#2261
+Large Building Complex~
+This building looks to be of industrial type design. Large machinery
+covered in dust line the area, nothing of value can be seen, but the
+compex has many rooms
+~
+0 1073741832 1 0
+D0
+~
+~
+0 -1 2264
+D2
+~
+~
+0 -1 2260
+D3
+~
+~
+0 -1 2262
+D6
+~
+~
+0 -1 2263
+S
+#2262
+Computer Filled Room~
+In this room there are tons of laptops, computers and hardware equipment.
+It would take some time to search for some useful ones that can be
+repaired. 
+~
+0 1073741832 1 0
+D1
+~
+~
+0 -1 2261
+S
+#2263
+Corridor~
+A walkway with nothing along the walls except some old paperwork, the
+corridor is simple and boring. Some bullet shells lay on the floor.
+~
+0 1073741832 1 0
+D6
+~
+~
+0 -1 2265
+D9
+~
+~
+0 -1 2261
+S
+#2264
+Heavy Machine Room~
+Collosal rusting equipment are spread throughout the area, most things of
+value have already been taken notable by the wires and cables left behind
+where the machines orginally were. 
+~
+0 1073741832 1 0
+D2
+~
+~
+0 -1 2261
+S
+#2265
+Corridor~
+A walkway with nothing along the walls except some old paperwork, the
+corridor is simple and boring. Some of the wall has bullet holes in it.
+~
+0 1073741832 1 0
+D0
+~
+~
+0 -1 2266
+D9
+~
+~
+0 -1 2263
+S
+#2266
+Broken Elevator~
+The elevator here doesnt work, in fact... it cant be seen at all, luckily
+if your skilled enough you should be able to climb down using the elevator
+cables. 
+~
+0 1073741832 1 0
+D2
+~
+~
+0 -1 2265
+D5
+~
+~
+65664 -1 2267
+S
+#2267
+Elevator Shaft~
+The elevator shaft has a closed doorway to the east, but the door cannot be
+opened its sealed shut. Stury cables continue to head down to the old
+elevator which is stuck at one of the bottom floors. 
+~
+0 1073741832 1 0
+D4
+~
+~
+128 -1 2266
+D5
+~
+~
+128 -1 2268
+S
+#2268
+Elevator Shaft~
+The shaft ends here on the top of a busted elevator, there doesnt seem to
+be any way to go further down, but the doors to the south are wide open.
+~
+0 1073741833 1 0
+D2
+~
+~
+0 -1 2269
+D4
+~
+~
+128 -1 2267
+S
+#2269
+Basement Compound Level~
+Filled with windows into several lab rooms and old doorways blown wide
+open. This level seems to have some significance to the compound, the
+walls are thick and windows are bullet proof. 
+~
+0 1073741833 1 0
+D0
+~
+~
+0 -1 2268
+D2
+~
+~
+0 -1 2270
+S
+#2270
+Lab Hallway~
+Clean white floors line the hallway, a checkpoint for authorized personel
+lies here. However it no longer works, luckily the door is wide open.
+~
+0 1073741833 1 0
+D0
+~
+~
+0 -1 2269
+D1
+~
+~
+0 -1 2274
+D3
+~
+~
+0 -1 2271
+S
+#2271
+Lab Hallway~
+This hallway has dried blood streaking along the floor something really
+horrific must have happend before this compound became a relic. The blood
+heads further south. 
+~
+0 1073741833 1 0
+D1
+~
+~
+0 -1 2270
+D2
+~
+~
+0 -1 2272
+S
+#2272
+Lab Hallway~
+A dried blood trail stops here where an old corpse still rots, the body
+wears a lab suit. Something catches your eye in the corpse's pocket.
+~
+0 1073741833 1 0
+D0
+~
+~
+0 -1 2271
+D3
+~
+~
+0 -1 2273
+S
+#2273
+Power Supply Room~
+The generator takes up the bulk of the room, the wires seem to be
+disconnected but its unsure which color wire goes to which number slot.
+Perhaps if the generator started working other locations would be
+accessable.
+~
+0 1073741833 1 0
+D1
+~
+~
+0 -1 2272
+S
+#2274
+Lab Hallway~
+Some papers were thrown down here they dont appear to have any importance,
+the hallway continues futher to the southeast where some dark red lights
+pulse slowly. 
+~
+0 1073741833 1 0
+D3
+~
+~
+0 -1 2270
+D8
+~
+~
+0 -1 2275
+S
+#2275
+Lab Hallway~
+The hallway ends here, to the south is some sort of room used for storage,
+and to the east is a room with dark red pulsating lights.
+~
+0 1073741833 1 0
+D1
+~
+~
+0 -1 2277
+D2
+~
+~
+0 -1 2276
+D7
+~
+~
+0 -1 2274
+S
+#2276
+Culture Room~
+Test tubes and vial of strange chemicals lie along the walls, a large
+microscope is still in good condition but lacks the power to be used.
+~
+0 1073741833 1 0
+D0
+~
+~
+0 -1 2275
+S
+#2277
+Decontamination Room~
+The decontamination room no longer works, red warning lights pulse slowly
+its amazing that they still work. A power box can be seen on the wall but
+it is sealed shut. The room continues further east. 
+~
+0 1073741832 1 0
+D1
+~
+~
+0 -1 2278
+D3
+~
+~
+0 -1 2275
+S
+#2278
+Decontamination Room~
+The decontamination room no longer works, red warning lights pulse slowly
+its amazing that they still work. The doorway is wide open and heads to
+the east. 
+~
+0 1073741832 1 0
+D1
+~
+~
+0 -1 2279
+D3
+~
+~
+0 -1 2277
+S
+#2279
+Dark Lab~
+Not much can be seen, from the design it is some type of laboratory, used
+for experimental tests. Some papers and documents lie on a nearby table
+and test tubes lie in storage containers. 
+~
+0 1073741833 1 0
+D0
+~
+~
+0 -1 2280
+D1
+~
+~
+0 -1 2282
+D3
+~
+~
+0 -1 2278
+D8
+~
+~
+0 -1 2281
+S
+#2280
+Dark Lab~
+Scratches can be seen along the walls, and several dead bodies lie on the
+floor. They seem to have large chunks taken out of them. 
+~
+0 1073741833 1 0
+D0
+~
+~
+0 -1 2284
+D2
+~
+~
+0 -1 2279
+S
+#2281
+Dark Lab~
+Not much can be seen, from the design it is some type of laboratory, used
+for experimental tests. Sinks lie around with spider webs around them.
+Nothing of real importance can be seen. 
+~
+0 1073741833 1 0
+D1
+~
+~
+0 -1 2285
+D7
+~
+~
+0 -1 2279
+S
+#2282
+Dark Lab~
+The lab narrows here and a soft blue glow comes from northeast of your
+location. Some of the wall has colapsed and it looks quite unsafe.
+~
+0 1073741825 1 0
+D3
+~
+~
+0 -1 2279
+D6
+~
+~
+0 -1 2283
+S
+#2283
+Glowing Lab~
+Half of the room is destroyed by a cave in, the wall is broken as if it
+took some serious type of aftershock. A large test tube glows with
+something floating inside... 
+~
+0 1073741824 1 0
+D9
+~
+~
+0 -1 2282
+S
+#2284
+Animal Storage~
+Many Cages are stored here, almost all of them have been busted open, the
+rest are empty. Claw marks run along some of the walls and a lab
+scientist's body lays on the floor.
+~
+0 1073741833 1 0
+D2
+~
+~
+0 -1 2280
+S
+#2285
+Dark Room~
+A dark lonely room with nothing but stored lab equipment, there isnt
+anything worth much value, all the equipment seems outdated or stolen
+already. 
+~
+0 1073741833 1 0
+D3
+~
+~
+0 -1 2281
+S
+#2286
+Underground Passage~
+This is a dug out area where you can crawl through a tunnel with large
+circular metal piping all around to prevent cave in's. The tunnel seems to
+be recently made but the air is thick of dust. 
+~
+0 1073741828 1 0
+D0
+~
+~
+0 -1 2287
+D4
+~
+~
+0 -1 2248
+S
+#2287
+Underground Passage~
+This is a dug out area where you can crawl through a tunnel with large
+circular metal piping all around to prevent cave in's. The tunnel seems to
+be recently made but the air is thick of dust. 
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 2288
+D2
+~
+~
+0 -1 2286
+S
+#2288
+Underground Passage~
+This is a dug out area where you can crawl through a tunnel with large
+circular metal piping all around to prevent cave in's. The tunnel seems to
+be recently made but the air is thick of dust. 
+~
+0 1073741828 1 0
+D2
+~
+~
+0 -1 2287
+D4
+~
+~
+0 -1 2289
+S
+#2289
+Dark Room~
+Half of this building is gone, to the northwest is a reddish glow and
+flashing lights across the cloudy skies. Rubble blocks most of the ways
+out, except one small path. 
+~
+0 1073741825 1 0
+D5
+~
+~
+0 -1 2288
+D7
+~
+~
+0 -1 2290
+S
+#2290
+Entrance: Reaver Territory~
+A flag with a ghostly like figure on it is held up by a series of skulls,
+it marks the beggining of reaver territory. Said to be no mans land by the
+populace, anyone going beyond this point is asking for death.
+~
+0 1073741825 1 0
+D1
+~
+~
+0 -1 2291
+D8
+~
+~
+0 -1 2289
+S
+#2291
+Reaver Territory~
+The ground is littered with bodies, skulls and bullet shells. It almost
+seems ubeleivable how many people have died here. A strange wind blows and
+fires burn with unatural stamina. 
+~
+0 1073741825 1 0
+D0
+~
+~
+0 -1 2292
+D3
+~
+~
+0 -1 2290
+S
+#2292
+Reaver Territory~
+The ground is littered with bodies, skulls and bullet shells. It almost
+seems ubeleivable how many people have died here. A strange wind blows and
+fires burn with unatural stamina.  
+~
+0 1073741825 1 0
+D2
+~
+~
+0 -1 2291
+D3
+~
+~
+0 -1 2293
+D6
+~
+~
+0 -1 2294
+S
+#2293
+Destroyed Building~
+The roof of this structure has been blown completly off, more dead bodies
+lie on the ground and some broken weapons can be seen. Not long ago the
+people of "Haven" tried to fight the reavers, but it ended up a massacre.
+~
+0 1073741825 1 0
+D1
+~
+~
+0 -1 2292
+S
+#2294
+Scattered Ruins~
+Nothing but rubble and leftover walls of buildings stands here now. The
+terrain is harsh and there are no trails through the area. Gunfire can
+occasionally be heard in the distance. 
+~
+0 1073741825 1 0
+D3
+~
+~
+0 -1 2295
+D9
+~
+~
+0 -1 2292
+S
+#2295
+Scattered Ruins~
+Nothing but rubble and leftover walls of buildings stands here now. The
+terrain is harsh and there are no trails through the area. Gunfire can
+occasionally be heard in the distance. 
+~
+0 1073741825 1 0
+D0
+~
+~
+0 -1 2296
+D1
+~
+~
+0 -1 2294
+S
+#2296
+Reaver Territory~
+A pile of the dead is layed down here, its where the reavers dump their
+past victims apparantly. The city opens up and to the northwest a wide
+wasteland starts. 
+~
+0 1 1 0
+D1
+~
+~
+0 -1 2326
+D2
+~
+~
+0 -1 2295
+D7
+~
+~
+0 -1 2297
+S
+#2297
+The Wastelands~
+A barren land of dust, dirt and polluted water right outside the main city.
+Duststorms and acid rain, the wastelands is a dangerous maze of cracked
+earth that claims any life willing to travel across it. 
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 2298
+D8
+~
+~
+0 -1 2296
+> rand_prog 100~
+mpdamage $n 32
+mpechoat $n Acid Rain Falls From Above.
+~
+|
+S
+#2298
+The Wastelands~
+A barren land of dust, dirt and polluted water right outside the main city.
+Duststorms and acid rain, the wastelands is a dangerous maze of cracked
+earth that claims any life willing to travel across it. 
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 2301
+D1
+~
+~
+0 -1 2299
+D2
+~
+~
+0 -1 2297
+D3
+~
+~
+0 -1 2302
+> rand_prog 100~
+mpdamage $n 32
+mpechoat $n Acid Rain Falls From Above.
+~
+|
+S
+#2299
+The Wastelands~
+A barren land of dust, dirt and polluted water right outside the main city.
+Duststorms and acid rain, the wastelands is a dangerous maze of cracked
+earth that claims any life willing to travel across it. 
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 2300
+D3
+~
+~
+0 -1 2298
+> rand_prog 80~
+mpdamage $n 32
+mpechoat $n Acid Rain Falls From Above.
+~
+|
+S
+#2300
+The Wastelands~
+A barren land of dust, dirt and polluted water right outside the main city.
+Duststorms and acid rain, the wastelands is a dangerous maze of cracked
+earth that claims any life willing to travel across it. 
+~
+0 1073741824 1 0
+D2
+~
+~
+0 -1 2299
+D3
+~
+~
+0 -1 2301
+> rand_prog 70~
+mpdamage $n 32
+mpechoat $n Acid Rain Falls From Above.
+~
+|
+S
+#2301
+The Wastelands~
+A barren land of dust, dirt and polluted water right outside the main city.
+Duststorms and acid rain, the wastelands is a dangerous maze of cracked
+earth that claims any life willing to travel across it. 
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 2300
+D2
+~
+~
+0 -1 2298
+> rand_prog 100~
+mpdamage $n 32
+mpechoat $n Acid Rain Falls From Above.
+~
+|
+S
+#2302
+The Wastelands~
+A barren land of dust, dirt and polluted water right outside the main city.
+Duststorms and acid rain, the wastelands is a dangerous maze of cracked
+earth that claims any life willing to travel across it. 
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 2298
+D3
+~
+~
+0 -1 2303
+> rand_prog 90~
+mpdamage $n 32
+mpechoat $n &z&OAcid Rain Falls From Above.
+~
+|
+S
+#2303
+The Wastelands~
+A barren land of dust, dirt and polluted water right outside the main city.
+Duststorms and acid rain, the wastelands is a dangerous maze of cracked
+earth that claims any life willing to travel across it. 
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 2304
+D1
+~
+~
+0 -1 2302
+> rand_prog 84~
+mpdamage $n 32
+mpechoat $n &z&OAcid Rain Falls From Above.
+~
+|
+S
+#2304
+The Wastelands~
+A barren land of dust, dirt and polluted water right outside the main city.
+Duststorms and acid rain, the wastelands is a dangerous maze of cracked
+earth that claims any life willing to travel across it. 
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 2306
+D2
+~
+~
+0 -1 2303
+D7
+~
+~
+0 -1 2305
+> rand_prog 100~
+mpdamage $n 32
+mpechoat $n &z&OAcid Rain Falls From Above.
+~
+|
+S
+#2305
+The Wastelands~
+A barren land of dust, dirt and polluted water right outside the main city.
+Duststorms and acid rain, the wastelands is a dangerous maze of cracked
+earth that claims any life willing to travel across it. 
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 2309
+D3
+~
+~
+0 -1 2307
+D8
+~
+~
+0 -1 2304
+> rand_prog 100~
+mpdamage $n 21
+mpechoat $n &z&OA Toxic Storm Blows By.
+~
+|
+S
+#2306
+The Wastelands~
+A barren land of dust, dirt and polluted water right outside the main city.
+Duststorms and acid rain, the wastelands is a dangerous maze of cracked
+earth that claims any life willing to travel across it. 
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 2310
+D3
+~
+~
+0 -1 2304
+> rand_prog 80~
+mpdamage $n 32
+mpechoat $n &z&OAcid Rain Falls From Above.
+~
+|
+S
+#2307
+The Wastelands~
+A barren land of dust, dirt and polluted water right outside the main city.
+Duststorms and acid rain, the wastelands is a dangerous maze of cracked
+earth that claims any life willing to travel across it. 
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 2308
+D1
+~
+~
+0 -1 2305
+> rand_prog 60~
+mpdamage $n 21
+mpechoat $n &z&OA Toxic Storm Blows By.
+~
+|
+S
+#2308
+The Wastelands~
+A barren land of dust, dirt and polluted water right outside the main city.
+Duststorms and acid rain, the wastelands is a dangerous maze of cracked
+earth that claims any life willing to travel across it. 
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 2309
+D2
+~
+~
+0 -1 2307
+> rand_prog 80~
+mpdamage $n 30
+mpechoat $n &z&OA Toxic Storm Blows By.
+~
+|
+S
+#2309
+The Wastelands~
+A barren land of dust, dirt and polluted water right outside the main city.
+Duststorms and acid rain, the wastelands is a dangerous maze of cracked
+earth that claims any life willing to travel across it. 
+~
+0 1073741824 1 0
+D2
+~
+~
+0 -1 2305
+D3
+~
+~
+0 -1 2308
+> rand_prog 100~
+mpdamage $n 121
+mpechoat $n &z&OA Large Toxic Storm Knocks You Down.
+~
+|
+S
+#2310
+The Wastelands~
+A barren land of dust, dirt and polluted water right outside the main city.
+Duststorms and acid rain, the wastelands is a dangerous maze of cracked
+earth that claims any life willing to travel across it. 
+~
+0 1073741824 1 0
+D2
+~
+~
+0 -1 2306
+D6
+~
+~
+0 -1 2311
+> rand_prog 120~
+mpdamage $n 32
+mpechoat $n &z&OAcid Rain Falls From Above.
+~
+|
+S
+#2311
+The Wastelands~
+A barren land of dust, dirt and polluted water right outside the main city.
+Duststorms and acid rain, the wastelands is a dangerous maze of cracked
+earth that claims any life willing to travel across it. 
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 2312
+D9
+~
+~
+0 -1 2310
+> rand_prog 100~
+mpdamage $n 32
+mpechoat $n &z&OAcid Rain Falls From Above.
+~
+|
+S
+#2312
+The Wastelands~
+A barren land of dust, dirt and polluted water right outside the main city.
+Duststorms and acid rain, the wastelands is a dangerous maze of cracked
+earth that claims any life willing to travel across it. 
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 2313
+D3
+~
+~
+0 -1 2311
+D8
+~
+~
+0 -1 2314
+> rand_prog 80~
+mpdamage $n 32
+mpechoat $n &z&OAcid Rain Falls From Above.
+~
+|
+S
+#2313
+The Wastelands~
+A barren land of dust, dirt and polluted water right outside the main city.
+Duststorms and acid rain, the wastelands is a dangerous maze of cracked
+earth that claims any life willing to travel across it. 
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 2315
+D2
+~
+~
+0 -1 2312
+> rand_prog 70~
+mpdamage $n 32
+mpechoat $n &z&OAcid Rain Falls From Above.
+~
+|
+S
+#2314
+The Wastelands~
+A barren land of dust, dirt and polluted water right outside the main city.
+Duststorms and acid rain, the wastelands is a dangerous maze of cracked
+earth that claims any life willing to travel across it. 
+~
+0 1073741824 1 0
+D2
+~
+~
+0 -1 2316
+D7
+~
+~
+0 -1 2312
+S
+#2315
+A Strange Marker~
+This Wavering flag is torn and ripped to the point of just being some cloth
+marking a pathway, it seems your on the right path.. 
+~
+0 1073741824 1 0
+D2
+~
+~
+0 -1 2313
+D7
+~
+~
+0 -1 2318
+S
+#2316
+The Wastelands~
+A barren land of dust, dirt and polluted water right outside the main city.
+Duststorms and acid rain, the wastelands is a dangerous maze of cracked
+earth that claims any life willing to travel across it. 
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 2314
+D1
+~
+~
+0 -1 2317
+S
+#2317
+Small Building~
+~
+0 1073741824 1 0
+D3
+~
+~
+0 -1 2316
+S
+#2318
+The Wastelands~
+A barren land of dust, dirt and polluted water right outside the main city.
+Duststorms and acid rain, the wastelands is a dangerous maze of cracked
+earth that claims any life willing to travel across it.
+~
+0 1073741824 1 0
+D6
+~
+~
+0 -1 2319
+D7
+~
+~
+0 -1 2320
+D8
+~
+~
+0 -1 2315
+> rand_prog 76~
+mpdamage $n 21
+mpechoat $n &z&OA Toxic Storm Blows You To Your Knees.
+~
+|
+S
+#2319
+The Wastelands~
+A barren land of dust, dirt and polluted water right outside the main city.
+Duststorms and acid rain, the wastelands is a dangerous maze of cracked
+earth that claims any life willing to travel across it.
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 2321
+D9
+~
+~
+0 -1 2318
+> rand_prog 50~
+mpdamage $n 63
+mpechoat $n &z&OThe Ground Shakes and You Fall Some Distance.
+~
+|
+S
+#2320
+The Wastelands~
+A barren land of dust, dirt and polluted water right outside the main city.
+Duststorms and acid rain, the wastelands is a dangerous maze of cracked
+earth that claims any life willing to travel across it.
+~
+0 1073741824 1 0
+D7
+~
+~
+0 -1 2322
+D8
+~
+~
+0 -1 2318
+> rand_prog 40~
+mpdamage $n 50
+mpechoat $n &z&OA Toxic Storm Blows You To Your Knees.
+~
+|
+S
+#2321
+The Wastelands~
+A barren land of dust, dirt and polluted water right outside the main city.
+Duststorms and acid rain, the wastelands is a dangerous maze of cracked
+earth that claims any life willing to travel across it.
+~
+0 1073741824 1 0
+D2
+~
+~
+0 -1 2319
+> rand_prog 20~
+mpdamage $n 63
+mpechoat $n &z&OThe Ground Shakes and You Fall Some Distance.
+~
+|
+S
+#2322
+The Wastelands~
+A barren land of dust, dirt and polluted water right outside the main city.
+Duststorms and acid rain, the wastelands is a dangerous maze of cracked
+earth that claims any life willing to travel across it.
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 2323
+D8
+~
+~
+0 -1 2320
+> rand_prog 110~
+mpdamage $n 48
+mpechoat $n &z&OA Toxic Storm Blows You To Your Knees.
+~
+|
+S
+#2323
+The Wastelands~
+A barren land of dust, dirt and polluted water right outside the main city.
+Duststorms and acid rain. To the northeast you can slighly see a building.
+~
+0 1073741824 1 0
+D2
+~
+~
+0 -1 2322
+D6
+~
+~
+0 -1 2324
+> rand_prog 92~
+mpdamage $n 22
+mpechoat $n &z&OA Toxic Storm Blows You To Your Knees.
+~
+|
+S
+#2324
+The Wastelands~
+A barren land of dust, dirt and polluted water right outside the main city.
+Duststorms and acid rain. To the north you can slighly see a building.
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 2325
+D9
+~
+~
+0 -1 2323
+> rand_prog 87~
+mpdamage $n 34
+mpechoat $n &z&OA Toxic Storm Blows You To Your Knees.
+~
+|
+S
+#2325
+A Building Compound~
+This Compound was built into the side of a mountain, its large gates are
+wide open with rust all over the walls. The inside will make good shelter
+from the acid and dust storms. 
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 2334
+D2
+~
+~
+0 -1 2324
+S
+#2326
+Reaver Territory~
+The ground is littered with bodies, skulls and bullet shells. It almost
+seems ubeleivable how many people have died here. A strange wind blows and
+fires burn with unatural stamina.  
+~
+0 1073741825 1 0
+D3
+~
+~
+0 -1 2296
+D6
+~
+~
+0 -1 2327
+S
+#2327
+Reaver Territory~
+The ground is littered with bodies, skulls and bullet shells. It almost
+seems ubeleivable how many people have died here. A strange wind blows and
+fires burn with unatural stamina.  
+~
+0 1073741825 1 0
+D2
+~
+~
+0 -1 2328
+D9
+~
+~
+0 -1 2326
+S
+#2328
+Reaver Territory~
+The ground is littered with bodies, skulls and bullet shells. It almost
+seems ubeleivable how many people have died here. A strange wind blows and
+fires burn with unatural stamina.  
+~
+0 1073741825 1 0
+D0
+~
+~
+0 -1 2327
+D3
+~
+~
+0 -1 2332
+S
+#2329
+In Sight of a Bunker~
+&z&RWarning!&z You are entering the Hellena clan headquarters, please be
+sure to read &z&Rhelp clan&z and &Rhelp pk&z before entering any further.
+~
+0 1073741828 0 0
+D2
+~
+~
+0 -1 2215
+D7
+~
+~
+0 -1 2330
+S
+#2330
+In Sight of a Bunker~
+~
+0 1073741824 0 0
+D0
+~
+~
+0 -1 2331
+D8
+~
+~
+0 -1 2329
+S
+#2331
+Hellena Clan Headquarters~
+This bunker is the entrance to the underground Hellena clan headquarters.
+Some Guards stand at the ready looking for any suspicious characters.
+~
+0 1073741824 0 0
+D2
+~
+~
+0 -1 2330
+S
+#2332
+Reaver Territory~
+The ground is littered with bodies, skulls and bullet shells. It almost
+seems ubeleivable how many people have died here. A strange wind blows and
+fires burn with unatural stamina.  
+~
+0 1073741825 1 0
+D1
+~
+~
+0 -1 2328
+D2
+~
+~
+0 -1 2333
+S
+#2333
+Old Waterfountain~
+No water lies in this broken waterfountain anymore, the area seems like it
+was orginally a imporant town square.  The rubble of destroyed buildings
+blocks every other way out, its a dead end. 
+~
+0 1073741825 1 0
+D0
+~
+~
+0 -1 2332
+S
+#2334
+Inside A Building~
+Some old transport vehicles lie here rusted over, its doubtful anyone could
+get them started. Alot of crates lie around the area, the building heads
+further north.
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 2335
+D2
+~
+~
+0 -1 2325
+S
+#2335
+Inside A Building~
+Some old transport vehicles lie here rusted over, its doubtful anyone could
+get them started. Alot of crates lie around the area, the building heads
+further north.
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 2336
+D2
+~
+~
+0 -1 2334
+S
+#2336
+A large Vault Door~
+~
+0 1073741824 1 0
+D2
+~
+~
+0 -1 2335
+D3
+~
+~
+0 -1 2337
+S
+#2337
+Fallout Shelter~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 2339
+D1
+~
+~
+0 -1 2336
+D3
+~
+~
+0 -1 2338
+S
+#2338
+Fallout Shelter~
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 2337
+D2
+~
+~
+0 -1 2340
+S
+#2339
+Comminication Room~
+~
+0 1073741824 1 0
+D2
+~
+~
+0 -1 2337
+S
+#2340
+Vault Barracks~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 2338
+S
+#2341
+Junk Parts Shop~
+~
+0 1073741828 1 0
+D8
+~
+~
+0 -1 2211
+S
+#2342
+Judy's Room~
+~
+0 1073741828 1 0
+S
+#0
+
+
+#RESETS
+M 1 201 4 333
+M 1 201 7 215
+M 1 202 7 215
+M 1 202 8 214
+M 1 201 8 214
+M 1 202 5 200
+M 1 201 6 236
+M 1 203 5 224
+M 1 201 10 212
+M 1 201 10 212
+M 1 201 10 212
+M 1 201 10 212
+M 1 202 9 212
+M 1 202 9 212
+M 1 202 9 212
+M 1 202 9 212
+M 1 201 14 216
+M 1 201 14 216
+M 1 202 13 216
+M 1 202 13 216
+M 1 202 13 216
+M 1 202 13 216
+M 1 201 14 217
+M 1 207 4 222
+M 1 207 4 222
+M 1 2201 2 2204
+M 1 2201 3 2203
+M 1 2201 5 2206
+M 1 2201 5 2206
+M 1 2201 8 2208
+M 1 2201 8 2208
+M 1 2201 8 2208
+M 1 2202 5 2213
+M 1 2202 5 2213
+M 1 2202 5 2213
+M 1 2202 5 2213
+M 1 2202 5 2213
+M 1 2203 1 2212
+M 1 2204 5 2224
+M 1 2204 5 2224
+M 1 2204 5 2224
+M 1 2204 5 2224
+M 1 2204 5 2224
+M 1 2205 1 2226
+M 1 2206 1 2223
+M 1 2208 1 2217
+M 1 2209 6 2230
+M 1 2209 6 2230
+M 1 2209 6 2230
+M 1 2209 6 2230
+M 1 2209 6 2230
+M 1 2210 1 2234
+M 1 2211 1 2214
+M 1 2207 1 2218
+G 1 2202 1
+G 1 3515 1
+G 1 3516 1
+M 1 2212 1 2342
+M 1 2213 1 2221
+M 1 2214 1 2227
+M 1 2215 1 2296
+S
+
+
+#SHOPS
+ 2203    0  0  0  0  0   120  90         0 23    ; The Pawn Shop Owner
+ 2206    0  0  0  0  0   120  90         0 23    ; The Parts Shop Owner
+ 2207    0  0  0  0  0   120  90         0 23    ; Jimmy
+ 2208    0  0  0  0  0   120  90         0 23    ; Harry
+0
+
+
+#REPAIRS
+0
+
+
+#SPECIALS
+S
+
+
+#$

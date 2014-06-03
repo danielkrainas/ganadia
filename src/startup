@@ -3,7 +3,7 @@
 # With additions from Tony and Alander.
 
 # Set the port number.
-set port = 4567
+set port = 7777
 if ( "$1" != "" ) set port="$1"
 
 # Change to area directory.

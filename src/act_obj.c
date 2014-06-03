@@ -132,7 +132,7 @@ void get_obj( CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *container )
     && (!container || container->carried_by == NULL) )
     {
 	for ( clan = first_clan; clan; clan = clan->next )
-	  if ( clan->storeroom == ch->in_room->vnum ) 
+	  if ( clan->storeroom == ch->in_room->vnum )
 	    save_clan_storeroom(ch, clan);
     }
 
@@ -167,6 +167,20 @@ void do_get( CHAR_DATA *ch, char *argument )
     OBJ_DATA *container;
     sh_int number;
     bool found;
+
+	if ( ch->in_room && IS_SET(ch->in_room->room_flags, ROOM_PLR_HOME) )
+	{
+		if ( !ch->plr_home )
+		{
+			send_to_char( "Stealing is bad!\n\r", ch ); /* Can't take stuff in someone else's home - Funf */
+			return;
+		}
+		else if ( ch->in_room->vnum != ch->plr_home->vnum )
+		{
+			send_to_char( "Stealing is bad!\n\r", ch ); /* Can't take stuff in someone else's home - Funf */
+			return;
+		}
+	}
 
     argument = one_argument( argument, arg1 );
     if ( is_number(arg1) )
@@ -434,7 +448,7 @@ void do_junk( CHAR_DATA *ch, char *argument )
    {
 	/*
       if( !can_drop_obj( ch, obj ) && !IS_IMMORTAL(ch) )
-      { 
+      {
          send_to_char( "You cannot junk that, it's cursed!\n\r", ch );
          return;
       }
@@ -589,7 +603,7 @@ void do_put( CHAR_DATA *ch, char *argument )
 	&&   container->carried_by == NULL)
 	{
 	   for ( clan = first_clan; clan; clan = clan->next )
-	      if ( clan->storeroom == ch->in_room->vnum ) 
+	      if ( clan->storeroom == ch->in_room->vnum )
 		save_clan_storeroom(ch, clan);
 	}
     }
@@ -661,7 +675,7 @@ void do_put( CHAR_DATA *ch, char *argument )
 	&& container->carried_by == NULL )
 	{
 	  for ( clan = first_clan; clan; clan = clan->next )
-	     if ( clan->storeroom == ch->in_room->vnum ) 
+	     if ( clan->storeroom == ch->in_room->vnum )
         	save_clan_storeroom(ch, clan);
 	}
     }
@@ -716,12 +730,12 @@ void do_drop( CHAR_DATA *ch, char *argument )
     {
 	/* 'drop NNNN credits' */
 
-	if ( !str_cmp( arg, "wulongs" ) || !str_cmp( arg, "wulong"
+	if ( !str_cmp( arg, "dollars" ) || !str_cmp( arg, "dollar"
 ) )
 	{
 	    if ( ch->gold < number )
 	    {
-		send_to_char( "You haven't got that many wulongs.\n\r", ch );
+		send_to_char( "You haven't got that much money.\n\r", ch );
 		return;
 	    }
 
@@ -745,7 +759,7 @@ void do_drop( CHAR_DATA *ch, char *argument )
 		}
 	    }
 
-	    act( AT_ACTION, "$n drops some wulongs.", ch, NULL, NULL, TO_ROOM );
+	    act( AT_ACTION, "$n drops some money.", ch, NULL, NULL, TO_ROOM );
 	    obj_to_room( create_money( number ), ch->in_room );
 	    send_to_char( "OK.\n\r", ch );
 	    if ( IS_SET( sysdata.save_flags, SV_DROP ) )
@@ -903,7 +917,7 @@ void do_give( CHAR_DATA *ch, char *argument )
 
 	amount   = atoi(arg1);
 	if ( amount <= 0
-	|| ( str_cmp( arg2, "wulongs" ) && str_cmp( arg2, "wulong" ) ) )
+	|| ( str_cmp( arg2, "dollars" ) && str_cmp( arg2, "dollar" ) ) )
 	{
 	    send_to_char( "Sorry, you can't do that.\n\r", ch );
 	    return;
@@ -926,7 +940,7 @@ void do_give( CHAR_DATA *ch, char *argument )
 
 	if ( ch->gold < amount )
 	{
-	    send_to_char( "Very generous of you, but you haven't got that many wulongs.\n\r", ch );
+	    send_to_char( "Very generous of you, but you haven't got that much money.\n\r", ch );
 	    return;
 	}
 
@@ -934,11 +948,11 @@ void do_give( CHAR_DATA *ch, char *argument )
 	victim->gold += amount;
         strcpy(buf, "$n gives you ");
         strcat(buf,arg1);
-        strcat(buf, (amount > 1) ? " wulongs." : " wulong.");
+        strcat(buf, (amount > 1) ? " dollars." : " dollar.");
 
 	act( AT_ACTION, buf, ch, NULL, victim, TO_VICT    );
-	act( AT_ACTION, "$n gives $N some wulongs.",  ch, NULL, victim, TO_NOTVICT );
-	act( AT_ACTION, "You give $N some wulongs.",  ch, NULL, victim, TO_CHAR    );
+	act( AT_ACTION, "$n gives $N some money.",  ch, NULL, victim, TO_NOTVICT );
+	act( AT_ACTION, "You give $N some money.",  ch, NULL, victim, TO_CHAR    );
 	send_to_char( "OK.\n\r", ch );
 	mprog_bribe_trigger( victim, ch, amount );
 	if ( IS_SET( sysdata.save_flags, SV_GIVE ) && !char_died(ch) )
@@ -2115,6 +2129,20 @@ void do_sacrifice( CHAR_DATA *ch, char *argument )
     if ( ms_find_obj(ch) )
 	return;
 
+	if ( ch->in_room && IS_SET(ch->in_room->room_flags, ROOM_PLR_HOME) )
+	{
+		if ( !ch->plr_home )
+		{
+			send_to_char( "This is not your home!\n\r", ch ); /* Can't sac stuff in someone else's home - Funf */
+			return;
+		}
+		else if ( ch->in_room->vnum != ch->plr_home->vnum )
+		{
+			send_to_char( "This is not your home!\n\r", ch ); /* Can't sac stuff in someone else's home - Funf */
+			return;
+		}
+	}
+
     obj = get_obj_list_rev( ch, arg, ch->in_room->last_content );
     if ( !obj )
     {
@@ -2136,7 +2164,7 @@ void do_sacrifice( CHAR_DATA *ch, char *argument )
 	sprintf( buf, "Spike gives you one wulong for your sacrifice.\n\r" );
     else
 	if(ch->pcdata->clan != NULL && ch->pcdata->clan->immortal != NULL)
-		sprintf( buf, "%s gives you one wulong for your sacrifice.\n\r", 
+		sprintf( buf, "%s gives you one wulong for your sacrifice.\n\r",
 			(ch->pcdata->clan->immortal != '\0')? ch->pcdata->clan->immortal : "Spike");
     send_to_char( buf, ch );
     if ( ch->pcdata->clan == NULL || ch->pcdata->clan->immortal == NULL )
@@ -2356,14 +2384,14 @@ void save_clan_storeroom( CHAR_DATA *ch, CLAN_DATA *clan )
     sh_int templvl;
     OBJ_DATA *contents;
 
-	
+
     if ( !clan )
     {
 	bug( "save_clan_storeroom: Null clan pointer!", 0 );
 	return;
     }
-	
-   
+
+
     if ( !ch )
     {
 	bug ("save_clan_storeroom: Null ch pointer!", 0);

@@ -1,0 +1,194 @@
+Sender  Nikon~
+Date    Tue Feb  7 12:34:56 2006~
+Stamp   1139337550
+Expire  1144521321
+To      all~
+Subject Area Building Notes~
+Text
+Okay, some of you are new builders and others are just new
+to SWR building. Here are a couple notes to keep in mind:
+ 
+1) Dont use an object or mob from another area, make a
+duplicate of it in your area, believe it or not doing that
+save ALOT of memory and cpu time.
+ 
+2) When you create an area as part of a planet, be sure to
+set what planet that area belongs to. If you neglect to do
+that then any dipomacy skills and other such things that
+require the area be pointing to a planet will not work.
+simply enter: aset <filename> planet <planetname>
+This is why jefro wasnt able to gain smalltalk experience.
+ 
+Thats it really, keep up the good building
+~
+
+Sender  Nikon~
+Date    Wed Feb  8 12:57:51 2006~
+Stamp   1139425139
+Expire  1144609082
+To      all~
+Subject Tractorbeam~
+Text
+Okay, tractorbeam is now a working skill. It works
+real nice, enjoy =)
+ 
+-=Nikon=-
+~
+
+Sender  Nikon~
+Date    Thu Feb  9 17:54:52 2006~
+Stamp   1139529363
+Expire  1144713302
+To      all~
+Subject Weapons work~
+Text
+Hey all weapon systems can fire according to their range now
+that is all
+later
+-=Nikon=-
+~
+
+Sender  Nikon~
+Date    Fri Feb 10 14:51:26 2006~
+Stamp   1139604798
+Expire  1144788701
+To      all~
+Subject whats up~
+Text
+Hey guys, okay i would like to give all of you a decent estimate
+on when "GANADIA" goes live. I want to give a flexible time limit
+of a week to a week and a half. If seen alot of you on lately.
+I just haven't seen any productivity. Im not about to say you will
+be mortalized if you dont finish your shite, but i would like it
+if you builders can finish your areas up, so many of them are on
+the verge of completion, also, from what i hear Danube's area needs
+some work with progs and things like making items search for items.
+Gaden, I've seen you playing around online, thats cool, and i know
+you can code because i see you fuck with Jefro(Jayne) all the time.
+I need you to give me a list on some stuff you want to change, or
+if you want to be changed to a builder, ask me or scape and your
+position will be changed. If you want to code and dont know what to
+do, just ask me. I have a big todo list and i wouldnt mind the help.
+We are on home stretch and the momentum was great at the beginning
+so dont let it dwindle now, not when we are so close to making a
+really great MUD. Now for some minor things, i need something from
+each of you. Im gonna be making a skill tree called "Ancient Arts",
+they will be imm only skills unless otherwise given to a mortal.
+Make up a skill and send it to me, i need the Name,What it does,
+What Planet did it originate from or what people did it originate
+from (use your imaginations here). Last, not saying you have to
+but if you could tell me what you need to finish your areas,
+I might be able to get someone else to aid you in finishing it.
+Jefro, thank you so much, your a great ginnea pi...i mean tester =)
+Your help is detrimental to our success. Your job will not be done
+after we go public however, you will need to help the new players
+when we have them, with their questions. Well i appologize it was
+so long, but i felt it all had to be said
+ 
+ 
+-=(Nikon)=-
+~
+
+Sender  Nikon~
+Date    Fri Feb 10 14:54:28 2006~
+Stamp   1139604915
+Expire  1144788874
+To      all~
+Subject TODO~
+Text
+Okay here is my todo list for the next couple days. Im a die hard
+coder and thats the only reason mine is so long:
+ 
+[1] Remove any references of "Cowby" "Bebop" "Punch" "Judy"
+ 
+[2] Change Score
+ 
+[3] Change MOTD and IMOTD
+ 
+[4] Change all the title screens
+ 
+[5] Players able to target ships
+ 
+[6] Ships able to target players
+ 
+[7] Adamantium hull type for ships
+ 
+[8] Astro Hull TOTALLY INVISIBLE when stealth
+ 
+[9] mprepairship for mob progs, using a bribe prog, players can pay
+   the mob to repair their ship
+ 
+[10] ships able to "fly" around on land, or something like that
+ 
+[11] make a starting set of eq for players and finish my area
+ 
+[12] change immortals to "ancients" with a race known as "ancients"
+ 
+[13] Clean house
+ 
+[14] GO LIVE!!!!
+ 
+well thats it folks, till later.
+ 
+-=(Nikon)=-
+~
+
+Sender  Danube~
+Date    Fri Feb 10 15:20:34 2006~
+Stamp   1139606596
+Expire  1226006445
+To      all~
+Subject Hellena~
+Text
+Like nikon says, i need help finishing up my area, i need
+someone whos able to make advanced programs. i can make
+the basic items and such.
+ 
+My mobs are very simplistic right now, im not sure how
+to set specific flags on them etc etc. so I REALLY need
+someone to help me finish it off
+ 
+Please send me a gnote or if you want load my area and
+work on it whenever u feel. its pretty close to being
+finished, it just needs the touch up stuff.
+~
+
+Sender  Scape~
+Date    Fri Feb 10 16:27:40 2006~
+Stamp   1139610696
+Expire  1140042476
+To      imm~
+Subject re: whats up~
+Text
+Ok guys just to clarify, this is the reason i wrote the
+note about wanting one on one time with everyone. I 
+agree totally with nikon. We started off great then
+BAM it was like a brick wall. Its ok tho. I just wanted
+a sit in with everyone to discuss certain stuff and nikon
+even wrapped it up tho LOL. And im not saying its everyone
+or pointing fingers, I havent done too much building myself.
+I keep getting bombarded with stuff that i need to address.
+Its ok tho, i really wanna hear your opinions and what you think
+and thats why i wanted a sit down with everyone.
+Scape
+~
+
+Sender  Scape~
+Date    Sat Feb 11 18:12:47 2006~
+Stamp   1139703323
+Expire  1140135174
+To      all~
+Subject Ganadia~
+Text
+Ok guys, Ganadia area is now complete. If i forgot anyhting
+please write me a note and ill add it asap, this includes the
+residential zone, ill explain that later.
+Im gonna spend the night tweaking up some stuff, then start on
+my next area.
+Also i wish everyone to know, i bestowed Jayne with auth command
+hes on a lot and if we get someone who needs authed he can do it.
+Also, you guys can invite your friends, were not open open.
+but a few more player testers would be nice, so invite away ;)
+Scape
+~
+

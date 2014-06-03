@@ -563,8 +563,8 @@ void talk_channel( CHAR_DATA *ch, char *argument, int channel, const char *verb 
 	break;
     case CHANNEL_BIGSHOT:
         set_char_color( AT_GOSSIP, ch );
-	ch_printf( ch, "&W&O[&YBig Shot&O]&W %s\n\r", argument );
-	sprintf( buf, "&W&O[&YBig Shot&O]&W $t" );
+	ch_printf( ch, "&r[&OBroadcast&r]&W %s\n\r", argument );
+	sprintf( buf, "&r[&OBroadcast&r]&W $t" );
 	break;
     case CHANNEL_ASK:
         set_char_color( AT_OOC, ch );
@@ -846,7 +846,7 @@ void do_chat( CHAR_DATA *ch, char *argument )
 {
     if ( ch->gold < 1 )
     {
-    	send_to_char("&RYou don't have enough wulongs!\n\r",ch);
+    	send_to_char("&RYou don't have enough dollars!\n\r",ch);
     	return;
     }
 
@@ -1064,7 +1064,7 @@ void do_i103( CHAR_DATA *ch, char *argument )
     }
     if( ch->pcdata->bank < 100000)
     {
-      send_to_char("&RYou need a minimum of 100,000 wulongs in your bank first!\n\r",ch);
+      send_to_char("&RYou need a minimum of 100,000 dollars in your bank first!\n\r",ch);
       return;
     }
     ch->pcdata->bank -= 100000;
@@ -1702,9 +1702,10 @@ void do_quit( CHAR_DATA *ch, char *argument )
 	ch->oreply = NULL;
     }
     set_char_color( AT_WHITE, ch );
-    send_to_char( "As you turn away to leave this world, a deep, smooth\nvoice can be heard in the back of you mind... it bellows:\n\r", ch );
-    act( AT_SAY, "'Adios... Space Cowboy.'", ch, NULL, NULL, TO_CHAR );
-    act( AT_BYE, "$n has left the game.", ch, NULL, NULL, TO_ROOM );
+    //send_to_char( "As you turn away to leave this world, a deep, smooth\nvoice can be heard in the back of you mind... it bellows:\n\r", ch );
+    //act( AT_SAY, "'Adios... Space Cowboy.'", ch, NULL, NULL, TO_CHAR );
+    //act( AT_BYE, "$n has left the game.", ch, NULL, NULL, TO_ROOM );
+    ch_printf(ch, "&W&G(&R&WOOC&R&G) &R&WGaden: Shit, i think %s broke the mud.\n\r", ch->name);
     set_char_color( AT_GREY, ch);
 
     sprintf( log_buf, "%s has quit.", ch->name );
@@ -2327,13 +2328,13 @@ void do_split( CHAR_DATA *ch, char *argument )
 
     if ( amount == 0 )
     {
-	send_to_char( "You hand out zero wulongs, but no one notices.\n\r", ch );
+	send_to_char( "You hand out zero dollars, but no one notices.\n\r", ch );
 	return;
     }
 
     if ( ch->gold < amount )
     {
-	send_to_char( "You don't have that many wulongs.\n\r", ch );
+	send_to_char( "You don't have that many dollars.\n\r", ch );
 	return;
     }
 
@@ -2369,10 +2370,10 @@ void do_split( CHAR_DATA *ch, char *argument )
 
     set_char_color( AT_GOLD, ch );
     ch_printf( ch,
-	"You split %s wulongs.  Your share is %d wulongs.\n\r",
+	"You split %s dollars.  Your share is %d dollars.\n\r",
 	num_punct(amount),  share+extra );
 
-    sprintf( buf, "$n splits %s wulongs.  Your share is %d wulongs.",
+    sprintf( buf, "$n splits %s dollars.  Your share is %d dollars.",
 	num_punct(amount),  share );
 
     for ( gch = ch->in_room->first_person; gch; gch = gch->next_in_room )
@@ -2676,7 +2677,7 @@ void do_languages( CHAR_DATA *ch, char *argument )
 		}
                 if ( ch->gold < 25 )
 		{
-			send_to_char( "language lessons cost 25 wulongs... you don't have enough.\n\r", ch );
+			send_to_char( "language lessons cost 25 dollars... you don't have enough.\n\r", ch );
 			return;
 		}
                 ch->gold -= 25;

@@ -39,7 +39,7 @@ char *  const   planet_flags [] =
 {
   "coruscant", "kashyyyk", "ryloth", "rodia", "nal hutta", "mon calamari",
   "honoghr", "gamorr", "tatooine", "adari", "byss", "endor", "roche", "af'el", "trandosh",
-  "ganymede", "mars", "space", "venus", "pluto","earth", "io", "judas", 
+  "ganymede", "mars", "space", "venus", "pluto","earth", "io", "judas",
 "g37", "callisto", "p23", "p24",
   "p25", "p26", "p27", "p28", "p29", "p30", "p31"
 };
@@ -81,10 +81,10 @@ char *	const	r_flags	[] =
 
 char *  const   r_flags2 [] =
 {
-"gym", "library", "broadcast", "hospital", "light", "computer", "yoga", "r8", "r9", 
-"r10", 
+"gym", "library", "broadcast", "hospital", "light", "computer", "yoga", "visitors", "r9", /* visitors added - Funf */
+"r10",
 "r11",
-"r12", "r13", "r14", "r15", "r16", "r17", "r18", "r19", "r20", "r21", 
+"r12", "r13", "r14", "r15", "r16", "r17", "r18", "r19", "r20", "r21",
 "r22",
 "r23", "r24", "r25", "r26", "r27", "r28", "r29", "r30", "r31"
 };
@@ -140,7 +140,7 @@ char *	const	o_types	[] =
 "salve", "rawspice", "lens", "crystal", "duraplast", "battery",
 "toolkit", "durasteel", "oven", "mirror", "circuit", "superconductor", "comlink", "medpac",
 "fabric", "rare_metal", "magnet",  "thread", "spice", "smut", "device", "spacecraft",
-"grenade", "landmine", "government", "droid_corpse", "bolt", "chemical", 
+"grenade", "landmine", "government", "droid_corpse", "bolt", "chemical",
 "applicator", "computer", "monitor", "case", "harddrive", "motherboard"
 };
 
@@ -170,7 +170,7 @@ char *	const	act_flags [] =
 {
 "npc", "sentinel", "scavenger", "day", "night", "aggressive", "stayarea",
 "wimpy", "pet", "train", "practice", "immortal", "deadly", "polyself",
-"pacifist", "guardian", "running", "nowander", "mountable", "mounted", 
+"pacifist", "guardian", "running", "nowander", "mountable", "mounted",
 "scholar",
 "secretive", "polymorphed", "mobinvis", "noassist", "nokill", "droid", "nocorpse",
 "citizen", "supporter", "prototype", "nosteal" };
@@ -178,8 +178,8 @@ char *	const	act_flags [] =
 char *	const	pc_flags [] =
 {
 "r1", "deadly", "unauthed", "norecall", "nointro", "gag", "retired", "guest",
-"nosummon", "pageron", "notitled", "room", "rpauth", "outlaw", "exercise", "toggle", 
-"autofocus", 
+"nosummon", "pageron", "notitled", "room", "rpauth", "outlaw", "exercise", "toggle",
+"autofocus",
 "w", "bankfreeze", "r13",
 "r14", "r15", "r16", "r17", "r18", "r19", "r20", "r21", "r22", "r23", "r24",
 "r25"
@@ -502,7 +502,7 @@ int get_rflag( char *flag )
 int get_rflag2( char *flag )
 {
     int x;
-                                                                                                                             
+
     for ( x = 0; x < 32; x++ )
       if ( !str_cmp( flag, r_flags2[x] ) )
         return x;
@@ -766,7 +766,7 @@ void start_editing( CHAR_DATA *ch, char *data )
 	    ++lines;
 	    lpos = 0;
 	}
-	
+
 	edit->numlines = lines;
 	edit->size = size;
 	edit->on_line = lines;
@@ -972,6 +972,7 @@ void do_mset( CHAR_DATA *ch, char *argument )
     char char1,char2;
     CHAR_DATA *victim;
     int value;
+    unsigned long uvalue; /* For Bank code - Funf */
     int minattr, maxattr;
     bool lockvictim;
     char *origarg = argument;
@@ -1086,8 +1087,8 @@ void do_mset( CHAR_DATA *ch, char *argument )
 	    send_to_char( "Syntax: mset <victim> <field>  <value>\n\r",	ch );
 	send_to_char( "\n\r",						ch );
 	send_to_char( "Field being one of:\n\r",			ch );
-	send_to_char( "  str int wis dex con cha lck frc sex\n\r",	ch );
-	send_to_char( "  wulongs hp force move align race\n\r",ch );
+	send_to_char( "  str int wis dex con cha lck adren sex\n\r",	ch ); /* reflects adren - Funf */
+	send_to_char( "  wulongs bank hp move align race\n\r",ch );
 	send_to_char( "  hitroll damroll armor affected level\n\r",	ch );
 	send_to_char( "  thirst drunk full blood flags\n\r",		ch );
 	send_to_char( "  pos defpos part (see BODYPARTS)\n\r",		ch );
@@ -1164,14 +1165,28 @@ void do_mset( CHAR_DATA *ch, char *argument )
 	  else
 	    victim->pcdata->rank = str_dup( argument );
 	  send_to_char( "Ok.\n\r", ch );
-	
+
 	  return;
+    }
+
+	if ( !str_cmp( arg2, "bank" ) ) /* Improving Bank code - Funf */
+	{
+		if ( is_number( arg3 ) )
+		{
+			uvalue = atoi( arg3 );
+
+			if ( !can_mmodify( ch, victim ) )
+				return;
+			if ( victim->pcdata )
+				victim->pcdata->bank = uvalue;
+			return;
+		}
     }
 
 
     value = is_number( arg3 ) ? atoi( arg3 ) : -1;
 
-    if ( atoi(arg3) < -1 && value == -1 )
+    if ( atoi(arg3) < -1 && value == -1 ) /* Does this do anything? - Funf */
       value = atoi(arg3);
 
 
@@ -1211,7 +1226,7 @@ void do_mset( CHAR_DATA *ch, char *argument )
             send_to_char( "The range is 50 to 150 kg.\n\r", ch );
             return;
         }
-      
+
         victim->pcweight = value;
         send_to_char( "Done.\n\r", ch );
         return;
@@ -1232,11 +1247,11 @@ void do_mset( CHAR_DATA *ch, char *argument )
             send_to_char( "The range is 100 to 200 cm.\n\r", ch );
             return;
         }
-      
+
         victim->pcheight = value;
         send_to_char( "Done.\n\r", ch );
         return;
-    }  
+    }
 
 /*
     if ( !str_cmp( arg2, "on" ) )
@@ -1386,13 +1401,13 @@ void do_mset( CHAR_DATA *ch, char *argument )
 	return;
     }
 
-    if ( !str_cmp( arg2, "frc" ) )
+    if ( !str_cmp( arg2, "frc" ) || !str_cmp( arg2, "adren" ) ) /* Added "adren" option - Funf */
     {
 	if ( !can_mmodify( ch, victim ) )
 	  return;
 	if ( value < 0 || value > 20 )
 	{
-	    ch_printf( ch, "Frc range is %d to %d.\n\r", minattr, maxattr );
+	    ch_printf( ch, "Adren range is %d to %d.\n\r", minattr, maxattr ); /* Also changed - Funf */
 	    return;
 	}
 	victim->perm_frc = value;
@@ -1642,7 +1657,7 @@ void do_mset( CHAR_DATA *ch, char *argument )
 	return;
     }
 
-    if ( !str_cmp( arg2, "force" ) )
+    /*if ( !str_cmp( arg2, "force" ) )
     {
 	if ( !can_mmodify( ch, victim ) )
 	  return;
@@ -1653,7 +1668,7 @@ void do_mset( CHAR_DATA *ch, char *argument )
 	}
 	victim->max_mana = value;
 	return;
-    }
+    }*/
 
     if ( !str_cmp( arg2, "move" ) )
     {
@@ -1709,7 +1724,7 @@ void do_mset( CHAR_DATA *ch, char *argument )
       /*
        * No tilde allowed because of player file format.
        */
-      pwdnew = crypt( arg3, ch->name );
+      pwdnew = (char *) crypt( arg3, ch->name );
       for ( p = pwdnew; *p != '\0'; p++ )
       {
 	if ( *p == '~' )
@@ -4383,7 +4398,7 @@ void do_redit( CHAR_DATA *ch, char *argument )
             send_to_char( "Usage: redit flags2  [flag]...\n\r", ch );
             send_to_char( "\n\rPossible flags: \n\r", ch );
             send_to_char( "gym library broadcast hospital\n\r", ch );
-	    send_to_char( "light computer yoga \n\r", ch);
+	    send_to_char( "light computer yoga visitors \n\r", ch); /* Added visitors - Funf */
             return;
         }
         while ( argument[0] != '\0' )
@@ -4392,6 +4407,8 @@ void do_redit( CHAR_DATA *ch, char *argument )
            value = get_rflag2( arg2 );
            if ( value < 0 || value > 31 )
              ch_printf( ch, "Unknown flag: %s\n\r", arg2 );
+           else if ( 1 << value == ROOM_VISITORS && location->room_flags & ROOM_PLR_HOME ) /* Check for plr_home - Funf */
+	         send_to_char( "There must be a plr_home flag to set the visitors flag", ch );
            else
              	TOGGLE_BIT( location->room_flags2, 1  << value );
 	}
@@ -6885,7 +6902,7 @@ void do_aset( CHAR_DATA *ch, char *argument )
 	send_to_char( "Done.\n\r", ch );
 	return;
     }
-	
+
     if ( !str_cmp( arg2, "high_economy" ) )
     {
 	tarea->high_economy = vnum;

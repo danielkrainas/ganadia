@@ -116,16 +116,13 @@ void do_fakequit( CHAR_DATA *ch, char *argument )
 
 
     set_char_color( AT_WHITE, ch );
-    send_to_char( "You have tricked everyone with fakequit", ch );
-    act( AT_BYE, "$n has left the game.", ch, NULL, NULL, TO_ROOM );
-	if ( ch->sex == 2 )
-	    sprintf( buf , "&W&O[&YBig Shot&O]&P Judy: Sayonara %s!\n\r", ch->name );
-	else
-		sprintf( buf , "&W&O[&YBig Shot&O]&C Punch: Adios %s!\n\r", ch->name );
+    send_to_char( "You have tricked everyone with fakequit\n\r", ch );
+    //act( AT_BYE, "$n has left the game.", ch, NULL, NULL, TO_ROOM );
+
     echo_to_all( AT_IMMORT, buf, ECHOTAR_ALL );
     set_char_color( AT_GREY, ch);
     sprintf( log_buf, "%s has quit.", ch->name );
-
+    log_string_plus( log_buf, LOG_COMM, get_trust(ch) );
     if ( !IS_SET(ch->act, PLR_WIZINVIS) )
     {
         SET_BIT(ch->act, PLR_WIZINVIS);
@@ -387,9 +384,9 @@ void do_rpauthorize( CHAR_DATA *ch, char *argument )
   char arg2[MAX_INPUT_LENGTH];
   char buf[MAX_STRING_LENGTH];
   CHAR_DATA *victim;
-  
+
   argument = one_argument( argument, arg1 );
-  argument = one_argument( argument, arg2 );  
+  argument = one_argument( argument, arg2 );
 
   if ( arg1[0] == '\0' )
      {
@@ -447,8 +444,8 @@ void do_rpauthorize( CHAR_DATA *ch, char *argument )
     */
 	send_to_char("Invalid argument.\n\r", ch);
     	return;
-    
-    return;	
+
+    return;
 }
 
 void do_bamfin( CHAR_DATA *ch, char *argument )
@@ -535,7 +532,7 @@ void do_rank( CHAR_DATA *ch, char *argument )
 
   send_to_char( "Ok.\n\r", ch );           /* the argument.  finrank is the argument with the spaces */
 
- 
+
   return;
 }
 
@@ -1470,7 +1467,7 @@ void do_mstat( CHAR_DATA *ch, char *argument )
 	IS_NPC(victim) ? victim->pIndexData->killed
 		       : victim->pcdata->mdeaths + victim->pcdata->pdeaths
 	);
-    ch_printf( ch, "Str: %d  Int: %d  Wis: %d  Dex: %d  Con: %d  Cha: %d  Lck: %d  Frc: %d\n\r",
+    ch_printf( ch, "Str: %d  Int: %d  Wis: %d  Dex: %d  Con: %d  Cha: %d  Lck: %d  Adren: %d\n\r", /* Frc = Adren - Funf */
 	get_curr_str(victim),
 	get_curr_int(victim),
 	get_curr_wis(victim),
@@ -1494,7 +1491,7 @@ void do_mstat( CHAR_DATA *ch, char *argument )
             exp_level( victim->skill_level[ability]+1 ) );
     }
 ch_printf( ch,
-	"Top Level: %d     Race: %d  Align: %d  AC: %d  Wulongs: %d\n\r",
+	"Top Level: %d     Race: %d  Align: %d  AC: %d  \n\rYou have %d dollars\n\r",
 	victim->top_level,  victim->race,   victim->alignment,
 	GET_AC(victim),      victim->gold );
     if (  victim->race  < MAX_NPC_RACE  && victim->race  >= 0 )
@@ -1519,7 +1516,7 @@ ch_printf( ch,
 	    victim->pcdata->condition[COND_FULL],
 	    victim->pcdata->condition[COND_DRUNK],
 	    victim->pcdata->quest_curr,
-	    victim->pcdata->quest_accum, 
+	    victim->pcdata->quest_accum,
 	    victim->pcdata->condition[COND_BLEEDING] );
     else
 	ch_printf( ch, "Hit dice: %dd%d+%d.  Damage dice: %dd%d+%d.\n\r",
@@ -1722,7 +1719,7 @@ void do_setmax( CHAR_DATA *ch, char *argument )
 	send_to_char("Syntax: setmax #\n\r", ch);
 	return;
     }
-	
+
     number = atoi( arg );
 
     if(number < 1)
@@ -1739,7 +1736,7 @@ void do_setmax( CHAR_DATA *ch, char *argument )
         log_string_plus( log_buf, LOG_COMM, sysdata.log_level );
         to_channel( log_buf, CHANNEL_MONITOR, "Monitor", LEVEL_IMMORTAL );
         save_sysdata( sysdata );
-   
+
 	return;
 }
 */
@@ -2099,7 +2096,7 @@ void do_qpset( CHAR_DATA *ch, char *argument )
 	}
 	oldqp = victim->pcdata->quest_curr;
 	victim->pcdata->quest_curr += arg3;
-	if(oldqp < victim->pcdata->quest_curr) 
+	if(oldqp < victim->pcdata->quest_curr)
 		victim->pcdata->quest_accum += arg3;
 	sprintf(buf, "Ok, %s now has %d quest points.",victim->name,victim->pcdata->quest_curr);
 	send_to_char(buf,ch);
@@ -2108,7 +2105,7 @@ void do_qpset( CHAR_DATA *ch, char *argument )
 	{
 		sprintf(buf, "&w&WThe Immortals have blessed you with %d QP!", arg3);
 		send_to_char(buf,victim);
-	        act( AT_MAGIC, "&w&W$n flashes in a bright light because of the Immortals Blessing!", victim, NULL, ch, 
+	        act( AT_MAGIC, "&w&W$n flashes in a bright light because of the Immortals Blessing!", victim, NULL, ch,
 			TO_NOTVICT);
 	}
 	return;
@@ -3380,7 +3377,7 @@ void do_new_unsilence( CHAR_DATA *ch, char *argument )
 {
   CHAR_DATA *victim;
   char arg[MAX_INPUT_LENGTH];
- 
+
   argument = one_argument(argument, arg);
 
   if ( !*arg )
@@ -4325,9 +4322,9 @@ void do_newbieset( CHAR_DATA *ch, char *argument )
 	return;
     }
 
-    if ( ( victim->top_level < 1 ) || ( victim->top_level > 5 ) )
+    if ( ( victim->top_level < 1 ) || ( victim->top_level > 2 ) )
     {
-     send_to_char( "Level of victim must be 1 to 5.\n\r", ch );
+     send_to_char( "Level of victim must be 1 or 2.\n\r", ch );
 	return;
     }
      obj = create_object( get_obj_index(OBJ_VNUM_SCHOOL_SHIELD), 1 );
@@ -5044,10 +5041,10 @@ void do_destroy( CHAR_DATA *ch, char *argument )
               ship->pilot = STRALLOC( "" );
               STRFREE( ship->copilot );
               ship->copilot = STRALLOC( "" );
-             
+
               save_ship( ship );
          }
-              
+
     }
     if(victim->pcdata && victim->pcdata->clan)
     {
@@ -5399,7 +5396,7 @@ void do_cset( CHAR_DATA *ch, char *argument )
     return;
   }
 
-   
+
 
   if (!str_cmp(arg, "save"))
   {
@@ -5804,6 +5801,7 @@ void do_sober( CHAR_DATA *ch, char *argument )
 
   if ( victim->pcdata )
     victim->pcdata->condition[COND_DRUNK] = 0;
+
   send_to_char( "Ok.\n\r", ch );
   send_to_char( "You feel sober again.\n\r", victim );
   return;
@@ -6345,7 +6343,7 @@ void do_cedit( CHAR_DATA *ch, char *argument )
 	send_to_char( "Done.\n\r", ch );
 	return;
     }
-// Allows certain commands to not affect timers - Gatz 
+// Allows certain commands to not affect timers - Gatz
     if ( !str_cmp( arg2, "ooc" ) )
     {
 	int ooc = atoi( argument );
@@ -6685,8 +6683,8 @@ void do_mortality( CHAR_DATA *ch, char *argument )
 }
 
 /* Use cedit to add in as imm command.
- * Syntax is: Invade <area filename> <# of invaders> <vnum of mobs> 
- * example: Invade newacad.are 300 10399 would send 300 mistress tsythia's rampaging 
+ * Syntax is: Invade <area filename> <# of invaders> <vnum of mobs>
+ * example: Invade newacad.are 300 10399 would send 300 mistress tsythia's rampaging
  * through the academy. This function doesnt make the mobiles aggressive but can be
  * modified to do so easily if you wish this, or you can just edit the mob before
  * hand.
@@ -6757,10 +6755,10 @@ void do_invade( CHAR_DATA *ch , char *argument )
 
 /* Use cedit to add in as imm command.
  * Syntax is: Oinvade <# of objects> <object vnum> [level of object]
- * 
+ *
  * If no level is specified level will be 0. I always hated invoking
  * objects at level 50+ automatically as an imm.
- * 
+ *
  */
 void do_oinvade( CHAR_DATA *ch , char *argument )
 {
@@ -6844,7 +6842,7 @@ void do_newpassword( CHAR_DATA *ch, char *argument )
     /* Immortal level check added to code by Samson 2-11-98 */
     if ( get_trust( victim )>= get_trust( ch ) )
     {
-   
+
 	  send_to_char( "You can't change that person's password!\n\r",ch);
 	  return;
     }
@@ -6863,13 +6861,13 @@ void do_newpassword( CHAR_DATA *ch, char *argument )
       send_to_char( "New password must be at least five characters long.\n\r", ch );
       return;
     }
-	
-    pwdnew = crypt( arg2, victim->name );
-    
+
+    pwdnew = (char *) crypt( arg2, victim->name );
+
     /*
      * No tilde allowed because of player file format.
      */
-      
+
     for ( p = pwdnew; *p != '\0'; p++ )
     {
       if ( *p == '~' )
@@ -6916,7 +6914,7 @@ void do_zecho(CHAR_DATA *ch, char *argument)
    if(d->character && d->character->in_room->area == pArea
 	&& d->character->desc)
     ch_printf(d->character, "%s&g\n\r", argument);
-   
+
  }
  return;
 }
@@ -6951,7 +6949,7 @@ void do_pcrename( CHAR_DATA *ch, char *argument )
 	send_to_char("Illegal name.\n\r", ch );
 	return;
     }
-    /* Just a security precaution so you don't rename someone you don't mean 
+    /* Just a security precaution so you don't rename someone you don't mean
      * too --Shaddai
      */
     if ( ( victim = get_char_room ( ch, arg1 ) ) == NULL )
@@ -6987,7 +6985,7 @@ void do_pcrename( CHAR_DATA *ch, char *argument )
     {
 	char godname[MAX_STRING_LENGTH];
 	sprintf(godname, "%s%s", GOD_DIR, capitalize(victim->name));
-	remove( godname );	
+	remove( godname );
     }
 
     /* Remember to change the names of the areas */
@@ -7003,9 +7001,9 @@ void do_pcrename( CHAR_DATA *ch, char *argument )
        sprintf( newfilename, "%s%s.are.bak", BUILD_DIR, capitalize(arg2));
        rename(filename, newfilename);
     }
-       
+
     STRFREE( victim->name );
-    victim->name = STRALLOC( capitalize(arg2) );    
+    victim->name = STRALLOC( capitalize(arg2) );
     STRFREE( victim->name );
     victim->name = STRALLOC( capitalize(arg2) );
     remove( backname );
@@ -7014,7 +7012,7 @@ void do_pcrename( CHAR_DATA *ch, char *argument )
 	sprintf(buf, "Error: Couldn't delete file %s in do_rename.", oldname);
 	send_to_char("Couldn't delete the old file!\n\r", ch );
 	log_string( oldname );
-    }	
+    }
     /* Time to save to force the affects to take place */
     save_char_obj( victim );
 
@@ -7025,3 +7023,25 @@ void do_pcrename( CHAR_DATA *ch, char *argument )
     return;
 }
 
+void do_ein(CHAR_DATA *ch, char *arg)
+{
+    MOB_INDEX_DATA *pMobIndex;
+    CHAR_DATA *victim;
+    CHAR_DATA *mob;
+    if ( ( victim = get_char_room ( ch, arg ) ) == NULL )
+    {
+	send_to_char("That person is not in the room.\n\r", ch );
+	return;
+    }
+    if ( ( pMobIndex = get_mob_index( 100 ) ) == NULL )
+    {
+	send_to_char( "No mobile has vnum 100.\n\r", ch );
+	return;
+    }
+        mob = create_mobile( pMobIndex );
+		
+        char_to_room( mob , victim->in_room );
+	do_follow(mob,victim->name);
+	send_to_char("You have been cursed with the EIN!!\n\r",victim);
+	send_to_char("You have cursed them with ein!!\n\r",ch);
+}

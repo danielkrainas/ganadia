@@ -1,0 +1,66 @@
+#SPACE
+Name         Ganadia~
+Filename     ganadia.system~
+Planet1      Ganadia~
+Planet2      Zantra Space Colony~
+Planet3      ~
+Location1a      City of Ganadia~
+Location1b      ~
+Location1c      ~
+Location2a       Zantra Spaceport~
+Location2b      ~
+Location2c      ~
+Location3a      ~
+Location3b      ~
+Location3c      ~
+Doc1a          3501
+Doc2a          200
+Doc3a          0
+Doc1b          0
+Doc2b          0
+Doc3b          0
+Doc1c          0
+Doc2c          0
+Doc3c          0
+P1x          200
+P1y          540
+P1z          -25
+P2x          1200
+P2y          -225
+P2z          500
+P3x          0
+P3y          0
+P3z          0
+Gravityp1     0
+Gravityp2     0
+Gravityp3     0
+Xpos          800
+Ypos          1000
+G1x          2512
+G1y          -1520
+G1z          200
+G2x          0
+G2y          0
+G2z          0
+G3x          0
+G3y          0
+G3z          0
+G4x          0
+G4y          0
+G4z          0
+G5x          0
+G5y          0
+G5z          0
+G6x          0
+G6y          0
+G6z          0
+Gate1        Ganadia Gate~
+Gate2        ~
+Gate3        ~
+Gate4        ~
+Gate5        ~
+Gate6        ~
+Hospital	   3547
+End
+
+#END

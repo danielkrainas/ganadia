@@ -1,0 +1,58 @@
+#SHIP
+Name         Saber Class Battleship VRT-551~
+Filename     551~
+Description  ~
+Owner        HellRaisers~
+Pilot        ~
+Copilot      ~
+Class        2
+Tractorbeam  0
+Shipyard     3501
+Hangar       0
+Turret1      0
+Turret2      0
+Statet0      0
+Statet1      0
+Statet2      0
+Lasers       0
+Missiles     0
+Maxmissiles  0
+Rockets     0
+Maxrockets  0
+Torpedos     0
+Maxtorpedos  0
+Lastdoc      3501
+Firstroom    551
+Lastroom     551
+Shield       0
+Maxshield    0
+Hull         180000
+Maxhull      180000
+Maxenergy    45000
+Hyperspeed   0
+Comm         250
+Chaff        0
+Maxchaff     0
+Sensor       0
+Astro_array  0
+Realspeed    40
+Type         0
+Cockpit      551
+Coseat       551
+Pilotseat    551
+Gunseat      551
+Navseat      551
+Engineroom   0
+Entrance     551
+Shipstate    0
+Missilestate 0
+Energy       45000
+Manuever     30
+Home         ~
+Hulltype  1
+Slots     15
+Payload    450
+Power     800
+End
+
+#END

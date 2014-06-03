@@ -1,0 +1,963 @@
+#AREA   {PROTO} Scape's area in progress~
+
+
+
+#AUTHOR Scape~
+
+#RANGES
+0 0 0 0 0 0 0 0
+$
+
+#FLAGS
+0
+
+#ECONOMY 0 118674
+
+#MOBILES
+#3500
+spacesaver~
+a newly created spacesaver~
+Some god abandoned a newly created spacesaver here.
+~
+~
+1073741825 0 0 Z
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+#3501
+Jaques the repair guy~
+Jaques~
+Jaques the repair guy stands here.
+~
+~
+1107296259 0 0 Z
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+#3502
+Muark the engineer~
+Muark~
+Muark the engineer stands here selling stuff.
+~
+~
+1107296259 0 0 Z
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+#3503
+Bruan the metalworker~
+Bruan~
+Bruan the metalworker is standing here.
+~
+~
+1107296259 0 0 Z
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+#3504
+myke the computer guy~
+Myke~
+Myke the computer guy is here.
+~
+~
+1107296259 0 0 Z
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+#3505
+Typheny~
+a newly created Typheny~
+Some god abandoned a newly created Typheny here.
+~
+~
+1107296259 0 0 Z
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 2
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+#3699
+spacesaver~
+a newly created spacesaver~
+Some god abandoned a newly created spacesaver here.
+~
+~
+1073741825 0 0 Z
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+#0
+
+
+#OBJECTS
+#3500
+spacesaver~
+a spacesaver~
+A spacesaver is here.~
+~
+13 1073741824 0
+0 0 0 0
+1 0 0
+#3501
+cloth~
+some cloth~
+Some cloth lies here.~
+~
+74 1073750016 0
+1 0 0 0
+1 1 1
+#3502
+denim~
+some denim~
+Some denim lies here.~
+~
+74 1073741824 1
+5 5 0 0
+5 3000 1000
+#3503
+leather~
+some leather~
+Some leather lies here.~
+~
+74 1073741824 1
+10 10 0 0
+1 10000 8000
+#3504
+kevlar~
+some kevlar~
+Some kevlar lies here.~
+~
+74 1073741824 1
+12 12 0 0
+1 25000 20000
+#3505
+flak~
+some flak~
+Some flak lies here.~
+~
+74 1073741824 1
+15 15 0 0
+1 1000000 500000
+#3506
+needle and thread~
+a needle and thread~
+Some needle and thread are lying here on the ground.~
+~
+77 1073741824 1
+0 0 0 0
+1 500 50
+#3507
+toolbox~
+a toolbox~
+A toolbox is here.~
+~
+66 8192 1
+0 0 0 0
+1 135 13
+#3508
+oven~
+an oven~
+An oven is here.~
+~
+68 8192 1
+0 0 0 0
+1 200 20
+#3509
+gold~
+a piece of gold~
+A piece of gold is here.~
+~
+75 1073741824 0
+5 5 0 0
+4 15000 15000
+#3510
+silver~
+some silver~
+Some silver is here.~
+~
+75 1073741824 1
+10 10 0 0
+7 30000 3000
+#3511
+titanium~
+a titanium~
+A titanium is here.~
+~
+75 1073741824 1
+15 15 0 0
+10 500000 200000
+#3512
+gell laptop~
+a gell laptop~
+A gell laptop is here.~
+~
+89 1073741824 1
+1 1 0 0
+1 12000 1200
+#3513
+comlink~
+a comlink~
+A comlink is here.~
+~
+72 1073741824 65537
+1 1 0 0
+1 100 10
+#3514
+some circuitry~
+some circuitry~
+Some circuitry is here.~
+~
+70 1073741824 1
+0 0 0 0
+1 120 12
+#3515
+crystal~
+a crystal~
+A crystal is here.~
+~
+63 1073741824 1
+0 0 0 0
+1 200 20
+#3516
+battery~
+a battery~
+A battery is here.~
+~
+65 8192 1
+0 0 0 0
+1 75 7
+#3517
+steel~
+a piece of steel~
+A piece of steel lays here.~
+~
+67 8192 1
+0 0 0 0
+4 300 500
+#3518
+plastic~
+a plastic~
+A plastic is here.~
+~
+64 8192 1
+0 0 0 0
+7 800 600
+#3519
+chemicals~
+vial of chemicals~
+A vial of chemicals lay here.~
+~
+87 1073741824 16385
+0 0 0 0
+1 1100 110
+#3520
+bucket~
+a bucket~
+A bucket is here.~
+~
+17 1073741824 16385
+5 0 0 0
+4 130 13
+#3699
+spacesaver~
+a spacesaver~
+A spacesaver is here.~
+~
+13 1073741824 0
+0 0 0 0
+1 0 0
+#0
+
+
+#ROOMS
+#3500
+spacesaver~
+~
+0 1073741828 1 0
+S
+#3501
+Ganadia Spaceport~
+~
+0 1073741872 1 0
+D3
+~
+~
+0 -1 3502
+S
+#3502
+Entrance to Ganadia Spaceport~
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 3501
+D3
+~
+~
+0 -1 3516
+S
+#3503
+Market Street~
+~
+0 1073741824 1 0
+D3
+~
+~
+0 -1 3510
+D7
+~
+~
+0 -1 3504
+D8
+~
+~
+0 -1 3516
+S
+#3504
+Market Street~
+~
+0 1073741824 1 0
+D3
+~
+~
+0 -1 3505
+D8
+~
+~
+0 -1 3503
+S
+#3505
+Market Street~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 3539
+D1
+~
+~
+0 -1 3504
+D2
+~
+~
+0 -1 3540
+D3
+~
+~
+0 -1 3506
+S
+#3506
+Market Street~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 3508
+D1
+~
+~
+0 -1 3505
+D2
+~
+~
+0 -1 3507
+D3
+~
+~
+0 -1 3530
+S
+#3507
+Engineer Shop~
+~
+0 1073741832 1 0
+D0
+~
+~
+0 -1 3506
+D3
+~
+~
+0 -1 3509
+S
+#3508
+Workshop~
+~
+0 1174405128 1 0
+D2
+~
+~
+0 -1 3506
+S
+#3509
+Metal Shop~
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 3507
+S
+#3510
+An Electronic Store~
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 3503
+S
+#3511
+Entertainment Street~
+~
+0 1073741824 1 0
+D6
+~
+~
+0 -1 3516
+D9
+~
+~
+0 -1 3512
+S
+#3512
+Entertainment Street~
+~
+0 1073741824 1 0
+D3
+~
+~
+0 -1 3513
+D6
+~
+~
+0 -1 3511
+S
+#3513
+Entertainment Street~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 3544
+D1
+~
+~
+0 -1 3512
+D2
+~
+~
+0 -1 3545
+D3
+~
+~
+0 -1 3514
+S
+#3514
+Entertainment Street~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 3520
+D1
+~
+~
+0 -1 3513
+D2
+~
+~
+0 -1 3546
+D3
+~
+~
+0 -1 3526
+S
+#3515
+Main Street~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 3543
+D1
+~
+~
+0 -1 3516
+D3
+~
+~
+0 -1 3517
+S
+#3516
+Town Square~
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 3502
+D3
+~
+~
+0 -1 3515
+D7
+~
+~
+0 -1 3503
+D9
+~
+~
+0 -1 3511
+S
+#3517
+Main Street~
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 3515
+D3
+~
+~
+0 -1 3518
+S
+#3518
+Main Street~
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 3517
+D3
+~
+~
+0 -1 3519
+S
+#3519
+Main Street~
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 3518
+D3
+~
+~
+0 -1 3528
+S
+#3520
+Casino Entrance~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 3521
+D2
+~
+~
+0 -1 3514
+S
+#3521
+Casino Lobby~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 3523
+D1
+~
+~
+0 -1 3525
+D2
+~
+~
+0 -1 3520
+D6
+~
+~
+0 -1 3524
+D7
+~
+~
+0 -1 3522
+S
+#3522
+Casino Slot Machine Room~
+~
+0 1073741824 1 0
+D8
+~
+~
+0 -1 3521
+S
+#3523
+Casino High Slot Machines~
+~
+0 1073741824 1 0
+D2
+~
+~
+0 -1 3521
+S
+#3524
+Roulette Room~
+~
+0 1073741824 1 0
+D9
+~
+~
+0 -1 3521
+S
+#3525
+Casino Bar~
+~
+0 1073741824 1 0
+D3
+~
+~
+0 -1 3521
+S
+#3526
+First Avenue~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 3527
+D1
+~
+~
+0 -1 3514
+D7
+~
+~
+0 -1 3537
+S
+#3527
+First Avenue~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 3528
+D2
+~
+~
+0 -1 3526
+S
+#3528
+First Avenue~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 3529
+D1
+~
+~
+0 -1 3519
+D2
+~
+~
+0 -1 3527
+D3
+~
+~
+0 -1 3534
+S
+#3529
+First Avenue~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 3530
+D2
+~
+~
+0 -1 3528
+S
+#3530
+First Avenue~
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 3506
+D2
+~
+~
+0 -1 3529
+D9
+~
+~
+0 -1 3531
+S
+#3531
+Market Street~
+~
+0 1073741824 1 0
+D6
+~
+~
+0 -1 3530
+D9
+~
+~
+0 -1 3532
+S
+#3532
+Market Street~
+~
+0 1073741824 1 0
+D6
+~
+~
+0 -1 3531
+D9
+~
+~
+0 -1 3533
+S
+#3533
+Market Street~
+~
+0 1073741824 1 0
+D6
+~
+~
+0 -1 3532
+D9
+~
+~
+0 -1 3534
+S
+#3534
+Main Intersection~
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 3528
+D3
+~
+~
+0 -1 3538
+D6
+~
+~
+0 -1 3533
+D8
+~
+~
+0 -1 3535
+S
+#3535
+Entertainment Street~
+~
+0 1073741824 1 0
+D7
+~
+~
+0 -1 3534
+D8
+~
+~
+0 -1 3536
+S
+#3536
+Entertainment Street~
+~
+0 1073741824 1 0
+D7
+~
+~
+0 -1 3535
+D8
+~
+~
+0 -1 3537
+S
+#3537
+Entertainment Street~
+~
+0 1073741824 1 0
+D7
+~
+~
+0 -1 3536
+D8
+~
+~
+0 -1 3526
+S
+#3538
+Residential District~
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 3534
+S
+#3539
+Repair Shop~
+~
+0 1073741824 1 0
+D2
+~
+~
+0 -1 3505
+S
+#3540
+Home depot Store~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 3505
+S
+#3543
+Ganadia Police Station~
+~
+0 1073741824 1 0
+D2
+~
+~
+0 -1 3515
+S
+#3544
+Ganadia Gym~
+~
+0 1073741832 1 1
+D2
+~
+~
+0 -1 3513
+S
+#3545
+Ganadia Library~
+~
+0 1073741832 1 2
+D0
+~
+~
+0 -1 3513
+S
+#3546
+Ganadia Coliseum~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 3514
+S
+#3699
+spacesaver~
+~
+0 1073741828 1 0
+S
+#0
+
+
+#RESETS
+M 1 3502 1 3507
+G 1 3501 1
+G 1 3502 1
+G 1 3503 1
+G 1 3504 1
+G 1 3506 1
+M 1 3501 1 3539
+M 1 3500 1 3699
+M 1 3699 1 3699
+O 1 3699 1 3699
+O 1 3500 1 3699
+M 1 3503 1 3509
+G 1 3507 1
+G 1 3508 1
+G 1 3509 1
+G 1 3510 1
+M 1 3504 1 3510
+G 1 3512 1
+G 1 3513 1
+G 1 3514 1
+G 1 3515 1
+G 1 3516 1
+M 1 3505 1 3540
+G 1 3517 1
+G 1 3518 1
+G 1 3519 1
+G 1 3520 1
+S
+
+
+#SHOPS
+ 3502    0  0  0  0  0   100  50         0 23    ; Muark
+ 3503    0  0  0  0  0   120  90         0 23    ; Bruan
+ 3504    0  0  0  0  0   120  90         0 23    ; Myke
+ 3505    0  0  0  0  0   120  90         0 23    ; a newly created Typheny
+0
+
+
+#REPAIRS
+ 3501    0  0  0         100   1         0 23    ; Jaques
+0
+
+
+#SPECIALS
+S
+
+
+#$

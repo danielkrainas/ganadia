@@ -267,7 +267,7 @@ void  explode( OBJ_DATA *obj )
 
                		if ( room )
                		{
-			
+
 				//Bug fix to exploding in rooms - Gatz
 				if( IS_SET(room->room_flags, ROOM_SAFE) ||
 				    IS_SET(room->room_flags, ROOM_PLR_HOME) )
@@ -276,7 +276,7 @@ void  explode( OBJ_DATA *obj )
 			        	extract_obj( obj );
 					return;
 				}
-		
+
                			if ( !held && room->first_person )
                    			act( AT_WHITE, "$p EXPLODES!", room->first_person , obj, NULL, TO_ROOM );
 	                	room_explode( obj , xch, room );
@@ -507,9 +507,9 @@ sh_int get_trust( CHAR_DATA *ch )
  */
 sh_int get_age( CHAR_DATA *ch )
 {
-   
+
     // Changed to reflect hours played 14400->360
-    
+
     return  ( ch->played + (current_time - ch->logon) ) / 3600;
 }
 
@@ -1406,7 +1406,7 @@ int apply_ac( OBJ_DATA *obj, int iWear )
     case WEAR_HOLD:	return     obj->value[0];
     case WEAR_EYES:	return	   obj->value[0];
     case WEAR_ANKLE_L:  return  .5*obj->value[0];
-    case WEAR_ANKLE_R:  return  .5*obj->value[0]; 
+    case WEAR_ANKLE_R:  return  .5*obj->value[0];
     case WEAR_BACK:     return  .5*obj->value[0];
     case WEAR_FACE:     return  .5*obj->value[0];
     case WEAR_HIP:      return  .5*obj->value[0];
@@ -1780,9 +1780,9 @@ void extract_char( CHAR_DATA *ch, bool fPull, bool capture )
     CHAR_DATA *wch;
     OBJ_DATA *obj;
     char buf[MAX_STRING_LENGTH];
-    ROOM_INDEX_DATA *location;    
+    ROOM_INDEX_DATA *location;
     PLANET_DATA *planet;
- 
+
 
     if ( !ch )
     {
@@ -1907,7 +1907,7 @@ void extract_char( CHAR_DATA *ch, bool fPull, bool capture )
 		if(ch->pcdata->weaponl > 200)
 			ch->pcdata->weaponl = 200;
 	}
-	
+
 	if( !location)
 	    location = get_room_index( ROOM_VNUM_ALTAR);
 	// Back up just incase - Gatz
@@ -2652,10 +2652,10 @@ bool room_is_dark( ROOM_INDEX_DATA *pRoomIndex )
 
     if ( IS_SET(pRoomIndex->room_flags, ROOM_DARK) )
 	return TRUE;
-    
+
 
     if ( pRoomIndex->sector_type == SECT_INSIDE
-    ||   pRoomIndex->sector_type == SECT_CITY 
+    ||   pRoomIndex->sector_type == SECT_CITY
     ||   IS_SET(pRoomIndex->room_flags2, ROOM_LIGHT))
 	return FALSE;
 
@@ -2688,8 +2688,61 @@ bool room_is_private( CHAR_DATA *ch , ROOM_INDEX_DATA *pRoomIndex )
 	return FALSE;
     }
 
-    if ( IS_SET(pRoomIndex->room_flags, ROOM_PLR_HOME) && ch->plr_home != pRoomIndex)
-        return TRUE;
+    if ( ch->plr_home && ch->plr_home->vnum == pRoomIndex->vnum )
+    	return FALSE;
+
+    if ( ch->plr_home != pRoomIndex) /* Check for War or Bounty - Funf */
+    {
+    if ( ch->pcdata && ch->pcdata->clan && IS_SET(pRoomIndex->room_flags, ROOM_PLR_HOME) )
+    {
+		/*bug( "Bounty/War check entered\r\n" );*/
+		for ( rch = pRoomIndex->first_person; rch; rch = rch->next_in_room )
+		{
+			if ( rch->pcdata && rch->pcdata->clan )
+			{
+				if ( ch->pcdata->clan->war1 )
+				{
+					if ( ch->pcdata->clan->war1 == rch->pcdata->clan )
+					{
+						return FALSE;
+					}
+				}
+
+				if ( ch->pcdata->clan->war2 )
+				{
+					if ( ch->pcdata->clan->war2 == rch->pcdata->clan )
+					{
+						return FALSE;
+					}
+				}
+
+				if ( !strcmp(ch->pcdata->clan->name, "RBH") || !strcmp(ch->pcdata->clan->name, "ISSP") )
+				{
+					if ( is_disintigration(rch) )
+					{ /* Check for bounty */
+						/*bug( "BH entering bounty's apartment\r\n" );*/
+						return FALSE;
+					}
+				}
+			}
+		}
+	}
+	}
+
+	/* Added visitor flag check - Funf */
+    if ( IS_SET(pRoomIndex->room_flags, ROOM_PLR_HOME) && ch->plr_home != pRoomIndex && IS_SET(pRoomIndex->room_flags2, ROOM_VISITORS) )
+    {
+		for ( rch = pRoomIndex->first_person; rch; rch = rch->next_in_room )
+		{
+			if (rch->plr_home && rch->plr_home == pRoomIndex )
+			{
+				return FALSE;
+			}
+		}
+		return TRUE;
+	}
+	else if ( IS_SET(pRoomIndex->room_flags, ROOM_PLR_HOME) && ch->plr_home != pRoomIndex && !IS_SET(pRoomIndex->room_flags2, ROOM_VISITORS) )
+		return TRUE;
 
     count = 0;
 
@@ -4185,28 +4238,28 @@ int times_killed( CHAR_DATA *ch, CHAR_DATA *mob )
 
 /*
    Original Code from SW:FotE 1.1
-   Reworked strrep function. 
+   Reworked strrep function.
    Fixed a few glaring errors. It also will not overrun the bounds of a string.
    -- Xorith
 */
-char *strrep( const char *src, const char *sch, const char *rep ) 
-{ 
-   int lensrc = strlen( src ), lensch = strlen( sch ), lenrep = strlen( rep ), x, y, in_p; 
-   static char newsrc[MAX_STRING_LENGTH]; 
-   bool searching = FALSE; 
+char *strrep( const char *src, const char *sch, const char *rep )
+{
+   int lensrc = strlen( src ), lensch = strlen( sch ), lenrep = strlen( rep ), x, y, in_p;
+   static char newsrc[MAX_STRING_LENGTH];
+   bool searching = FALSE;
 
    newsrc[0] = '\0';
-   for( x = 0, in_p = 0; x < lensrc; x++, in_p++ ) 
-   { 
-      if( src[x] == sch[0] ) 
-      { 
-         searching = TRUE; 
-         for( y = 0; y < lensch; y++ ) 
-            if( src[x+y] != sch[y] ) 
-               searching = FALSE; 
+   for( x = 0, in_p = 0; x < lensrc; x++, in_p++ )
+   {
+      if( src[x] == sch[0] )
+      {
+         searching = TRUE;
+         for( y = 0; y < lensch; y++ )
+            if( src[x+y] != sch[y] )
+               searching = FALSE;
 
-         if( searching ) 
-         { 
+         if( searching )
+         {
             for( y = 0; y < lenrep; y++, in_p++ )
             {
                if( in_p == ( MAX_STRING_LENGTH - 1 ) )
@@ -4227,10 +4280,10 @@ char *strrep( const char *src, const char *sch, const char *rep )
          newsrc[in_p] = '\0';
          return newsrc;
       }
-      newsrc[in_p] = src[x]; 
-   } 
-   newsrc[in_p] = '\0'; 
-   return newsrc; 
+      newsrc[in_p] = src[x];
+   }
+   newsrc[in_p] = '\0';
+   return newsrc;
 }
 
 char *remand( const char *src )
@@ -4333,25 +4386,25 @@ int strlen_color (char *argument)
 
  /*
   * stripclr - removes the color codes from a string.
-  * 
+  *
   * Notice: currently setup for the default smaug/swr color code system,
   * if you do not use these, then you will have to do some editing.
   *
   * This function should properly remove the color codes from a string
   * Not sure if its any use to anyone, but i thought i'd give it out.
-  * 
+  *
   * I'm not asking for my name to be displayed, but i would like to have my name at
   * least still attached to this function. Altho, it certainly would be nice.
   *
   * Feel free to contact me if you have any problems.
   *
   * - Gavin - ur_gavin@hotmail.com
-  * - Unknown Regions - http://ur.lynker.com 
+  * - Unknown Regions - http://ur.lynker.com
   */
  char *stripclr( char *text )
  {
   int i = 0, j = 0;
- 
+
   if (!text || text[0] == '\0')
   {
    return NULL;
@@ -4360,12 +4413,12 @@ int strlen_color (char *argument)
   {
    char *buf;
    static char done[MAX_INPUT_LENGTH*2];
- 
+
    done[0] = '\0';
- 
+
    if ( (buf = (char *)malloc( strlen(text) * sizeof(text) )) == NULL)
-    return text;      
- 
+    return text;
+
    /* Loop through until you've hit your terminating 0 */
    while (text[i] != '\0')
    {
@@ -4391,13 +4444,13 @@ int strlen_color (char *argument)
     else
      buf[j] = '\0';
    }
- 
+
    buf[j] = '\0';
- 
+
    sprintf(done, "%s", buf);
    buf = realloc(buf, j*sizeof(char));
    free( buf);
- 
+
    return done;
   }
  }
@@ -4408,7 +4461,7 @@ char *strip_color(char *argument)
  {
  static char str[MAX_INPUT_LENGTH];
  int i;
- 
+
  strcpy(str, "");
  for(i=0; i<=strlen(argument); i++)
  {
@@ -4419,7 +4472,7 @@ char *strip_color(char *argument)
     }
     strncat(str, &argument[i], 1);
  }
- 
+
  return str;
  }
 */
@@ -4428,7 +4481,7 @@ char *strip_color(char *str)
 {
   static char newstr[MAX_STRING_LENGTH];
   int i, j;
- 
+
   if(!str)
     return "";
   for(i=j=0; str[i] != '\0'; i++)
@@ -4461,8 +4514,8 @@ char *strip_from_string( char *string, char *word )
             sprintf(buf2, "%s ", buf);
             strcat( newstring, buf2);
            }
- 
-        }      
+
+        }
     return newstring;
 }
 
@@ -4479,7 +4532,7 @@ TIMER *get_do_fun_timerptr( CHAR_DATA *ch, DO_FUN *fun )
 
 bool is_profane( char *what )
 {
-     
+
     what = strlower(what);
     sprintf( what, strip_color(what));
 

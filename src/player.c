@@ -34,8 +34,8 @@ int   strlen_color (char *argument);
 
 void do_gold(CHAR_DATA * ch, char *argument)
 {
-   ch_printf( ch,  "&CYou have &Y%s &Cwulongs,\n\r", num_punct(ch->gold) );
-   ch_printf( ch,  "&Cand you have &Y%s &Cwulongs in your bank account.\n\r", num_punct(ch->pcdata->bank) );
+   ch_printf( ch,  "&CYou have &Y%s &Cdollars,\n\r", num_punct(ch->gold) );
+   ch_printf( ch,  "&Cand you have &Y%s &Cdollars in your bank account.\n\r", num_punct(ch->pcdata->bank) );
    return;
 }
 
@@ -208,7 +208,7 @@ send_to_char("&R----------------------------------------------------------------
 
 
 
-    ch_printf(ch, "&CWULONGS&R: &W%-10s   ", num_punct(ch->gold));
+    ch_printf(ch, "&CYou have &R%s &Cdollars&n   ", num_punct(ch->gold));
     ch_printf(ch,"&CBANK&R: &W%-10s   &CMkills&R: &W%-5.5d    &CPkills&R: &W%-5.5d\n\r",
 	num_punct(ch->pcdata->bank), ch->pcdata->mkills, ch->pcdata->pkills);
 
@@ -574,7 +574,7 @@ void do_oldscore( CHAR_DATA *ch, char *argument )
 	get_curr_cha(ch) );
 
     ch_printf( ch,
-	"You have have %d wulongs.\n\r" , ch->gold );
+	"You have have %d dollars.\n\r" , ch->gold );
 
     if ( !IS_NPC(ch) )
     ch_printf( ch,

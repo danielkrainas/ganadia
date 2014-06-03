@@ -66,13 +66,13 @@ void do_makeknife( CHAR_DATA *ch, char *argument )
     {
     	default:
 
-            
+
     	        if ( arg[0] == '\0' )
                 {
                   send_to_char( "&RUsage: Makeknife <name>\n\r&w", ch);
                   return;
                 }
-		
+
 		if( is_profane(arg) )
 		{
 			send_to_char("Your name has been tested and found to be profain in some way!\r\n", ch);
@@ -261,7 +261,7 @@ void do_makeknife( CHAR_DATA *ch, char *argument )
          long xpgain;
 
          xpgain = UMIN( obj->cost*200 ,( exp_level(ch->skill_level[ENGINEERING_ABILITY]+1) - exp_level(ch->skill_level[ENGINEERING_ABILITY]) ) );
-      
+
 if ( ch->pcdata && ch->pcdata->clan && ( !str_cmp(ch->pcdata->clan->name, "GLM") ) )
         {
                 xpgain = xpgain * 1.1;
@@ -285,14 +285,14 @@ void do_makegun( CHAR_DATA *ch, char *argument )
     int vnum, power, scope;
     AFFECT_DATA *paf;
     AFFECT_DATA *paf2;
-    
+
 
     strcpy( arg , argument );
 
     switch( ch->substate )
     {
     	default:
-                 
+
     	        if ( arg[0] == '\0' )
                 {
                   send_to_char( "&RUsage: Makegun <name>\n\r&w", ch);
@@ -507,7 +507,7 @@ void do_makegun( CHAR_DATA *ch, char *argument )
          long xpgain;
 
          xpgain = UMIN( obj->cost*50 ,( exp_level(ch->skill_level[ENGINEERING_ABILITY]+1) - exp_level(ch->skill_level[ENGINEERING_ABILITY]) ) );
-        
+
         if ( ch->pcdata && ch->pcdata->clan && ( !str_cmp(ch->pcdata->clan->name, "GLM") ) )
 	{
 		xpgain = xpgain * 1.1;
@@ -535,7 +535,7 @@ void do_makesword( CHAR_DATA *ch, char *argument )
     switch( ch->substate )
     {
     	default:
-                
+
     	        if ( arg[0] == '\0' )
                 {
                   send_to_char( "&RUsage: Makesword <name>\n\r&w", ch);
@@ -731,7 +731,7 @@ void do_makesword( CHAR_DATA *ch, char *argument )
          long xpgain;
 
          xpgain = UMIN( obj->cost*50 ,( exp_level(ch->skill_level[ENGINEERING_ABILITY]+1) - exp_level(ch->skill_level[ENGINEERING_ABILITY]) ) );
-        
+
          if ( ch->pcdata && ch->pcdata->clan && ( !str_cmp(ch->pcdata->clan->name, "GLM") ) )
 	{
 		xpgain = xpgain * 1.1;
@@ -865,13 +865,13 @@ void do_makebloodyeye( CHAR_DATA *ch, char *argument )
     char buf[MAX_STRING_LENGTH];
     int chance,level, timer;
     OBJ_DATA *obj;
-   
+
 
     switch( ch->substate )
     {
         default:
                 strcpy( arg, argument );
-                
+
 
                 if ( arg[0] == '\0' )
                 {
@@ -969,7 +969,7 @@ void do_makebloodyeye( CHAR_DATA *ch, char *argument )
     obj->short_descr = STRALLOC( buf );
     strcat( buf, " was foolishly left lying around here." );
     STRFREE( obj->description );
-    
+
     obj->description = STRALLOC( buf );
     obj->value[0] = 0;
     obj->value[1] = level/20 - 1;
@@ -987,7 +987,7 @@ void do_makebloodyeye( CHAR_DATA *ch, char *argument )
          xpgain = xpgain/2;
 	 gain_exp(ch, xpgain, CHEMIST_ABILITY);
          ch_printf( ch , "You gain %d chemist experience.", xpgain );
-	 
+
     }
 
     learn_from_success( ch, gsn_makebloodyeye );
@@ -1000,13 +1000,13 @@ void do_makeyelloweye( CHAR_DATA *ch, char *argument )
     char buf[MAX_STRING_LENGTH];
     int chance,level, timer;
     OBJ_DATA *obj;
-   
+
 
     switch( ch->substate )
     {
         default:
                 strcpy( arg, argument );
-               
+
                 if ( arg[0] == '\0' )
                 {
                   send_to_char( "&RFrom what?\n\r&w", ch);
@@ -1043,7 +1043,7 @@ void do_makeyelloweye( CHAR_DATA *ch, char *argument )
                         : (int) (ch->pcdata->learned[gsn_makeyelloweye]);
 
 		if(ch->pcdata->learned[gsn_chemistry])
-                {   
+                {
 		     timer = 20;
 		     learn_from_success( ch, gsn_chemistry );
         	}
@@ -1118,7 +1118,7 @@ void do_makeyelloweye( CHAR_DATA *ch, char *argument )
     {
          long xpgain;
 
-         xpgain = UMIN( obj->cost*50 ,( exp_level(ch->skill_level[CHEMIST_ABILITY]+1) - 
+         xpgain = UMIN( obj->cost*50 ,( exp_level(ch->skill_level[CHEMIST_ABILITY]+1) -
 exp_level(ch->skill_level[CHEMIST_ABILITY]) ) );
          xpgain = xpgain/2;
 	 gain_exp(ch, xpgain, CHEMIST_ABILITY);
@@ -1136,13 +1136,13 @@ void do_makepurpleeye( CHAR_DATA *ch, char *argument )
     char buf[MAX_STRING_LENGTH];
     int chance,level, timer;
     OBJ_DATA *obj;
-    
+
 
     switch( ch->substate )
     {
         default:
                 strcpy( arg, argument );
-               
+
                 if ( arg[0] == '\0' )
                 {
                   send_to_char( "&RFrom what?\n\r&w", ch);
@@ -1178,7 +1178,7 @@ void do_makepurpleeye( CHAR_DATA *ch, char *argument )
                 chance = IS_NPC(ch) ? ch->top_level
                         : (int) (ch->pcdata->learned[gsn_makepurpleeye]);
 		if(ch->pcdata->learned[gsn_chemistry])
-                {   
+                {
 		     timer = 20;
 		     learn_from_success( ch, gsn_chemistry );
         	}
@@ -1270,12 +1270,12 @@ void do_makeblueeye( CHAR_DATA *ch, char *argument )
     char buf[MAX_STRING_LENGTH];
     int chance,level, timer;
     OBJ_DATA *obj;
-    
+
     switch( ch->substate )
     {
         default:
                 strcpy( arg, argument );
-                 
+
                 if ( arg[0] == '\0' )
                 {
                   send_to_char( "&RFrom what?\n\r&w", ch);
@@ -1310,14 +1310,14 @@ void do_makeblueeye( CHAR_DATA *ch, char *argument )
 
                 chance = IS_NPC(ch) ? ch->top_level
                         : (int) (ch->pcdata->learned[gsn_makeblueeye]);
-	
+
 		if(ch->pcdata->learned[gsn_chemistry])
-                {   
+                {
 		     timer = 20;
 		     learn_from_success( ch, gsn_chemistry );
         	}
 	        else
-                     timer = 30;	
+                     timer = 30;
 
                 if ( number_percent( ) < chance )
                 {
@@ -1403,13 +1403,13 @@ void do_makegreeneye( CHAR_DATA *ch, char *argument )
     char buf[MAX_STRING_LENGTH];
     int chance,level, timer;
     OBJ_DATA *obj;
-   
+
 
     switch( ch->substate )
     {
         default:
                 strcpy( arg, argument );
-                 
+
 
                 if ( arg[0] == '\0' )
                 {
@@ -1447,7 +1447,7 @@ void do_makegreeneye( CHAR_DATA *ch, char *argument )
                         : (int) (ch->pcdata->learned[gsn_makegreeneye]);
 
 		if(ch->pcdata->learned[gsn_chemistry])
-                {   
+                {
 		     timer = 20;
 		     learn_from_success( ch, gsn_chemistry );
         	}
@@ -1544,13 +1544,13 @@ void do_makeapplicator( CHAR_DATA *ch, char *argument )
     int vnum, power, scope, timer;
     AFFECT_DATA *paf;
     AFFECT_DATA *paf2;
-    
+
 
     switch( ch->substate )
     {
         default:
 		strcpy( arg, argument );
-                
+
                 checktool = FALSE;
                 checkdura = FALSE;
                 checkbatt = FALSE;
@@ -1638,14 +1638,14 @@ void do_makeapplicator( CHAR_DATA *ch, char *argument )
                 send_to_char("&RYou can't figure out how to fit the parts together.\n\r",ch);
                 learn_from_failure( ch, gsn_makeapplicator );
                 return;
-	
+
         case 1:
                 if ( !ch->dest_buf )
                      return;
 		strcpy(arg, ch->dest_buf);
                 DISPOSE( ch->dest_buf);
                 break;
-	
+
         case SUB_TIMER_DO_ABORT:
                 DISPOSE( ch->dest_buf );
                 ch->substate = SUB_NONE;
@@ -1775,14 +1775,14 @@ void do_makerawdrug( CHAR_DATA *ch, char *argument )
     OBJ_DATA *obj;
     OBJ_INDEX_DATA *pObjIndex;
     int vnum;
-   
+
 
     strcpy( arg , argument );
 
     switch( ch->substate )
     {
         default:
-                
+
                 if ( arg[0] == '\0' )
                 {
                   send_to_char( "&RUsage: Makerawdrug <name>\n\r&w", ch);
@@ -1993,10 +1993,10 @@ void do_makerawdrug( CHAR_DATA *ch, char *argument )
          }
 	 else
         	 send_to_char("Your level is too high to gain experience for this skill.\n\r" ,ch);
-    } 
+    }
         learn_from_success( ch, gsn_makerawdrug );
 }
-	
+
 
 
 void do_makegrenade( CHAR_DATA *ch, char *argument )
@@ -2008,14 +2008,14 @@ void do_makegrenade( CHAR_DATA *ch, char *argument )
     OBJ_DATA *obj;
     OBJ_INDEX_DATA *pObjIndex;
     int vnum;
-    
+
 
     strcpy( arg , argument );
 
     switch( ch->substate )
     {
     	default:
-                
+
 
     	        if ( arg[0] == '\0' )
                 {
@@ -2213,7 +2213,7 @@ void do_makegrenade( CHAR_DATA *ch, char *argument )
          long xpgain;
 
          xpgain = UMIN( obj->cost*50 ,( exp_level(ch->skill_level[ENGINEERING_ABILITY]+1) - exp_level(ch->skill_level[ENGINEERING_ABILITY]) ) );
-      	
+
 	if ( ch->pcdata && ch->pcdata->clan && ( !str_cmp(ch->pcdata->clan->name, "GLM") ) )
 	{
 		xpgain = xpgain * 1.1;
@@ -2233,14 +2233,14 @@ void do_makelandmine( CHAR_DATA *ch, char *argument )
     OBJ_DATA *obj;
     OBJ_INDEX_DATA *pObjIndex;
     int vnum;
-    
+
 
     strcpy( arg , argument );
 
     switch( ch->substate )
     {
     	default:
-                
+
     	        if ( arg[0] == '\0' )
                 {
                   send_to_char( "&RUsage: Makelandmine <name>\n\r&w", ch);
@@ -2437,11 +2437,11 @@ void do_makelandmine( CHAR_DATA *ch, char *argument )
          long xpgain;
 
          xpgain = UMIN( obj->cost*50 ,( exp_level(ch->skill_level[ENGINEERING_ABILITY]+1) - exp_level(ch->skill_level[ENGINEERING_ABILITY]) ) );
-        
+
 	if ( ch->pcdata && ch->pcdata->clan && ( !str_cmp(ch->pcdata->clan->name, "GLM") ) )
 	{
 		xpgain = xpgain * 1.1;
-	} 
+	}
 	gain_exp(ch, xpgain, ENGINEERING_ABILITY);
          ch_printf( ch , "You gain %d engineering experience.", xpgain );
     }
@@ -2456,14 +2456,14 @@ void do_makelight( CHAR_DATA *ch, char *argument )
     OBJ_DATA *obj;
     OBJ_INDEX_DATA *pObjIndex;
     int vnum;
-    
+
 
     strcpy( arg , argument );
 
     switch( ch->substate )
     {
     	default:
-              
+
 
     	        if ( arg[0] == '\0' )
                 {
@@ -2658,7 +2658,7 @@ void do_makelight( CHAR_DATA *ch, char *argument )
          long xpgain;
 
          xpgain = UMIN( obj->cost*100 ,( exp_level(ch->skill_level[ENGINEERING_ABILITY]+1) - exp_level(ch->skill_level[ENGINEERING_ABILITY]) ) );
-        
+
 	if ( ch->pcdata && ch->pcdata->clan && ( !str_cmp(ch->pcdata->clan->name, "GLM") ) )
 	{
 		xpgain = xpgain * 1.1;
@@ -2679,7 +2679,7 @@ void do_makejewelry( CHAR_DATA *ch, char *argument )
     OBJ_DATA *obj;
     OBJ_DATA *metal;
     int value, cost;
-    
+
 
     argument = one_argument( argument, arg );
     strcpy ( arg2, argument);
@@ -2721,14 +2721,14 @@ void do_makejewelry( CHAR_DATA *ch, char *argument )
     if ( !str_cmp( arg, "wield" ) )
     {
         send_to_char( "&RAre you going to fight with your jewelry?\n\r&w", ch);
-        send_to_char( "&RTry MAKEBLADE...\n\r&w", ch);
+        send_to_char( "&RTry MAKEKNIFE...\n\r&w", ch);
         return;
     }
 
     switch( ch->substate )
     {
     	default:
-                 
+
 
     	        if ( arg2[0] == '\0' )
                 {
@@ -2801,7 +2801,7 @@ void do_makejewelry( CHAR_DATA *ch, char *argument )
     		   send_to_char( "&GYou begin the long process of creating some jewelry.\n\r", ch);
     		   act( AT_PLAIN, "$n takes $s toolkit and some metal and begins to work.", ch,
 		        NULL, argument , TO_ROOM );
-		   add_timer ( ch , TIMER_DO_FUN , 15 , do_makejewelry , 1 );
+		   add_timer ( ch , TIMER_DO_FUN , chance == 100 ? 8 : 15 , do_makejewelry , 1 );
     		   ch->dest_buf = str_dup(arg);
     		   ch->dest_buf_2 = str_dup(arg2);
     		   return;
@@ -2922,7 +2922,7 @@ void do_makejewelry( CHAR_DATA *ch, char *argument )
          long xpgain;
 
          xpgain = UMIN( obj->cost*100 ,( exp_level(ch->skill_level[ENGINEERING_ABILITY]+1) - exp_level(ch->skill_level[ENGINEERING_ABILITY]) ) );
-         
+
 	if ( ch->pcdata && ch->pcdata->clan && ( !str_cmp(ch->pcdata->clan->name, "GLM") ) )
 	{
 		xpgain = xpgain * 1.1;
@@ -2944,7 +2944,7 @@ void do_makearmor( CHAR_DATA *ch, char *argument )
     OBJ_DATA *obj;
     OBJ_DATA *material;
     int value;
-    
+
 
     argument = one_argument( argument, arg );
     strcpy ( arg2, argument);
@@ -2980,7 +2980,7 @@ void do_makearmor( CHAR_DATA *ch, char *argument )
     switch( ch->substate )
     {
     	default:
-               
+
 
     	        if ( arg2[0] == '\0' )
                 {
@@ -3035,7 +3035,7 @@ void do_makearmor( CHAR_DATA *ch, char *argument )
     		   send_to_char( "&GYou begin the long process of creating some armor.\n\r", ch);
     		   act( AT_PLAIN, "$n takes $s sewing kit and some material and begins to work.", ch,
 		        NULL, argument , TO_ROOM );
-		   add_timer ( ch , TIMER_DO_FUN , 15 , do_makearmor , 1 );
+		   add_timer ( ch , TIMER_DO_FUN , (chance == 100) ? 8 : 15 , do_makearmor , 1 ); /* Adept = half time - Funf */
     		   ch->dest_buf = str_dup(arg);
     		   ch->dest_buf_2 = str_dup(arg2);
     		   return;
@@ -3135,7 +3135,7 @@ void do_makearmor( CHAR_DATA *ch, char *argument )
          long xpgain;
 
          xpgain = UMIN( obj->cost*100 ,( exp_level(ch->skill_level[ENGINEERING_ABILITY]+1) - exp_level(ch->skill_level[ENGINEERING_ABILITY]) ) );
-        
+
 	if ( ch->pcdata && ch->pcdata->clan && ( !str_cmp(ch->pcdata->clan->name, "GLM") ) )
 	{
 		xpgain = xpgain * 1.1;
@@ -3157,21 +3157,21 @@ void do_makecomlink( CHAR_DATA *ch, char *argument )
     OBJ_DATA *obj;
     OBJ_INDEX_DATA *pObjIndex;
     int vnum, value;
-   
+
     argument = one_argument( argument, arg );
     strcpy ( arg2, argument);
 
     if ( !str_cmp( arg, "finger" )
-    || !str_cmp( arg, "hip")  
+    || !str_cmp( arg, "hip")
     || !str_cmp( arg, "body")
     || !str_cmp( arg, "waist")
     || !str_cmp( arg, "ankle")
     || !str_cmp( arg, "back")
     || !str_cmp( arg, "hands")
-    || !str_cmp( arg, "legs") 
-    || !str_cmp( arg, "feet") 
-    || !str_cmp( arg, "eyes") 
-    || !str_cmp( arg, "about") 
+    || !str_cmp( arg, "legs")
+    || !str_cmp( arg, "feet")
+    || !str_cmp( arg, "eyes")
+    || !str_cmp( arg, "about")
     || !str_cmp( arg, "arms") )
     {
         send_to_char( "&RYou cannot make a comlink for that body part.\n\r&w", ch);
@@ -3201,7 +3201,7 @@ void do_makecomlink( CHAR_DATA *ch, char *argument )
     switch( ch->substate )
     {
     	default:
-                
+
 
     	        if ( arg[0] == '\0' || arg2[0] == '\0')
                 {
@@ -3402,7 +3402,7 @@ void do_makecomlink( CHAR_DATA *ch, char *argument )
          long xpgain;
 
          xpgain = UMIN( obj->cost*100 ,( exp_level(ch->skill_level[ENGINEERING_ABILITY]+1) - exp_level(ch->skill_level[ENGINEERING_ABILITY]) ) );
-       
+
 	if ( ch->pcdata && ch->pcdata->clan && ( !str_cmp(ch->pcdata->clan->name, "GLM") ) )
 	{
 		xpgain = xpgain * 1.1;
@@ -3423,14 +3423,14 @@ void do_makeshield( CHAR_DATA *ch, char *argument )
     OBJ_DATA *obj;
     OBJ_INDEX_DATA *pObjIndex;
     int vnum, level;
-    
+
 
     strcpy( arg, argument );
 
     switch( ch->substate )
     {
     	default:
-               
+
 
     	        if ( arg[0] == '\0' )
                 {
@@ -3619,7 +3619,7 @@ void do_makeshield( CHAR_DATA *ch, char *argument )
          long xpgain;
 
          xpgain = UMIN( obj->cost*50 ,( exp_level(ch->skill_level[ENGINEERING_ABILITY]+1) - exp_level(ch->skill_level[ENGINEERING_ABILITY]) ) );
-        
+
 	if ( ch->pcdata && ch->pcdata->clan && ( !str_cmp(ch->pcdata->clan->name, "GLM") ) )
 	{
 		xpgain = xpgain * 1.1;
@@ -3641,7 +3641,7 @@ void do_makecontainer( CHAR_DATA *ch, char *argument )
     OBJ_DATA *obj;
     OBJ_DATA *material;
     int value;
-    
+
 
     argument = one_argument( argument, arg );
     strcpy( arg2 , argument );
@@ -3657,8 +3657,8 @@ void do_makecontainer( CHAR_DATA *ch, char *argument )
         return;
     }
     if ( !str_cmp( arg, "feet" )
-    || !str_cmp( arg, "hands" ) 
-    || !str_cmp( arg, "face" ) ) 
+    || !str_cmp( arg, "hands" )
+    || !str_cmp( arg, "face" ) )
    {
         send_to_char( "&RYou cannot make a container for that body part.\n\r&w", ch);
         send_to_char( "&RTry MAKEARMOR.\n\r&w", ch);
@@ -3680,7 +3680,7 @@ void do_makecontainer( CHAR_DATA *ch, char *argument )
     switch( ch->substate )
     {
     	default:
-                
+
 
     	        if ( arg2[0] == '\0' )
                 {
@@ -3830,7 +3830,7 @@ void do_makecontainer( CHAR_DATA *ch, char *argument )
          long xpgain;
 
          xpgain = UMIN( obj->cost*100 ,( exp_level(ch->skill_level[ENGINEERING_ABILITY]+1) - exp_level(ch->skill_level[ENGINEERING_ABILITY]) ) );
-        
+
 	if ( ch->pcdata && ch->pcdata->clan && ( !str_cmp(ch->pcdata->clan->name, "GLM") ) )
 	{
 		xpgain = xpgain * 1.1;
@@ -4546,15 +4546,15 @@ void do_snipe( CHAR_DATA *ch, char *argument )
 	send_to_char( "You can't shoot them there.\n\r", ch );
 	return;
     }
-	
+
     if ( IS_NPC(victim) && IS_SET( victim->act, ACT_PACIFIST) )
     {
 	send_to_char("&BThey are too pacifistic to be sniped!\n\r" , ch);
 	return;
     }
 
-    if ( is_safe( ch, victim ) )
-	return;
+	if ( is_safe( ch, victim ) )
+		return;
 
     if ( IS_AFFECTED(ch, AFF_CHARM) && ch->master == victim )
     {
@@ -4613,10 +4613,10 @@ void do_snipe( CHAR_DATA *ch, char *argument )
        act( AT_ACTION, "You fire at $N.", ch, NULL, victim, TO_CHAR );
        sprintf( buf, "A rifle shot fires at $N from the %s." , dir_name[dir] );
        act( AT_ACTION, buf, ch, NULL, victim, TO_NOTVICT );
-   //  Bug fix, rifle took 2 bullets and not 1 - Gatz	
+   //  Bug fix, rifle took 2 bullets and not 1 - Gatz
    //    wield->value[4] -= 1;
        if(!IS_NPC(ch) && !IS_NPC(victim))
-       {	
+       {
        		if(ch->perm_frc < 5)
 		       ch->perm_frc++;
 	       if(victim->perm_frc < 5)
@@ -4639,14 +4639,14 @@ void do_snipe( CHAR_DATA *ch, char *argument )
        learn_from_failure( ch, gsn_snipe );
        wield->value[4] -= 1;
     }
-   
+
     char_from_room( ch );
     char_to_room( ch, was_in_room );
     make_shell( ch );
     act( AT_YELLOW, "You hear the sound of your empty rifle shell hit the ground.", ch, NULL, NULL, TO_CHAR);
     act( AT_YELLOW, "$n's rifle shell hits the ground with a loud ping.", ch, NULL, NULL, TO_ROOM);
     act( AT_PLAIN, "You lower your rifle and prepare for another shot.", ch, NULL, NULL, TO_CHAR);
-    act( AT_PLAIN, "$n lowers $s rifle and prepares for another shot.", ch, ch, NULL, TO_ROOM);   
+    act( AT_PLAIN, "$n lowers $s rifle and prepares for another shot.", ch, ch, NULL, TO_ROOM);
 
    if ( IS_NPC(ch) )
       WAIT_STATE( ch, 1 * PULSE_VIOLENCE );
@@ -5665,9 +5665,9 @@ void do_smalltalk ( CHAR_DATA *ch , char *argument )
 
 	return;
     }
- 
+
     ch->chatrain++;
- 
+
     send_to_char( "You strike up a short conversation with them.\n\r", ch );
     act( AT_ACTION, "$n smiles at you and says, 'hello'.\n\r", ch, NULL, victim, TO_VICT    );
     act( AT_ACTION, "$n chats briefly with $N.\n\r",  ch, NULL, victim, TO_NOTVICT );
@@ -5782,7 +5782,7 @@ void do_propaganda ( CHAR_DATA *ch , char *argument )
        clan = ch->pcdata->clan;
 
     planet = ch->in_room->area->planet;
-   
+
     if(!planet)
     {
 	send_to_char("You are not on a planet to do this!\r\n", ch);
@@ -5807,7 +5807,7 @@ void do_propaganda ( CHAR_DATA *ch , char *argument )
 
     WAIT_STATE( ch, skill_table[gsn_propaganda]->beats );
 
-    if ( percent - get_curr_cha(ch) + victim->top_level > ch->pcdata->learned[gsn_propaganda]  
+    if ( percent - get_curr_cha(ch) + victim->top_level > ch->pcdata->learned[gsn_propaganda]
 	&& !IS_IMMORTAL(ch))
     {
 
@@ -5844,7 +5844,7 @@ void do_propaganda ( CHAR_DATA *ch , char *argument )
 		planet->frustrated_by = clan;
 		planet->frust_level += .5 * ch->top_level/50;
 	  }
-	
+
       global_retcode = multi_hit( victim, ch, TYPE_UNDEFINED );
 	}
 
@@ -6198,7 +6198,7 @@ void do_rumors( CHAR_DATA *ch, char *argument )
         send_to_char( "You can't spread rumors about yourself!\n\r", ch);
 	return;
     }
-  
+
     if(IS_NPC(victim))
     {
 	send_to_char("You can only spread rumors about Players!\r\n", ch);
@@ -6246,14 +6246,14 @@ void do_hack_systems( CHAR_DATA *ch, char *argument )
     	return;
     }
 
-    obj = argument;   
+    obj = argument;
 
     if(obj->item_type != ITEM_COMPUTER)
     {
 	send_to_char("&RYou need a computer to hack!\n\r", ch);
 	return;
     }
-      
+
    */
     checktool = FALSE;
 
@@ -6308,7 +6308,7 @@ void do_hack_systems( CHAR_DATA *ch, char *argument )
     {
         act( AT_RED, "Maybe you should 'bootup' your computer first?", ch, NULL, NULL, TO_CHAR);
 	return;
-    } 
+    }
 */
     checktool 	= FALSE;
   /*
@@ -6319,22 +6319,22 @@ void do_hack_systems( CHAR_DATA *ch, char *argument )
 	{
         	found = TRUE;
 		break;
-	} 	
+	}
     }
    */
         if( found )
   	{
 		/*
    		if ( obj->item_type != ITEM_COMPUTER )
-      		{	
+      		{
 			send_to_char( "You must use this skill on a computer.\n\r", ch );
 			return;
 		}
 		*/
 		WAIT_STATE( ch, 15 );
-	      
+
 		act( AT_ACTION, "$n begins to tamper with a comlink and computer.\n\r",  ch, NULL, NULL, TO_ROOM );
-		
+
 		if ( number_percent() - get_curr_int(ch)/5 > ch->pcdata->learned[gsn_hack_systems] - 10 )
       		{
 			send_to_char( "Your attempt to hack is discovered!\n\r", ch );
@@ -6367,7 +6367,7 @@ void do_hack_systems( CHAR_DATA *ch, char *argument )
 				ch->inttrain++;
 			return;
 		}
-	
+
 		send_to_char( "You successfully scout the system.\n\r", ch );
 		learn_from_success( ch, gsn_hack_systems );
 		gain_exp(ch, ch->top_level/2, FORCE_ABILITY);
@@ -6380,11 +6380,11 @@ void do_hack_systems( CHAR_DATA *ch, char *argument )
 
 void do_hackwho( CHAR_DATA *ch, char *argument )
 {
-	char buf[MAX_INPUT_LENGTH];	
+	char buf[MAX_INPUT_LENGTH];
 	OBJ_DATA *obj, *obj_next;
 	bool found = FALSE, bootup = FALSE;
 	CHAR_DATA *victim;
- 
+
    if ( IS_SET( ch->in_room->room_flags, ROOM_SAFE ) ||
         IS_SET( ch->in_room->room_flags, ROOM_PLR_HOME) )
     {
@@ -6402,9 +6402,9 @@ void do_hackwho( CHAR_DATA *ch, char *argument )
 				bootup = TRUE;
         	        break;
 		}
-        
+
         }
-        
+
 	if( argument[0] = '\0')
 	{
 		send_to_char("&RSyntax: Hackwho 'name'\n\r", ch);
@@ -6412,7 +6412,7 @@ void do_hackwho( CHAR_DATA *ch, char *argument )
 	}
 /*
 	if((victim = get_char_world(ch, argument)) == NULL)
- 	{	
+ 	{
    		send_to_char("That character is not online!\r", ch);
 		   return;
         }
@@ -6442,7 +6442,7 @@ void do_hackwho( CHAR_DATA *ch, char *argument )
                		{
                 	        obj->value[0]--;
                 	        send_to_char("&RYour computer was damaged!\n\r", ch);
-               		}	
+               		}
                		else
                		{
                 	        obj->value[0]--;
@@ -6450,12 +6450,12 @@ void do_hackwho( CHAR_DATA *ch, char *argument )
                		}
 			if(ch->perm_int < 15 && number_range(0,4) >= 3)
 				ch->inttrain++;
-		
+
                 	return;
         	}
 		do_whois(ch, argument);
        		 send_to_char( "You successfully hacked information.\n\r", ch );
-        
+
        		 gain_exp(ch, (ch->top_level/10), FORCE_ABILITY);
         	ch_printf( ch , "You gain %d hacking experience.\n\r", (ch->top_level/10) );
 
@@ -6546,7 +6546,7 @@ void do_hackbaydoor( CHAR_DATA *ch, char *argument )
         send_to_char( "&RYou need a communication device.\n\r", ch);
         return;
     }
-   
+
     if(!checkpower)
     {
 	send_to_char("&RYou need to 'bootup' your computer first.\r\n", ch);
@@ -6635,11 +6635,12 @@ void do_hackbaydoor( CHAR_DATA *ch, char *argument )
 }
 
 void do_hackbanktransfer(CHAR_DATA *ch, char *argument )
-{    
+{
     char arg1[MAX_INPUT_LENGTH];
     char arg2[MAX_INPUT_LENGTH];
     char arg3[MAX_INPUT_LENGTH];
-    int amount = 0, level = 0;
+    unsigned long amount = 0; /* Made unsigned - Funf */
+    int level = 0;
     CHAR_DATA *victim1,*victim2;
     OBJ_DATA *obj;
     bool comlink = FALSE, computer = FALSE, power = FALSE;
@@ -6665,7 +6666,7 @@ void do_hackbanktransfer(CHAR_DATA *ch, char *argument )
        if (obj->pIndexData->item_type == ITEM_COMLINK)
      	  comlink = TRUE;
        if (obj->pIndexData->item_type == ITEM_COMPUTER && obj->value[0] > 0)
-	  computer = TRUE;     
+	  computer = TRUE;
 
  	if(obj->pIndexData->item_type == ITEM_COMPUTER && obj->value[2] > 0)
 		power = TRUE;
@@ -6688,7 +6689,7 @@ void do_hackbanktransfer(CHAR_DATA *ch, char *argument )
         act( AT_RED, "Maybe you should 'bootup' your computer first?", ch, NULL, NULL, TO_CHAR);
 	return;
      }
-	
+
     if( arg1[0] == '\0' || arg2[0] == '\0' || arg3[0] == '\0')
     {
 	send_to_char("&CHacktransfer: Bank Account 1/Bank Account 2/Amount\n\r", ch);
@@ -6748,7 +6749,7 @@ void do_hackbanktransfer(CHAR_DATA *ch, char *argument )
    }
    // level = ch->pcdata->learned[gsn_hackbanktransfer];
     level = ch->skill_level[FORCE_ABILITY];
-    level = level*1000;	
+    level = level*1000;
     if( amount > level)
     {
 	ch_printf(ch, "&RYou can only transfer up to %d!", level);
@@ -6759,7 +6760,7 @@ void do_hackbanktransfer(CHAR_DATA *ch, char *argument )
 	send_to_char("&RThe selected sender's account doesn't have that much!\n\r", ch);
 	return;
     }
-    if( (victim2->pcdata->bank + amount) > 2000000000)
+    if( (victim2->pcdata->bank + amount) > MAX_BANK) /* replaced hard coded value - Funf */
     {
 	send_to_char("&RThat would put the reciever's account over the limit!\n\r", ch);
 	return;
@@ -6773,7 +6774,7 @@ void do_hackbanktransfer(CHAR_DATA *ch, char *argument )
 
     act( AT_ACTION, "$n begins to tamper with a comlink and computer.\n\r",  ch, NULL, NULL, TO_ROOM );
 
-    if ( number_percent() - get_curr_int(ch) > ch->pcdata->learned[gsn_hack_systems]  
+    if ( number_percent() - get_curr_int(ch) > ch->pcdata->learned[gsn_hack_systems]
 	|| number_range(0,5) > 4)
     {
          send_to_char( "Your attempt to hack is discovered!\n\r", ch );
@@ -6816,7 +6817,7 @@ void do_hackbanktransfer(CHAR_DATA *ch, char *argument )
    learn_from_success( ch, gsn_hackbanktransfer);
    ch->pcdata->hackcount;
    return;
-}   
+}
 
 void do_hackshipdoor( CHAR_DATA *ch, char *argument )
 {
@@ -6869,7 +6870,7 @@ void do_hackshipdoor( CHAR_DATA *ch, char *argument )
 	return;
     }
     if(!power)
-    {   
+    {
 	send_to_char("&RYou should bootup your computer first!\n\r", ch);
 	return;
     }
@@ -6907,7 +6908,7 @@ void do_hackshipdoor( CHAR_DATA *ch, char *argument )
 
    	     WAIT_STATE( ch, 10 );
 
-   	     if ( number_percent() - get_curr_int(ch) > ch->pcdata->learned[gsn_hackshipdoor] 
+   	     if ( number_percent() - get_curr_int(ch) > ch->pcdata->learned[gsn_hackshipdoor]
 		  || number_range(1,5) > 4 )
              {
 		send_to_char( "You were detected!\n\r", ch);
@@ -7210,7 +7211,7 @@ void do_hackbroadcast( CHAR_DATA *ch, char *argument )
     }
 
 
- 
+
     if ( number_percent() - (get_curr_int(ch)*2) > ch->pcdata->learned[gsn_hackbroadcast])
     {
          send_to_char( "Your attempt to hack is discovered!\n\r", ch );
@@ -7296,7 +7297,7 @@ void do_hackbounty(CHAR_DATA *ch, char *argument )
         send_to_char("&RYou need a comlink to hack!\n\r", ch);
         return;
     }
-	
+
     if(!computer)
     {
         send_to_char("&RYou need a working computer to hack!\n\r", ch);
@@ -7325,7 +7326,7 @@ void do_hackbounty(CHAR_DATA *ch, char *argument )
         send_to_char("&RHacking any more is too much of a risk!\r\n", ch);
         return;
     }
-  
+
     if(!str_cmp(arg1, "add"))
  	   amount = atoi(arg3);
     WAIT_STATE( ch, 25 );
@@ -7392,7 +7393,7 @@ void do_hackbounty(CHAR_DATA *ch, char *argument )
 		return;
 	}
 	sprintf( buf, "[ERRORTHREAD1A#] has added %s wulongs to the bounty on %s.", num_punct(amount) , victim->name );
-        echo_to_all ( AT_RED , buf, 0 );	
+        echo_to_all ( AT_RED , buf, 0 );
 	disintigration(ch, victim, amount);
    }
    else if ( !str_prefix( arg1 , "remove" ) )
@@ -7401,7 +7402,7 @@ void do_hackbounty(CHAR_DATA *ch, char *argument )
    }
    else
    {
-	send_to_char("&RInvalid selection!\n\r", ch);	
+	send_to_char("&RInvalid selection!\n\r", ch);
    }
    gain_exp(ch, (ch->top_level/2+40), FORCE_ABILITY);
    ch_printf( ch , "You gain %d hacking experience.\n\r", (ch->top_level/2+40) );
@@ -7469,14 +7470,14 @@ void do_makerifle( CHAR_DATA *ch, char *argument )
     int vnum, power, scope;
     AFFECT_DATA *paf;
     AFFECT_DATA *paf2;
-    
+
 
     strcpy( arg , argument );
 
     switch( ch->substate )
     {
     	default:
-                
+
 
     	        if ( arg[0] == '\0' )
                 {
@@ -7648,7 +7649,7 @@ void do_makerifle( CHAR_DATA *ch, char *argument )
     chance = IS_NPC(ch) ? ch->top_level
                 : (int) (ch->pcdata->learned[gsn_makerifle]) ;
 
-    if ( number_percent( ) > chance*2  || ( !checktool ) || ( !checkdura ) || ( !checkbatt ) || ( !checkoven )  || ( 
+    if ( number_percent( ) > chance*2  || ( !checktool ) || ( !checkdura ) || ( !checkbatt ) || ( !checkoven )  || (
 !checkplas ) || ( !checkmetal) )
     {
        send_to_char( "&RYou hold up your new rifle and aim at a leftover piece of plastic.\n\r", ch);
@@ -7732,7 +7733,7 @@ void do_webwho(CHAR_DATA *ch, char *argument)
 	}
 
 	do_who( ch, "");
-	
+
 }
 void do_makelaptop( CHAR_DATA *ch, char *argument )
 {
@@ -7745,14 +7746,14 @@ void do_makelaptop( CHAR_DATA *ch, char *argument )
     int vnum, power, scope;
     AFFECT_DATA *paf;
     AFFECT_DATA *paf2;
-   
+
 
     strcpy( arg , argument );
 
     switch( ch->substate )
     {
     	default:
-                 
+
 
     	        if ( arg[0] == '\0' )
                 {
@@ -7926,7 +7927,7 @@ void do_makelaptop( CHAR_DATA *ch, char *argument )
     chance = IS_NPC(ch) ? ch->top_level
                 : (int) (ch->pcdata->learned[gsn_makelaptop]) ;
 
-    if ( number_percent( ) > chance*2  || ( !checktool ) || ( !checkbattery ) || ( !checkmonitor ) || ( 
+    if ( number_percent( ) > chance*2  || ( !checktool ) || ( !checkbattery ) || ( !checkmonitor ) || (
 !checkmotherboard )  || ( !checkharddrive ) || (!checkcase))
     {
        send_to_char("&RYou try to login to your new lapto and it fizzles out.\n\r", ch);
@@ -7950,8 +7951,8 @@ void do_makelaptop( CHAR_DATA *ch, char *argument )
     STRFREE( obj->description );
     strcat( buf, " was carelessly misplaced here." );
     obj->description = STRALLOC( buf );
-    obj->value[0] = (int) (level/10);     
-    obj->value[1] = (int) (level/10);   
+    obj->value[0] = (int) (level/10);
+    obj->value[1] = (int) (level/10);
     obj->cost = obj->value[1]*50;
     obj->weight = obj->value[1]/2;
 
@@ -7965,7 +7966,7 @@ void do_makelaptop( CHAR_DATA *ch, char *argument )
          long xpgain;
 
          xpgain = UMIN( obj->cost*50 ,( exp_level(ch->skill_level[ENGINEERING_ABILITY]+1) - exp_level(ch->skill_level[ENGINEERING_ABILITY]) ) );
-        
+
         if ( ch->pcdata && ch->pcdata->clan && ( !str_cmp(ch->pcdata->clan->name, "GLM") ) )
 	{
 		xpgain = xpgain * 1.1;
@@ -7981,7 +7982,8 @@ void do_hackbank(CHAR_DATA *ch, char *argument )
     char arg1[MAX_INPUT_LENGTH];
     char arg2[MAX_INPUT_LENGTH];
     char arg3[MAX_INPUT_LENGTH];
-    long amount = 0, level = 0;
+    unsigned long amount = 0; /* Made unsigned - Funf */
+    long level = 0;
     CHAR_DATA *victim;
     OBJ_DATA *obj, *comp;
     bool comlink = FALSE, computer = FALSE;
@@ -8030,13 +8032,13 @@ void do_hackbank(CHAR_DATA *ch, char *argument )
 	send_to_char("&RYou need a computer which is turned on to hack!\r\n", ch);
 	return;
     }
- 	
+
     if (comp->value[2] == 0 )
     {
         act( AT_RED, "Maybe you should 'bootup' your computer first?", ch, NULL, NULL, TO_CHAR);
 	return;
     }
-	
+
     if( arg1[0] == '\0' || arg2[0] == '\0')
     {
         send_to_char("&Chackbank: 'Account Person's Name' 'Add/Remove' 'Amount'\n\r", ch);
@@ -8072,7 +8074,7 @@ void do_hackbank(CHAR_DATA *ch, char *argument )
         send_to_char("&RYou can't have a negitive amount of wulongs!\n\r", ch);
         return;
     }
-    if( (victim->pcdata->bank + amount) > 2000000000)
+    if( (victim->pcdata->bank + amount) > MAX_BANK) /* removed hard coded value - Funf */
     {
         send_to_char("&RThat would put the reciever's account over the limit!\n\r", ch);
         return;
@@ -8103,12 +8105,12 @@ void do_hackbank(CHAR_DATA *ch, char *argument )
 
     act( AT_ACTION, "$n begins to tamper with a comlink and computer.\n\r",  ch, NULL, NULL, TO_ROOM );
 
-    if ( number_percent() - get_curr_int(ch) > ch->pcdata->learned[gsn_hackbounty]  
+    if ( number_percent() - get_curr_int(ch) > ch->pcdata->learned[gsn_hackbounty]
 	|| number_range(0,5) > 4)
     {
          send_to_char( "Your attempt to hack is discovered!\n\r", ch );
          disintigration( ch, ch, 40000);
-         
+
          for( obj = ch->last_carrying; obj; obj = obj->prev_content)
          {
                if(obj->item_type == ITEM_COMPUTER)
@@ -8138,7 +8140,7 @@ void do_hackbank(CHAR_DATA *ch, char *argument )
     }
    if ( !str_prefix( arg2 , "add" ) )
    {
-	
+
 	victim->pcdata->bank += amount;
         ch_printf( ch, "You were able to hack %ld wulongs to %s's account!\n\r", amount, victim->name);
         gain_exp(ch, (ch->top_level/2+60), FORCE_ABILITY);
@@ -8166,7 +8168,7 @@ void do_hackclanaccount(CHAR_DATA *ch, char *argument )
     char arg2[MAX_STRING_LENGTH];
     char arg3[MAX_STRING_LENGTH];
     char buf[MAX_STRING_LENGTH];
-    long int amount;
+    unsigned long amount; /* made unsigned - Funf */
     int level = 0;
     CLAN_DATA *clan;
     OBJ_DATA *obj;
@@ -8227,7 +8229,7 @@ void do_hackclanaccount(CHAR_DATA *ch, char *argument )
     {
 	send_to_char("&RHackclanaccount 'add/remove' 'name' # (Number for Add only)\n\r", ch);
 	return;
-    } 
+    }
     clan = get_clan( arg2);
     if( !clan)
     {
@@ -8241,7 +8243,7 @@ void do_hackclanaccount(CHAR_DATA *ch, char *argument )
     }
 
     level = IS_NPC(ch) ? ch->top_level : (int) (ch->pcdata->learned[gsn_hackclanaccount]);
-    level = level*5000;	
+    level = level*5000;
     amount = atoi(arg3);
     if( amount > level)
     {
@@ -8252,7 +8254,7 @@ void do_hackclanaccount(CHAR_DATA *ch, char *argument )
 
     act( AT_ACTION, "$n begins to tamper with a comlink and computer.\n\r",  ch, NULL, NULL, TO_ROOM );
 
-    if ( number_percent() - get_curr_int(ch) > ch->pcdata->learned[gsn_hackclanaccount]  
+    if ( number_percent() - get_curr_int(ch) > ch->pcdata->learned[gsn_hackclanaccount]
 	|| number_range(0,5) > 4)
     {
          send_to_char( "Your attempt to hack is discovered!\n\r", ch );
@@ -8286,7 +8288,7 @@ void do_hackclanaccount(CHAR_DATA *ch, char *argument )
 		send_to_char("&RYou need to put atleast 5,000 wulongs in their account\n\r", ch);
 		return;
 	}
-	if( clan->funds > 1500000000)
+	if( clan->funds > MAX_BANK - MAX_BANK / 4 ) /* tweaked check and removed hard coded value - Funf */
 	{
 		send_to_char("&RYou can't add anymore to this account!\n\r", ch);
 		return;
@@ -8304,7 +8306,7 @@ void do_hackclanaccount(CHAR_DATA *ch, char *argument )
    }
    else
    {
-	send_to_char("&RInvalid selection!\n\r", ch);	
+	send_to_char("&RInvalid selection!\n\r", ch);
 	return;
    }
    gain_exp(ch, (ch->top_level/2+40), FORCE_ABILITY);
@@ -8340,7 +8342,7 @@ void do_newwhois( CHAR_DATA *ch, char *argument)
 
                 if ( obj->item_type == ITEM_COMPUTER && obj->value[0] > 0)
                 {
-                        found = TRUE;                 
+                        found = TRUE;
                 }
 		if ( obj->item_type == ITEM_COMPUTER && obj->value[2]==1)
 		{
@@ -8365,7 +8367,7 @@ void do_newwhois( CHAR_DATA *ch, char *argument)
          return;
   }
 
-	
+
   if(argument[0] == '\0')
   {
     send_to_char("You must input the name of a player online.\n\r", ch);
@@ -8427,7 +8429,7 @@ ch_printf( ch, "&C|&RRace        &R[&W%-15s&R]\n\r",
 npc_race[victim->race] );
 
 ch_printf( ch, "&C|&RAge	     &R[&W%-15d&R]\n\r",
-victim->pcage ); 
+victim->pcage );
 ch_printf( ch,
 "&C-=-=-=-=-=-=-=&c[&RCLAN INFO&c]&C=-=-=-=-=-=-=-=-=-=-=-=-=\n\r" );
 if ( victim->pcdata->clan )
@@ -8806,14 +8808,14 @@ void do_commandeer( CHAR_DATA *ch, char *argument )
 		sprintf( buf1, "&wYou say into your communication device, '&CISSP Officer %s requesting codes to commandeer vessel %s.&w'",
 			 ch->name, ship->name);
 		act(AT_PLAIN, buf1, ch, NULL, NULL, TO_CHAR);
-		act(AT_PLAIN, "&wA voice on $n's comlink says, '&COkay Officer, permission granted.&w'", 
+		act(AT_PLAIN, "&wA voice on $n's comlink says, '&COkay Officer, permission granted.&w'",
 			ch, NULL, NULL, TO_ROOM);
-		act(AT_PLAIN, "&wA voice on your comlink says, '&COkay Officer, permission granted.&w'", 
+		act(AT_PLAIN, "&wA voice on your comlink says, '&COkay Officer, permission granted.&w'",
 			ch, NULL, NULL, TO_CHAR);
-		
-		
-		
-		
+
+
+
+
     		   if (ship->hatchopen)
     		   {
     		     ship->hatchopen = FALSE;
@@ -8946,7 +8948,7 @@ void do_attend( CHAR_DATA *ch, char *argument)
 	act(AT_DGREEN, "$n tries to attend to your wounds but makes too many mistakes.", ch, NULL, victim, TO_VICT);
 	act(AT_DGREEN, "$n tries to attend to $N but seems to struggle and make mistakes.", ch, NULL, victim, TO_NOTVICT);
 	return;
-    } 
+    }
     lag = 20;
     if(ch->pcdata->learned[gsn_master_medic])
     {
@@ -8968,12 +8970,12 @@ void do_attend( CHAR_DATA *ch, char *argument)
     xpgain = xpgain/6;
     if(ch->skill_level[MEDIC_ABILITY] < 5)
 	xpgain += 50;
-   
+
     if(ch->skill_level[MEDIC_ABILITY] > 20)
             xpgain = 0;
     if(xpgain > 0)
     {
-	ch_printf( ch, "You gain %ld experience from your success!\r\n", xpgain);     
+	ch_printf( ch, "You gain %ld experience from your success!\r\n", xpgain);
         gain_exp(ch, xpgain, MEDIC_ABILITY);
     }
     return;
@@ -9046,7 +9048,7 @@ void do_bandage( CHAR_DATA *ch, char *argument)
 	act(AT_DGREEN, "$n tries to bandage to your wounds but makes too many mistakes.", ch, NULL, victim, TO_VICT);
 	act(AT_DGREEN, "$n tries to bandage to $N but seems to struggle and make mistakes.", ch, NULL, victim, TO_NOTVICT);
 	return;
-    } 
+    }
     lag = 20;
     if(ch->pcdata->learned[gsn_master_medic])
     {
@@ -9070,7 +9072,7 @@ void do_bandage( CHAR_DATA *ch, char *argument)
                 xpgain = 0;
     if(xpgain > 0)
     {
-	ch_printf( ch, "You gain %ld experience from your success!", xpgain);     
+	ch_printf( ch, "You gain %ld experience from your success!", xpgain);
         gain_exp(ch, xpgain, MEDIC_ABILITY);
     }
     learn_from_success(ch, gsn_bandage);
@@ -9092,7 +9094,7 @@ void do_heal(CHAR_DATA *ch, char *argument)
         switch( ch->substate )
         {
 		default:
-                
+
 
 			if(arg[0] == '\0')
 			{
@@ -9108,7 +9110,7 @@ void do_heal(CHAR_DATA *ch, char *argument)
 			{
 				send_to_char("You can't heal yourself!\r\n", ch);
 				return;
-			}	
+			}
 			if(victim->hit < 500)
 			{
 				send_to_char("They are far too injured to try to use heal on them!\r\n", ch);
@@ -9130,12 +9132,12 @@ void do_heal(CHAR_DATA *ch, char *argument)
         		        send_to_char( "You need to be holding a Medical Kit.\n\r",ch );
          			return;
 			}
-			
+
 			if(medpac->value[0] <= 0)
 			{
 				send_to_char("Your Medical Kit is empty!\r\n", ch);
 				return;
-			}			
+			}
 
 			time = 20;
 
@@ -9193,8 +9195,8 @@ void do_heal(CHAR_DATA *ch, char *argument)
         	act(AT_DGREEN, "$n tries to heal your wounds but makes too many mistakes.", ch, NULL, victim, TO_VICT);
         	act(AT_DGREEN, "$n tries to heal $N but seems to struggle and make miostakes.", ch, NULL, victim, TO_NOTVICT);
         	return;
-	}	
-	
+	}
+
 	act(AT_DGREEN, "You heal $N's wounds.", ch, NULL, victim, TO_CHAR);
         act(AT_DGREEN, "$n heals some of your wounds.", ch, NULL, victim, TO_VICT);
         act(AT_DGREEN, "$n heals $N's wounds.", ch, NULL, victim, TO_NOTVICT);
@@ -9243,7 +9245,7 @@ void do_afkmessage(CHAR_DATA *ch, char *argument)
 		send_to_char("Message must be atleast 5 characters long!\r\n", ch);
 		return;
 	}
-	
+
 	if ( isalpha(argument[0]) || isdigit(argument[0]) )
     	{
         	buf[0] = ' ';
@@ -9251,7 +9253,7 @@ void do_afkmessage(CHAR_DATA *ch, char *argument)
     	}
     	else
     	    strcpy( buf, argument );
-	
+
 	STRFREE(ch->pcdata->afkmessage);
 	ch->pcdata->afkmessage = STRALLOC( strip_color(buf) );
 	send_to_char("New AFK Message set!\r\n", ch);
@@ -9262,13 +9264,13 @@ void do_self_medicate( CHAR_DATA *ch, char *argument)
 {
 	int timer = 0;
 	OBJ_DATA   *medpac;
-	
+
 
 	switch( ch->substate)
 	{
 		default:
-		
-			
+
+
 			medpac = get_eq_char( ch, WEAR_HOLD );
    			if ( !medpac || medpac->item_type != ITEM_MEDPAC )
    			{
@@ -9284,7 +9286,7 @@ void do_self_medicate( CHAR_DATA *ch, char *argument)
    			{
    			      send_to_char( "Your Medical Kit seems to be empty.\n\r",ch );
          		      return;
-   			}		
+   			}
 			if(ch->hit > 970)
 			{
 				send_to_char("You are far to healthy to gain anything from this!\r\n", ch);
@@ -9315,14 +9317,14 @@ void do_self_medicate( CHAR_DATA *ch, char *argument)
      		        if((number_range(20,110) - get_curr_int(ch) - (ch->pcdata->learned[gsn_self_medicate]/2)) > 80)
         		{
                 		act(AT_DGREEN, "You gasp as you take a bad dosage of medicine", ch, NULL, NULL, TO_CHAR);
-                		act(AT_DGREEN, "$n gasps as $e took a bad dosage of medicine", ch, NULL, NULL, TO_ROOM);         
+                		act(AT_DGREEN, "$n gasps as $e took a bad dosage of medicine", ch, NULL, NULL, TO_ROOM);
                 		return;
         		}
 
-                       
+
 			if(ch->hit <= 970)
-				ch->hit += 30;			
-						
+				ch->hit += 30;
+
 			learn_from_success( ch, gsn_self_medicate);
 			long xpgain;
        			xpgain = UMIN( medpac->cost*200 ,( exp_level(ch->skill_level[MEDIC_ABILITY]+1) - exp_level(ch->skill_level[MEDIC_ABILITY]) ) );
@@ -9335,17 +9337,17 @@ void do_self_medicate( CHAR_DATA *ch, char *argument)
         		{
              			ch_printf( ch, "You gain %ld experience from your success!", xpgain);
              			gain_exp(ch, xpgain, MEDIC_ABILITY);
-        		}			
+        		}
 		return;
                 case SUB_TIMER_DO_ABORT:
-                       
+
                         ch->substate = SUB_NONE;
                         act(AT_DGREEN, "$n gets distracted and puts the medicine back.", ch, NULL, NULL, TO_ROOM);
                         act(AT_DGREEN, "You get distracted and put the medicine back.", ch, NULL, NULL, TO_CHAR);
-                    
+
                         return;
         }
-				
+
 }
 
 
@@ -9356,15 +9358,15 @@ void do_surgery(CHAR_DATA *ch, char *argument)
         OBJ_DATA   *medpac;
         CHAR_DATA *victim;
         char arg[MAX_INPUT_LENGTH];
-      
+
         strcpy( arg, argument );
 
         switch( ch->substate )
         {
                 default:
 
-                     
-				
+
+
                         if(arg[0] == '\0')
                         {
                                 send_to_char("&RSyntax: surgery (Target)\r\n",ch);
@@ -9412,7 +9414,7 @@ void do_surgery(CHAR_DATA *ch, char *argument)
                                 return;
                         }
 
-			if(medpac->value[0] <= 0)	
+			if(medpac->value[0] <= 0)
 			{
 				send_to_char("Your Medical Kit seems empty.\r\n", ch);
 				return;
@@ -9441,7 +9443,7 @@ void do_surgery(CHAR_DATA *ch, char *argument)
                 case SUB_TIMER_DO_ABORT:
                         DISPOSE( ch->dest_buf );
                         ch->substate = SUB_NONE;
-                       
+
                         act(AT_DGREEN, "You get distracted and stop trying to perform surgery.", ch, NULL, NULL, TO_CHAR);
                         act(AT_DGREEN, "$n gets distracted and stops trying to perform surgery.", ch, NULL, NULL, TO_ROOM);
                         return;
@@ -9477,8 +9479,8 @@ void do_surgery(CHAR_DATA *ch, char *argument)
 		update_pos(victim);
                 return;
         }
-        
-       
+
+
         act(AT_DGREEN, "Your surgery on $N's wounds was a success!", ch, NULL, victim, TO_CHAR);
         act(AT_DGREEN, "$n's surgery on you was a success!", ch, NULL, victim, TO_VICT);
         act(AT_DGREEN, "$n finishes surgery on $N's wounds.", ch, NULL, victim, TO_NOTVICT);
@@ -9515,7 +9517,7 @@ void do_treat(CHAR_DATA *ch, char *argument)
         OBJ_DATA   *medpac;
         CHAR_DATA *victim;
         char arg[MAX_INPUT_LENGTH];
-        
+
 
         strcpy( arg, argument );
 
@@ -9599,7 +9601,7 @@ void do_treat(CHAR_DATA *ch, char *argument)
                 case SUB_TIMER_DO_ABORT:
                         DISPOSE( ch->dest_buf );
                         ch->substate = SUB_NONE;
-                        
+
                         act(AT_DGREEN, "You get distracted and stop treating someone.", ch, NULL, NULL, TO_CHAR);
                         act(AT_DGREEN, "$n gets distracted and stops treating someone.", ch, NULL,NULL, TO_ROOM);
                         return;
@@ -9633,7 +9635,7 @@ void do_treat(CHAR_DATA *ch, char *argument)
                 act(AT_DGREEN, "$n tries to treat $N but seems to struggle and make mistakes.", ch, NULL, victim, TO_NOTVICT);
                 return;
         }
-       
+
         act(AT_DGREEN, "You treat $N's wounds!", ch, NULL, victim, TO_CHAR);
         act(AT_DGREEN, "$n treats you!", ch, NULL, victim, TO_VICT);
         act(AT_DGREEN, "$n finishes treating $N's wounds.", ch, NULL, victim, TO_NOTVICT);
@@ -9645,7 +9647,7 @@ void do_treat(CHAR_DATA *ch, char *argument)
         long xpgain;
         xpgain = UMIN( medpac->cost*200 ,( exp_level(ch->skill_level[MEDIC_ABILITY]+1) - exp_level(ch->skill_level[MEDIC_ABILITY]) ) );
 	xpgain += 200;
-        xpgain -= (exp_level(ch->skill_level[MEDIC_ABILITY])/100);	
+        xpgain -= (exp_level(ch->skill_level[MEDIC_ABILITY])/100);
 	xpgain = xpgain/8;
         if(ch->skill_level[MEDIC_ABILITY] > 150)
                 xpgain = 0;
@@ -9735,7 +9737,7 @@ void do_resuscitate( CHAR_DATA *ch, char *argument )
 
     ch->alignment = ch->alignment + 20;
     ch->alignment = URANGE( -1000, ch->alignment, 1000 );
-	
+
     medpac->value[0]--;
     percent = number_percent( ) - (get_curr_lck(ch) - 13);
     WAIT_STATE( ch, skill_table[gsn_resuscitate]->beats );
@@ -9767,13 +9769,13 @@ void do_group_heal(CHAR_DATA *ch, char *argument)
         int time, treat, group;
         OBJ_DATA   *medpac;
         CHAR_DATA *gch;
-      
+
 
         switch( ch->substate )
         {
                 default:
 
-                   
+
 
                         medpac = get_eq_char( ch, WEAR_HOLD );
                         if ( !medpac || medpac->item_type != ITEM_MEDPAC )
@@ -9795,7 +9797,7 @@ void do_group_heal(CHAR_DATA *ch, char *argument)
 					group++;
 				}
 			}
-		
+
 			if(group < 1)
 			{
 				send_to_char("You need to be in a group full of injured people first!\r\n", ch);
@@ -9806,7 +9808,7 @@ void do_group_heal(CHAR_DATA *ch, char *argument)
 				send_to_char("You Medical Kit doesn't have enough uses for your group!\r\n", ch);
 				return;
 			}
-			time = group * 4;			
+			time = group * 4;
 
                         if(ch->pcdata->learned[gsn_master_medic])
 			{
@@ -9816,7 +9818,7 @@ void do_group_heal(CHAR_DATA *ch, char *argument)
 
                         act(AT_DGREEN, "$n begins to run around healing $s group.", ch, NULL, NULL, TO_ROOM);
                         act(AT_DGREEN, "You begin to run around healing your group", ch, NULL, NULL, TO_CHAR);
-                       
+
                         add_timer ( ch, TIMER_DO_FUN, time, do_group_heal, 1);
                         return;
                 case 1:
@@ -9826,7 +9828,7 @@ void do_group_heal(CHAR_DATA *ch, char *argument)
                         ch->substate = SUB_NONE;
                         act(AT_DGREEN, "$n gets distracted and stops healing his group.", ch, NULL, NULL, TO_ROOM);
                         act(AT_DGREEN, "You get distracted and stop healing your group.", ch, NULL, NULL, TO_CHAR);
-                       
+
                         return;
         }
         ch->substate = SUB_NONE;
@@ -9878,13 +9880,13 @@ void do_group_heal(CHAR_DATA *ch, char *argument)
                 	gch->hit = gch->max_hit;
 	    }
 	}
-		
+
         if(group < 2)
 	{
 		send_to_char("&RYour group is not here!\r\n", ch);
 		return;
 	}
- 
+
         act(AT_DGREEN, "You finish healing your group!", ch, NULL, NULL, TO_CHAR);
         act(AT_DGREEN, "$n finishes healing $s group!", ch, NULL, NULL, TO_ROOM);
         learn_from_success(ch, gsn_group_heal);
@@ -9893,7 +9895,7 @@ void do_group_heal(CHAR_DATA *ch, char *argument)
 	xpgain += 300;
         xpgain -= (exp_level(ch->skill_level[MEDIC_ABILITY])/100);
 	xpgain = xpgain/8;
-             
+
         if(xpgain > 0)
         {
              ch_printf( ch, "You gain %ld experience from your success!", xpgain);
@@ -9917,7 +9919,7 @@ void do_bootup ( CHAR_DATA *ch, char *argument )
 	    count++;
 
 	    if (obj->value[2] == 0 || obj->value[2] > 1)
-	    { 
+	    {
 	      act( AT_RED, "$n flips the switch on their computer, and the screen lights up.", ch, NULL, NULL, TO_ROOM);
 	      act( AT_RED, "You flip the on switch on your computer.", ch, NULL, NULL, TO_CHAR );
 	      act( AT_RED, "The bios detects the hardware and the unix environment starts.", ch, NULL, NULL, TO_CHAR);
@@ -9940,7 +9942,7 @@ void do_bootup ( CHAR_DATA *ch, char *argument )
 	     act( AT_RED, "Your computer is already on!", ch, NULL, NULL, TO_CHAR);
 	     return;
 	     }
-	   
+
 	}
 }
 
@@ -10018,7 +10020,7 @@ void do_deceive(CHAR_DATA *ch, char *argument)
 		send_to_char("They are not here.\r\n", ch);
 		return;
 	}
-	
+
 	if((victim = get_char_world(ch, arg2)) == NULL)
 	{
 		send_to_char("That victim is not on right now.\r\n", ch);
@@ -10036,13 +10038,13 @@ void do_deceive(CHAR_DATA *ch, char *argument)
 		send_to_char("The Target must be an NPC!\r\n", ch);
 		return;
 	}
-	
+
 	if(target->frustrated_by && target->frustrated_by == ch)
 	{
 		do_say(target, "Don't even try me, I am not in the mood.");
 		return;
 	}
- 
+
 	if(target->frustration > 100)
 	{
 		send_to_char("They can not get any more frustrated!\r\n", ch);
@@ -10060,7 +10062,7 @@ void do_deceive(CHAR_DATA *ch, char *argument)
 		ch_printf(ch, "%s is already frustrated by someone and needs to calm down first.\r\n", target->name);
 		return;
 	}
-	
+
 	switch(number_range(0,3))
 	{
 		case 3:
@@ -10089,14 +10091,14 @@ void do_deceive(CHAR_DATA *ch, char *argument)
 		target->frustration += number_range(1,6);
 		return;
 	}
-		
-	do_say(target, "Ugh, that idiot!");		
+
+	do_say(target, "Ugh, that idiot!");
 
 	target->frustrated_by = victim;
 	target->frustration += number_range(0,5);
 	learn_from_success(ch, gsn_deceive);
 }
-	
+
 void do_calm(CHAR_DATA *ch, char *argument)
 {
 	CHAR_DATA *victim;
@@ -10145,7 +10147,7 @@ void do_calm(CHAR_DATA *ch, char *argument)
 		ch_printf(ch, "%s is already calm!\r\n", victim->name);
 		return;
 	}
-	
+
 	act(AT_PLAIN, "You try to calm down $N.", ch, NULL, victim, TO_CHAR);
 	act(AT_PLAIN, "$n tries to calm down $N.", ch, NULL, victim, TO_NOTVICT);
 	act(AT_PLAIN, "$n tries to calm down you.", ch, NULL, victim, TO_VICT);
@@ -10161,9 +10163,9 @@ void do_calm(CHAR_DATA *ch, char *argument)
 		victim->frustration += number_range(0,6);
 		return;
 	}
-		
-	do_say(victim, "Thanks, that helped me a little bit.");		
-	send_to_char("You are successful!\r\n", ch);	
+
+	do_say(victim, "Thanks, that helped me a little bit.");
+	send_to_char("You are successful!\r\n", ch);
 	victim->frustration -= number_range(0,5);
 	if(is_hating(ch, victim))
 	{
@@ -10221,13 +10223,13 @@ void do_appeal(CHAR_DATA *ch, char *argument)
 		send_to_char("The Target must be an NPC!\r\n", ch);
 		return;
 	}
-	
+
 	if(victim->frustrated_by && victim->frustrated_by == ch && number_range(0,3) < 3)
 	{
 		do_say(victim, "Don't even try me, I am not in the mood.");
 		return;
 	}
-	
+
 	clan = get_clan(arg2);
 
 	if(!clan)
@@ -10235,7 +10237,7 @@ void do_appeal(CHAR_DATA *ch, char *argument)
 		send_to_char("That isn't a real clan!\r\n", ch);
 		return;
 	}
-	
+
 	if(clan->clan_type == 1)
 	{
 		send_to_char("You can not donate money to autonomous groups!\r\n", ch);
@@ -10250,7 +10252,7 @@ void do_appeal(CHAR_DATA *ch, char *argument)
 		victim->frustration += number_range(0,6);
 		return;
 	}
-	
+
 	if(victim->gold < 5)
 	{
 		do_say(victim, "Sorry, I have no wulongs to spare.");
@@ -10275,7 +10277,7 @@ void do_support(CHAR_DATA *ch, char *argument)
 
 	if(IS_NPC(ch))
 		return;
-	
+
 	if(argument[0] == '\0')
 	{
 		send_to_char("&RSyntax: Support (Target)\r\n",ch);
@@ -10287,7 +10289,7 @@ void do_support(CHAR_DATA *ch, char *argument)
 		send_to_char("You need to be fighting first!\r\n", ch);
 		return;
 	}
-	
+
 	attacker = who_fighting( ch );
 	if(!attacker)
 	{
@@ -10312,18 +10314,18 @@ void do_support(CHAR_DATA *ch, char *argument)
 		send_to_char("They are in no position to fight!\r\n", ch);
 		return;
 	}
-	
+
 	if(is_hating(ch, victim) || is_hunting(ch, victim))
 	{
 		send_to_char("They can't help you!\r\n", ch);
 		return;
 	}
-	
-	
+
+
 	act(AT_PLAIN, "You ask $N for help!", ch, NULL, victim, TO_CHAR);
 	act(AT_PLAIN, "$n askes you for help!", ch, NULL, victim, TO_VICT);
-	act(AT_PLAIN, "$n askes $N for help!", ch, NULL, victim, TO_NOTVICT);		
-	WAIT_STATE(ch, 10);	
+	act(AT_PLAIN, "$n askes $N for help!", ch, NULL, victim, TO_NOTVICT);
+	WAIT_STATE(ch, 10);
 
 	if(victim->frustrated_by == ch)
 	{
@@ -10355,7 +10357,7 @@ void do_support(CHAR_DATA *ch, char *argument)
 
 	return;
 }
-		
+
 void do_plead(CHAR_DATA *ch, char *argument)
 {
 	CHAR_DATA *victim;
@@ -10377,7 +10379,7 @@ void do_plead(CHAR_DATA *ch, char *argument)
 		send_to_char("You can only target NPCs!\r\n", ch);
 		return;
 	}
-	
+
 	send_to_char("You attempt to plead for your life!\r\n", ch);
 	do_say(ch, "Please, let me live!");
 
@@ -10417,7 +10419,7 @@ void do_plead(CHAR_DATA *ch, char *argument)
 
 	learn_from_success(ch, gsn_plead);
 
-	stop_fighting(victim, FALSE); 
+	stop_fighting(victim, FALSE);
 	stop_hating(victim);
 	stop_hunting(victim);
 
@@ -10489,7 +10491,7 @@ void do_lobby ( CHAR_DATA *ch , char *argument )
         send_to_char( "Diplomacy would be wasted on them.\n\r" , ch );
         return;
     }
-   
+
     if( victim->frustration > 0)
     {
 	do_say(victim, "I am far too frustrated to talk about politics!");
@@ -10527,7 +10529,7 @@ void do_lobby ( CHAR_DATA *ch , char *argument )
 	send_to_char("That clan can not be used! They own the planet!\r\n", ch);
 	return;
     }
-	
+
     ch->chatrain++;
 
     ch_printf(ch, "You lobby about %s.", clan->name);
@@ -10574,7 +10576,7 @@ void do_lobby ( CHAR_DATA *ch , char *argument )
 	planet->frust_level += .1 + ch->top_level/50;
 	ch_printf(ch, "The people of %s grow frustrated at %s!", planet->name, clan->name);
     }
-	
+
     if(planet->frust_level > 100)
 	planet->frust_level = 100;
 
@@ -10583,3 +10585,101 @@ void do_lobby ( CHAR_DATA *ch , char *argument )
     learn_from_success( ch, gsn_lobby );
 }
 
+/*void do_quickdraw( CHAR_DATA *ch, char *argument ) /* mostly copy/pasted from backstab - Funf */
+/*{
+    char arg[MAX_INPUT_LENGTH];
+    CHAR_DATA *victim;
+    OBJ_DATA *obj;
+    int percent;
+
+	if (ch->focus == "none" || ch->focus == NULL)
+	{
+		send_to_char( "You must focus on an opponent before killing.\n\r", ch );
+		return;
+	}
+	else
+	{
+		argument = ch->focus;
+	}
+
+	one_argument( argument, arg );
+
+    	if ( ( victim = get_char_room( ch, arg ) ) == NULL )
+    	{
+		send_to_char( "They aren't here.\n\r", ch );
+		return;
+    	}
+
+        if ( IS_NPC(victim) && IS_SET( victim->act, ACT_PACIFIST))
+	{
+		send_to_char("&BYou can't draw on a pacifist, you monster!\n\r" ,ch);
+		return;
+	}
+
+	if( victim == ch)
+	{
+		send_to_char("&RHow could you do that?\n\r" ,ch);
+		return;
+	}
+
+	if( IS_SET( victim->in_room->room_flags, ROOM_PLR_HOME) )
+	{
+		send_to_char("&RYou can't do that here!\n\r" ,ch);
+		return;
+	}
+
+    	if ( is_safe( ch, victim ) && victim->perm_frc == 0 )
+      		return;
+
+		/* Can dual wield for quickdraw - Funf
+   		if ( get_eq_char( ch, WEAR_DUAL_WIELD ) != NULL )
+   		{
+         	send_to_char( "You can't do that while wielding two weapons.\n\r",ch );
+         	return;
+  	 	}*//*
+
+    	/* Added stabbing weapon. -Narn *//*
+    	if ( ( obj = get_eq_char( ch, WEAR_WIELD ) ) == NULL || ( obj->value[3] != WEAPON_PISTOL ) )
+    	{
+			send_to_char( "You need to wield a pistol.\n\r", ch );
+			return;
+    	}
+
+    	if ( ( obj = get_eq_char( ch, WEAR_DUAL_WIELD ) ) != NULL && ( obj->value[3] != WEAPON_PISTOL ) )
+		{
+			send_to_char( "You need to dual wield a pistol or nothing.\n\r", ch );
+			return;
+    	}
+
+    	if ( victim->fighting )
+    	{
+		send_to_char( "You can't draw on someone who is in combat.\n\r", ch );
+		return;
+    	}
+
+    	/* Can backstab a char even if it's hurt as long as it's sleeping. -Narn *//*
+    	if ( victim->hit < victim->max_hit && IS_AWAKE( victim ) )
+    	{
+    		act( AT_PLAIN, "$N is hurt and suspicious ... you can't surprise them.",
+	    	ch, NULL, victim, TO_CHAR );
+			return;
+    	}
+
+    	percent = number_percent( ) - (get_curr_dex(ch) - 14) + (get_curr_dex(victim) - 13);
+
+    WAIT_STATE( ch, skill_table[gsn_quickdraw]->beats );
+    if ( !IS_AWAKE(victim)
+    ||   IS_NPC(ch)
+    ||   percent < ch->pcdata->learned[gsn_quickdraw] )
+    {
+	learn_from_success( ch, gsn_backstab );
+	global_retcode = multi_hit( ch, victim, gsn_quickdraw );
+
+    }
+    else
+    {
+	learn_from_failure( ch, gsn_backstab );
+	global_retcode = damage( ch, victim, 0, gsn_quickdraw );
+    }
+    return;
+}*/

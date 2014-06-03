@@ -1,0 +1,692 @@
+#AREA   {PROTO} Rena's area in progress~
+
+
+
+#AUTHOR Rena~
+
+#RANGES
+0 0 0 0 0 0 0 0
+$
+
+#FLAGS
+0
+
+#ECONOMY 0 0
+
+#MOBILES
+#1100
+spacesaver~
+a newly created spacesaver~
+Some god abandoned a newly created spacesaver here.
+~
+~
+1073741825 0 0 Z
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+#1110
+Large scared wolfman~
+a newly created Large scared wolfman~
+Some god abandoned a newly created Large scared wolfman here.
+~
+~
+67 0 0 Z
+30 0 25 6d10+300 3d4+2
+0 0
+8 8 2
+15 10 10 15 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+6 6 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+#1111
+Large Wolfman~
+A Large Wolfman~
+A Large Wolfman Stands Here Towering In Thick Armor.
+~
+This towering man has features similar to a wolf, sharp teeth and a animal
+like look in his eyes.
+~
+67 0 0 Z
+30 0 100 6d10+300 3d4+2
+0 0
+8 8 1
+15 10 10 10 15 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+6 6 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+#1198
+Guardian Wolf man~
+Guardian Wolf~
+Guardian Wolf
+~
+A large guardian wolf stands here. Protecting His master rena. 
+~
+34819 0 0 Z
+90 0 -125 18d10+900 9d4+2
+0 0
+8 8 1
+25 10 10 25 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+18 18 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+#1199
+spacesaver~
+a newly created spacesaver~
+Some god abandoned a newly created spacesaver here.
+~
+~
+1073741825 0 0 Z
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+#0
+
+
+#OBJECTS
+#1100
+spacesaver~
+a spacesaver~
+A spacesaver is here.~
+~
+13 1073741824 0
+0 0 0 0
+1 0 0
+#1199
+spacesaver~
+a spacesaver~
+A spacesaver is here.~
+~
+13 1073741824 0
+0 0 0 0
+1 0 0
+#0
+
+
+#ROOMS
+#1100
+spacesaver~
+~
+0 1073741824 1 0
+D2
+~
+~
+0 -1 1199
+S
+#1101
+Arched Steel Bridge~
+The bridge is covered in ice what used to be mold apperes to have tried to
+grow upon it. but froze over long before it could. The gale force winds
+are alot stronger blowing the snow off the bridge over a large snowy
+cliff. The large ice covered castle looming in the distance is even more
+imposing now. The settlement between it and the bridge looks completly.
+Deserted 
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 1104
+D3
+~
+~
+0 -1 1102
+S
+#1102
+In Sight of a Settlement~
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 1101
+D3
+~
+~
+0 -1 1103
+S
+#1103
+Settlement Entrance~
+As the large gate shadow dies away against the cold harsh ground. An
+unforgiving sight of a monsterous castle lieing in the background Its
+shadow thrown far across the land. To the north and west are long Icy
+roads that seem to go on forever. But to the east lies the iced over draw
+bridge and to the west...Something sound's like its growling.
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 1106
+D1
+~
+~
+0 -1 1102
+D2
+~
+~
+0 -1 1107
+D3
+~
+~
+0 -1 1112
+S
+#1104
+Snow Covered Trail~
+The pathway to the spaceport is covered in ice and snow about 10 inches
+Harsh gale force winds nearly blow the snow into the air and off the side
+of what looks to be a massive cliff. the wind whips around anyone who
+walks along this path as a large eerie frozen over castle comes into view
+a stone bridge lying directly to the south
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 1105
+D2
+~
+~
+0 -1 1101
+S
+#1105
+Ice Covered Landing Pad: Fenris~
+The landing pad on this planet is covered in solid ice. Ships struggle to
+get traction when they land hear as the cold high force wends tend to blow
+them off course Strange looking men and women run around her there eyes
+darting from ship to ship. As a few enginers run over to one that has
+managed to. Undenibly Hit the wall. a deep mist rolls along the floor
+~
+0 1073741840 1 0
+D2
+~
+~
+0 -1 1104
+S
+#1106
+Ice Paved Trail~
+The path on this road is slick and icy as if no one has tuched it in years.
+The buildings around the path look twisted distorted and destroyed. the
+wind whipping around violently and the buildings offering little to no
+protection against it. Some undestroyed building lie in the distance too
+the north. To the south lies the entrance a few more ice paths
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 1109
+D2
+~
+~
+0 -1 1103
+S
+#1107
+Snowy Trail~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 1103
+D2
+~
+~
+0 -1 1108
+S
+#1108
+Snowy Trail~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 1107
+S
+#1109
+Marketplace~
+~
+0 1073741824 1 0
+D2
+~
+~
+0 -1 1106
+D3
+~
+~
+1 -1 1110
+D7
+~
+~
+3 -1 1111
+S
+#1110
+Snow Covered Building~
+The door to this building stands ajar yet the inside is a clean eighty
+degree's. Tall racks holding mostly swords rest off to the sides of the
+shop. Though a few guns rest with them there aren't very meny. Ammo box's
+lay rusted off to the side worthless.A large oak counter sits off to the
+cornor a strange looking woman standing behind it. What seems to be a
+snarl plastered onto her face.
+~
+0 1073741832 1 0
+D1
+~
+~
+1 -1 1109
+S
+#1111
+Ice covered building~
+~
+0 1073741824 1 0
+D8
+~
+~
+3 -1 1109
+S
+#1112
+In Sight of Ice Castle: Ikaden~
+The shadow of the castle here plunges this streat into darkness The ice
+here is far diffrent from else where as it is stained with blood. Claw
+marks run along the buildings and the ice too indicate that something like
+wolves have killed and devoured any one that travles around this place.
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 1103
+D3
+~
+~
+0 -1 1113
+S
+#1113
+Damaged Ice Archway~
+The claw marks are much larger here cracks in the ice from where someone or
+something has litrly  plowed threw an ice arch way going down to the south
+the wind blows harshly a stair of snow covered steps can be seen to the
+west lies that large castle boading ominously against the light that the
+blotched out sun of the planet is giving it.
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 1112
+D2
+~
+~
+0 -1 1114
+D3
+~
+~
+0 -1 1117
+D5
+~
+~
+0 -1 1116
+S
+#1114
+Pathway~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 1113
+D2
+~
+~
+0 -1 1115
+S
+#1115
+Settlement~
+This large lot is full of snow and ice covered homes. To all directions but
+north and south all the eye can see is homes. To the south lie...well more
+houses. To the north lie the stairs leading down. Threw a crack inbetween
+the building people can see the large frozen moat around the castle.
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 1114
+D1
+~
+~
+0 -1 1121
+D3
+~
+~
+0 -1 1120
+D6
+~
+~
+0 -1 1119
+D7
+~
+~
+0 -1 1118
+S
+#1116
+Construction room~
+~
+0 1140850700 1 0
+D4
+~
+~
+0 -1 1113
+S
+#1117
+Drawbridge To The Frozen Castle: Ikaden~
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 1113
+D3
+~
+~
+0 -1 1122
+S
+#1118
+Abandoned Home~
+~
+0 1075838980 1 0
+D8
+~
+~
+0 -1 1115
+S
+#1119
+Abandoned Home~
+~
+0 1075838980 1 0
+D9
+~
+~
+0 -1 1115
+S
+#1120
+Abandoned Home~
+~
+0 1075838976 1 0
+D1
+~
+~
+0 -1 1115
+S
+#1121
+Abandoned Home~
+~
+0 1075838976 1 0
+D3
+~
+~
+0 -1 1115
+S
+#1122
+A Dark and Fobedoding Corridor~
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 1117
+D3
+~
+~
+0 -1 1123
+S
+#1123
+A Dark and Fobedoding Corridor~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 1124
+D1
+~
+~
+0 -1 1122
+S
+#1124
+Large Circular Room~
+~
+0 1073741824 1 0
+D2
+~
+~
+0 -1 1123
+D4
+~
+~
+0 -1 1125
+D7
+~
+~
+0 -1 1127
+S
+#1125
+Stairway~
+~
+0 1073741824 1 0
+D4
+~
+~
+0 -1 1126
+D5
+~
+~
+0 -1 1124
+S
+#1126
+High Tower Overlooking the Snow Cliffs~
+~
+0 1073741824 1 0
+D5
+~
+~
+0 -1 1125
+S
+#1127
+Damaged Corridor~
+~
+0 1073741824 1 0
+D7
+~
+~
+0 -1 1128
+D8
+~
+~
+0 -1 1124
+S
+#1128
+Large Blackmarble Stairway~
+~
+0 1073741824 1 0
+D4
+~
+~
+0 -1 1129
+D8
+~
+~
+0 -1 1127
+S
+#1129
+Large Blackmarble Stairway~
+~
+0 1073741824 1 0
+D4
+~
+~
+0 -1 1130
+D5
+~
+~
+0 -1 1128
+S
+#1130
+Hallway of Ikaden~
+~
+0 1073741824 1 0
+D2
+~
+~
+0 -1 1131
+D5
+~
+~
+0 -1 1129
+S
+#1131
+Hallway of Ikaden~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 1130
+D3
+~
+~
+0 -1 1132
+S
+#1132
+Hallway of Ikaden~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 1135
+D1
+~
+~
+0 -1 1131
+D8
+~
+~
+0 -1 1134
+D9
+~
+~
+0 -1 1133
+S
+#1133
+Barracks~
+~
+0 1073741824 1 0
+D6
+~
+~
+0 -1 1132
+S
+#1134
+Training Room~
+~
+0 1073741828 1 1
+D7
+~
+~
+0 -1 1132
+S
+#1135
+Huge Blackmarble Staircase~
+~
+0 1073741824 1 0
+D2
+~
+~
+0 -1 1132
+D4
+~
+~
+0 -1 1136
+S
+#1136
+Huge Blackmarble Staircase~
+~
+0 1073741824 1 0
+D4
+~
+~
+0 -1 1137
+D5
+~
+~
+0 -1 1135
+S
+#1137
+Halls of Balder~
+~
+0 1073741824 1 0
+D5
+~
+~
+0 -1 1136
+S
+#1198
+Large white room~
+This large white room is well quite large. Quite a few things lie around
+Unatteneded by the owner. Whoever that may be A beautiful mohogony desk
+sits in what appers to be the cornor of the room with a large leather
+chair behind it. Across from the desk is a simple school style chair. A
+soft and tv rest off to another side of the room  seemingly unused. A deep
+white mist rolls along the bottom of the room covering peoples feet. Yet
+the air is warm and smooth.  a large brace plate sits upon the mohogony
+desk. Simply reading "Rena Dyne"
+~
+0 1073741828 1 0
+S
+#1199
+spacesaver~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 1100
+S
+#0
+
+
+#RESETS
+M 1 1100 1 1199
+M 1 1199 1 1199
+M 0 1110 1 1110
+M 0 1111 1 1111
+M 0 1198 5 1198
+S
+
+
+#SHOPS
+0
+
+
+#REPAIRS
+0
+
+
+#SPECIALS
+S
+
+
+#$

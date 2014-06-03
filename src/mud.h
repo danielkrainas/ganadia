@@ -113,6 +113,7 @@ typedef struct  space_data              SPACE_DATA;
 typedef	struct	clan_data		CLAN_DATA;
 typedef	struct	senate_data		SENATE_DATA;
 typedef struct  ship_data               SHIP_DATA;
+typedef struct  ship_weapon_data	SHIP_WEAPON_DATA;
 typedef struct  missile_data            MISSILE_DATA;
 typedef struct  tourney_data            TOURNEY_DATA;
 typedef struct	mob_prog_data		MPROG_DATA;
@@ -202,6 +203,8 @@ typedef ch_ret	SPELL_FUN	args( ( int sn, int level, CHAR_DATA *ch, void *vo ) );
 #define MAX_EXP_WORTH	       500000
 #define MIN_EXP_WORTH		   25
 
+
+
 #define MAX_REXITS		   20	/* Maximum exits allowed in 1 room */
 #define MAX_SKILL		  276
 #define MAX_ABILITY		   10
@@ -213,8 +216,11 @@ typedef ch_ret	SPELL_FUN	args( ( int sn, int level, CHAR_DATA *ch, void *vo ) );
 #define MAX_SHIP                 1000
 #define MAX_BOUNTY                255
 #define MAX_GOV                   255
+#define MAX_SW_TYPES		    3   
+#define MAX_HULL_TYPES		3
 
 #define	MAX_HERB		   20
+#define MAX_BANK           2000000000 /*  Bank - Funf */
 
 #define LEVEL_HERO		   (MAX_LEVEL - 15)
 #define LEVEL_IMMORTAL		   (MAX_LEVEL - 14)
@@ -243,6 +249,7 @@ typedef ch_ret	SPELL_FUN	args( ( int sn, int level, CHAR_DATA *ch, void *vo ) );
 
 #define PULSE_PER_SECOND	    4
 #define PULSE_MINUTE              ( 60 * PULSE_PER_SECOND)
+#define PULSE_SWEAPON		  ( 4 * PULSE_PER_SECOND )
 #define PULSE_VIOLENCE		  (  3 * PULSE_PER_SECOND)
 #define PULSE_MOBILE		  (  4 * PULSE_PER_SECOND)
 #define PULSE_TICK		  ( 70 * PULSE_PER_SECOND)
@@ -254,6 +261,8 @@ typedef ch_ret	SPELL_FUN	args( ( int sn, int level, CHAR_DATA *ch, void *vo ) );
 #define PULSE_SUPPORT		  ( 15  * PULSE_MINUTE )
 #define PULSE_CITIZEN		  ( 20 *  PULSE_MINUTE )
 #define PULSE_POLICE		  ( 21  *  PULSE_MINUTE )
+
+
 // Lower is just a test rate, if Big Shot needs to be test - Gatz
 // #define PULSE_BIGSHOT                  ( PULSE_MINUTE )
 /*
@@ -383,7 +392,7 @@ typedef enum
 {
   CON_PLAYING = 0,	CON_GET_NAME = -100,    CON_GET_OLD_PASSWORD,
   CON_CONFIRM_NEW_NAME,	CON_GET_NEW_PASSWORD,	CON_CONFIRM_NEW_PASSWORD,
-  CON_GET_NEW_SEX,		CON_READ_MOTD,	
+  CON_GET_NEW_SEX,		CON_READ_MOTD,
   CON_GET_NEW_RACE,		CON_GET_EMULATION,	CON_EDITING,
   CON_GET_WANT_RIPANSI,	CON_TITLE,		CON_PRESS_ENTER,
   CON_WAIT_1,			CON_WAIT_2,				CON_WAIT_3,
@@ -741,7 +750,7 @@ struct mpsleep_data
 {
     MPSLEEP_DATA * next;
     MPSLEEP_DATA * prev;
- 
+
     int timer; /* Pulses to sleep */
     mp_types type; /* Mob, Room or Obj prog */
     ROOM_INDEX_DATA*room; /*Room when type is MP_ROOM */
@@ -750,7 +759,7 @@ struct mpsleep_data
     int ignorelevel;
     int iflevel;
     bool ifstate[MAX_IFS] [DO_ELSE];
-    
+
     /* mprog driver arguments */
     char * com_list;
     CHAR_DATA * mob;
@@ -980,6 +989,37 @@ struct	clan_data
     sh_int	warlostcount;
 };
 
+struct ship_weapon_data
+{
+	SHIP_WEAPON_DATA *next;
+	SHIP_WEAPON_DATA *prev;
+	SHIP_WEAPON_DATA *next_in_ship;
+	SHIP_WEAPON_DATA *prev_in_ship;
+	char *name;
+	char *desc;
+	char *action;
+	char *act_all;
+	char *act_target;
+	char *act_self;
+	int vnum;
+	bool in_use;
+	bool broken;
+	sh_int type;
+	int ammo;
+	int range;
+	int maxammo;
+	sh_int burst;
+	int maxdamage;
+	int mindamage;
+	int heat;
+	int maxheat;
+	sh_int drain;
+	sh_int cooling;
+	int spread;
+	int req_slots;
+	int req_weight;
+};
+
 struct ship_data
 {
     SHIP_DATA * next;
@@ -990,6 +1030,10 @@ struct ship_data
     SHIP_DATA * prev_in_room;
     ROOM_INDEX_DATA *in_room;
     SPACE_DATA * starsystem;
+    SHIP_WEAPON_DATA *first_weapon;
+    SHIP_WEAPON_DATA *last_weapon;
+    OBJ_DATA *	first_cargo;
+    OBJ_DATA *	last_cargo;
     char *      filename;
     char *      name;
     char *      home;
@@ -1000,6 +1044,11 @@ struct ship_data
     char *      dest;
     sh_int      type;
     sh_int      class;
+    sh_int		hull_type;
+    sh_int		maxweight;
+    sh_int		weight;
+    sh_int		slots;
+    sh_int		maxslots;
     sh_int      comm;
     sh_int      sensor;
     sh_int      astro_array;
@@ -1027,11 +1076,14 @@ struct ship_data
     bool 		autorecharge;
     bool        autotrack;
     bool 		autospeed;
+    bool	stealth;
     float       vx, vy, vz;
     float       hx, hy, hz;
     float       jx, jy, jz;
     float       cx, cy, cz;
     float       ox, oy, oz;
+    int			maxpower;
+    int			power;
     int         maxenergy;
     int         energy;
     int         shield;
@@ -1644,7 +1696,7 @@ typedef enum
   ITEM_BATTERY, ITEM_TOOLKIT, ITEM_DURASTEEL, ITEM_OVEN, ITEM_MIRROR,
   ITEM_CIRCUIT, ITEM_SUPERCONDUCTOR, ITEM_COMLINK, ITEM_MEDPAC, ITEM_FABRIC,
   ITEM_RARE_METAL, ITEM_MAGNET, ITEM_THREAD, ITEM_SPICE, ITEM_SMUT, ITEM_DEVICE, ITEM_SPACECRAFT,
-  ITEM_GRENADE, ITEM_LANDMINE, ITEM_GOVERNMENT, ITEM_DROID_CORPSE,    
+  ITEM_GRENADE, ITEM_LANDMINE, ITEM_GOVERNMENT, ITEM_DROID_CORPSE,
   ITEM_BOLT, ITEM_CHEMICAL, ITEM_APPLICATOR, ITEM_COMPUTER, ITEM_MONITOR,
   ITEM_CASE, ITEM_HARDDRIVE, ITEM_MOTHERBOARD
 } item_types;
@@ -1887,6 +1939,7 @@ typedef enum
 #define ROOM_LIGHT		BV04
 #define ROOM_COMPUTER		BV05
 #define ROOM_YOGA		BV06
+#define ROOM_VISITORS		BV07
 
 /*
  * Directions.
@@ -1956,7 +2009,7 @@ typedef enum
   WEAR_NECK_2, WEAR_BODY, WEAR_HEAD, WEAR_LEGS, WEAR_FEET, WEAR_HANDS,
   WEAR_ARMS, WEAR_SHIELD, WEAR_ABOUT, WEAR_WAIST, WEAR_WRIST_L, WEAR_WRIST_R,
   WEAR_WIELD, WEAR_HOLD, WEAR_DUAL_WIELD, WEAR_EARS, WEAR_EYES,
-  WEAR_MISSILE_WIELD, WEAR_ANKLE_L, WEAR_ANKLE_R, WEAR_BACK, WEAR_FACE,   
+  WEAR_MISSILE_WIELD, WEAR_ANKLE_L, WEAR_ANKLE_R, WEAR_BACK, WEAR_FACE,
   WEAR_HIP,  MAX_WEAR
 } wear_locations;
 
@@ -2033,7 +2086,7 @@ typedef enum
 #define PCFLAG_R1               BV00
 /*
 #define PCFLAG_		        BV01
-*/ 
+*/
 #define PCFLAG_UNAUTHED	  	BV02
 #define PCFLAG_NORECALL         BV03
 #define PCFLAG_NOINTRO          BV04
@@ -2375,7 +2428,7 @@ struct	char_data
     sh_int		stimer;
     sh_int		frustration;	/* This is for mobiles ONLY! */
     CHAR_DATA *		frustrated_by;	/* This is for mobiles ONLY! */
-   
+
 };
 
 
@@ -2438,7 +2491,7 @@ struct	pc_data
     sh_int         		addiction[10];
     sh_int         		drug_level[10];
     int            		wanted_flags;
-    long				bank;
+    unsigned long		bank;       /* unsigned bank to double size - Funf */
     int					hair;
     int					eye;
     bool				isDisguised;
@@ -2450,8 +2503,8 @@ struct	pc_data
     time_t				unsilence_date;
     char *				silenceed_by;
     IGNORE_DATA	*			first_ignored; 	/* keep track of who to ignore */
-    IGNORE_DATA	*			last_ignored;   
-    sh_int				bountyrelease; /* Release time for jails */ 
+    IGNORE_DATA	*			last_ignored;
+    sh_int				bountyrelease; /* Release time for jails */
     sh_int				weaponl;
     sh_int				arrestcount;
     sh_int				hackcount;
@@ -2898,7 +2951,7 @@ extern sh_int   gsn_weaponsystems;
 extern sh_int   gsn_navigation;
 extern sh_int   gsn_jumpvector;
 extern sh_int   gsn_shipsystems;
-extern sh_int   gsn_tractorbeams;
+extern sh_int   gsn_tractorbeam;
 extern sh_int   gsn_shipmaintenance;
 extern sh_int   gsn_spacecombat;
 extern sh_int   gsn_spacecombat2;
@@ -3074,6 +3127,7 @@ extern  sh_int			gsn_deceive;
 extern  sh_int			gsn_appeal;
 extern  sh_int			gsn_negotiate;
 extern	sh_int			gsn_plead;
+/* extern  sh_int			gsn_quickdraw; */
 
 /*
  * Utility macros.
@@ -3479,6 +3533,7 @@ do								\
 			      && ch->pcdata->auth_state == 1		     \
 			      && IS_SET(ch->pcdata->flags, PCFLAG_UNAUTHED) )
 
+#define HAS_ADREN(ch) ( (ch)->perm_frc == 0 ? false : true ) /* - Funf */
 /*
  * Object macros.
  */
@@ -3493,7 +3548,7 @@ do								\
 #define PERS(ch, looker) ( can_see( looker,(ch) )?             \
                          ( IS_NPC(ch) ? (ch)->short_descr        \
                          : (ch)->name ) : IS_IMMORTAL(ch) ?      \
-                         "An Immortal" :         \
+                         "An Ancient" :         \
                          "Someone")
 
 
@@ -3641,6 +3696,8 @@ extern		CLAN_DATA	  *	first_clan;
 extern		CLAN_DATA	  *	last_clan;
 extern		GUARD_DATA	  *	first_guard;
 extern		GUARD_DATA	  *	last_guard;
+extern		SHIP_WEAPON_DATA  *	first_ship_weapon;
+extern		SHIP_WEAPON_DATA  *	last_ship_weapon;
 extern          SHIP_DATA         *     first_ship;
 extern          SHIP_DATA         *     last_ship;
 extern          SPACE_DATA        *     first_starsystem;
@@ -3686,10 +3743,10 @@ extern		WEATHER_DATA		weather_info;
 
 extern          AUCTION_DATA      *     auction;
 extern		struct act_prog_data *	mob_act_list;
-extern          MPSLEEP_DATA *          first_mpwait; /*store sleeping mud 
+extern          MPSLEEP_DATA *          first_mpwait; /*store sleeping mud
                                                         progs */
 extern          MPSLEEP_DATA *          last_mpwait; /* - */
-extern          MPSLEEP_DATA *          current_mpwait; /* - */ 
+extern          MPSLEEP_DATA *          current_mpwait; /* - */
 
 /*
  * Command functions.
@@ -3797,7 +3854,6 @@ DECLARE_DO_FUN( do_use );
 DECLARE_DO_FUN( do_enlist );
 DECLARE_DO_FUN( do_resuscitate );
 DECLARE_DO_FUN( do_resign );
-DECLARE_DO_FUN( do_tractorbeam );
 DECLARE_DO_FUN( do_makearmor );
 DECLARE_DO_FUN( do_makejewelry );
 DECLARE_DO_FUN( do_makegrenade );
@@ -4122,6 +4178,7 @@ DECLARE_DO_FUN( do_qpset	);
 DECLARE_DO_FUN( do_qpstat	);
 DECLARE_DO_FUN(	do_quaff	);
 DECLARE_DO_FUN(	do_qui		);
+/* DECLARE_DO_FUN(	do_quickdraw	); */
 DECLARE_DO_FUN(	do_quit		);
 DECLARE_DO_FUN(	do_rank	        );
 DECLARE_DO_FUN( do_rat		);
@@ -4231,6 +4288,7 @@ DECLARE_DO_FUN(	do_up		);
 DECLARE_DO_FUN(	do_users	);
 DECLARE_DO_FUN(	do_value	);
 DECLARE_DO_FUN(	do_visible	);
+DECLARE_DO_FUN( do_visitors	); /* Added by Funf 2005-12-29 */
 DECLARE_DO_FUN( do_vnums	);
 DECLARE_DO_FUN( do_vsearch	);
 DECLARE_DO_FUN(	do_wake		);
@@ -4296,6 +4354,18 @@ DECLARE_DO_FUN( do_mpapplyb  	);
 DECLARE_DO_FUN( do_mppkset	);
 DECLARE_DO_FUN( do_mpgain	);
 DECLARE_DO_FUN( do_mpwarkill    );
+DECLARE_DO_FUN( do_swlist	);
+DECLARE_DO_FUN( do_swcreate	);
+DECLARE_DO_FUN( do_swset	);
+DECLARE_DO_FUN( do_swstat	);
+DECLARE_DO_FUN( do_addweapon	);
+DECLARE_DO_FUN( do_fire2	);
+DECLARE_DO_FUN( do_remweapon	);
+DECLARE_DO_FUN( do_stealth	);
+DECLARE_DO_FUN( do_ein		);
+DECLARE_DO_FUN( do_mprepairship );
+DECLARE_DO_FUN( do_mpreloadship );
+
 
 /*
  * Spell functions.
@@ -4461,6 +4531,7 @@ int	ungetc		args( ( int c, FILE *stream ) );
 char *	crypt		args( ( const char *key, const char *salt ) );
 #endif
 
+
 /*
  * The crypt(3) function is not available on some operating systems.
  * In particular, the U.S. Government prohibits its export from the
@@ -4503,6 +4574,7 @@ char *	crypt		args( ( const char *key, const char *salt ) );
 #define BAN_LIST        "ban.lst"       /* List of bans                 */
 #define CLAN_LIST	"clan.lst"	/* List of clans		*/
 #define SHIP_LIST       "ship.lst"
+#define SHIP_OBJ_LIST	"ship_obj.lst"
 #define PLANET_LIST      "planet.lst"
 #define SPACE_LIST      "space.lst"
 #define BOUNTY_LIST     "bounty.lst"
@@ -4683,6 +4755,7 @@ SHIP_DATA  * ship_from_turret       args( ( int vnum ) );
 SHIP_DATA  * ship_from_engine       args( ( int vnum ) );
 SHIP_DATA  * ship_from_pilot        args( ( char *name ) );
 SHIP_DATA  * get_ship_here          args( ( char *name , SPACE_DATA *starsystem ) );
+void	     reset_ship_weapons	    args( ( void ) );
 void         showstarsystem         args( ( CHAR_DATA *ch , SPACE_DATA *starsystem ) );
 void         update_space           args( ( void ) );
 void         recharge_ships         args( ( void ) );

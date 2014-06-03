@@ -66,6 +66,8 @@ CHAR_DATA *	timechar;
 PLANET_DATA * first_planet;
 PLANET_DATA * last_planet;
 
+SHIP_DATA * first_ship;
+SHIP_DATA * last_ship;
 
 char * corpse_descs[] =
    {
@@ -327,7 +329,7 @@ void bank_update()
      	   	else
      	   		value2 = 0;
     		ch->pcdata->bank += value2;
-    	   	sprintf(buf, "&g[&zMonthly Bank Report&g] &W%s &ZYou made&g: &W%d wulongs this month.\n\r", ch->name, value2);
+    	   	sprintf(buf, "&g[&zMonthly Bank Report&g] &W%s &ZYou made&g: &W%d dollars this month.\n\r", ch->name, value2);
     	   	send_to_char(buf, ch);
 
 			if ( ch->pcdata->clan )
@@ -342,7 +344,7 @@ void bank_update()
 					ch->pcdata->bank -= value2;
 					value2 = 0;
 				}
-    				sprintf(buf, "&b[&zMonthly Salary Report&b] &W%s &ZYou made&b: &W%d wulongs this month.\n\r", ch->name, value2);
+    				sprintf(buf, "&b[&zMonthly Salary Report&b] &W%s &ZYou made&b: &W%d dollars this month.\n\r", ch->name, value2);
     	   			send_to_char(buf, ch);
 				}
     			if ( !str_cmp( ch->pcdata->clan->name, "WTS" ) || !str_cmp( ch->pcdata->clan->name, "RDS" ) )
@@ -361,7 +363,7 @@ void bank_update()
 				if(ch->pcdata->bank < 0)
 					ch->pcdata->bank = 0;
 		    		ch->pcdata->bank += value2;
-		    		sprintf(buf, "&r[&zMonthly Earnings Report&r] &W%s &ZYou made&r: &W%d wulongs this month.\n\r", ch->name, value2);
+		    		sprintf(buf, "&r[&zMonthly Earnings Report&r] &W%s &ZYou made&r: &W%d dollars this month.\n\r", ch->name, value2);
 		    		send_to_char(buf, ch);
 				}
 			}
@@ -403,7 +405,7 @@ void gain_exp( CHAR_DATA *ch, int gain , int ability )
 	ch->experience[ability] = (exp_level( ch->skill_level[ability]+1 ) - 1);
 	return;
     }
-    
+
     // Stat code stuff
     if( ability == PILOTING_ABILITY)
 	ch->dextrain++;
@@ -469,7 +471,7 @@ void gain_exp( CHAR_DATA *ch, int gain , int ability )
             if ( ch->pcdata->learned[sn] == 0
             &&   SPELL_FLAG(skill_table[sn], SF_SECRETSKILL) )
                 continue;
-	    if(i==skill_table[sn]->min_level 
+	    if(i==skill_table[sn]->min_level
 		&& ch->skill_level[ability] ==  skill_table[sn]->min_level )
             {
                 count = TRUE;
@@ -497,18 +499,18 @@ void gain_exp( CHAR_DATA *ch, int gain , int ability )
             &&   SPELL_FLAG(skill_table[sn], SF_SECRETSKILL) )
                 continue;
 
-            if(i==skill_table[sn]->min_level 
+            if(i==skill_table[sn]->min_level
 		&& ch->skill_level[ability] ==  skill_table[sn]->min_level
 		&& count )
             {
                 pager_printf(ch, "&W&R%s&W ", supercapitalize(skill_table[sn]->name) );
             }
-        } 
+        }
     }
    send_to_char("\n\r", ch);
    level = ch->skill_level[ability];
    level++;
-   count = FALSE;	
+   count = FALSE;
    for (i=1; i <= 200; i++)
     {
         for ( sn = 0; sn < top_sn; sn++ )
@@ -561,7 +563,7 @@ void gain_exp( CHAR_DATA *ch, int gain , int ability )
    if(count)
   	 send_to_char("\n\r", ch);
    level++;
-   count = FALSE;	
+   count = FALSE;
    for (i=1; i <= 200; i++)
     {
         for ( sn = 0; sn < top_sn; sn++ )
@@ -615,7 +617,7 @@ void gain_exp( CHAR_DATA *ch, int gain , int ability )
   	 send_to_char("\n\r", ch);
 
    level++;
-   count = FALSE;	
+   count = FALSE;
    for (i=1; i <= 200; i++)
     {
         for ( sn = 0; sn < top_sn; sn++ )
@@ -694,7 +696,7 @@ void gain_exp( CHAR_DATA *ch, int gain , int ability )
 int hit_gain( CHAR_DATA *ch )
 {
     int gain;
-   
+
 
 
     if ( IS_NPC(ch) )
@@ -722,8 +724,8 @@ int hit_gain( CHAR_DATA *ch )
 	    gain /= 2;
 	*/
     }
-   
-     
+
+
     if ( IS_AFFECTED(ch, AFF_POISON) )
 	gain /= 4;
 
@@ -828,9 +830,9 @@ void gain_addiction( CHAR_DATA *ch )
 
        if ( ch->pcdata->addiction[drug] > ch->pcdata->drug_level[drug]+150 )
        {
-	 
+
            if  (ch->pcdata->addiction[drug] == 0)
-           {   
+           {
 	       if ( !IS_AFFECTED( ch, AFF_BLIND ) )
 	          {
 	             	af.type      = gsn_blindness;
@@ -878,7 +880,7 @@ void gain_addiction( CHAR_DATA *ch )
 	   	  }
 	   }
 	   if  (ch->pcdata->addiction[drug] == 4)
-           {	   
+           {
                   if ( !IS_AFFECTED( ch, AFF_WEAKEN ) )
                   {
                         af.type      = -1;
@@ -889,7 +891,7 @@ void gain_addiction( CHAR_DATA *ch )
                         affect_to_char( ch, &af );
                   }
 	   }
-	
+
        }
 
        if ( ch->pcdata->addiction[drug] > ch->pcdata->drug_level[drug]+200 )
@@ -923,12 +925,12 @@ void gain_addiction( CHAR_DATA *ch )
 		ch->hit -= 60;
 	   if(ch->hit < 0 && ch->position != POS_STUNNED)
 	   {
-		act( AT_ACTION, "$n keels over from a drug overdose.", ch, NULL, 
+		act( AT_ACTION, "$n keels over from a drug overdose.", ch, NULL,
 		NULL, TO_ROOM);
-		act( AT_ACTION, "You keel over from a drug overdose.", ch, NULL, 
+		act( AT_ACTION, "You keel over from a drug overdose.", ch, NULL,
 		NULL, TO_CHAR);
 		update_pos( ch );
-	  } 
+	  }
        }
 
        if ( ch->pcdata->drug_level[drug] > 1 )
@@ -969,13 +971,13 @@ void gain_condition( CHAR_DATA *ch, int iCond, int value )
 	case COND_FULL:
 	/*
           if ( ch->top_level <= LEVEL_AVATAR )
-          { 
+          {
             set_char_color( AT_HUNGRY, ch );
 	    send_to_char( "You are STARVING!\n\r",  ch );
             act( AT_HUNGRY, "$n is starved half to death!", ch, NULL, NULL, TO_ROOM);
 	    worsen_mental_state( ch, 1 );
 	    retcode = damage(ch, ch, 5, TYPE_UNDEFINED);
-	
+
           }
 	*/
           break;
@@ -1021,29 +1023,29 @@ void gain_condition( CHAR_DATA *ch, int iCond, int value )
 	{
 	/*
 	case COND_FULL:
-	
+
           if ( ch->top_level <= LEVEL_AVATAR )
-          { 
+          {
             set_char_color( AT_HUNGRY, ch );
 	    send_to_char( "You are really hungry.\n\r",  ch );
             act( AT_HUNGRY, "You can hear $n's stomach growling.", ch, NULL, NULL, TO_ROOM);
 	    if ( number_bits(1) == 0 )
-		worsen_mental_state( ch, 1 ); 
+		worsen_mental_state( ch, 1 );
           }
-	
+
 	  break;
 
 	case COND_THIRST:
-	
+
           if ( ch->top_level <= LEVEL_AVATAR  )
           {
             set_char_color( AT_THIRSTY, ch );
 	    send_to_char( "You are really thirsty.\n\r", ch );
 	    worsen_mental_state( ch, 1 );
 	    act( AT_THIRSTY, "$n looks a little parched.", ch, NULL, NULL, TO_ROOM);
-		
+
           }
-	
+
 	  break;
 	*/
 	case COND_DRUNK:
@@ -1153,7 +1155,7 @@ void mobile_update( void )
 /** Extract Day and Night mobs ** Rythmic **/
     // Some tweaks by Gatz
 
-    if ( IS_SET(ch->act, ACT_DAY ) && 
+    if ( IS_SET(ch->act, ACT_DAY ) &&
 	(time_info.hour <  5 || time_info.hour >= 19) )
 	{
     act(AT_ACTION, "$n notices the sun setting and leaves.", ch, NULL, NULL, TO_ROOM);
@@ -1161,7 +1163,7 @@ void mobile_update( void )
 	continue;
     }
 
-    if ( IS_SET(ch->act, ACT_NIGHT ) && 
+    if ( IS_SET(ch->act, ACT_NIGHT ) &&
 	(time_info.hour < 19  && time_info.hour >= 5 ))
     {
     act(AT_ACTION, "$n notices the sun rising and leaves.", ch, NULL, NULL, TO_ROOM);
@@ -1422,13 +1424,13 @@ void update_taxes( void )
             		save_clan (subclan);
            		}
 
-              	clan->funds += get_taxes(planet)/400;
+              	clan->funds += get_taxes(planet)/4;
               	save_clan (clan);
            	}
             else
             {
-			
-               	clan->funds += get_taxes(planet)/200;
+
+               	clan->funds += get_taxes(planet)/2;
                	save_clan( clan );
             }
             save_planet( planet );
@@ -1886,7 +1888,7 @@ void char_update( void )
 				else
 					damage(ch, ch, (ch->pcdata->condition[COND_BLEEDING] * (ch->max_hit * 1/100)), TYPE_UNDEFINED);
 			}
-		
+
 		if( sleep == TRUE)
 			ch->position = POS_SLEEPING;
 		}
@@ -1998,7 +2000,7 @@ void char_update( void )
 	       if ( ch->backup_wait == 0 )
 	          add_reinforcements( ch );
 	    }
-	
+
 	if( !IS_NPC(ch) && ch->pcdata->unsilence_date == 0 &&
 	    IS_SET(ch->act, PLR_SILENCE) )
 	{
@@ -2006,7 +2008,7 @@ void char_update( void )
                 REMOVE_BIT( ch->act, PLR_SILENCE );
                 save_char_obj( ch );
 	}
-		
+
 	//Un-silence code
 	if(!IS_NPC(ch) && !IS_IMMORTAL(ch) && ch->pcdata->unsilence_date > 0 &&
 	   ch->pcdata->unsilence_date <= current_time )
@@ -2028,7 +2030,7 @@ void char_update( void )
 		   location = get_room_index(400);
 	   else
 	  	 location = get_room_index( ROOM_PRISON );
-          
+
 	   MOBtrigger = FALSE;
 	   char_from_room(ch);
 	   char_to_room( ch, location );
@@ -2040,7 +2042,7 @@ void char_update( void )
 	   save_char_obj( ch );
 	}
 
-	// Medic Skill Recover - Gatz	   
+	// Medic Skill Recover - Gatz
 	if(!IS_NPC(ch) && ch->pcdata->learned[gsn_recover])
 	{
 		if(ch->hit < 900)
@@ -2062,13 +2064,13 @@ void char_update( void )
 	}
 	BOUNTY_DATA *bounty;
 	bounty = get_disintigration(ch->name);
-	
+
 	if(bounty && bounty->amount < 0)
 	{
 		// This fixed a bug and sets the bounty to 50k;
 		bounty->amount = 50000;
 	}
-	
+
 	if(!IS_NPC(ch) && bounty && ch->pcdata->weaponl == 0)
 	{
                 ch_printf( ch,
@@ -2087,7 +2089,7 @@ void char_update( void )
 	{
 		ch_printf(ch, "&BISSP tells you 'After reviewing our files, we will allow you get a new license after a mild time delay.");
 		ch->pcdata->weaponl = number_range( ch->top_level/10, ch->top_level/2);
-	} 
+	}
 	if(!IS_NPC(ch))
 	{
 		if(bounty)
@@ -2119,7 +2121,7 @@ void char_update( void )
 			STRFREE( ch->pcdata->clan->number2 );
 			ch->pcdata->clan->number2 = STRALLOC( "" );
   		}
-  
+
 
     		ch->pcdata->clan = NULL;
     		STRFREE(ch->pcdata->clan_name);
@@ -2140,7 +2142,7 @@ void char_update( void )
 		}
 	}
 	// Fixes a slight bug
-        if(!IS_NPC(ch) && ch->pcdata->bountyrelease <= 0 && IS_SET(ch->in_room->area->flags, AFLAG_JAIL) )
+        if(!IS_NPC(ch) && ch->pcdata->bountyrelease <= 0 && IS_SET(ch->in_room->area->flags, AFLAG_JAIL) && !IS_IMMORTAL(ch) ) /* Annoying for Imms to talk to jailed people - Funf */
         {
                 send_to_char("A large man comes in and tells you your sentence is up.\n\r",ch);
                 act( AT_PLAIN, "A large man comes in and tells $n $s sentence is up", ch, ch, ch, TO_ROOM);
@@ -2156,8 +2158,10 @@ void char_update( void )
 	// Stat Code
 	// Don't hurt the newbies!
 	// Don't decay the LD people!
-	if(get_age(ch) > 6 && !IS_NPC(ch) && ch->desc)
+	/*if(get_age(ch) > 6 && !IS_NPC(ch) && ch->desc)
 	{
+		//Commented out stats dropping...  Don't blame me, Spike asked for it. -Tiak (I uncommented it tho)
+	
 	if(ch->perm_str > 10 && !IS_IMMORTAL(ch) && number_range(1,3) >= 2)
 	{
 		if(ch->strtrain < 10 && ch->strtrain > 5)
@@ -2202,8 +2206,8 @@ void char_update( void )
 				ch->inttrain += 60;
                         }
                 }
-        }	
-	
+        }
+
         if(ch->perm_con > 10 && !IS_IMMORTAL(ch) && number_range(1,3) >= 2)
         {
                 if(ch->contrain < 10 && ch->contrain > 5)
@@ -2243,6 +2247,8 @@ void char_update( void )
                         }
                 }
         }
+
+
         if(ch->perm_dex > 10 && !IS_IMMORTAL(ch) && number_range(1,3) >= 2)
         {
                 if(ch->dextrain < 10 && ch->dextrain > 5)
@@ -2269,8 +2275,9 @@ void char_update( void )
                         }
                 }
         }
+        
 
-	}
+	}*/
 
 	sh_int statcount = 0, oldstr, olddex, oldint, oldcon, oldcha, oldstatcount;
 /*
@@ -2299,7 +2306,7 @@ void char_update( void )
 	// Not really needed because it is the last one, but just in case
 	oldcha = ch->perm_cha;
 	oldstatcount = statcount;
-	
+
 	if(statcount < 75)
 	{
 	if(ch->perm_str < 18)
@@ -2370,7 +2377,7 @@ void char_update( void )
                 }
 	}
 	}
-	
+
 	if(ch->perm_str > oldstr)
 		statcount++;
 
@@ -2513,7 +2520,7 @@ void char_update( void )
 
         }
 	}
-	
+
 	if(ch->perm_int > oldint)
 		statcount++;
 
@@ -2658,7 +2665,7 @@ void char_update( void )
                         send_to_char("&RYou feel your body get more flexible.\n\r", ch);
                         ch->perm_dex += 1;
                         }
-                       
+
                 }
         }
 	}
@@ -2744,7 +2751,7 @@ void char_update( void )
 	}
 	// Fix a bug with negitive carry weight.
 	if(ch->carry_weight < 0)
-		ch->carry_weight = 0;	
+		ch->carry_weight = 0;
 
 	if(ch->position == POS_STANDING && !IS_NPC(ch))
 	{
@@ -2788,11 +2795,11 @@ void char_update( void )
 			act(AT_RED, "You grab your chest and vomit up some blood!\r\n", ch, NULL, NULL, TO_CHAR);
 		}
 	    }
-	}  
+	}
             // Can't see some channels - Gatz
 	    if (!NOT_AUTHED(ch) && !IS_IMMORTAL(ch) && !SET_BIT(ch->deaf, CHANNEL_NEWBIE))
 		SET_BIT(ch->deaf,CHANNEL_NEWBIE);
-	    
+
 	    if (get_age(ch) < 100 && !IS_IMMORTAL(ch) && !SET_BIT(ch->deaf,CHANNEL_AVTALK))
 		SET_BIT(ch->deaf, CHANNEL_AVTALK);
 
@@ -2844,7 +2851,7 @@ void obj_update( void )
 {
     OBJ_DATA *obj;
     sh_int AT_TEMP;
-    
+
     for ( obj = last_object; obj; obj = gobj_prev )
     {
 	CHAR_DATA *rch;
@@ -2971,7 +2978,7 @@ void obj_update( void )
 	  explode( obj );
 	  return;
 	break;
-	 	
+
 
 	 case ITEM_PORTAL:
 	   message = "$p winks out of existence.";
@@ -3520,6 +3527,7 @@ void update_handler( void )
     static  int	    pulse_support;
     static  int	    pulse_citizen;
     static  int	    pulse_police;
+    static  int	    pulse_sweapon;
     struct timeval stime;
     struct timeval etime;
     CHAR_DATA *victim, *last;
@@ -3527,7 +3535,7 @@ void update_handler( void )
     bool found;
     BOUNTY_DATA *bounty;
     int count = 0;
-    bool afk = FALSE;  
+    bool afk = FALSE;
 
     if ( timechar )
     {
@@ -3541,6 +3549,11 @@ void update_handler( void )
 	pulse_area	= number_range( PULSE_AREA / 2, 3 * PULSE_AREA / 2 );
 	area_update	( );
         quest_update     ( );
+    }
+    if ( --pulse_sweapon <= 0 )
+    {
+	pulse_sweapon = PULSE_SWEAPON;
+	reset_ship_weapons( );//reset the inuse and someother stuff with ship weapons
     }
     // Auto Big Shot - Gatz
     if ( --pulse_bigshot <= 0)
@@ -3560,7 +3573,7 @@ void update_handler( void )
                 found = TRUE;
 		count++;
             }
-	
+
 	if( count > 1)
 	{
             for ( d = first_descriptor; d; d = d->next )
@@ -3594,7 +3607,7 @@ void update_handler( void )
 	        }
 	}
 	afk = FALSE;
-	if(!IS_NPC(victim)  && victim->desc && IS_SET( victim->act, PLR_AFK))
+	if( victim && !IS_NPC(victim)  && victim->desc && IS_SET( victim->act, PLR_AFK))
 		afk = TRUE;
 	if(found && bounty)
 	{
@@ -3663,7 +3676,6 @@ void update_handler( void )
     if ( --pulse_point    <= 0 )
     {
 	pulse_point     = number_range( PULSE_TICK * 0.75, PULSE_TICK * 1.25 );
-
         auth_update     ( );			/* Gorog */
 	weather_update	( );
 	char_update	( );
@@ -3687,7 +3699,7 @@ void update_handler( void )
 	auction->pulse = PULSE_AUCTION;
 	auction_update( );
     }
-   
+
     mpsleep_update(); /*Check for sleeping mud progs -rkb */
     tele_update( );
     aggr_update( );
@@ -4154,3 +4166,19 @@ void subtract_times(struct timeval *etime, struct timeval *stime)
   return;
 }
 
+void reset_ship_weapons(void)
+{
+	SHIP_WEAPON_DATA *weapon;
+	SHIP_DATA *ship;
+	for(ship=first_ship;ship;ship=ship->next)
+	{
+        	for( weapon=ship->first_weapon;weapon;weapon=weapon->next_in_ship)
+		{
+			if(weapon->in_use)
+				weapon->in_use=FALSE;
+			weapon->heat-=weapon->cooling;
+			if(weapon->heat<0)
+				weapon->heat=0;
+		}
+	}
+}

@@ -1,5 +1,9 @@
 CC      = gcc
 PROF    = 
+
+#Uncomment to compile in Cygwin
+CYGWIN = -DCYGWIN
+
 NOCRYPT =
 #Uncomment the next line if you want request support
 #DBUGFLG = -DREQUESTS
@@ -30,12 +34,21 @@ all:
 	make swreality
 #	rm -f $(H_FILES)
 
+ifdef CYGWIN
+swreality: $(O_FILES)
+	rm -f swreality
+	$(CC) $(L_FLAGS) -o swreality $(O_FILES) -lm -lcrypt
+	chmod g+w swreality
+	chmod g+w $(O_FILES)
+
+else
 swreality: $(O_FILES)
 	rm -f swreality
 	$(CC) $(L_FLAGS) -o swreality $(O_FILES) -lm  -lcrypt
 	chmod g+w swreality
 	chmod g+w $(O_FILES)
 
+endif
 .c.o: mud.h
 	$(CC) -c $(C_FLAGS) $<
 

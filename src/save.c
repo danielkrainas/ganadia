@@ -25,7 +25,12 @@
 #include <time.h>
 #include <unistd.h>
 #include <sys/stat.h>
+#if defined(__CYGWIN__)
+#include <io.h>
+#include <dirent.h>
+#else
 #include <sys/dir.h>
+#endif
 #include "mud.h"
 
 /*
@@ -2350,7 +2355,7 @@ void write_corpses( CHAR_DATA *ch, char *name )
 void load_corpses( void )
 {
   DIR *dp;
-  struct direct *de;
+  struct dirent *de;
   extern FILE *fpArea;
   extern char strArea[MAX_INPUT_LENGTH];
   extern int falling;

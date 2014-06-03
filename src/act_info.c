@@ -376,7 +376,7 @@ void show_list_to_char( OBJ_DATA *list, CHAR_DATA *ch, bool fShort, bool fShowNo
 *   Function to format big numbers, so you can easy understand it.    *
 *    Added by Desden, el Chaman Tibetano (J.L.Sogorb) in Oct-1998     *
 *                Email: jose@luisso.net                               *
-*					                              * 
+*					                              *
 **********************************************************************/
 
 char *num_punct(int foo)
@@ -744,10 +744,10 @@ void show_ships_to_char( SHIP_DATA *ship, CHAR_DATA *ch )
 	sprintf(buf, ship->name);
 	extra = (50 - strlen_color(buf) );
 	// Take into account the ship itself!
-		
+
 	if(strlen_color(ship->name) > strlen(ship->name))
 		extra += (strlen_color(ship->name) - strlen(ship->name));
-		
+
 	sprintf(buf, " ");
 
 	for(loop = 1; loop < extra; loop++)
@@ -764,7 +764,7 @@ void show_ships_to_char( SHIP_DATA *ship, CHAR_DATA *ch )
         if ( ( nship = rship->next_in_room ) !=NULL )
         {
 	    set_char_color(AT_LBLUE, ch);
-            ch_printf( ch , "%-35s", nship->name );
+            ch_printf( ch , "%-35s", (nship->name)?nship->name:"no name set" );
 	    //ch_printf( ch, "%s", nship->name);
             nship = nship->next_in_room;
         }
@@ -821,15 +821,17 @@ void do_look
     char arg1 [MAX_INPUT_LENGTH];
     char arg2 [MAX_INPUT_LENGTH];
     char arg3 [MAX_INPUT_LENGTH];
+    char buffer [MAX_INPUT_LENGTH];
     EXIT_DATA *pexit;
     CHAR_DATA *victim;
     OBJ_DATA *obj;
     ROOM_INDEX_DATA *original;
     char *pdesc;
     bool doexaprog;
+    bool xn,xs,xe,xw,xu,xd;
     sh_int door;
     int number, cnt;
-
+    xn=xs=xe=xw=xu=xd=FALSE;
     if ( !ch->desc )
 	return;
 
@@ -872,8 +874,8 @@ void do_look
 	/* 'look' or 'look auto' */
 	set_char_color( AT_RMNAME, ch);
 	send_to_char( ch->in_room->name, ch);
+	//ch_printf("%-58s/      %c      \\\n\r",ch->in_room->name,(xn)?'N':'-');
 	send_to_char(" ", ch);
-
         if ( ! ch->desc->original )
         {
 
@@ -901,10 +903,12 @@ void do_look
 
 	if ( arg1[0] == '\0'
 	|| ( !IS_NPC(ch) && !IS_SET(ch->act, PLR_BRIEF) ) )
-	    send_to_char( "&g----------&zCowboy Bebop&g-----------------------------------------------------&g-&z\n\r", ch );
+	    send_to_char( "&R----------------------------------------------------------------------------&z&z\n\r", ch );
+//	    send_to_char( "&R--------------&r[&wGanadia&r]&R----------------------------------------------------&R-&z\n\r", ch );
+//	    ch_printf(ch,"&R-------------------------------------------------------&Y    %c &R--&Y%c&R(&Y+&R)&Y%c&R-- &Y%c\n\r",(xw)?'W':'-',(xu)?'U':'-',(xd)?'D':'-',(xe)?'E':'-');
 	    send_to_char( ch->in_room->description, ch );
-	    send_to_char( "&g-------------------------------------------------------&zSpace Cowboy&g---------&z\n\r", ch );
-
+	    send_to_char( "&R----------------------------------------------------------------------------&z&z\n\r", ch );
+//send_to_char( "&R--------------&r[&wGanadia&r]&R----------------------------------------------------&R-&z\n\r", ch );
 
 	if ( !IS_NPC(ch) && IS_SET(ch->act, PLR_AUTOEXIT) )
 	        do_exits( ch, "&z" );
@@ -954,9 +958,10 @@ void do_look
     	                        ship->starsystem->planet3 );
     	           for ( target = ship->starsystem->first_ship; target; target = target->next_in_starsystem )
                    {
-                        if ( target != ship )
-                           ch_printf(ch, "%s\n\r",
-                           	target->name);
+                        if ( target != ship && !target->stealth)
+                           ch_printf(ch, "%s\n\r",target->name);
+                        else if( IS_IMMORTAL( ch ) && target->stealth)
+                           ch_printf(ch, "(STEALTH)%s\n\r",target->name);
                    }
     	           for ( missile = ship->starsystem->first_missile; missile; missile = missile->next_in_starsystem )
                    {
@@ -1342,7 +1347,7 @@ void show_condition( CHAR_DATA *ch, CHAR_DATA *victim )
     else if ( percent >=  20 ) strcat( buf, " is leaking guts.\n\r"       );
     else if ( percent >=  10 ) strcat( buf, " is almost dead.\n\r"        );
     else                       strcat( buf, " is DYING.\n\r"              );
-   
+
     }
     buf[0] = UPPER(buf[0]);
     send_to_char( buf, ch );
@@ -1753,7 +1758,7 @@ void do_time( CHAR_DATA *ch, char *argument )
 	(char *) ctime( &current_time ),
 	reboot_time
 	);
-    
+
 
     return;
 }
@@ -1856,7 +1861,7 @@ void do_help( CHAR_DATA *ch, char *argument )
 	send_to_pager( pHelp->keyword, ch );
 	send_to_pager( "\n\r", ch );
     }
-	
+
 
    /* No More sounds! - Gatz
     if ( !IS_NPC(ch) && IS_SET( ch->act , PLR_SOUND ) )
@@ -2117,7 +2122,12 @@ void do_who( CHAR_DATA *ch, char *argument )
         send_to_char( "No way! You are fighting.\n\r", ch );
         return;
     }
-
+    if ( ch->position == POS_SLEEPING )
+    {
+	set_char_color( AT_RED, ch );
+	send_to_char( "You cant do that while sleeping!\n\r", ch);
+	return;
+    }
 
     /*
      * Parse arguments.
@@ -2265,11 +2275,10 @@ void do_who( CHAR_DATA *ch, char *argument )
 	else if ( wch->pcdata->rank && wch->pcdata->rank[0] != '\0' )
 	  race = wch->pcdata->rank;
 
-	if ( ( wch->pcdata->clan ) && ( wch->pcdata->clan->clan_type != CLAN_GUILD ) )
+	if ( ( wch->pcdata->clan ) )
 	{
-    	CLAN_DATA *pclan = wch->pcdata->clan;
-
-		strcpy( clan_name, "&W (" );
+		CLAN_DATA *pclan = wch->pcdata->clan;
+    		strcpy( clan_name, "&z (&W" );
 
 	    if ( !str_cmp( wch->name, pclan->immortal ) )
         	strcat( clan_name, "&CO&cwner&R,&W " );
@@ -2281,11 +2290,15 @@ void do_who( CHAR_DATA *ch, char *argument )
             strcat( clan_name, "&CS&cecond&R,&W " );
 
 	    strcat( clan_name, pclan->name );
-	    strcat( clan_name, ")" );
+	    strcat( clan_name, "&z)" );
 	}
 	else
 	if ( ( wch->pcdata->clan ) && ( wch->pcdata->clan->clan_type == CLAN_GUILD ) )
-		strcpy( clan_name, " (RBH)" );
+	{
+		strcpy( clan_name, "&z (&W" );
+		strcat( clan_name, wch->pcdata->clan->name );
+		strcat( clan_name, "&z)");
+	}
 	else
 	  clan_name[0] = '\0';
 
@@ -2298,12 +2311,12 @@ void do_who( CHAR_DATA *ch, char *argument )
 	// This fixes it for AFK - Gatz
 	char newtitle[MAX_STRING_LENGTH];
 
-	sprintf(newtitle, wch->pcdata->title);	
+	sprintf(newtitle, wch->pcdata->title);
 
 	if(IS_SET(wch->act, PLR_AFK))
 		sprintf(newtitle, strip_color(newtitle) );
-		
-          
+
+
 	sprintf( buf, "&r(&O%-20s &r)&W %s%s%s%s%s%s%s%s%s%s%s\n\r",
 	    race,
 	    invis_str,
@@ -2316,7 +2329,7 @@ void do_who( CHAR_DATA *ch, char *argument )
 	    char_name,
 	    newtitle,
             extra_title,
-	    (IS_IMMORTAL(ch))?  clan_name : 
+	    (IS_IMMORTAL(ch))?  clan_name :
 	    (wch->pcdata && wch->pcdata->clan &&
 		(wch->pcdata->clan == ch->pcdata->clan || !str_cmp(wch->pcdata->clan->name,"GLM"))) ? clan_name : "",
 	    IS_SET(wch->act, PLR_KILLER) ? "&W" : "&W" );
@@ -2351,7 +2364,7 @@ void do_who( CHAR_DATA *ch, char *argument )
               cur_who->next = first_newbie;
               first_newbie = cur_who;
               break;
-
+	  
           }
 
     }
@@ -2368,7 +2381,7 @@ void do_who( CHAR_DATA *ch, char *argument )
       if ( !ch )
         fprintf( whoout,"\n\r			     -=<(New Citizens)>=-\n\r\n\r" );
       else
-       send_to_pager( "\n\r&z----&r{&ORelative Unknowns&r}&z------------------------------------------&r{&OCB:SC&r}&z------&W\n\r\n\r", ch );
+       send_to_pager( "\n\r&W&B--------------------------------&z[&rGanadia&z:&rNewbies&z]&B-----------------------------&W\n\r\n\r", ch );
     }
 
     for ( cur_who = first_newbie; cur_who; cur_who = next_who )
@@ -2388,7 +2401,7 @@ void do_who( CHAR_DATA *ch, char *argument )
       if ( !ch )
         fprintf( whoout,"\n\r			   -=<(Galactic Citizens)>=-\n\r\n\r" );
       else
-       send_to_pager( "\n\r&z----&r{&OAverage \"Cowboys\"&r}&z------------------------------------------&r{&OCB:SC&r}&z------&W\n\r\n\r", ch );
+       send_to_pager( "\n\r&W&B------------------------------------&z[&rGanadia&z]&B---------------------------------&W\n\r\n\r", ch );
     }
 
     for ( cur_who = first_mortal; cur_who; cur_who = next_who )
@@ -2407,7 +2420,9 @@ void do_who( CHAR_DATA *ch, char *argument )
       if ( !ch )
         fprintf( whoout, "\n\r			   -=<(Omnipresent Beings)>=-\n\r\n\r" );
       else
-       send_to_pager(  "\n\r&z----&r{&OLegendary Cowboys&r}&z------------------------------------------&r{&OCB:SC&r}&z------&W\n\r\n\r", ch );
+
+
+       send_to_pager(  "\n\r&W&B-------------------------------&z[&rGanadia&z:&rImmortals&z]&B----------------------------&W\n\r\n\r", ch );
     }
 
     for ( cur_who = first_imm; cur_who; cur_who = next_who )
@@ -2427,12 +2442,11 @@ void do_who( CHAR_DATA *ch, char *argument )
 	fclose( whoout );
 	return;
     }
-  
+
     set_char_color( AT_YELLOW, ch );
-    ch_printf( ch, 
-"&W&w&z----&r{&Ocb-sc.com:   4567&r}&z---------------------------------&r{&OPlayer Max:  %d&r}&z-----&W\n\r",
- 
-sysdata.alltimemax );
+
+
+    ch_printf( ch,"&B---------------------------------&z[&rGanadia&z]&B------------------------------------\n\r&W&rPlayer Max&z:&r   %d&z\n\r",sysdata.alltimemax );
     ch_printf( ch, "%d player%s.\n\r", nMatch, nMatch == 1 ? "" : "s" );
     return;
 }
@@ -2835,8 +2849,8 @@ void do_practice( CHAR_DATA *ch, char *argument )
 
         if ( ch->gold < skill_table[sn]->min_level*10 )
 	{
-	    sprintf ( buf , "$n tells you, 'I charge %d wulongs to teach that. You don't have enough.'" , skill_table[sn]->min_level*10 );
-	    act( AT_TELL, "$n tells you 'You don't have enough wulongs.'",
+	    sprintf ( buf , "$n tells you, 'I charge %d dollars to teach that. You don't have enough.'" , skill_table[sn]->min_level*10 );
+	    act( AT_TELL, "$n tells you 'You don't have enough money.'",
 		mob, NULL, ch, TO_VICT );
 	    return;
 	}
@@ -3056,7 +3070,7 @@ void do_password( CHAR_DATA *ch, char *argument )
 	return;
     }
 
-    if ( strcmp( crypt( arg1, ch->pcdata->pwd ), ch->pcdata->pwd ) )
+    if ( strcmp( (char *) crypt( arg1, ch->pcdata->pwd ), ch->pcdata->pwd ) )
     {
 	WAIT_STATE( ch, 40 );
 	send_to_char( "Wrong password.  Wait 10 seconds.\n\r", ch );
@@ -3073,7 +3087,7 @@ void do_password( CHAR_DATA *ch, char *argument )
     /*
      * No tilde allowed because of player file format.
      */
-    pwdnew = crypt( arg2, ch->name );
+    pwdnew = (char *) crypt( arg2, ch->name );
     for ( p = pwdnew; *p != '\0'; p++ )
     {
 	if ( *p == '~' )
@@ -3195,7 +3209,7 @@ void do_channels( CHAR_DATA *ch, char *argument )
 	    : " -chat",
 	    ch );
 	if( NOT_AUTHED(ch) || IS_IMMORTAL(ch) )
-        {    
+        {
 	  send_to_char( !IS_SET(ch->deaf, CHANNEL_NEWBIE)
 	    ? " +NEWBIE"
 	    : " -newbie",
@@ -3215,7 +3229,7 @@ void do_channels( CHAR_DATA *ch, char *argument )
 	    ? " +BIGSHOT"
 	    : " -bigshot",
 	    ch );
-	
+
 	send_to_char( !IS_SET(ch->deaf, CHANNEL_103)
 	    ? " +BROADCAST"
 	    : " -broadcast",
@@ -3477,8 +3491,8 @@ void do_config( CHAR_DATA *ch, char *argument )
 	    , ch );
 
 	send_to_char(  IS_SET(ch->act, PLR_AUTOGOLD)
-	    ? "[+AUTOCRED ] You automatically split wulongs from kills in groups.\n\r"
-	    : "[-autocred ] You don't automatically split wulongs from kills in groups.\n\r"
+	    ? "[+AUTOCRED ] You automatically split the cash from kills in groups.\n\r"
+	    : "[-autocred ] You don't automatically split the cash from kills in groups.\n\r"
 	    , ch );
 
         send_to_char(  IS_SET(ch->pcdata->flags, PCFLAG_GAG)
@@ -3737,7 +3751,7 @@ void do_rp( CHAR_DATA *ch, char *argument )
 {
      if ( IS_NPC(ch) )
      return;
-	
+
      if( !IS_SET(ch->pcdata->flags, PCFLAG_RPAUTH) && !IS_IMMORTAL(ch) )
      {
 	send_to_char("You need an authorized bio to rp!\n\r", ch);
@@ -3802,10 +3816,10 @@ void do_slist( CHAR_DATA *ch, char *argument )
 
   for ( ability = -1 ; ability < MAX_ABILITY ; ability++ )
   {
-   
+
     if ( ability == LEADERSHIP_ABILITY && !IS_IMMORTAL(ch) )
       continue;
-		
+
    if ( ability >= 0 )
    {
       sprintf(skn, "\n\r%s\n\r", supercapitalize(ability_name[ability]) );
@@ -3913,7 +3927,7 @@ ch_printf( ch, "&C|&RRace        &R[&W%-15s&R]\n\r",
 npc_race[victim->race] );
 
 ch_printf( ch, "&C|&RAge	     &R[&W%-15d&R]\n\r",
-victim->pcage ); 
+victim->pcage );
 ch_printf( ch,
 "&C-=-=-=-=-=-=-=&c[&RCLAN INFO&c]&C=-=-=-=-=-=-=-=-=-=-=-=-=\n\r" );
 if ( victim->pcdata->clan )
@@ -4097,17 +4111,17 @@ void do_ignore(CHAR_DATA *ch, char *argument)
 	char fname[1024];
 	struct stat fst;
 	CHAR_DATA *victim;
-	
+
 	if(IS_NPC(ch))
 		return;
-	
+
 	argument = one_argument(argument, arg);
-	
+
 	sprintf(fname, "%s%c/%s", PLAYER_DIR,
 		tolower(arg[0]), capitalize(arg));
-	
+
 	victim = NULL;
-	
+
 	/* If no arguements, then list players currently ignored */
 	if(arg[0] == '\0')
 	{
@@ -4118,19 +4132,19 @@ void do_ignore(CHAR_DATA *ch, char *argument)
 		set_char_color(AT_DIVIDER, ch);
 		ch_printf(ch, "----------------------------------------\n\r");
 		set_char_color(AT_IGNORE, ch);
-		
+
 		if(!ch->pcdata->first_ignored)
 		{
 			ch_printf(ch, "\t    no one\n\r");
 			return;
 		}
-		
+
 		for(temp = ch->pcdata->first_ignored; temp;
 				temp = temp->next)
 		{
 			ch_printf(ch,"\t  - %s\n\r",temp->name);
 		}
-		
+
 		return;
 	}
 	/* Clear players ignored if given arg "none" */
@@ -4145,10 +4159,10 @@ void do_ignore(CHAR_DATA *ch, char *argument)
 			STRFREE(temp->name);
 			DISPOSE(temp);
 		}
-		
+
 		set_char_color(AT_IGNORE, ch);
 		ch_printf(ch, "You now ignore no one.\n\r");
-		
+
 		return;
 	}
 	/* Prevent someone from ignoring themself... */
@@ -4161,8 +4175,8 @@ void do_ignore(CHAR_DATA *ch, char *argument)
 	else
 	{
 		int i;
-		
-		/* get the name of the char who last sent tell to ch */		
+
+		/* get the name of the char who last sent tell to ch */
 		if(!strcmp(arg, "reply"))
 		{
 			if(!ch->reply)
@@ -4176,7 +4190,7 @@ void do_ignore(CHAR_DATA *ch, char *argument)
 				strcpy(arg, ch->reply->name);
 			}
 		}
-		
+
 		/* Loop through the linked list of ignored players */
 		/* 	keep track of how many are being ignored     */
 		for(temp = ch->pcdata->first_ignored, i = 0; temp;
@@ -4196,7 +4210,7 @@ void do_ignore(CHAR_DATA *ch, char *argument)
 				return;
 			}
 		}
-		
+
 		/* if there wasn't a match check to see if the name   */
 		/* is valid. This if-statement may seem like overkill */
 		/* but it is intended to prevent people from doing the*/
@@ -4212,7 +4226,7 @@ void do_ignore(CHAR_DATA *ch, char *argument)
 				" name.\n\r");
 			return;
 		}
-		
+
 		if(victim)
 		{
 			strcpy(capitalize(arg),victim->name);
@@ -4258,16 +4272,16 @@ void do_ignore(CHAR_DATA *ch, char *argument)
 bool is_ignoring(CHAR_DATA *ch, CHAR_DATA *ign_ch)
 {
 	IGNORE_DATA *temp;
-	
+
 	if(IS_NPC(ch) || IS_NPC(ign_ch))
 		return FALSE;
-	
+
 	for(temp = ch->pcdata->first_ignored; temp; temp = temp->next)
 	{
 		if(nifty_is_name(temp->name, ign_ch->name))
 			return TRUE;
 	}
-	
+
 	return FALSE;
 }
 

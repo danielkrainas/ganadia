@@ -1,0 +1,66 @@
+#SPACE
+Name         Cathanzir~
+Filename     cathanzir.system~
+Planet1      Hellena~
+Planet2      Baal Prison~
+Planet3      ~
+Location1a      Crime City "Haven"~
+Location1b      ~
+Location1c      ~
+Location2a       Baal Spaceport~
+Location2b      ~
+Location2c      ~
+Location3a      ~
+Location3b      ~
+Location3c      ~
+Doc1a          2200
+Doc2a          2001
+Doc3a          0
+Doc1b          0
+Doc2b          0
+Doc3b          0
+Doc1c          0
+Doc2c          0
+Doc3c          0
+P1x          -1305
+P1y          -152
+P1z          2310
+P2x          520
+P2y          -132
+P2z          -100
+P3x          0
+P3y          0
+P3z          0
+Gravityp1     0
+Gravityp2     0
+Gravityp3     0
+Xpos          5000
+Ypos          -500
+G1x          120
+G1y          -250
+G1z          470
+G2x          0
+G2y          0
+G2z          0
+G3x          0
+G3y          0
+G3z          0
+G4x          0
+G4y          0
+G4z          0
+G5x          0
+G5y          0
+G5z          0
+G6x          0
+G6y          0
+G6z          0
+Gate1        Cathanzir Gate~
+Gate2        ~
+Gate3        ~
+Gate4        ~
+Gate5        ~
+Gate6        ~
+Hospital	   0
+End
+
+#END

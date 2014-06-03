@@ -1,0 +1,58 @@
+#SHIP
+Name         Large Transport Midship VM-345~
+Filename     5~
+Description  ~
+Owner        scape~
+Pilot        danube~
+Copilot      ~
+Class        1
+Tractorbeam  0
+Shipyard     45
+Hangar       347
+Turret1      0
+Turret2      0
+Statet0      0
+Statet1      0
+Statet2      0
+Lasers       0
+Missiles     0
+Maxmissiles  0
+Rockets     0
+Maxrockets  0
+Torpedos     0
+Maxtorpedos  0
+Lastdoc      45
+Firstroom    345
+Lastroom     349
+Shield       0
+Maxshield    0
+Hull         12000
+Maxhull      12000
+Maxenergy    10000
+Hyperspeed   0
+Comm         150
+Chaff        0
+Maxchaff     0
+Sensor       0
+Astro_array  0
+Realspeed    80
+Type         0
+Cockpit      345
+Coseat       345
+Pilotseat    345
+Gunseat      348
+Navseat      345
+Engineroom   349
+Entrance     347
+Shipstate    0
+Missilestate 0
+Energy       10000
+Manuever     80
+Home         ~
+Hulltype  2
+Slots     10
+Payload    200
+Power     400
+End
+
+#END
