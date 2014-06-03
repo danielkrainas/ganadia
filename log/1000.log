@@ -1,0 +1,1736 @@
+Sun Oct 16 13:56:14 2005 :: Booting Database
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+Sun Oct 16 13:56:14 2005 :: [*****] BOOT: ---------------------[ Boot Log ]--------------------
+Sun Oct 16 13:56:14 2005 :: Loading commands
+Sun Oct 16 13:56:14 2005 :: Loading sysdata configuration...
+Sun Oct 16 13:56:14 2005 :: Loading socials
+Sun Oct 16 13:56:14 2005 :: Loading skill table
+Sun Oct 16 13:56:14 2005 :: Sorting skill table...
+Sun Oct 16 13:56:14 2005 :: Loading herb table
+Sun Oct 16 13:56:14 2005 :: Making wizlist
+Sun Oct 16 13:56:14 2005 :: Initializing request pipe
+Sun Oct 16 13:56:14 2005 :: Initializing random number generator
+Sun Oct 16 13:56:14 2005 :: Setting time and weather
+Sun Oct 16 13:56:14 2005 :: Assigning gsn's
+Sun Oct 16 13:56:14 2005 :: Reading in area files...
+(help.are)
+limbo.are     : Rooms:     1 - 45    Objs:     2 - 99    Mobs:     1 - 99
+Sun Oct 16 13:56:14 2005 :: [*****] FILE: callisto.are LINE: 4480
+Sun Oct 16 13:56:14 2005 :: [*****] BUG: Get_obj_index: bad vnum 416.
+Sun Oct 16 13:56:14 2005 :: [*****] BOOT: Load_resets: callisto.are (30) 'G': object 416 doesn't exist.
+Sun Oct 16 13:56:14 2005 :: [*****] FILE: callisto.are LINE: 4481
+Sun Oct 16 13:56:14 2005 :: [*****] BUG: Get_obj_index: bad vnum 418.
+Sun Oct 16 13:56:14 2005 :: [*****] BOOT: Load_resets: callisto.are (31) 'G': object 418 doesn't exist.
+Sun Oct 16 13:56:14 2005 :: [*****] FILE: callisto.are LINE: 4482
+Sun Oct 16 13:56:14 2005 :: [*****] BUG: Get_obj_index: bad vnum 419.
+Sun Oct 16 13:56:14 2005 :: [*****] BOOT: Load_resets: callisto.are (32) 'G': object 419 doesn't exist.
+Sun Oct 16 13:56:14 2005 :: [*****] FILE: callisto.are LINE: 4483
+Sun Oct 16 13:56:14 2005 :: [*****] BUG: Get_obj_index: bad vnum 413.
+Sun Oct 16 13:56:14 2005 :: [*****] BOOT: Load_resets: callisto.are (33) 'G': object 413 doesn't exist.
+callisto.are  : Rooms: 12500 - 12699 Objs: 12500 - 12699 Mobs: 12500 - 12698
+fuckedup.are  : Rooms:  4831 - 4906  Objs:  4831 - 4906  Mobs:  4831 - 4906
+astappts.are  : Rooms: 12900 - 12999 Objs: 12900 - 12900 Mobs: 12900 - 12900
+newacad.are   : Rooms: 10300 - 10430 Objs: 10300 - 10499 Mobs: 10340 - 10499
+Sun Oct 16 13:56:14 2005 :: [*****] FILE: bebop.are LINE: 486
+Sun Oct 16 13:56:14 2005 :: [*****] BUG: Load_resets: 'D': exit 3 not door.
+Sun Oct 16 13:56:14 2005 :: [*****] FILE: bebop.are LINE: 486
+Sun Oct 16 13:56:14 2005 :: [*****] BUG: Reset: D 0 107 3 0
+Sun Oct 16 13:56:14 2005 :: [*****] BOOT: Load_resets: bebop.are (8) 'D': exit 3 not door.
+bebop.are     : Rooms:   100 - 124   Objs:   100 - 124   Mobs:   100 - 110
+buildacad.are : Rooms:  2000 - 2033  Objs:     0 - 0     Mobs:     0 - 0
+drugs.are     : Rooms:   700 - 799   Objs:   706 - 706   Mobs:   700 - 717
+Sun Oct 16 13:56:14 2005 :: [*****] FILE: ships1.are LINE: 1388
+Sun Oct 16 13:56:14 2005 :: [*****] BUG: Get_obj_index: bad vnum 416.
+Sun Oct 16 13:56:14 2005 :: [*****] BOOT: Load_resets: ships1.are (4) 'G': object 416 doesn't exist.
+Sun Oct 16 13:56:14 2005 :: [*****] FILE: ships1.are LINE: 1389
+Sun Oct 16 13:56:14 2005 :: [*****] BUG: Get_obj_index: bad vnum 413.
+Sun Oct 16 13:56:14 2005 :: [*****] BOOT: Load_resets: ships1.are (5) 'G': object 413 doesn't exist.
+Sun Oct 16 13:56:14 2005 :: [*****] FILE: ships1.are LINE: 1390
+Sun Oct 16 13:56:14 2005 :: [*****] BUG: Get_obj_index: bad vnum 417.
+Sun Oct 16 13:56:14 2005 :: [*****] BOOT: Load_resets: ships1.are (6) 'G': object 417 doesn't exist.
+Sun Oct 16 13:56:14 2005 :: [*****] FILE: ships1.are LINE: 1401
+Sun Oct 16 13:56:14 2005 :: [*****] BUG: Get_obj_index: bad vnum 418.
+Sun Oct 16 13:56:14 2005 :: [*****] BOOT: Load_resets: ships1.are (17) 'G': object 418 doesn't exist.
+Sun Oct 16 13:56:14 2005 :: [*****] FILE: ships1.are LINE: 1402
+Sun Oct 16 13:56:14 2005 :: [*****] BUG: Get_obj_index: bad vnum 420.
+Sun Oct 16 13:56:14 2005 :: [*****] BOOT: Load_resets: ships1.are (18) 'G': object 420 doesn't exist.
+Sun Oct 16 13:56:14 2005 :: [*****] FILE: ships1.are LINE: 1403
+Sun Oct 16 13:56:14 2005 :: [*****] BUG: Get_obj_index: bad vnum 419.
+Sun Oct 16 13:56:14 2005 :: [*****] BOOT: Load_resets: ships1.are (19) 'G': object 419 doesn't exist.
+Sun Oct 16 13:56:14 2005 :: [*****] FILE: ships1.are LINE: 1404
+Sun Oct 16 13:56:14 2005 :: [*****] BUG: Get_obj_index: bad vnum 413.
+Sun Oct 16 13:56:14 2005 :: [*****] BOOT: Load_resets: ships1.are (20) 'G': object 413 doesn't exist.
+Sun Oct 16 13:56:14 2005 :: [*****] FILE: ships1.are LINE: 1405
+Sun Oct 16 13:56:14 2005 :: [*****] BUG: Get_obj_index: bad vnum 416.
+Sun Oct 16 13:56:14 2005 :: [*****] BOOT: Load_resets: ships1.are (21) 'G': object 416 doesn't exist.
+Sun Oct 16 13:56:14 2005 :: [*****] FILE: ships1.are LINE: 1406
+Sun Oct 16 13:56:14 2005 :: [*****] BUG: Get_obj_index: bad vnum 417.
+Sun Oct 16 13:56:14 2005 :: [*****] BOOT: Load_resets: ships1.are (22) 'G': object 417 doesn't exist.
+Sun Oct 16 13:56:14 2005 :: [*****] FILE: ships1.are LINE: 1408
+Sun Oct 16 13:56:14 2005 :: [*****] BUG: Get_obj_index: bad vnum 125.
+Sun Oct 16 13:56:14 2005 :: [*****] BOOT: Load_resets: ships1.are (24) 'G': object 125 doesn't exist.
+ships1.are    : Rooms:   600 - 699   Objs:   600 - 683   Mobs:   600 - 676
+Sun Oct 16 13:56:14 2005 :: [*****] FILE: dayton.are LINE: 3470
+Sun Oct 16 13:56:14 2005 :: [*****] BUG: Get_obj_index: bad vnum 1415.
+Sun Oct 16 13:56:14 2005 :: [*****] BOOT: Load_resets: dayton.are (109) 'G': object 1415 doesn't exist.
+Sun Oct 16 13:56:14 2005 :: [*****] FILE: dayton.are LINE: 3497
+Sun Oct 16 13:56:14 2005 :: [*****] BUG: Get_obj_index: bad vnum 2104.
+Sun Oct 16 13:56:14 2005 :: [*****] BOOT: Load_resets: dayton.are (136) 'G': object 2104 doesn't exist.
+Sun Oct 16 13:56:14 2005 :: [*****] FILE: dayton.are LINE: 3498
+Sun Oct 16 13:56:14 2005 :: [*****] BUG: Get_obj_index: bad vnum 2199.
+Sun Oct 16 13:56:14 2005 :: [*****] BOOT: Load_resets: dayton.are (137) 'G': object 2199 doesn't exist.
+Sun Oct 16 13:56:14 2005 :: [*****] FILE: dayton.are LINE: 3499
+Sun Oct 16 13:56:14 2005 :: [*****] BUG: Get_obj_index: bad vnum 2114.
+Sun Oct 16 13:56:14 2005 :: [*****] BOOT: Load_resets: dayton.are (138) 'G': object 2114 doesn't exist.
+Sun Oct 16 13:56:14 2005 :: [*****] FILE: dayton.are LINE: 3509
+Sun Oct 16 13:56:14 2005 :: [*****] BUG: Get_mob_index: bad vnum 134.
+Sun Oct 16 13:56:14 2005 :: [*****] BOOT: Load_resets: dayton.are (148) 'M': mobile 134 doesn't exist.
+Sun Oct 16 13:56:14 2005 :: [*****] FILE: dayton.are LINE: 3515
+Sun Oct 16 13:56:14 2005 :: [*****] BUG: Get_mob_index: bad vnum 142.
+Sun Oct 16 13:56:14 2005 :: [*****] BOOT: Load_resets: dayton.are (154) 'M': mobile 142 doesn't exist.
+dayton.are    : Rooms:   400 - 550   Objs:   400 - 537   Mobs:   400 - 550
+Sun Oct 16 13:56:14 2005 :: [*****] FILE: daytonmall.are LINE: 905
+Sun Oct 16 13:56:14 2005 :: [*****] BUG: Get_mob_index: bad vnum 3528.
+Sun Oct 16 13:56:14 2005 :: [*****] BOOT: Load_resets: daytonmall.are (28) 'M': mobile 3528 doesn't exist.
+Sun Oct 16 13:56:14 2005 :: [*****] FILE: daytonmall.are LINE: 905
+Sun Oct 16 13:56:14 2005 :: [*****] BUG: Get_room_index: bad vnum 3528.
+Sun Oct 16 13:56:14 2005 :: [*****] BOOT: Load_resets: daytonmall.are (28) 'M': room 3528 doesn't exist.
+Sun Oct 16 13:56:14 2005 :: [*****] FILE: daytonmall.are LINE: 906
+Sun Oct 16 13:56:14 2005 :: [*****] BUG: Get_obj_index: bad vnum 3529.
+Sun Oct 16 13:56:14 2005 :: [*****] BOOT: Load_resets: daytonmall.are (29) 'G': object 3529 doesn't exist.
+Sun Oct 16 13:56:14 2005 :: [*****] FILE: daytonmall.are LINE: 907
+Sun Oct 16 13:56:14 2005 :: [*****] BUG: Get_obj_index: bad vnum 3528.
+Sun Oct 16 13:56:14 2005 :: [*****] BOOT: Load_resets: daytonmall.are (30) 'G': object 3528 doesn't exist.
+Sun Oct 16 13:56:14 2005 :: [*****] FILE: daytonmall.are LINE: 911
+Sun Oct 16 13:56:14 2005 :: [*****] BUG: Get_obj_index: bad vnum 2199.
+Sun Oct 16 13:56:14 2005 :: [*****] BOOT: Load_resets: daytonmall.are (34) 'G': object 2199 doesn't exist.
+Sun Oct 16 13:56:14 2005 :: [*****] FILE: daytonmall.are LINE: 913
+Sun Oct 16 13:56:14 2005 :: [*****] BUG: Get_obj_index: bad vnum 10501.
+Sun Oct 16 13:56:14 2005 :: [*****] BOOT: Load_resets: daytonmall.are (36) 'G': object 10501 doesn't exist.
+daytonmall.are: Rooms:   125 - 149   Objs:   125 - 145   Mobs:   127 - 144
+immigrations.are: Rooms:   800 - 832   Objs:   800 - 800   Mobs:   800 - 801
+g37mall.are   : Rooms:  1500 - 1519  Objs:  1500 - 1520  Mobs:  1500 - 1525
+immcomplex.are: Rooms:  8100 - 8173  Objs:     0 - 0     Mobs:     0 - 0
+g37.are       : Rooms:  1400 - 1499  Objs:  1400 - 1438  Mobs:  1400 - 1499
+Sun Oct 16 13:56:14 2005 :: [*****] FILE: pluto.are LINE: 1869
+Sun Oct 16 13:56:14 2005 :: [*****] BUG: Load_resets: 'D': exit 2 not door.
+Sun Oct 16 13:56:14 2005 :: [*****] FILE: pluto.are LINE: 1869
+Sun Oct 16 13:56:14 2005 :: [*****] BUG: Reset: D 0 1902 2 2
+Sun Oct 16 13:56:14 2005 :: [*****] BOOT: Load_resets: pluto.are (3) 'D': exit 2 not door.
+pluto.are     : Rooms:  1900 - 1949  Objs:  1900 - 1938  Mobs:  1900 - 1920
+Sun Oct 16 13:56:14 2005 :: [*****] FILE: simall.are LINE: 1768
+Sun Oct 16 13:56:14 2005 :: [*****] BUG: Get_obj_index: bad vnum 2191.
+Sun Oct 16 13:56:14 2005 :: [*****] BOOT: Load_resets: simall.are (42) 'G': object 2191 doesn't exist.
+simall.are    : Rooms:  7300 - 7399  Objs:  7300 - 7325  Mobs:  7300 - 7316
+guns.are      : Rooms:  2100 - 2193  Objs:  2100 - 2199  Mobs:     0 - 0
+soukai.are    : Rooms:   200 - 228   Objs:   200 - 226   Mobs:   200 - 225
+newbschool.are: Rooms: 10500 - 10550 Objs: 10500 - 10512 Mobs: 10500 - 10519
+Jet.are       : Rooms:  1950 - 1999  Objs:  1950 - 1950  Mobs:     0 - 0
+Sun Oct 16 13:56:14 2005 :: [*****] FILE: venus.are LINE: 3916
+Sun Oct 16 13:56:14 2005 :: [*****] BUG: Load_resets: 'D': exit 2 not door.
+Sun Oct 16 13:56:14 2005 :: [*****] FILE: venus.are LINE: 3916
+Sun Oct 16 13:56:14 2005 :: [*****] BUG: Reset: D 0 1000 2 2
+Sun Oct 16 13:56:14 2005 :: [*****] BOOT: Load_resets: venus.are (4) 'D': exit 2 not door.
+venus.are     : Rooms:  1000 - 1150  Objs:  1000 - 1132  Mobs:  1000 - 1138
+zephyr.are    : Rooms:  3200 - 3299  Objs:  3200 - 3299  Mobs:  3200 - 3235
+kristenships.are: Rooms:  4000 - 4050  Objs:  4000 - 4050  Mobs:  4000 - 4050
+vcasino.are   : Rooms:  1251 - 1299  Objs:  1251 - 1298  Mobs:  1252 - 1299
+venusmount.are: Rooms:  1151 - 1250  Objs:  1151 - 1250  Mobs:  1151 - 1250
+highway.are   : Rooms:  8500 - 8999  Objs:  8999 - 8999  Mobs:  8999 - 8999
+nicproject.are: Rooms:  1700 - 1799  Objs:  1700 - 1799  Mobs:  1701 - 1799
+holiday.are   : Rooms: 11601 - 11651 Objs: 11601 - 11646 Mobs: 11602 - 11650
+ships2.are    : Rooms: 11652 - 11800 Objs: 11652 - 11800 Mobs: 11652 - 11800
+ganymede.are  : Rooms:  3500 - 3650  Objs:  3521 - 3650  Mobs:  3521 - 3627
+Sun Oct 16 13:56:14 2005 :: [*****] FILE: issp.are LINE: 1284
+Sun Oct 16 13:56:14 2005 :: [*****] BUG: Get_obj_index: bad vnum 2235.
+Sun Oct 16 13:56:14 2005 :: [*****] BOOT: Load_resets: issp.are (13) 'O': object 2235 doesn't exist.
+Sun Oct 16 13:56:14 2005 :: [*****] FILE: issp.are LINE: 1284
+Sun Oct 16 13:56:14 2005 :: [*****] BUG: Get_room_index: bad vnum 2235.
+Sun Oct 16 13:56:14 2005 :: [*****] BOOT: Load_resets: issp.are (13) 'O': room 2235 doesn't exist.
+issp.are      : Rooms:  3651 - 3700  Objs:  3661 - 3669  Mobs:  3661 - 3699
+rds.are       : Rooms:  1800 - 1850  Objs:  1800 - 1804  Mobs:  1803 - 1839
+io.are        : Rooms: 11900 - 11999 Objs: 11900 - 11933 Mobs: 11900 - 11938
+wts2.are      : Rooms:  2200 - 2250  Objs:  2211 - 2235  Mobs:  2211 - 2237
+ships3.are    : Rooms: 11040 - 11350 Objs: 11040 - 11350 Mobs:     0 - 0
+Earth.are     : Rooms:  4100 - 4400  Objs:  4100 - 4400  Mobs:  4100 - 4400
+shipquest.are : Rooms: 11801 - 11850 Objs: 11804 - 11834 Mobs: 11801 - 11838
+prison.are    : Rooms: 12000 - 12100 Objs:     0 - 0     Mobs: 12000 - 12011
+carson.are    : Rooms:  2400 - 2600  Objs:  2400 - 2599  Mobs:  2400 - 2599
+venusapart.are: Rooms:  4700 - 4799  Objs:     0 - 0     Mobs:     0 - 0
+judas.are     : Rooms: 20200 - 20299 Objs: 20200 - 20299 Mobs: 20200 - 20222
+judas2.are    : Rooms:  4800 - 4830  Objs:  4800 - 4825  Mobs:  4800 - 4812
+wystern.are   : Rooms: 12101 - 12111 Objs: 12101 - 12111 Mobs: 12101 - 12111
+uris.are      : Rooms:  4907 - 4919  Objs:  4907 - 4909  Mobs:  4907 - 4918
+Sun Oct 16 13:56:14 2005 :: Fixing exits
+Sun Oct 16 13:56:14 2005 :: Initializing economy
+Sun Oct 16 13:56:14 2005 :: Loading buildlist
+Sun Oct 16 13:56:14 2005 :: ../gods/Zwei
+Zwei.are      : Rooms: 12800 - 12899 Objs: 12800 - 12899 Mobs: 12800 - 12899
+Sun Oct 16 13:56:14 2005 :: ../gods/Drei
+Drei.are      : Rooms: 12700 - 12799 Objs: 12700 - 12799 Mobs: 12700 - 12799
+Sun Oct 16 13:56:14 2005 :: ../gods/Spike
+Sun Oct 16 13:56:14 2005 :: ../gods/Vier
+Sun Oct 16 13:56:14 2005 :: ../gods/Funf
+Funf.are      : Rooms: 13000 - 13099 Objs: 13000 - 13099 Mobs: 13000 - 13099
+Sun Oct 16 13:56:14 2005 :: Loading boards
+Sun Oct 16 13:56:14 2005 :: ../boards/immortal.brd
+Sun Oct 16 13:56:14 2005 :: ../boards/mortal.brd
+Sun Oct 16 13:56:14 2005 :: ../boards/issp.brd
+Sun Oct 16 13:56:14 2005 :: ../boards/wts.brd
+Sun Oct 16 13:56:14 2005 :: ../boards/rds.brd
+Sun Oct 16 13:56:14 2005 :: ../boards/destboard.brd
+Sun Oct 16 13:56:14 2005 :: ../boards/isspboard.brd
+Sun Oct 16 13:56:14 2005 :: ../boards/rp.brd
+Sun Oct 16 13:56:14 2005 :: Loading Global Boards
+Sun Oct 16 13:56:14 2005 :: Loading clans
+Sun Oct 16 13:56:14 2005 :: Loading clans...
+Sun Oct 16 13:56:14 2005 :: ISSP
+Sun Oct 16 13:56:14 2005 :: Loading clan storage room
+Sun Oct 16 13:56:14 2005 :: RBH
+Sun Oct 16 13:56:14 2005 :: Storeroom not found
+Sun Oct 16 13:56:14 2005 :: RDS
+Sun Oct 16 13:56:14 2005 :: Loading clan storage room
+Sun Oct 16 13:56:14 2005 :: WTS
+Sun Oct 16 13:56:14 2005 :: Loading clan storage room
+Sun Oct 16 13:56:14 2005 :: GLM
+Sun Oct 16 13:56:14 2005 :: Storeroom not found
+Sun Oct 16 13:56:14 2005 :: $
+Sun Oct 16 13:56:14 2005 ::  Done clans
+Sorting clans....
+Sun Oct 16 13:56:14 2005 ::  Done sorting
+Sun Oct 16 13:56:14 2005 :: Loading senate
+Sun Oct 16 13:56:14 2005 :: Loading bans
+Sun Oct 16 13:56:14 2005 :: Loading corpses
+Sun Oct 16 13:56:14 2005 :: Loading slay table
+Sun Oct 16 13:56:14 2005 :: Loading restore table
+Sun Oct 16 13:56:14 2005 :: [*****] BUG: Fread_restore: no match: .000000
+Sun Oct 16 13:56:14 2005 :: [*****] BUG: Fread_restore: no match: .000000
+Sun Oct 16 13:56:14 2005 :: [*****] BUG: Fread_restore: no match: .000000
+Sun Oct 16 13:56:14 2005 :: [*****] BUG: Fread_restore: no match: .000000
+Sun Oct 16 13:56:14 2005 :: [*****] BUG: Fread_restore: no match: .000000
+Sun Oct 16 13:56:14 2005 :: [*****] BUG: Fread_restore: no match: .000000
+Sun Oct 16 13:56:14 2005 :: [*****] BUG: Fread_restore: no match: .000000
+Sun Oct 16 13:56:14 2005 :: [*****] BUG: Fread_restore: no match: .000000
+Sun Oct 16 13:56:14 2005 :: [*****] BUG: Fread_restore: no match: .000000
+Sun Oct 16 13:56:14 2005 :: Loading space
+Sun Oct 16 13:56:14 2005 :: Loading space...
+Sun Oct 16 13:56:14 2005 ::  Done starsystems 
+Sun Oct 16 13:56:14 2005 :: Loading ships
+Sun Oct 16 13:56:14 2005 :: Loading ships...
+Sun Oct 16 13:56:14 2005 ::  Done ships 
+Sun Oct 16 13:56:14 2005 :: Loading bounties
+Sun Oct 16 13:56:14 2005 :: Loading disintigrations...
+Sun Oct 16 13:56:14 2005 ::  Done bounties 
+Sun Oct 16 13:56:14 2005 :: Loading governments
+Sun Oct 16 13:56:14 2005 :: Loading planets...
+Sun Oct 16 13:56:14 2005 :: pluto
+Sun Oct 16 13:56:14 2005 :: [*****] BUG: Fread_planet: no match: .000000
+Sun Oct 16 13:56:14 2005 :: [*****] BUG: Fread_planet: no match: .300003
+Sun Oct 16 13:56:14 2005 :: mars
+Sun Oct 16 13:56:14 2005 :: [*****] BUG: Fread_planet: no match: .000000
+Sun Oct 16 13:56:14 2005 :: [*****] BUG: Fread_planet: no match: .000000
+Sun Oct 16 13:56:14 2005 :: Earth
+Sun Oct 16 13:56:14 2005 :: [*****] BUG: Fread_planet: no match: .500000
+Sun Oct 16 13:56:14 2005 :: [*****] BUG: Fread_planet: no match: .000000
+Sun Oct 16 13:56:14 2005 :: venus
+Sun Oct 16 13:56:14 2005 :: [*****] BUG: Fread_planet: no match: .000000
+Sun Oct 16 13:56:14 2005 :: [*****] BUG: Fread_planet: no match: .000000
+Sun Oct 16 13:56:14 2005 :: ganymede
+Sun Oct 16 13:56:14 2005 :: [*****] BUG: Fread_planet: no match: .000000
+Sun Oct 16 13:56:14 2005 :: [*****] BUG: Fread_planet: no match: .000000
+Sun Oct 16 13:56:14 2005 :: Io.pl
+Sun Oct 16 13:56:14 2005 :: [*****] BUG: Fread_planet: no match: .500000
+Sun Oct 16 13:56:14 2005 :: [*****] BUG: Fread_planet: no match: .000000
+Sun Oct 16 13:56:14 2005 :: judas2
+Sun Oct 16 13:56:14 2005 :: [*****] BUG: Fread_planet: no match: .000000
+Sun Oct 16 13:56:14 2005 :: [*****] BUG: Fread_planet: no match: .000000
+Sun Oct 16 13:56:14 2005 :: callisto
+Sun Oct 16 13:56:14 2005 :: [*****] BUG: Fread_planet: no match: .000000
+Sun Oct 16 13:56:14 2005 :: [*****] BUG: Fread_planet: no match: .000000
+Sun Oct 16 13:56:14 2005 :: $
+Sun Oct 16 13:56:14 2005 ::  Done planets 
+Sun Oct 16 13:56:14 2005 :: Resetting areas
+Resetting: limbo.are
+Resetting: callisto.are
+Resetting: fuckedup.are
+Resetting: astappts.are
+Resetting: newacad.are
+Resetting: bebop.are
+Resetting: buildacad.are
+Resetting: drugs.are
+Resetting: ships1.are
+Resetting: dayton.are
+Resetting: daytonmall.are
+Resetting: immigrations.are
+Resetting: g37mall.are
+Resetting: immcomplex.are
+Resetting: g37.are
+Resetting: pluto.are
+Resetting: simall.are
+Resetting: guns.are
+Resetting: soukai.are
+Resetting: newbschool.are
+Resetting: Jet.are
+Resetting: venus.are
+Resetting: zephyr.are
+Resetting: kristenships.are
+Resetting: vcasino.are
+Resetting: venusmount.are
+Resetting: highway.are
+Resetting: nicproject.are
+Resetting: holiday.are
+Resetting: ships2.are
+Resetting: ganymede.are
+Resetting: issp.are
+Resetting: rds.are
+Resetting: io.are
+Resetting: wts2.are
+Resetting: ships3.are
+Resetting: Earth.are
+Resetting: shipquest.are
+Resetting: prison.are
+Resetting: carson.are
+Resetting: venusapart.are
+Resetting: judas.are
+Resetting: judas2.are
+Resetting: wystern.are
+Resetting: uris.are
+Sun Oct 16 13:56:14 2005 :: Initializing socket
+Sun Oct 16 13:56:14 2005 :: Cowboy Bebop: Space Cowboy ready on port 4567.
+Resetting: vcasino.are
+Sun Oct 16 13:56:15 2005 :: Sock.sinaddr:  72.161.216.149, port 49478.
+Sun Oct 16 13:56:15 2005 :: Sock.sinaddr:  68.72.151.88, port 1069.
+Sun Oct 16 13:56:16 2005 :: Sock.sinaddr:  4.164.51.166, port 1772.
+Sun Oct 16 13:56:16 2005 :: Preloading player data for: Funf (6K)
+Sun Oct 16 13:56:16 2005 :: Updating area entry for Funf
+Sun Oct 16 13:56:16 2005 :: Loading player data for: Funf (6K)
+Sun Oct 16 13:56:16 2005 :: Updating area entry for Funf
+Sun Oct 16 13:56:16 2005 :: Funf@dialup-4.164.51.166.Dial1.Denver1.Level3.net(unknown) has connected.
+Funf.are      : Rooms: 13000 - 13099 Objs: 13000 - 13099 Mobs: 13000 - 13099
+Sun Oct 16 13:56:17 2005 :: Sock.sinaddr:  216.47.212.60, port 4022.
+Sun Oct 16 13:56:17 2005 :: Sock.sinaddr:  68.72.151.88, port 1070.
+Sun Oct 16 13:56:18 2005 :: Preloading player data for: Lurtz (12K)
+Sun Oct 16 13:56:19 2005 :: Sock.sinaddr:  4.164.51.166, port 1773.
+Sun Oct 16 13:56:19 2005 :: Preloading player data for: Mikado (18K)
+Sun Oct 16 13:56:19 2005 :: Loading player data for: Lurtz (12K)
+Sun Oct 16 13:56:19 2005 :: Lurtz@ip88-151-72-68.speednetllc.com(unknown) has connected.
+Sun Oct 16 13:56:19 2005 :: Preloading player data for: Ben (13K)
+Sun Oct 16 13:56:19 2005 :: Funf attempting to multiplay with Ben.
+Sun Oct 16 13:56:19 2005 :: Loading player data for: Ben (13K)
+Sun Oct 16 13:56:19 2005 :: Ben@dialup-4.164.51.166.Dial1.Denver1.Level3.net(unknown) has connected.
+Sun Oct 16 13:56:20 2005 :: Loading player data for: Mikado (18K)
+Sun Oct 16 13:56:20 2005 :: Mikado@72-161-216-149.dyn.centurytel.net(unknown) has connected.
+Sun Oct 16 13:56:21 2005 :: Sock.sinaddr:  69.140.193.108, port 61623.
+Sun Oct 16 13:56:22 2005 :: Sock.sinaddr:  151.204.205.22, port 50331.
+Sun Oct 16 13:56:23 2005 :: Preloading player data for: Axel (11K)
+Sun Oct 16 13:56:23 2005 :: Loading player data for: Axel (11K)
+Sun Oct 16 13:56:23 2005 :: Axel@pool-151-204-205-22.pskn.east.verizon.net(unknown) has connected.
+Sun Oct 16 13:56:29 2005 :: Sock.sinaddr:  205.201.91.246, port 4263.
+Sun Oct 16 13:56:31 2005 :: Preloading player data for: Candi (22K)
+Sun Oct 16 13:56:33 2005 :: Loading player data for: Candi (22K)
+Sun Oct 16 13:56:33 2005 :: Candi@host-205-201-91-246.classicnet.net((no auth)) has connected.
+Sun Oct 16 13:56:41 2005 :: Sock.sinaddr:  68.154.67.218, port 3380.
+Sun Oct 16 13:56:44 2005 :: Preloading player data for: Saabel (9K)
+Sun Oct 16 13:56:46 2005 :: Loading player data for: Saabel (9K)
+Sun Oct 16 13:56:46 2005 :: Saabel@adsl-154-67-218.aby.bellsouth.net((no auth)) has connected.
+Sun Oct 16 13:57:01 2005 :: Log Funf: mpedit ann edit 2
+Sun Oct 16 13:57:18 2005 :: Log Funf: mpedit ann edit 3
+Resetting: newacad.are
+Resetting: newbschool.are
+Resetting: vcasino.are
+Sun Oct 16 13:57:44 2005 :: Preloading player data for: Blitzgash (10K)
+Sun Oct 16 13:57:46 2005 :: Loading player data for: Blitzgash (10K)
+Sun Oct 16 13:57:46 2005 :: Blitzgash@icore1-p-60.ashford.graceba.net(unknown) has connected.
+Sun Oct 16 13:58:02 2005 :: Sock.sinaddr:  69.140.193.108, port 61626.
+Sun Oct 16 13:58:05 2005 :: Sock.sinaddr:  24.22.187.129, port 2764.
+Sun Oct 16 13:58:08 2005 :: Preloading player data for: Saito (2K)
+Sun Oct 16 13:58:10 2005 :: Loading player data for: Saito (2K)
+Sun Oct 16 13:58:10 2005 :: Saito@c-24-22-187-129.hsd1.wa.comcast.net((no auth)) has connected.
+Sun Oct 16 13:58:19 2005 :: Log Funf: folda fuckedup.are
+Sun Oct 16 13:58:19 2005 :: Saving fuckedup.are...
+Resetting: vcasino.are
+Resetting: rds.are
+Sun Oct 16 13:58:35 2005 :: Sock.sinaddr:  67.19.238.52, port 47921.
+Sun Oct 16 13:58:35 2005 :: EOF encountered on read.
+Resetting: newacad.are
+Resetting: simall.are
+Resetting: newbschool.are
+Resetting: vcasino.are
+Sun Oct 16 13:59:43 2005 :: Sock.sinaddr:  69.140.193.108, port 61629.
+Resetting: vcasino.are
+Resetting: newacad.are
+Resetting: newbschool.are
+Resetting: vcasino.are
+Resetting: rds.are
+Sun Oct 16 14:01:24 2005 :: Sock.sinaddr:  69.140.193.108, port 61780.
+Sun Oct 16 14:01:41 2005 :: Sock.sinaddr:  4.232.33.107, port 1817.
+Resetting: vcasino.are
+Resetting: newacad.are
+Resetting: simall.are
+Resetting: soukai.are
+Resetting: newbschool.are
+Resetting: vcasino.are
+Sun Oct 16 14:03:05 2005 :: Sock.sinaddr:  69.140.193.108, port 61782.
+Resetting: guns.are
+Resetting: vcasino.are
+Resetting: rds.are
+Resetting: carson.are
+Sun Oct 16 14:04:41 2005 :: Saving astappts.are...
+Sun Oct 16 14:04:46 2005 :: Sock.sinaddr:  69.140.193.108, port 61784.
+Sun Oct 16 14:04:51 2005 :: Sock.sinaddr:  4.232.33.107, port 1834.
+Resetting: newacad.are
+Resetting: newbschool.are
+Resetting: vcasino.are
+Read_from_descriptor: Connection reset by peer
+Sun Oct 16 14:06:07 2005 :: Sock.sinaddr:  4.232.33.107, port 1841.
+Sun Oct 16 14:06:27 2005 :: Sock.sinaddr:  69.140.193.108, port 61786.
+Resetting: fuckedup.are
+Resetting: g37.are
+Resetting: simall.are
+Resetting: vcasino.are
+Resetting: venusmount.are
+Resetting: nicproject.are
+Resetting: io.are
+Resetting: venusapart.are
+Resetting: wystern.are
+Resetting: astappts.are
+Resetting: newacad.are
+Resetting: dayton.are
+Resetting: daytonmall.are
+Resetting: newbschool.are
+Resetting: Jet.are
+Resetting: vcasino.are
+Resetting: highway.are
+Resetting: holiday.are
+Resetting: rds.are
+Resetting: judas.are
+Sun Oct 16 14:07:16 2005 :: Preloading player data for: James (1K)
+Sun Oct 16 14:07:27 2005 :: Sock.sinaddr:  67.158.12.104, port 60332.
+Sun Oct 16 14:07:30 2005 :: Preloading player data for: Tidus (14K)
+Sun Oct 16 14:07:31 2005 :: Loading player data for: Tidus (14K)
+Sun Oct 16 14:07:31 2005 :: Tidus@dhcp-67-158-12-104.bhfc.net((no auth)) has connected.
+Sun Oct 16 14:08:08 2005 :: Sock.sinaddr:  69.140.193.108, port 61790.
+Resetting: limbo.are
+Resetting: callisto.are
+Resetting: g37mall.are
+Resetting: kristenships.are
+Resetting: vcasino.are
+Resetting: ganymede.are
+Resetting: prison.are
+Resetting: judas2.are
+Resetting: uris.are
+Sun Oct 16 14:08:55 2005 :: Tink@dialup-4.232.33.107.Dial1.LosAngeles1.Level3.net new Human.
+Sun Oct 16 14:09:33 2005 :: Log Funf: auth tink
+Resetting: newacad.are
+Resetting: bebop.are
+Resetting: buildacad.are
+Resetting: drugs.are
+Resetting: ships1.are
+Resetting: immigrations.are
+Resetting: immcomplex.are
+Resetting: pluto.are
+Resetting: simall.are
+Resetting: venus.are
+Resetting: zephyr.are
+Resetting: vcasino.are
+Resetting: issp.are
+Resetting: wts2.are
+Resetting: Earth.are
+Resetting: shipquest.are
+Sun Oct 16 14:09:49 2005 :: Sock.sinaddr:  69.140.193.108, port 61792.
+Resetting: newbschool.are
+Resetting: vcasino.are
+Resetting: ships2.are
+Resetting: rds.are
+Resetting: ships3.are
+Sun Oct 16 14:11:30 2005 :: Sock.sinaddr:  69.140.193.108, port 61801.
+Resetting: newacad.are
+Resetting: vcasino.are
+Sun Oct 16 14:12:10 2005 :: Log RDS Guard: yell Axel is raiding our headquarters!
+Sun Oct 16 14:12:15 2005 :: Log RDS Guard: yell Axel is raiding our headquarters!
+Sun Oct 16 14:12:23 2005 :: Log RDS Guard 2: yell Axel is raiding our headquarters!
+Sun Oct 16 14:12:26 2005 :: Log RDS Guard 2: yell Axel is raiding our headquarters!
+Sun Oct 16 14:12:31 2005 :: Log RDS Guard 3: yell Axel is raiding our headquarters!
+Sun Oct 16 14:12:34 2005 :: Log RDS Guard 3: yell Axel is raiding our headquarters!
+Sun Oct 16 14:12:34 2005 :: Sock.sinaddr:  67.19.238.52, port 48241.
+Sun Oct 16 14:12:34 2005 :: EOF encountered on read.
+Sun Oct 16 14:12:39 2005 :: Log RDS Guard 4: yell Axel has almost beaten back the defenses!
+Sun Oct 16 14:12:47 2005 :: Log RDS Guard 4: yell Axel has almost beaten back the defenses!
+Sun Oct 16 14:13:11 2005 :: Sock.sinaddr:  69.140.193.108, port 61804.
+Resetting: soukai.are
+Resetting: vcasino.are
+Sun Oct 16 14:13:40 2005 :: Sock.sinaddr:  24.111.105.246, port 4878.
+Sun Oct 16 14:13:42 2005 :: Preloading player data for: Rengar (12K)
+Sun Oct 16 14:13:42 2005 :: Loading player data for: Rengar (12K)
+Sun Oct 16 14:13:42 2005 :: Rengar@host-246-105-111-24.midco.net(unknown) has connected.
+Sun Oct 16 14:14:21 2005 :: Mikado has quit.
+Resetting: newacad.are
+Resetting: simall.are
+Resetting: guns.are
+Resetting: newbschool.are
+Resetting: vcasino.are
+Resetting: carson.are
+Sun Oct 16 14:14:47 2005 :: Log Funf: snoop axel
+Sun Oct 16 14:14:53 2005 :: Sock.sinaddr:  69.140.193.108, port 61806.
+Sun Oct 16 14:15:02 2005 :: EOF encountered on read.
+Sun Oct 16 14:15:02 2005 :: Closing link to Axel.
+Sun Oct 16 14:15:06 2005 :: Sock.sinaddr:  151.204.205.22, port 50335.
+Sun Oct 16 14:15:07 2005 :: Preloading player data for: Axel (17K)
+Sun Oct 16 14:15:07 2005 :: Axel@pool-151-204-205-22.pskn.east.verizon.net(unknown) reconnected.
+Resetting: vcasino.are
+Resetting: rds.are
+Sun Oct 16 14:15:36 2005 :: Log Funf: snoop axel
+Sun Oct 16 14:15:40 2005 :: Log Funf: snoop self
+Sun Oct 16 14:16:06 2005 :: Log RDS Guard 4: yell Axel has almost beaten back the defenses!
+Sun Oct 16 14:16:12 2005 :: Log RDS Guard 4: yell Axel has almost beaten back the defenses!
+Sun Oct 16 14:16:16 2005 :: Log RDS Guard 3: yell Axel is raiding our headquarters!
+Sun Oct 16 14:16:18 2005 :: Log RDS Guard 3: yell Axel is raiding our headquarters!
+Sun Oct 16 14:16:18 2005 :: Log RDS Guard 3: yell Axel is raiding our headquarters!
+Sun Oct 16 14:16:20 2005 :: Log RDS Guard 3: yell Axel is raiding our headquarters!
+Sun Oct 16 14:16:33 2005 :: Log RDS Guard 2: yell Axel is raiding our headquarters!
+Sun Oct 16 14:16:34 2005 :: Sock.sinaddr:  69.140.193.108, port 61809.
+Sun Oct 16 14:16:37 2005 :: Log RDS Guard 2: yell Axel is raiding our headquarters!
+Sun Oct 16 14:16:47 2005 :: Log RDS Guard: yell Axel is raiding our headquarters!
+Sun Oct 16 14:16:47 2005 :: Log RDS Guard: yell Axel is raiding our headquarters!
+Resetting: newacad.are
+Resetting: vcasino.are
+Resetting: simall.are
+Resetting: newbschool.are
+Resetting: vcasino.are
+Sun Oct 16 14:18:15 2005 :: Sock.sinaddr:  69.140.193.108, port 61811.
+Sun Oct 16 14:18:35 2005 :: Log Axel: yell Yarr! Make him walk the plank!
+Resetting: newacad.are
+Resetting: g37.are
+Resetting: vcasino.are
+Resetting: venusmount.are
+Resetting: nicproject.are
+Resetting: rds.are
+Sun Oct 16 14:18:58 2005 :: Log Funf: snoop axel
+Sun Oct 16 14:19:03 2005 :: Sock.sinaddr:  72.161.216.149, port 49500.
+Sun Oct 16 14:19:05 2005 :: Preloading player data for: Mikado (18K)
+Sun Oct 16 14:19:05 2005 :: Saabel has focused on Candi! Possible Illegal Action!
+Sun Oct 16 14:19:06 2005 :: Loading player data for: Mikado (18K)
+Sun Oct 16 14:19:06 2005 :: Mikado@72-161-216-149.dyn.centurytel.net(unknown) has connected.
+Resetting: daytonmall.are
+Resetting: vcasino.are
+Resetting: judas.are
+Sun Oct 16 14:19:56 2005 :: Sock.sinaddr:  69.140.193.108, port 61813.
+Sun Oct 16 14:20:08 2005 :: EOF encountered on read.
+Sun Oct 16 14:20:08 2005 :: Closing link to Saabel.
+Sun Oct 16 14:20:10 2005 :: Sock.sinaddr:  68.154.67.218, port 3407.
+Sun Oct 16 14:20:11 2005 :: Preloading player data for: Saabel (9K)
+Sun Oct 16 14:20:12 2005 :: Saabel@adsl-154-67-218.aby.bellsouth.net((no auth)) reconnected.
+Resetting: fuckedup.are
+Resetting: newacad.are
+Resetting: dayton.are
+Resetting: newbschool.are
+Resetting: Jet.are
+Resetting: vcasino.are
+Resetting: holiday.are
+Resetting: venusapart.are
+Sun Oct 16 14:21:37 2005 :: Sock.sinaddr:  69.140.193.108, port 61815.
+Sun Oct 16 14:21:43 2005 :: Log Rengar: otell mikado you play on Live?
+Sun Oct 16 14:21:46 2005 :: Log Mikado: orepl yep
+Sun Oct 16 14:21:49 2005 :: Sock.sinaddr:  151.200.8.110, port 50362.
+Sun Oct 16 14:21:50 2005 :: Log Mikado: orepl my gamer tag is Mikado Jr
+Sun Oct 16 14:21:51 2005 :: Preloading player data for: Arianna (8K)
+Sun Oct 16 14:21:52 2005 :: Log Rengar: oreply I'm on, Rengar666
+Sun Oct 16 14:21:52 2005 :: Loading player data for: Arianna (8K)
+Sun Oct 16 14:21:52 2005 :: Arianna@pool-151-200-8-110.res.east.verizon.net(unknown) has connected.
+Resetting: callisto.are
+Resetting: immcomplex.are
+Resetting: simall.are
+Resetting: guns.are
+Resetting: kristenships.are
+Resetting: vcasino.are
+Resetting: highway.are
+Resetting: ganymede.are
+Resetting: rds.are
+Resetting: io.are
+Resetting: wystern.are
+Sun Oct 16 14:21:55 2005 :: Log Mikado: orepl sweet
+Sun Oct 16 14:22:14 2005 :: Log Rengar: oreply kewl, we'll play sometime... Vikings are getting pwnt on Tv now, but I'll be on later
+Resetting: limbo.are
+Resetting: astappts.are
+Resetting: newacad.are
+Resetting: drugs.are
+Resetting: ships1.are
+Resetting: immigrations.are
+Resetting: soukai.are
+Resetting: vcasino.are
+Resetting: wts2.are
+Resetting: carson.are
+Resetting: judas2.are
+Sun Oct 16 14:22:34 2005 :: Log Mikado: ore alright
+Sun Oct 16 14:23:18 2005 :: Sock.sinaddr:  69.140.193.108, port 61819.
+Sun Oct 16 14:23:22 2005 :: Log Mikado: orepl what's your level?
+Sun Oct 16 14:23:30 2005 :: Log Rengar: oreply like 7 or someit... hahahha
+Sun Oct 16 14:23:40 2005 :: Log Mikado: otell blitz wow that's legit he's a level 6. ..
+Resetting: bebop.are
+Resetting: buildacad.are
+Resetting: g37mall.are
+Resetting: pluto.are
+Resetting: newbschool.are
+Resetting: venus.are
+Resetting: vcasino.are
+Resetting: issp.are
+Resetting: Earth.are
+Resetting: prison.are
+Resetting: uris.are
+Resetting: newacad.are
+Resetting: simall.are
+Resetting: zephyr.are
+Resetting: vcasino.are
+Resetting: rds.are
+Resetting: shipquest.are
+Sun Oct 16 14:24:59 2005 :: Sock.sinaddr:  69.140.193.108, port 61840.
+Resetting: newbschool.are
+Resetting: vcasino.are
+Sun Oct 16 14:26:40 2005 :: Sock.sinaddr:  69.140.193.108, port 61847.
+Resetting: newacad.are
+Resetting: vcasino.are
+Resetting: ships2.are
+Resetting: ships3.are
+Sun Oct 16 14:27:26 2005 :: Sock.sinaddr:  68.10.222.173, port 2446.
+Sun Oct 16 14:27:30 2005 :: Preloading player data for: Kijin (7K)
+Sun Oct 16 14:27:31 2005 :: Loading player data for: Kijin (7K)
+Sun Oct 16 14:27:31 2005 :: Kijin@ip68-10-222-173.hr.hr.cox.net(unknown) has connected.
+Sun Oct 16 14:27:34 2005 :: Sock.sinaddr:  67.19.238.52, port 48634.
+Sun Oct 16 14:27:34 2005 :: EOF encountered on read.
+Resetting: newbschool.are
+Resetting: vcasino.are
+Resetting: rds.are
+Sun Oct 16 14:28:10 2005 :: Tink has quit.
+Sun Oct 16 14:28:21 2005 :: Sock.sinaddr:  69.140.193.108, port 61870.
+Resetting: newacad.are
+Resetting: simall.are
+Resetting: vcasino.are
+Sun Oct 16 14:30:02 2005 :: Sock.sinaddr:  69.140.193.108, port 61891.
+Resetting: guns.are
+Resetting: soukai.are
+Resetting: newbschool.are
+Resetting: vcasino.are
+Sun Oct 16 14:30:33 2005 :: Log Axel: otell candi Okay
+Sun Oct 16 14:30:38 2005 :: Log Axel: otell candi He just yoinked my comlink
+Sun Oct 16 14:30:53 2005 :: Log Candi: otell axel no he didn't
+Sun Oct 16 14:30:57 2005 :: Log Axel: oreply wtf
+Sun Oct 16 14:31:02 2005 :: Log Candi: otell axel you still got it
+Resetting: newacad.are
+Resetting: daytonmall.are
+Resetting: g37.are
+Resetting: vcasino.are
+Resetting: rds.are
+Resetting: carson.are
+Resetting: judas.are
+Sun Oct 16 14:31:43 2005 :: Sock.sinaddr:  69.140.193.108, port 61896.
+Sun Oct 16 14:32:00 2005 :: Log Axel: otell candi You are carrying: Nothing.
+Sun Oct 16 14:32:08 2005 :: Log Axel: otell candi 1/2 second later
+Sun Oct 16 14:32:16 2005 :: Log Axel: otell candi You are carrying: a high performance laptop (Shining) RDS Crimson Katana (5)
+Sun Oct 16 14:32:24 2005 :: Log Candi: oreply he didn't do it
+Sun Oct 16 14:32:28 2005 :: Log Axel: oreply arg
+Resetting: fuckedup.are
+Resetting: simall.are
+Resetting: newbschool.are
+Resetting: Jet.are
+Resetting: vcasino.are
+Resetting: venusmount.are
+Sun Oct 16 14:32:58 2005 :: Saito has quit.
+Sun Oct 16 14:33:18 2005 :: Saving astappts.are...
+Sun Oct 16 14:33:24 2005 :: Sock.sinaddr:  69.140.193.108, port 61899.
+Sun Oct 16 14:33:40 2005 :: Sock.sinaddr:  24.22.187.129, port 2537.
+Sun Oct 16 14:33:41 2005 :: Sock.sinaddr:  24.22.187.129, port 2544.
+Sun Oct 16 14:33:42 2005 :: Preloading player data for: Sensui (13K)
+Sun Oct 16 14:33:44 2005 :: Loading player data for: Sensui (13K)
+Sun Oct 16 14:33:44 2005 :: Sensui@c-24-22-187-129.hsd1.wa.comcast.net((no auth)) has connected.
+Resetting: newacad.are
+Resetting: kristenships.are
+Resetting: vcasino.are
+Resetting: nicproject.are
+Resetting: venusapart.are
+Resetting: wystern.are
+Sun Oct 16 14:35:05 2005 :: Sock.sinaddr:  69.140.193.108, port 61902.
+Resetting: callisto.are
+Resetting: newbschool.are
+Resetting: vcasino.are
+Resetting: highway.are
+Resetting: holiday.are
+Resetting: rds.are
+Resetting: judas2.are
+Resetting: newacad.are
+Resetting: drugs.are
+Resetting: ships1.are
+Resetting: dayton.are
+Resetting: venus.are
+Resetting: vcasino.are
+Resetting: issp.are
+Sun Oct 16 14:36:46 2005 :: Sock.sinaddr:  69.140.193.108, port 61904.
+Resetting: limbo.are
+Resetting: g37mall.are
+Resetting: immcomplex.are
+Resetting: newbschool.are
+Resetting: vcasino.are
+Resetting: ganymede.are
+Resetting: wts2.are
+Sun Oct 16 14:38:27 2005 :: Sock.sinaddr:  69.140.193.108, port 61920.
+Sun Oct 16 14:38:48 2005 :: Tidus has quit.
+Resetting: astappts.are
+Resetting: newacad.are
+Resetting: immigrations.are
+Resetting: pluto.are
+Resetting: simall.are
+Resetting: guns.are
+Resetting: soukai.are
+Resetting: vcasino.are
+Resetting: rds.are
+Resetting: io.are
+Resetting: Earth.are
+Resetting: uris.are
+Resetting: bebop.are
+Resetting: buildacad.are
+Resetting: newbschool.are
+Resetting: vcasino.are
+Resetting: prison.are
+Sun Oct 16 14:40:08 2005 :: Sock.sinaddr:  69.140.193.108, port 61982.
+Resetting: newacad.are
+Resetting: zephyr.are
+Resetting: vcasino.are
+Resetting: shipquest.are
+Resetting: newbschool.are
+Resetting: vcasino.are
+Resetting: ships2.are
+Resetting: rds.are
+Resetting: carson.are
+Sun Oct 16 14:41:38 2005 :: Log Sensui: y
+Sun Oct 16 14:41:49 2005 :: Sock.sinaddr:  69.140.193.108, port 62020.
+Sun Oct 16 14:41:53 2005 :: Log Candi: yell am working on the sorting of 300 damn katanas :P
+Sun Oct 16 14:42:00 2005 :: Log Axel: yell Hehe
+Sun Oct 16 14:42:03 2005 :: Log Candi: yell give me like, 4 minutes it should be done
+Resetting: newacad.are
+Resetting: simall.are
+Resetting: vcasino.are
+Resetting: ships3.are
+Sun Oct 16 14:42:03 2005 :: Log Axel: yell Sorry ;)
+Sun Oct 16 14:42:11 2005 :: Log Axel: yell alright
+Sun Oct 16 14:42:11 2005 :: Log Candi: yell no worries
+Sun Oct 16 14:42:35 2005 :: Sock.sinaddr:  67.19.238.52, port 49157.
+Sun Oct 16 14:42:35 2005 :: EOF encountered on read.
+Resetting: daytonmall.are
+Resetting: newbschool.are
+Resetting: vcasino.are
+Sun Oct 16 14:43:30 2005 :: Sock.sinaddr:  69.140.193.108, port 62048.
+Resetting: newacad.are
+Resetting: g37.are
+Resetting: vcasino.are
+Resetting: rds.are
+Sun Oct 16 14:45:11 2005 :: Sock.sinaddr:  69.140.193.108, port 62076.
+Resetting: newbschool.are
+Resetting: Jet.are
+Resetting: kristenships.are
+Resetting: vcasino.are
+Resetting: venusmount.are
+Sun Oct 16 14:46:02 2005 :: Log Candi: yell I missed it if you said somethin.
+Sun Oct 16 14:46:12 2005 :: Blitzgash has quit.
+Sun Oct 16 14:46:19 2005 :: Sock.sinaddr:  216.47.212.60, port 4218.
+Sun Oct 16 14:46:21 2005 :: Preloading player data for: Blitzgash (10K)
+Sun Oct 16 14:46:23 2005 :: Loading player data for: Blitzgash (10K)
+Sun Oct 16 14:46:23 2005 :: Blitzgash@icore1-p-60.ashford.graceba.net(unknown) has connected.
+Resetting: newacad.are
+Resetting: simall.are
+Resetting: soukai.are
+Resetting: vcasino.are
+Resetting: highway.are
+Resetting: nicproject.are
+Resetting: judas.are
+Sun Oct 16 14:46:52 2005 :: Sock.sinaddr:  69.140.193.108, port 62102.
+Resetting: fuckedup.are
+Resetting: dayton.are
+Resetting: guns.are
+Resetting: newbschool.are
+Resetting: vcasino.are
+Resetting: holiday.are
+Resetting: issp.are
+Resetting: rds.are
+Resetting: venusapart.are
+Resetting: judas2.are
+Resetting: wystern.are
+Sun Oct 16 14:48:33 2005 :: Sock.sinaddr:  69.140.193.108, port 62137.
+Resetting: newacad.are
+Resetting: venus.are
+Resetting: vcasino.are
+Resetting: ganymede.are
+Sun Oct 16 14:49:30 2005 :: Rengar has focused on Kijin! Possible Illegal Action!
+Sun Oct 16 14:49:51 2005 :: Sock.sinaddr:  68.118.241.207, port 1031.
+Sun Oct 16 14:49:51 2005 :: Preloading player data for: Akuma (12K)
+Sun Oct 16 14:49:52 2005 :: Loading player data for: Akuma (12K)
+Sun Oct 16 14:49:52 2005 :: Akuma@68-118-241-207.dhcp.oxfr.ma.charter.com((no auth)) has connected.
+Sun Oct 16 14:49:56 2005 :: Log Kijin: yell i have premission for these
+Resetting: limbo.are
+Resetting: drugs.are
+Resetting: newbschool.are
+Resetting: vcasino.are
+Resetting: carson.are
+Sun Oct 16 14:50:14 2005 :: Sock.sinaddr:  69.140.193.108, port 62162.
+Sun Oct 16 14:50:22 2005 :: Log Rengar: yell anyone with WTS dagges, NOT in WTS, will lose them
+Sun Oct 16 14:50:31 2005 :: Log Rengar: yell WTS Purity is a MUST!!!
+Sun Oct 16 14:50:33 2005 :: Log Kijin: yell a WTS member gave them to me
+Sun Oct 16 14:51:03 2005 :: Log Kijin: yell and I doubt they would like you destroying the trust they build with people
+Resetting: callisto.are
+Resetting: newacad.are
+Resetting: ships1.are
+Resetting: immigrations.are
+Resetting: simall.are
+Resetting: vcasino.are
+Resetting: rds.are
+Resetting: io.are
+Resetting: prison.are
+Resetting: uris.are
+Sun Oct 16 14:51:22 2005 :: Log Rengar: yell you gave them to you?
+Resetting: astappts.are
+Resetting: g37mall.are
+Resetting: immcomplex.are
+Resetting: pluto.are
+Resetting: newbschool.are
+Resetting: vcasino.are
+Resetting: wts2.are
+Resetting: Earth.are
+Resetting: shipquest.are
+Sun Oct 16 14:51:55 2005 :: Sock.sinaddr:  69.140.193.108, port 62235.
+Sun Oct 16 14:51:55 2005 :: Log Kijin: yell Thats a really long list... Zax, Orien, Gene
+Sun Oct 16 14:52:12 2005 :: Log Rengar: yell all of them no longer in the clan....
+Resetting: newacad.are
+Resetting: buildacad.are
+Resetting: zephyr.are
+Resetting: vcasino.are
+Sun Oct 16 14:52:35 2005 :: Kijin killed by Rengar at 12500
+Resetting: bebop.are
+Resetting: simall.are
+Resetting: soukai.are
+Resetting: newbschool.are
+Resetting: vcasino.are
+Resetting: rds.are
+Sun Oct 16 14:53:36 2005 :: Sock.sinaddr:  69.140.193.108, port 62294.
+Resetting: newacad.are
+Resetting: vcasino.are
+Resetting: ships2.are
+Resetting: guns.are
+Resetting: newbschool.are
+Resetting: vcasino.are
+Sun Oct 16 14:55:13 2005 :: Log Kijin: otell rengar dude give me my laptop back..
+Sun Oct 16 14:55:17 2005 :: Sock.sinaddr:  69.140.193.108, port 62321.
+Sun Oct 16 14:55:24 2005 :: Log Rengar: oreply I didnt take it. all I took was the daggers. and KEEP IT IC.
+Resetting: newacad.are
+Resetting: daytonmall.are
+Resetting: Jet.are
+Resetting: vcasino.are
+Resetting: rds.are
+Sun Oct 16 14:55:44 2005 :: Log Kijin: otell rengar I CANT when i have no way to communicate cause your a cocksucker
+Resetting: g37.are
+Resetting: simall.are
+Resetting: newbschool.are
+Resetting: vcasino.are
+Resetting: nicproject.are
+Resetting: ships3.are
+Resetting: carson.are
+Resetting: fuckedup.are
+Resetting: newacad.are
+Resetting: kristenships.are
+Resetting: vcasino.are
+Resetting: wystern.are
+Sun Oct 16 14:56:58 2005 :: Sock.sinaddr:  69.140.193.108, port 62364.
+Resetting: newbschool.are
+Resetting: venus.are
+Resetting: vcasino.are
+Resetting: venusmount.are
+Resetting: highway.are
+Resetting: ganymede.are
+Resetting: issp.are
+Resetting: rds.are
+Resetting: venusapart.are
+Resetting: judas.are
+Sun Oct 16 14:58:34 2005 :: Sock.sinaddr:  67.19.238.52, port 49565.
+Sun Oct 16 14:58:34 2005 :: EOF encountered on read.
+Sun Oct 16 14:58:39 2005 :: Sock.sinaddr:  69.140.193.108, port 62383.
+Sun Oct 16 14:58:54 2005 :: Log Kijin: otell rengar Well I'll be talking to an imm about this one
+Resetting: newacad.are
+Resetting: dayton.are
+Resetting: simall.are
+Resetting: soukai.are
+Resetting: vcasino.are
+Resetting: judas2.are
+Resetting: immigrations.are
+Resetting: newbschool.are
+Resetting: vcasino.are
+Resetting: io.are
+Resetting: prison.are
+Sun Oct 16 15:00:20 2005 :: Sock.sinaddr:  69.140.193.108, port 62400.
+Resetting: newacad.are
+Resetting: pluto.are
+Resetting: vcasino.are
+Resetting: holiday.are
+Resetting: rds.are
+Resetting: uris.are
+Sun Oct 16 15:02:01 2005 :: Sock.sinaddr:  69.140.193.108, port 62441.
+Resetting: limbo.are
+Resetting: drugs.are
+Resetting: immcomplex.are
+Resetting: simall.are
+Resetting: newbschool.are
+Resetting: vcasino.are
+Resetting: wts2.are
+Sun Oct 16 15:02:21 2005 :: Sock.sinaddr:  24.177.6.96, port 33412.
+Sun Oct 16 15:02:22 2005 :: Preloading player data for: Spike (8K)
+Sun Oct 16 15:02:22 2005 :: Loading player data for: Spike (8K)
+Sun Oct 16 15:02:22 2005 :: Spike@24-177-6-96.dhcp.nwtn.ct.charter.com(unknown) has connected.
+Sun Oct 16 15:02:49 2005 :: Akuma has quit.
+Sun Oct 16 15:02:53 2005 :: Log Funf: snoop self
+Resetting: astappts.are
+Resetting: newacad.are
+Resetting: ships1.are
+Resetting: g37mall.are
+Resetting: guns.are
+Resetting: zephyr.are
+Resetting: vcasino.are
+Resetting: Earth.are
+Sun Oct 16 15:03:42 2005 :: Sock.sinaddr:  69.140.193.108, port 62446.
+Resetting: callisto.are
+Resetting: buildacad.are
+Resetting: newbschool.are
+Resetting: vcasino.are
+Resetting: rds.are
+Resetting: shipquest.are
+Resetting: newacad.are
+Resetting: bebop.are
+Resetting: vcasino.are
+Resetting: ships2.are
+Resetting: carson.are
+Sun Oct 16 15:05:24 2005 :: Sock.sinaddr:  69.140.193.108, port 62448.
+Sun Oct 16 15:05:26 2005 :: Log Funf: redit bexit 13010 w
+Sun Oct 16 15:05:32 2005 :: Log Funf: redit bexit w 13010
+Sun Oct 16 15:05:32 2005 :: Log Funf: redit exit 1 13009 
+Sun Oct 16 15:05:50 2005 :: Log Funf: redit bexit nw 13011
+Sun Oct 16 15:05:50 2005 :: Log Funf: redit exit 8 13010 
+Resetting: simall.are
+Resetting: newbschool.are
+Resetting: vcasino.are
+Sun Oct 16 15:05:59 2005 :: Log Funf: redit bexit sw 13012
+Sun Oct 16 15:05:59 2005 :: Log Funf: redit exit 6 13011 
+Sun Oct 16 15:06:04 2005 :: Log Funf: savea
+Sun Oct 16 15:06:04 2005 :: Saving Funf.are...
+Sun Oct 16 15:06:15 2005 :: Log Funf: redit bexit w 13013
+Sun Oct 16 15:06:15 2005 :: Log Funf: redit exit 1 13012 
+Sun Oct 16 15:06:26 2005 :: Lurtz has focused on Sensui! Possible Illegal Action!
+Sun Oct 16 15:06:26 2005 :: Axel has focused on Sensui! Possible Illegal Action!
+Sun Oct 16 15:06:33 2005 :: Sensui killed by Axel at 3203
+Sun Oct 16 15:06:39 2005 :: Log Funf: redit bexit sw 13014
+Sun Oct 16 15:06:39 2005 :: Log Funf: redit exit 6 13013 
+Resetting: newacad.are
+Resetting: daytonmall.are
+Resetting: soukai.are
+Resetting: vcasino.are
+Resetting: rds.are
+Sun Oct 16 15:06:44 2005 :: Log Funf: redit bexit nw 13015
+Sun Oct 16 15:06:44 2005 :: Log Funf: redit exit 8 13013 
+Sun Oct 16 15:07:05 2005 :: Sock.sinaddr:  69.140.193.108, port 62450.
+Resetting: newbschool.are
+Resetting: Jet.are
+Resetting: vcasino.are
+Resetting: newacad.are
+Resetting: simall.are
+Resetting: vcasino.are
+Resetting: nicproject.are
+Resetting: ganymede.are
+Sun Oct 16 15:08:46 2005 :: Sock.sinaddr:  69.140.193.108, port 62454.
+Resetting: fuckedup.are
+Resetting: g37.are
+Resetting: newbschool.are
+Resetting: vcasino.are
+Resetting: rds.are
+Resetting: wystern.are
+Sun Oct 16 15:09:30 2005 :: Log Funf: rat 13005 13099 redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:30 2005 :: Log Funf: redit flags indoors
+Sun Oct 16 15:09:33 2005 :: Log Funf: savea
+Sun Oct 16 15:09:33 2005 :: Saving Funf.are...
+Sun Oct 16 15:09:55 2005 :: Rengar has focused on Sensui! Possible Illegal Action!
+Sun Oct 16 15:10:27 2005 :: Sock.sinaddr:  69.140.193.108, port 62464.
+Resetting: newacad.are
+Resetting: kristenships.are
+Resetting: vcasino.are
+Resetting: highway.are
+Resetting: issp.are
+Resetting: ships3.are
+Resetting: judas.are
+Sun Oct 16 15:11:07 2005 :: Log Funf: snoop rengar
+Sun Oct 16 15:11:18 2005 :: Sock.sinaddr:  172.133.248.161, port 1051.
+Sun Oct 16 15:11:18 2005 :: Preloading player data for: Gene (11K)
+Sun Oct 16 15:11:18 2005 :: Loading player data for: Gene (11K)
+Sun Oct 16 15:11:18 2005 :: Gene@AC85F8A1.ipt.aol.com(unknown) has connected.
+Sun Oct 16 15:11:42 2005 :: Log Rengar: otell self me?
+Sun Oct 16 15:12:00 2005 :: Log Rengar: otell self getting Blitz's daggers back
+Resetting: immigrations.are
+Resetting: guns.are
+Resetting: newbschool.are
+Resetting: vcasino.are
+Resetting: venusmount.are
+Resetting: holiday.are
+Resetting: carson.are
+Resetting: venusapart.are
+Resetting: uris.are
+Sun Oct 16 15:12:08 2005 :: Sock.sinaddr:  69.140.193.108, port 62471.
+Sun Oct 16 15:12:13 2005 :: Log Rengar: otel self we only recovered one in zeph
+Sun Oct 16 15:12:26 2005 :: Log Funf: snoop self
+Sun Oct 16 15:12:34 2005 :: Sock.sinaddr:  67.19.238.52, port 49952.
+Sun Oct 16 15:12:34 2005 :: EOF encountered on read.
+Sun Oct 16 15:13:05 2005 :: Saabel killed by Saabel at 4886
+Resetting: limbo.are
+Resetting: newacad.are
+Resetting: drugs.are
+Resetting: pluto.are
+Resetting: simall.are
+Resetting: venus.are
+Resetting: vcasino.are
+Resetting: rds.are
+Resetting: prison.are
+Resetting: judas2.are
+Sun Oct 16 15:13:32 2005 :: Log Funf: redit name &RWhite Tiger Syndicate Headquarters
+Sun Oct 16 15:13:43 2005 :: Log Funf: redit exit sw 1001
+Sun Oct 16 15:13:49 2005 :: Sock.sinaddr:  69.140.193.108, port 62474.
+Sun Oct 16 15:13:51 2005 :: Log Funf: savea
+Sun Oct 16 15:13:51 2005 :: Saving Funf.are...
+Resetting: dayton.are
+Resetting: g37mall.are
+Resetting: newbschool.are
+Resetting: vcasino.are
+Resetting: io.are
+Resetting: wts2.are
+Sun Oct 16 15:14:59 2005 :: Rengar has quit.
+Sun Oct 16 15:15:30 2005 :: Sock.sinaddr:  69.140.193.108, port 62476.
+Resetting: newacad.are
+Resetting: ships1.are
+Resetting: immcomplex.are
+Resetting: soukai.are
+Resetting: zephyr.are
+Resetting: vcasino.are
+Resetting: shipquest.are
+Sun Oct 16 15:16:30 2005 :: Log Funf: rpedit add speech p main level
+Resetting: astappts.are
+Resetting: bebop.are
+Resetting: newbschool.are
+Resetting: vcasino.are
+Resetting: rds.are
+Sun Oct 16 15:17:11 2005 :: Sock.sinaddr:  69.140.193.108, port 62478.
+Resetting: newacad.are
+Resetting: simall.are
+Resetting: vcasino.are
+Resetting: Earth.are
+Resetting: buildacad.are
+Resetting: daytonmall.are
+Resetting: newbschool.are
+Resetting: vcasino.are
+Sun Oct 16 15:18:11 2005 :: Log Candi: otell saabel Am sorry bout that, got confused on rooms.  :/
+Sun Oct 16 15:18:12 2005 :: Axel has focused on Sensui! Possible Illegal Action!
+Sun Oct 16 15:18:52 2005 :: Sock.sinaddr:  69.140.193.108, port 62480.
+Resetting: callisto.are
+Resetting: newacad.are
+Resetting: guns.are
+Resetting: vcasino.are
+Resetting: ships2.are
+Resetting: rds.are
+Resetting: carson.are
+Sun Oct 16 15:19:41 2005 :: Log Funf: savea
+Sun Oct 16 15:19:41 2005 :: Saving Funf.are...
+Sun Oct 16 15:19:50 2005 :: [*****] BUG: Mpdelay: target not in room, Room #13006.
+Sun Oct 16 15:19:50 2005 :: [*****] BUG: Mpdelay: target not in room, Room #13006.
+Sun Oct 16 15:19:50 2005 :: [*****] BUG: Mptransfer - No such person, Room #13006.
+Resetting: newbschool.are
+Resetting: Jet.are
+Resetting: vcasino.are
+Resetting: ganymede.are
+Sun Oct 16 15:20:33 2005 :: Sock.sinaddr:  69.140.193.108, port 62483.
+Sun Oct 16 15:20:34 2005 :: Blitzgash has focused on Sensui! Possible Illegal Action!
+Sun Oct 16 15:20:34 2005 :: Blitzgash has focused on Sensui! Possible Illegal Action!
+Sun Oct 16 15:20:34 2005 :: Blitzgash has focused on Sensui! Possible Illegal Action!
+Sun Oct 16 15:20:34 2005 :: Blitzgash has focused on Sensui! Possible Illegal Action!
+Sun Oct 16 15:20:35 2005 :: Blitzgash has focused on Sensui! Possible Illegal Action!
+Sun Oct 16 15:20:35 2005 :: Blitzgash has focused on Sensui! Possible Illegal Action!
+Sun Oct 16 15:20:35 2005 :: Blitzgash has focused on Sensui! Possible Illegal Action!
+Sun Oct 16 15:20:35 2005 :: Axel has focused on Sensui! Possible Illegal Action!
+Sun Oct 16 15:20:35 2005 :: Blitzgash has focused on Sensui! Possible Illegal Action!
+Sun Oct 16 15:20:55 2005 :: Log Funf: snoop sensui
+Resetting: newacad.are
+Resetting: g37.are
+Resetting: simall.are
+Resetting: vcasino.are
+Sun Oct 16 15:21:20 2005 :: Sock.sinaddr:  67.183.0.170, port 33253.
+Sun Oct 16 15:21:21 2005 :: Preloading player data for: Mario (9K)
+Sun Oct 16 15:21:22 2005 :: Loading player data for: Mario (9K)
+Sun Oct 16 15:21:22 2005 :: Mario@c-67-183-0-170.hsd1.wa.comcast.net((no auth)) has connected.
+Sun Oct 16 15:21:51 2005 :: Sock.sinaddr:  24.59.121.68, port 3118.
+Sun Oct 16 15:21:52 2005 :: Preloading player data for: Zwei (5K)
+Sun Oct 16 15:21:52 2005 :: Updating area entry for Zwei
+Sun Oct 16 15:21:55 2005 :: Loading player data for: Zwei (5K)
+Sun Oct 16 15:21:55 2005 :: Updating area entry for Zwei
+Sun Oct 16 15:21:55 2005 :: Zwei@cpe-24-59-121-68.twcny.res.rr.com(unknown) has connected.
+Zwei.are      : Rooms: 12800 - 12899 Objs: 12800 - 12899 Mobs: 12800 - 12899
+Resetting: fuckedup.are
+Resetting: newbschool.are
+Resetting: vcasino.are
+Resetting: nicproject.are
+Resetting: issp.are
+Resetting: rds.are
+Sun Oct 16 15:22:03 2005 :: Log Funf: snoop self
+Sun Oct 16 15:22:14 2005 :: Sock.sinaddr:  69.140.193.108, port 62485.
+Sun Oct 16 15:22:37 2005 :: Log Funf: rpedit add greet 100
+Resetting: newacad.are
+Resetting: soukai.are
+Resetting: vcasino.are
+Resetting: ships3.are
+Resetting: limbo.are
+Resetting: simall.are
+Resetting: newbschool.are
+Resetting: vcasino.are
+Resetting: venusmount.are
+Resetting: highway.are
+Resetting: holiday.are
+Resetting: prison.are
+Resetting: wystern.are
+Sun Oct 16 15:23:55 2005 :: Sock.sinaddr:  69.140.193.108, port 62488.
+Sun Oct 16 15:24:00 2005 :: Log Mario: otell funf im back
+Resetting: newacad.are
+Resetting: kristenships.are
+Resetting: vcasino.are
+Resetting: venusapart.are
+Resetting: judas.are
+Resetting: judas2.are
+Sun Oct 16 15:24:37 2005 :: Log Mario: otell funf im backj
+Sun Oct 16 15:25:21 2005 :: Log Zwei: otell Sensui I can't induct you.  The leader is on.
+Sun Oct 16 15:25:36 2005 :: Sock.sinaddr:  69.140.193.108, port 62490.
+Sun Oct 16 15:25:40 2005 :: Log Zwei: oreply Just on vacation at the moment.
+Sun Oct 16 15:25:45 2005 :: Log Sensui: otell zwei who's the leader
+Resetting: immigrations.are
+Resetting: immcomplex.are
+Resetting: guns.are
+Resetting: newbschool.are
+Resetting: vcasino.are
+Resetting: rds.are
+Resetting: io.are
+Resetting: wts2.are
+Resetting: carson.are
+Resetting: uris.are
+Sun Oct 16 15:25:49 2005 :: Log Zwei: otell Sensui Just on vacation at the moment.
+Sun Oct 16 15:25:56 2005 :: Log Zwei: otell Sensui Marent
+Sun Oct 16 15:26:10 2005 :: Log Sensui: otell zwei hey
+Sun Oct 16 15:26:15 2005 :: Log Sensui: otell immortal hey
+Sun Oct 16 15:26:22 2005 :: Log Zwei: otell Sensui What?
+Sun Oct 16 15:26:36 2005 :: Log Funf: rpedit delete 1
+Resetting: newacad.are
+Resetting: drugs.are
+Resetting: ships1.are
+Resetting: g37mall.are
+Resetting: pluto.are
+Resetting: simall.are
+Resetting: venus.are
+Resetting: zephyr.are
+Resetting: vcasino.are
+Resetting: shipquest.are
+Sun Oct 16 15:27:17 2005 :: Sock.sinaddr:  69.140.193.108, port 62504.
+Sun Oct 16 15:27:34 2005 :: Sock.sinaddr:  67.19.238.52, port 50386.
+Sun Oct 16 15:27:34 2005 :: EOF encountered on read.
+Sun Oct 16 15:28:08 2005 :: Log Funf: rpedit add greet 100
+Resetting: dayton.are
+Resetting: newbschool.are
+Resetting: vcasino.are
+Sun Oct 16 15:28:58 2005 :: Sock.sinaddr:  69.140.193.108, port 62506.
+Resetting: newacad.are
+Resetting: bebop.are
+Resetting: daytonmall.are
+Resetting: vcasino.are
+Sun Oct 16 15:29:53 2005 :: Zwei has quit.
+Resetting: astappts.are
+Resetting: newbschool.are
+Resetting: vcasino.are
+Resetting: rds.are
+Sun Oct 16 15:30:39 2005 :: Sock.sinaddr:  69.140.193.108, port 62508.
+Sun Oct 16 15:30:54 2005 :: check_anti_tanking: Tanking detected. Candi is tanking for Saabel, with mob 3215
+Sun Oct 16 15:31:37 2005 :: Blitzgash has focused on Sensui! Possible Illegal Action!
+Sun Oct 16 15:31:37 2005 :: Blitzgash has focused on Sensui! Possible Illegal Action!
+Sun Oct 16 15:31:38 2005 :: Blitzgash has focused on Sensui! Possible Illegal Action!
+Sun Oct 16 15:31:38 2005 :: Blitzgash has focused on Sensui! Possible Illegal Action!
+Resetting: newacad.are
+Resetting: simall.are
+Resetting: soukai.are
+Resetting: vcasino.are
+Resetting: ships2.are
+Resetting: ganymede.are
+Resetting: Earth.are
+Sun Oct 16 15:31:38 2005 :: Blitzgash has focused on Sensui! Possible Illegal Action!
+Sun Oct 16 15:32:20 2005 :: Sock.sinaddr:  69.140.193.108, port 62510.
+Sun Oct 16 15:32:46 2005 :: Blitzgash has quit.
+Resetting: callisto.are
+Resetting: buildacad.are
+Resetting: newbschool.are
+Resetting: Jet.are
+Resetting: vcasino.are
+Sun Oct 16 15:32:50 2005 :: Sock.sinaddr:  216.47.212.60, port 4221.
+Sun Oct 16 15:32:52 2005 :: Preloading player data for: Blitzgash (10K)
+Sun Oct 16 15:32:55 2005 :: Loading player data for: Blitzgash (10K)
+Sun Oct 16 15:32:55 2005 :: Blitzgash@icore1-p-60.ashford.graceba.net(unknown) has connected.
+Sun Oct 16 15:33:14 2005 :: Axel has focused on Sensui! Possible Illegal Action!
+Sun Oct 16 15:33:21 2005 :: Axel killed by Sensui at 3245
+Sun Oct 16 15:33:21 2005 :: [*****] BUG: Mpechoat - victim does not exist, Room #12000.
+Sun Oct 16 15:33:21 2005 :: mpsleep_update - Deleting expired prog.
+Sun Oct 16 15:33:30 2005 :: Log Mario: otell axel ouch
+Resetting: newacad.are
+Resetting: guns.are
+Resetting: vcasino.are
+Sun Oct 16 15:33:53 2005 :: Log Mario: otell sensui that isnt gunna help make relations with wts
+Sun Oct 16 15:34:01 2005 :: Sock.sinaddr:  69.140.193.108, port 62513.
+Sun Oct 16 15:34:04 2005 :: Log Sensui: otell mario I hate WTS
+Sun Oct 16 15:34:24 2005 :: Log Sensui: otell mario I love RDS
+Sun Oct 16 15:34:29 2005 :: Log Ben: otell sensui Congratz.
+Resetting: fuckedup.are
+Resetting: g37.are
+Resetting: newbschool.are
+Resetting: vcasino.are
+Resetting: nicproject.are
+Resetting: issp.are
+Resetting: rds.are
+Sun Oct 16 15:35:42 2005 :: Sock.sinaddr:  69.140.193.108, port 62515.
+Resetting: newacad.are
+Resetting: simall.are
+Resetting: vcasino.are
+Resetting: ships3.are
+Resetting: carson.are
+Resetting: limbo.are
+Resetting: newbschool.are
+Resetting: vcasino.are
+Resetting: highway.are
+Resetting: judas.are
+Sun Oct 16 15:37:23 2005 :: Sock.sinaddr:  69.140.193.108, port 62519.
+Resetting: newacad.are
+Resetting: kristenships.are
+Resetting: vcasino.are
+Resetting: prison.are
+Sun Oct 16 15:39:04 2005 :: Sock.sinaddr:  69.140.193.108, port 62521.
+Resetting: g37mall.are
+Resetting: immcomplex.are
+Resetting: newbschool.are
+Resetting: vcasino.are
+Resetting: venusmount.are
+Resetting: holiday.are
+Resetting: rds.are
+Resetting: io.are
+Resetting: wts2.are
+Resetting: venusapart.are
+Resetting: wystern.are
+Resetting: uris.are
+Sun Oct 16 15:39:30 2005 :: Log Mario: otell funf why
+Resetting: newacad.are
+Resetting: drugs.are
+Resetting: simall.are
+Resetting: soukai.are
+Resetting: venus.are
+Resetting: zephyr.are
+Resetting: vcasino.are
+Resetting: judas2.are
+Sun Oct 16 15:40:18 2005 :: Log Funf: trans mario 400
+Sun Oct 16 15:40:45 2005 :: Sock.sinaddr:  69.140.193.108, port 62559.
+Resetting: bebop.are
+Resetting: immigrations.are
+Resetting: pluto.are
+Resetting: guns.are
+Resetting: newbschool.are
+Resetting: vcasino.are
+Resetting: shipquest.are
+Sun Oct 16 15:42:22 2005 :: Saabel has focused on Candi! Possible Illegal Action!
+Sun Oct 16 15:42:26 2005 :: Sock.sinaddr:  69.140.193.108, port 62569.
+Sun Oct 16 15:42:26 2005 :: Blitzgash has focused on Sensui! Possible Illegal Action!
+Sun Oct 16 15:42:27 2005 :: Blitzgash has focused on Sensui! Possible Illegal Action!
+Sun Oct 16 15:42:28 2005 :: Blitzgash has focused on Sensui! Possible Illegal Action!
+Sun Oct 16 15:42:34 2005 :: Sock.sinaddr:  67.19.238.52, port 50838.
+Sun Oct 16 15:42:34 2005 :: EOF encountered on read.
+Resetting: astappts.are
+Resetting: newacad.are
+Resetting: ships1.are
+Resetting: vcasino.are
+Sun Oct 16 15:42:48 2005 :: Blitzgash killed by Sensui at 3232
+Sun Oct 16 15:43:48 2005 :: Log Funf: savea
+Sun Oct 16 15:43:48 2005 :: Saving Funf.are...
+Resetting: dayton.are
+Resetting: daytonmall.are
+Resetting: simall.are
+Resetting: newbschool.are
+Resetting: vcasino.are
+Resetting: rds.are
+Resetting: carson.are
+Sun Oct 16 15:44:01 2005 :: Sock.sinaddr:  66.56.193.41, port 1166.
+Sun Oct 16 15:44:03 2005 :: Preloading player data for: Rai (8K)
+Sun Oct 16 15:44:03 2005 :: Loading player data for: Rai (8K)
+Sun Oct 16 15:44:03 2005 :: Rai@cpe-066-056-193-041.ec.res.rr.com((no auth)) has connected.
+Sun Oct 16 15:44:07 2005 :: Sock.sinaddr:  69.140.193.108, port 62584.
+Sun Oct 16 15:44:10 2005 :: Log Axel: otell blitz i guess we need to go get our shit back huh
+Sun Oct 16 15:44:13 2005 :: Log Axel: otell blitzgash lol
+Sun Oct 16 15:44:17 2005 :: Log Axel: otell blitz how long are you in for?
+Sun Oct 16 15:44:23 2005 :: Log Blitzgash: otell axel =\ 79 ticks Lol..
+Sun Oct 16 15:44:26 2005 :: Log Axel: oreply ouch
+Sun Oct 16 15:44:29 2005 :: Log Axel: oreply im gettin my sword back
+Sun Oct 16 15:44:32 2005 :: Log Axel: oreply at the very least
+Sun Oct 16 15:44:36 2005 :: Log Axel: oreply i am pissed that he got me
+Resetting: newacad.are
+Resetting: buildacad.are
+Resetting: Jet.are
+Resetting: vcasino.are
+Sun Oct 16 15:45:00 2005 :: Log Blitzgash: otell axel He got me confused I couldn't go in th interlink cause of some fucking citizen
+Sun Oct 16 15:45:02 2005 :: Log Axel: oreply i hit him for like, 500 in one round, and he dodged all 4 hits the next, then i hit him for 400... and i only have 700 something hp :(
+Resetting: newbschool.are
+Resetting: vcasino.are
+Resetting: ships2.are
+Resetting: Earth.are
+Sun Oct 16 15:45:48 2005 :: Sock.sinaddr:  69.140.193.108, port 62593.
+Resetting: callisto.are
+Resetting: newacad.are
+Resetting: simall.are
+Resetting: vcasino.are
+Resetting: ganymede.are
+Resetting: fuckedup.are
+Resetting: newbschool.are
+Resetting: vcasino.are
+Resetting: issp.are
+Resetting: rds.are
+Sun Oct 16 15:47:29 2005 :: Sock.sinaddr:  69.140.193.108, port 62637.
+Resetting: limbo.are
+Resetting: newacad.are
+Resetting: guns.are
+Resetting: soukai.are
+Resetting: vcasino.are
+Resetting: highway.are
+Resetting: nicproject.are
+Sun Oct 16 15:48:39 2005 :: Log Candi: yell saabel, was doing surgery
+Sun Oct 16 15:49:10 2005 :: Sock.sinaddr:  69.140.193.108, port 62648.
+Resetting: simall.are
+Resetting: newbschool.are
+Resetting: vcasino.are
+Resetting: ships3.are
+Resetting: judas.are
+Resetting: newacad.are
+Resetting: g37.are
+Resetting: vcasino.are
+Resetting: holiday.are
+Resetting: prison.are
+Resetting: uris.are
+Resetting: immcomplex.are
+Resetting: newbschool.are
+Resetting: kristenships.are
+Resetting: vcasino.are
+Resetting: rds.are
+Resetting: wts2.are
+Resetting: judas2.are
+Resetting: wystern.are
+Sun Oct 16 15:50:51 2005 :: Sock.sinaddr:  69.140.193.108, port 62660.
+Resetting: newacad.are
+Resetting: drugs.are
+Resetting: g37mall.are
+Resetting: simall.are
+Resetting: venus.are
+Resetting: zephyr.are
+Resetting: vcasino.are
+Resetting: io.are
+Resetting: shipquest.are
+Resetting: carson.are
+Resetting: venusapart.are
+Sun Oct 16 15:52:32 2005 :: Sock.sinaddr:  69.140.193.108, port 62688.
+Resetting: immigrations.are
+Resetting: newbschool.are
+Resetting: vcasino.are
+Sun Oct 16 15:53:05 2005 :: Sock.sinaddr:  4.233.114.1, port 2105.
+Sun Oct 16 15:53:18 2005 :: Preloading player data for: Tink (2K)
+Sun Oct 16 15:53:24 2005 :: Loading player data for: Tink (2K)
+Sun Oct 16 15:53:24 2005 :: Tink@dialup-4.233.114.1.Dial1.LosAngeles1.Level3.net((no auth)) has connected.
+Resetting: newacad.are
+Resetting: daytonmall.are
+Resetting: pluto.are
+Resetting: vcasino.are
+Resetting: venusmount.are
+Sun Oct 16 15:54:13 2005 :: Sock.sinaddr:  69.140.193.108, port 62690.
+Sun Oct 16 15:54:27 2005 :: Log Mario: otell funf you dont have any backups?
+Sun Oct 16 15:54:28 2005 :: Saabel has focused on Candi! Possible Illegal Action!
+Sun Oct 16 15:54:41 2005 :: Candi has focused on Saabel! Possible Illegal Action!
+Sun Oct 16 15:54:58 2005 :: Log Funf: oreply I don't have any backups.
+Resetting: astappts.are
+Resetting: bebop.are
+Resetting: buildacad.are
+Resetting: guns.are
+Resetting: newbschool.are
+Resetting: Jet.are
+Resetting: vcasino.are
+Resetting: rds.are
+Resetting: newacad.are
+Resetting: ships1.are
+Resetting: dayton.are
+Resetting: simall.are
+Resetting: vcasino.are
+Sun Oct 16 15:55:54 2005 :: Sock.sinaddr:  69.140.193.108, port 62692.
+Sun Oct 16 15:56:00 2005 :: Tink has quit.
+Sun Oct 16 15:56:20 2005 :: Log WTS Guard: yell We are being raided by Sensui!
+Sun Oct 16 15:56:20 2005 :: Log WTS Guard: yell We are being raided by Sensui!
+Sun Oct 16 15:56:20 2005 :: Log WTS Guard: yell We are being raided by Sensui!
+Sun Oct 16 15:56:20 2005 :: Log WTS Guard: yell We are being raided by Sensui!
+Sun Oct 16 15:56:26 2005 :: Log WTS Guard: yell We are being raided by Sensui!
+Sun Oct 16 15:56:26 2005 :: Log WTS Guard: yell We are being raided by Sensui!
+Sun Oct 16 15:56:27 2005 :: Log WTS Guard: yell We are being raided by Sensui!
+Sun Oct 16 15:56:30 2005 :: Log WTS Guard: yell We are being raided by Sensui!
+Sun Oct 16 15:56:32 2005 :: Log Mario: otell funf do you think spike might have?
+Sun Oct 16 15:56:33 2005 :: Log WTS Guard: yell We are being raided by Sensui!
+Sun Oct 16 15:56:35 2005 :: Log WTS Guard: yell We are being raided by Sensui!
+Sun Oct 16 15:56:35 2005 :: Log WTS Guard: yell We are being raided by Sensui!
+Sun Oct 16 15:56:40 2005 :: Sock.sinaddr:  4.233.114.1, port 2114.
+Sun Oct 16 15:56:42 2005 :: Log WTS Guard: yell We are being raided by Sensui!
+Sun Oct 16 15:56:44 2005 :: Preloading player data for: Tink (2K)
+Sun Oct 16 15:56:44 2005 :: Log WTS Guard: yell We are being raided by Sensui!
+Sun Oct 16 15:56:44 2005 :: Log WTS Guard: yell We are being raided by Sensui!
+Sun Oct 16 15:56:47 2005 :: Loading player data for: Tink (2K)
+Sun Oct 16 15:56:47 2005 :: Tink@dialup-4.233.114.1.Dial1.LosAngeles1.Level3.net((no auth)) has connected.
+Resetting: soukai.are
+Resetting: newbschool.are
+Resetting: vcasino.are
+Resetting: Earth.are
+Sun Oct 16 15:57:03 2005 :: Log WTS Guard: yell We are being raided by Sensui!
+Sun Oct 16 15:57:05 2005 :: Log WTS Guard: yell We are being raided by Sensui!
+Sun Oct 16 15:57:12 2005 :: Log Funf: oreply Maybe...
+Sun Oct 16 15:57:26 2005 :: Log Funf: snoop sensui
+Sun Oct 16 15:57:29 2005 :: Log WTS Guard: yell We are being raided by Sensui!
+Sun Oct 16 15:57:29 2005 :: Log WTS Guard: yell We are being raided by Sensui!
+Sun Oct 16 15:57:29 2005 :: Sensui killed by A WTS Maze Guard at 2240
+Sun Oct 16 15:57:35 2005 :: Sock.sinaddr:  69.140.193.108, port 62694.
+Resetting: fuckedup.are
+Resetting: newacad.are
+Resetting: vcasino.are
+Resetting: ganymede.are
+Resetting: issp.are
+Sun Oct 16 15:58:33 2005 :: Sock.sinaddr:  67.19.238.52, port 51298.
+Sun Oct 16 15:58:33 2005 :: EOF encountered on read.
+Sun Oct 16 15:58:35 2005 :: Log Mario: otell sensui want to know something?
+Resetting: newbschool.are
+Resetting: vcasino.are
+Resetting: highway.are
+Resetting: rds.are
+Resetting: carson.are
+Sun Oct 16 15:59:16 2005 :: Sock.sinaddr:  69.140.193.108, port 62696.
+Resetting: limbo.are
+Resetting: newacad.are
+Resetting: simall.are
+Resetting: vcasino.are
+Resetting: nicproject.are
+Resetting: ships2.are
+Resetting: ships3.are
+Sun Oct 16 16:00:57 2005 :: Sock.sinaddr:  69.140.193.108, port 62698.
+Resetting: callisto.are
+Resetting: newbschool.are
+Resetting: vcasino.are
+Resetting: newacad.are
+Resetting: vcasino.are
+Resetting: holiday.are
+Resetting: judas2.are
+Sun Oct 16 16:02:38 2005 :: Sock.sinaddr:  69.140.193.108, port 62700.
+Resetting: immcomplex.are
+Resetting: simall.are
+Resetting: guns.are
+Resetting: newbschool.are
+Resetting: venus.are
+Resetting: kristenships.are
+Resetting: vcasino.are
+Resetting: rds.are
+Resetting: shipquest.are
+Resetting: prison.are
+Resetting: judas.are
+Resetting: wystern.are
+Resetting: newacad.are
+Resetting: drugs.are
+Resetting: immigrations.are
+Resetting: g37.are
+Resetting: vcasino.are
+Resetting: io.are
+Resetting: uris.are
+Sun Oct 16 16:04:19 2005 :: Sock.sinaddr:  69.140.193.108, port 62702.
+Resetting: daytonmall.are
+Resetting: soukai.are
+Resetting: newbschool.are
+Resetting: zephyr.are
+Resetting: vcasino.are
+Resetting: wts2.are
+Resetting: venusapart.are
+Sun Oct 16 16:05:17 2005 :: Sock.sinaddr:  24.159.9.145, port 2446.
+Sun Oct 16 16:05:22 2005 :: Preloading player data for: Christi (3K)
+Sun Oct 16 16:05:26 2005 :: Loading player data for: Christi (3K)
+Sun Oct 16 16:05:26 2005 :: Christi@24-159-9-145.dhcp.smrt.tn.charter.com(unknown) has connected.
+Sun Oct 16 16:05:33 2005 :: Christi has quit.
+Sun Oct 16 16:05:35 2005 :: Sock.sinaddr:  24.159.9.145, port 2448.
+Sun Oct 16 16:06:00 2005 :: Sock.sinaddr:  69.140.193.108, port 62705.
+Resetting: newacad.are
+Resetting: g37mall.are
+Resetting: pluto.are
+Resetting: vcasino.are
+Sun Oct 16 16:06:06 2005 :: Arianna has quit.
+Sun Oct 16 16:06:21 2005 :: Axel has focused on Sensui! Possible Illegal Action!
+Resetting: buildacad.are
+Resetting: ships1.are
+Resetting: simall.are
+Resetting: newbschool.are
+Resetting: vcasino.are
+Resetting: venusmount.are
+Resetting: rds.are
+Sun Oct 16 16:07:41 2005 :: Sock.sinaddr:  69.140.193.108, port 62708.
+Sun Oct 16 16:08:23 2005 :: Axel has focused on Sensui! Possible Illegal Action!
+Sun Oct 16 16:08:34 2005 :: Sensui killed by Axel at 3203
+Resetting: newacad.are
+Resetting: Jet.are
+Resetting: vcasino.are
+Resetting: carson.are
+Resetting: fuckedup.are
+Resetting: astappts.are
+Resetting: bebop.are
+Resetting: newbschool.are
+Resetting: vcasino.are
+Resetting: Earth.are
+Sun Oct 16 16:09:22 2005 :: Sock.sinaddr:  69.140.193.108, port 62710.
+Sun Oct 16 16:09:23 2005 :: Log Axel: otell sensui i will pay for Masamune back
+Sun Oct 16 16:09:30 2005 :: Log Axel: otell sensui I'm not trying to start a grudgefest here
+Sun Oct 16 16:09:42 2005 :: Log Axel: otell sensui but as long as you hold it, i have pk on you
+Resetting: newacad.are
+Resetting: dayton.are
+Resetting: simall.are
+Resetting: guns.are
+Resetting: vcasino.are
+Resetting: ganymede.are
+Sun Oct 16 16:11:03 2005 :: Sock.sinaddr:  69.140.193.108, port 62712.
+Sun Oct 16 16:11:43 2005 :: EOF encountered on read.
+Sun Oct 16 16:11:43 2005 :: Closing link to Saabel.
+Sun Oct 16 16:11:44 2005 :: Sock.sinaddr:  68.154.67.218, port 3509.
+Sun Oct 16 16:11:46 2005 :: Preloading player data for: Saabel (9K)
+Resetting: newbschool.are
+Resetting: vcasino.are
+Resetting: nicproject.are
+Resetting: issp.are
+Resetting: rds.are
+Sun Oct 16 16:11:48 2005 :: Saabel@adsl-154-67-218.aby.bellsouth.net((no auth)) reconnected.
+Sun Oct 16 16:12:03 2005 :: Log Mario: otell sensui brb 
+Resetting: limbo.are
+Resetting: newacad.are
+Resetting: vcasino.are
+Sun Oct 16 16:12:34 2005 :: Sock.sinaddr:  67.19.238.52, port 51666.
+Sun Oct 16 16:12:34 2005 :: EOF encountered on read.
+Sun Oct 16 16:12:44 2005 :: Sock.sinaddr:  69.140.193.108, port 62716.
+Sun Oct 16 16:13:47 2005 :: Gene has focused on Sensui! Possible Illegal Action!
+Resetting: soukai.are
+Resetting: newbschool.are
+Resetting: vcasino.are
+Resetting: highway.are
+Resetting: ships2.are
+Resetting: ships3.are
+Sun Oct 16 16:13:55 2005 :: Sensui killed by Gene at 3283
+Sun Oct 16 16:14:11 2005 :: Log Gene: otell sensui I didnt want to do that..but thats for BLitz.
+Sun Oct 16 16:14:25 2005 :: Sock.sinaddr:  69.140.193.108, port 62718.
+Resetting: newacad.are
+Resetting: simall.are
+Resetting: kristenships.are
+Resetting: vcasino.are
+Resetting: judas2.are
+Sun Oct 16 16:16:06 2005 :: Sock.sinaddr:  69.140.193.108, port 62720.
+Resetting: immcomplex.are
+Resetting: newbschool.are
+Resetting: vcasino.are
+Resetting: holiday.are
+Resetting: rds.are
+Resetting: prison.are
+Resetting: carson.are
+Resetting: callisto.are
+Resetting: newacad.are
+Resetting: g37.are
+Resetting: venus.are
+Resetting: vcasino.are
+Resetting: wts2.are
+Resetting: shipquest.are
+Sun Oct 16 16:17:47 2005 :: Sock.sinaddr:  69.140.193.108, port 62725.
+Resetting: drugs.are
+Resetting: immigrations.are
+Resetting: pluto.are
+Resetting: simall.are
+Resetting: newbschool.are
+Resetting: zephyr.are
+Resetting: vcasino.are
+Resetting: io.are
+Resetting: venusapart.are
+Resetting: judas.are
+Resetting: wystern.are
+Resetting: newacad.are
+Resetting: daytonmall.are
+Resetting: guns.are
+Resetting: vcasino.are
+Resetting: uris.are
+Resetting: g37mall.are
+Resetting: newbschool.are
+Resetting: vcasino.are
+Resetting: venusmount.are
+Resetting: rds.are
+Sun Oct 16 16:19:28 2005 :: Sock.sinaddr:  69.140.193.108, port 62731.
+Sun Oct 16 16:20:28 2005 :: Preloading player data for: Drei (5K)
+Sun Oct 16 16:20:28 2005 :: Updating area entry for Drei
+Sun Oct 16 16:20:29 2005 :: Loading player data for: Drei (5K)
+Sun Oct 16 16:20:29 2005 :: Updating area entry for Drei
+Sun Oct 16 16:20:29 2005 :: Drei@pcp09492735pcs.nrockv01.md.comcast.net((no auth)) has connected.
+Drei.are      : Rooms: 12700 - 12799 Objs: 12700 - 12799 Mobs: 12700 - 12799
+Sun Oct 16 16:20:34 2005 :: Log Funf: snoop self
+Resetting: fuckedup.are
+Resetting: newacad.are
+Resetting: buildacad.are
+Resetting: simall.are
+Resetting: soukai.are
+Resetting: vcasino.are
+Resetting: ships1.are
+Resetting: newbschool.are
+Resetting: vcasino.are
+Resetting: Earth.are
+Resetting: newacad.are
+Resetting: dayton.are
+Resetting: Jet.are
+Resetting: vcasino.are
+Resetting: limbo.are
+Resetting: astappts.are
+Resetting: bebop.are
+Resetting: newbschool.are
+Resetting: vcasino.are
+Resetting: nicproject.are
+Resetting: ganymede.are
+Resetting: rds.are
+Resetting: newacad.are
+Resetting: simall.are
+Resetting: vcasino.are
+Resetting: carson.are
+Resetting: guns.are
+Resetting: newbschool.are
+Resetting: vcasino.are
+Resetting: issp.are
+Resetting: ships3.are
+Resetting: newacad.are
+Resetting: immcomplex.are
+Resetting: vcasino.are
+Sun Oct 16 16:27:33 2005 :: Sock.sinaddr:  67.19.238.52, port 52058.
+Sun Oct 16 16:27:33 2005 :: EOF encountered on read.
+Resetting: g37.are
+Resetting: simall.are
+Resetting: newbschool.are
+Resetting: venus.are
+Resetting: vcasino.are
+Resetting: highway.are
+Resetting: holiday.are
+Resetting: rds.are
+Resetting: judas2.are
+Sun Oct 16 16:29:03 2005 :: Gene has quit.
+Resetting: newacad.are
+Resetting: pluto.are
+Resetting: kristenships.are
+Resetting: vcasino.are
+Resetting: ships2.are
+Resetting: wts2.are
+Sun Oct 16 16:29:25 2005 :: Log Funf: rpedit add allgreet 100
+Sun Oct 16 16:30:37 2005 :: Log Funf: rpedit edit 1
+Resetting: drugs.are
+Resetting: soukai.are
+Resetting: newbschool.are
+Resetting: zephyr.are
+Resetting: vcasino.are
+Resetting: judas.are
+Sun Oct 16 16:31:15 2005 :: Log Funf: rpedit edit 1

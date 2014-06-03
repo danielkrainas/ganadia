@@ -1,0 +1,876 @@
+#AREA   {PROTO} Seran's area in progress~
+
+
+
+#AUTHOR Seran~
+
+#RANGES
+-1 -1 -1 -1 0 0 0 0
+$
+
+#FLAGS
+0
+
+#ECONOMY 0 3504495
+
+#MOBILES
+#256
+short fat woman balynda~
+Balynda~
+&PA short fat woman awaits your request.
+~
+~
+1073741825 0 0 Z
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 2
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+> greet_prog 100~
+if ispc($n)
+' Welcome!+
+How may I help you?
+endif
+~
+|
+#258
+Phillip~
+Phillip~
+&PPhillip stands here waiting to serve you.
+~
+~
+1073758209 0 0 Z
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+> all_greet_prog 100~
+if ispc($n)
+' Welcome!+
+How may I help you?
+endif
+~
+|
+#265
+A secretary~
+A secretary~
+A Secretary sits here smiling at you.
+~
+~
+1073758209 0 0 Z
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 2
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+#0
+
+
+#OBJECTS
+#229
+hemp~
+A piece of hemp~
+A Piece of Hemp lies here.~
+~
+74 1073741824 1
+10 10 0 0
+1 500000 50000
+#230
+Flannel~
+A Small Piece of Flannel.~
+A Small Piece of Flannel lies here.~
+~
+74 1073741824 1
+6 6 0 0
+1 75000 7500
+#0
+
+
+#ROOMS
+#229
+&RDione Dock~
+Ships line up along the dock, with a precision not seen on other planets. Ships
+are ordered by size, shape, even by the name of the pilot. Security is running
+around, trying to maintain the peace and to make sure things are running
+smoothly. Standing on ladders are scrapers, melting and scraping ice off of the
+ships, keeping them in working order.
+~
+0 1082130480 1 0
+D1
+~
+~
+0 -1 230
+S
+#230
+An Icy Path~
+~
+0 1082130432 1 0
+D3
+~
+~
+0 -1 229
+D8
+~
+~
+0 -1 236
+D9
+~
+~
+0 -1 231
+S
+#231
+An Icy Path~
+~
+0 1082130432 1 0
+D2
+~
+~
+0 -1 232
+D6
+~
+~
+0 -1 230
+S
+#232
+An Icy Path~
+~
+0 1082130432 1 0
+D0
+~
+~
+0 -1 231
+D2
+~
+~
+0 -1 233
+S
+#233
+An Icy Path~
+~
+0 1082130432 1 0
+D0
+~
+~
+0 -1 232
+D1
+~
+~
+0 -1 234
+S
+#234
+An Icy Path~
+~
+0 1082130432 1 0
+D3
+~
+~
+0 -1 233
+D6
+~
+~
+0 -1 235
+S
+#235
+An Icy Path~
+~
+0 1082130432 1 0
+D0
+~
+~
+0 -1 236
+D1
+~
+~
+0 -1 237
+D9
+~
+~
+0 -1 234
+S
+#236
+An Icy Path~
+~
+0 1082130432 1 0
+D2
+~
+~
+0 -1 235
+D7
+~
+~
+0 -1 230
+S
+#237
+An Icy Path~
+~
+0 1082130432 1 0
+D2
+~
+~
+0 -1 238
+D3
+~
+~
+0 -1 235
+S
+#238
+An Icy Path~
+~
+0 1082130432 1 0
+D0
+~
+~
+0 -1 237
+D2
+~
+~
+0 -1 239
+S
+#239
+An Icy Path~
+~
+0 1082130432 1 0
+D0
+~
+~
+0 -1 238
+D2
+~
+~
+0 -1 240
+S
+#240
+An Icy Path~
+~
+0 1082130432 1 0
+D0
+~
+~
+0 -1 239
+D1
+~
+~
+0 -1 247
+D9
+~
+~
+0 -1 241
+S
+#241
+An Icy Path~
+~
+0 1073741824 1 0
+D2
+~
+~
+0 -1 242
+D6
+~
+~
+0 -1 240
+S
+#242
+An Icy Path~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 241
+D8
+~
+~
+0 -1 243
+S
+#243
+An Icy Path~
+~
+0 1073741824 1 0
+D1
+~
+~
+0 -1 244
+D7
+~
+~
+0 -1 242
+S
+#244
+An Icy Path~
+~
+0 1073741824 1 0
+D3
+~
+~
+0 -1 243
+D6
+~
+~
+0 -1 245
+S
+#245
+An Icy Path~
+~
+0 1082130432 1 0
+D0
+~
+~
+0 -1 246
+D2
+~
+~
+0 -1 248
+D8
+~
+~
+0 -1 251
+D9
+~
+~
+0 -1 244
+S
+#246
+An Icy Path~
+~
+0 1082130432 1 0
+D2
+~
+~
+0 -1 245
+D7
+~
+~
+0 -1 247
+S
+#247
+An Icy Path~
+~
+0 1082130432 1 0
+D3
+~
+~
+0 -1 240
+D8
+~
+~
+0 -1 246
+S
+#248
+An Icy Path~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 245
+D2
+~
+~
+0 -1 249
+S
+#249
+An Icy Path~
+~
+0 1073741824 1 0
+D0
+~
+~
+0 -1 248
+D2
+~
+~
+0 -1 250
+S
+#250
+&RDione Gym~
+The smell of sweat wafts through the small training room. Punching
+bags hang from the ceiling and some lie on the floor. A few fat guys sit
+on a bench near the entrance. Maybe that's where the smell is coming from.
+~
+0 1073741832 1 1
+D0
+~
+~
+0 -1 249
+S
+#251
+An Icy Path~
+~
+0 1082130432 1 0
+D7
+~
+~
+0 -1 245
+D8
+~
+~
+0 -1 252
+S
+#252
+An Icy Path~
+~
+0 1082130432 1 0
+D7
+~
+~
+0 -1 251
+D8
+~
+~
+0 -1 253
+S
+#253
+An Icy Path~
+~
+0 1082130432 1 0
+D0
+~
+~
+0 -1 254
+D1
+~
+~
+0 -1 257
+D2
+~
+~
+0 -1 259
+D7
+~
+~
+0 -1 252
+S
+#254
+An Icy Path~
+~
+0 1082130432 1 0
+D0
+~
+~
+0 -1 255
+D2
+~
+~
+0 -1 253
+S
+#255
+An Icy Path~
+~
+0 1082130432 1 0
+D0
+~
+~
+0 -1 256
+D2
+~
+~
+0 -1 254
+S
+#256
+Balynda's Fabrics Inc.~
+Bolts of colorful fabrics line up against the walls. Shreds of thread
+and yarn are strewn about, along with beautiful examples of clothing
+displayed on manicans, showing what could be made. 
+~
+0 1082130440 1 0
+D2
+~
+~
+0 -1 255
+S
+#257
+An Icy Path~
+~
+0 1082130432 1 0
+D1
+~
+~
+0 -1 258
+D3
+~
+~
+0 -1 253
+S
+#258
+Phillip's Hardware~
+~
+0 1082130440 1 0
+D3
+~
+~
+0 -1 257
+S
+#259
+An Icy Path~
+~
+0 1082130432 1 0
+D0
+~
+~
+0 -1 253
+D2
+~
+~
+0 -1 260
+S
+#260
+An Icy Path~
+~
+0 1082130432 1 0
+D0
+~
+~
+0 -1 259
+D1
+~
+~
+0 -1 261
+D2
+~
+~
+0 -1 262
+S
+#261
+&RDione Workshop~
+~
+0 1149239304 1 0
+D3
+~
+~
+0 -1 260
+S
+#262
+An Icy Path~
+~
+0 1082130432 1 0
+D0
+~
+~
+0 -1 260
+D2
+~
+~
+0 -1 263
+S
+#263
+An Icy Path~
+~
+0 1082130432 1 0
+D0
+~
+~
+0 -1 262
+D1
+~
+~
+0 -1 264
+D3
+~
+~
+0 -1 266
+S
+#264
+An Icy Path~
+~
+0 1082130432 1 0
+D1
+~
+~
+0 -1 265
+D3
+~
+~
+0 -1 263
+S
+#265
+Star Enterprise~
+~
+0 1082130440 1 0
+D3
+~
+~
+0 -1 264
+S
+#266
+&RDione Hospital~
+~
+0 1082131468 1 0
+D1
+~
+~
+0 -1 263
+> rand_prog 80~
+if inroom($n) == 266
+if hps($n) < 990
+mea $n _yel The doctor comes in and gives you a shot.
+mprestore $n 300
+endif
+if hps($n) >= 990
+mea $n _lbl A Nurse says 'This is a Hospital not a Hotel!'
+mptrans $n 3203
+mpat $n mpforce $n look
+endif
+endif
+>entry_prog 100
+if hps($n) > 990
+mea $n _lbl A Nurse says 'This is a Hospital not a Hotel!'
+mpforce $n e
+endif
+~
+> entry_prog 100~
+if hps($n) > 990
+mea $n _lbl A Nurse says 'This is a Hospital not a Hotel!'
+mpforce $n e
+endif
+~
+|
+S
+#267
+A Hidden Room~
+~
+0 1073741833 1 0
+D1
+~
+~
+0 -1 268
+D6
+~
+~
+0 -1 282
+S
+#268
+A Secret Pathway~
+~
+0 1073741833 1 0
+D3
+~
+~
+0 -1 267
+D6
+~
+~
+0 -1 269
+S
+#269
+A Secret Pathway~
+~
+0 1073741833 1 0
+D7
+~
+~
+0 -1 270
+D9
+~
+~
+0 -1 268
+S
+#270
+A Secret Pathway~
+~
+0 1073741833 1 0
+D7
+~
+~
+0 -1 271
+D8
+~
+~
+0 -1 269
+S
+#271
+A Secret Pathway~
+~
+0 1073741833 1 0
+D2
+~
+~
+0 -1 272
+D8
+~
+~
+0 -1 270
+S
+#272
+A Secret Pathway~
+~
+0 1073741833 1 0
+D0
+~
+~
+0 -1 271
+D6
+~
+~
+0 -1 273
+S
+#273
+A Secret Pathway~
+~
+0 1073741833 1 0
+D1
+~
+~
+0 -1 274
+D9
+~
+~
+0 -1 272
+S
+#274
+A Secret Pathway~
+~
+0 1073741833 1 0
+D2
+~
+~
+0 -1 275
+D3
+~
+~
+0 -1 273
+S
+#275
+A Secret Pathway~
+~
+0 1073741833 1 0
+D0
+~
+~
+0 -1 274
+D8
+~
+~
+0 -1 276
+S
+#276
+A Secret Pathway~
+~
+0 1073741833 1 0
+D1
+~
+~
+0 -1 277
+D7
+~
+~
+0 -1 275
+S
+#277
+A Secret Pathway~
+~
+0 1073741833 1 0
+D0
+~
+~
+0 -1 278
+D3
+~
+~
+0 -1 276
+S
+#278
+A Secret Pathway~
+~
+0 1073741833 1 0
+D2
+~
+~
+0 -1 277
+D7
+~
+~
+0 -1 279
+S
+#279
+A Secret Pathway~
+~
+0 1073741837 1 0
+D2
+~
+~
+0 -1 280
+D8
+~
+~
+0 -1 278
+S
+#280
+A Secret Pathway~
+~
+0 1073741833 1 0
+D0
+~
+~
+0 -1 279
+D6
+~
+~
+0 -1 281
+S
+#281
+Top Secret Room~
+~
+0 1073741833 1 0
+D9
+~
+~
+0 -1 280
+S
+#282
+A Secret Pathway~
+~
+0 1073741833 1 0
+D9
+~
+~
+0 -1 267
+S
+#286
+Floating in a void~
+~
+0 1073741828 1 0
+S
+#0
+
+
+#RESETS
+M 1 256 1 256
+G 1 4223 1
+G 1 230 1
+G 1 4219 1
+G 1 229 1
+G 1 4248 1
+M 1 258 1 258
+G 1 3262 1
+G 1 3523 1
+G 1 3223 1
+G 1 3224 1
+G 1 3215 1
+S
+
+
+#SHOPS
+ 256    0  0  0  0  0   120  90         0 23    ; Balynda
+ 258    0  0  0  0  0   120  90         0 23    ; Phillip
+0
+
+
+#REPAIRS
+0
+
+
+#SPECIALS
+S
+
+
+#$

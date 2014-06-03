@@ -1,0 +1,4071 @@
+#AREA   Venus~
+
+
+
+#AUTHOR Gatz~
+
+#RANGES
+0 115 0 115 1 0 0 0
+$
+
+#FLAGS
+0
+
+#ECONOMY 0 16974484
+
+#MOBILES
+#1000
+Greeter~
+The Venus Greeter~
+The Venus Greeter comes up to people greeting them.
+~
+~
+16385 0 0 Z
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 2
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+0 0 0 0 0 0 0 0
+262144 0 0 0 0 0 0 0
+> all_greet_prog 100~
+say Welcome vistors!
+say To gain entry to Venus we MUST insist you buy a pill!
+say The pill will prevent you from getting the Venus Sickness
+say Unfortunatly the pill will only last your stay here.
+frown
+say Just give me 10,000 wulongs and your all set!
+say Oh by the way, you can buy extra pills from my shop!
+say But they are fake pills and only for taking to friends!
+~
+> bribe_prog 10000~
+mpdeposit 10000
+say Thank you, here ya go!
+mpoload 1000 1
+give pill $n
+say Now please take that as soon as possible!
+mea $n The Greeter nods to the Guard to escort you out!
+mer $n The Greeter nods to the Guard to escort $n out!
+mptrans $n 1001
+~
+> act_prog p steps out of a ship.~
+say Welcome vistors!
+say To gain entry to Venus we MUST insist you buy a pill!
+say The pill will prevent you from getting the Venus Sickness
+say Unfortunatly the pill will only last your stay here.
+frown
+say Just give me 10,000 wulongs and your all set!
+say Oh by the way, you can buy extra pills from my shop!
+say But they are fake pills and only for taking to friends!
+~
+|
+#1001
+guard~
+A Guard~
+A Guard patrols the area.
+~
+~
+1 0 0 Z
+1 0 0 0d0+0 0d0+0
+3000 0
+8 8 1
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+0 0 0 0 0 0 0 0
+262144 0 0 0 0 0 0 0
+> all_greet_prog 100~
+hello $r
+~
+|
+#1002
+Spaceguard~
+A Spaceport Guard~
+A Spaceport Guard watches for any disturbance.
+~
+~
+1 0 0 Z
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+0 0 0 0 0 0 0 0
+262144 0 0 0 0 0 0 0
+#1004
+Andy~
+Andy~
+A stereotypical cowboy gazes curiously at you.
+~
+Andy is quite the handsome man.  His blond hair sways softly under his
+cowboy hat, but despite his good looks, it's quite apparent that Andy
+is just a wannabe cowboy.
+~
+1073741827 0 0 Z
+100 0 -150 20d10+1000 10d4+2
+0 0
+8 8 1
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+20 20 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+#1005
+Tourist~
+A Tourist~
+A tourist stands here amazed.
+~
+~
+1 0 0 Z
+5 0 87 1d10+50 0d4+2
+15000 0
+8 8 1
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+1 1 0 0 0 0 0 0
+262144 0 0 0 0 0 0 0
+> rand_prog 5~
+emote looks up in awe at the scenery.
+~
+|
+#1006
+Tourist~
+A Female Tourist~
+A female tourist is busy hunting for stores.
+~
+~
+1 0 0 Z
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 2
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+0 0 0 0 0 0 0 0
+262144 0 0 0 0 0 0 0
+> rand_prog 5~
+emote sniffs the air bizarrely.
+say I smell a deal on clothing somewhere!
+~
+|
+#1007
+Stallion~
+&zA handsome stallion&w~
+&zA dashing stallion stares defiently at everything.&w
+~
+~
+1074003971 0 0 Z
+85 0 -112 17d10+850 8d4+2
+0 0
+8 8 0
+18 10 10 18 18 10 10
+0 0 0 0 0
+10 0 0 0 129 128 0
+17 17 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+#1012
+Scientist~
+A Scientist~
+A Scientist stands here looking confused.
+~
+~
+1073741827 0 0 Z
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+> all_greet_prog 100~
+emote looks around confused.
+say Is um...this Soukai R and D?
+say I see it is something for Soukai Corporation.
+~
+> rand_prog 50~
+say Ah, damn...I am gonna get fired..on my first day!
+say And I got this Basement Key for safe keeping...
+say And...and..I am lost!
+cry
+~
+|
+#1013
+OldOwner~
+A Old Woman~
+An old shopkeer stands behind her counter.
+~
+~
+3 0 0 Z
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 2
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+> all_greet_prog 100~
+mea $n The shopkeeper seems to ignore you.
+~
+> rand_prog 2~
+emote adds more 'rare' rocks to the 'Old Venus Mineral Rocks' pile.
+~
+|
+#1014
+Keeper~
+A Shoper Owner~
+A shop owner stands here watching you closely
+~
+~
+3 0 0 Z
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+0 0 0 0 0 0 0 0
+262144 0 0 0 0 0 0 0
+#1015
+Witch~
+A Old Woman~
+A old woman sits in the corner brewing potions.
+~
+~
+3 0 0 Z
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 2
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+0 0 0 0 0 0 0 0
+262144 0 0 0 0 0 0 0
+#1016
+Banker~
+A Banker~
+A banker stands here ready to asist you.
+~
+~
+3 0 0 Z
+1 0 0 0d0+0 0d0+0
+20000 0
+8 8 0
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+0 0 0 0 0 0 0 0
+262144 0 0 0 0 0 0 0
+> all_greet_prog 50~
+say Hello there, I am very busy so please be patient.
+~
+> rand_prog 5~
+emote quickly scribes figures from a computer screen down.
+~
+|
+#1024
+Owner~
+The Owner~
+The shop owner stands here looking out for customers.
+~
+~
+3 0 0 Z
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+0 0 0 0 0 0 0 0
+262144 0 0 0 0 0 0 0
+#1025
+Bob~
+Big Bob~
+Big Bob stands here ready to impress you.
+~
+~
+3 0 0 Z
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+#1026
+Owner~
+The Owner~
+A Shop Owner stands here.
+~
+~
+3 0 0 Z
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+0 0 0 0 0 0 0 0
+262144 0 0 0 0 0 0 0
+#1029
+Owner~
+The Owner~
+The shop owner stands here ready to make a deal.
+~
+~
+3 0 0 Z
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 2
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+0 0 0 0 0 0 0 0
+262144 0 0 0 0 0 0 0
+#1030
+Owner~
+The Shop Owner~
+The shop owner stands here trying to sell things.
+~
+~
+3 0 0 Z
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 2
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+0 0 0 0 0 0 0 0
+262144 0 0 0 0 0 0 0
+#1031
+Owner~
+The Owner~
+A worker here is trying to sell you things.
+~
+~
+3 0 0 Z
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 2
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+#1034
+Jogger~
+A Jogger~
+A Female Jogger pleasently enjoys the wonderful scenery.
+~
+~
+1 0 0 Z
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 2
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+> rand_prog 5~
+sing 
+~
+|
+#1035
+Roy~
+Roy the Repairer~
+Roy the Repairer pounds away at some damaged armor.
+~
+Roy has bulging muscles from all the pounding he does with his hammer.
+He's drenched in sweat and smells like he could use some deodorant, but
+his work is outstanding.
+~
+3 0 0 Z
+100 0 -150 20d10+1000 10d4+2
+0 0
+8 8 0
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+20 20 0 0 0 0 0 0
+262144 0 0 0 0 0 0 0
+#1036
+Guide~
+A Guide~
+A Guide stands here ready to help you.
+~
+~
+3 0 0 Z
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 2
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+0 0 0 0 0 0 0 0
+262144 0 0 0 0 0 0 0
+> all_greet_prog 100~
+say Welcome to the Soukai Corporation's R and D lab!
+say We must ask a fine of 5,000 Wulongs to enter!
+say Once you give me the money, you may enter!
+smile $n
+~
+> bribe_prog 5000~
+say Thank you and enjoy your stay with us!
+mptrans $n 1037
+mpat 1037 mpforce $n look
+~
+|
+#1038
+scientist~
+A Scientist~
+A Scientist stands here doing exsperiments
+~
+~
+3 0 0 Z
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+> all_greet_prog 100~
+say Hey there, we are doing music tests with fish
+say We believe music helps our fish grow better.
+say Music seems to stimulate them in interesting ways.
+~
+> rand_prog 3~
+emote turns on rock music.
+mpe The fish in the tank seem to become violent, thrashing
+about!
+~
+> rand_prog 3~
+emote turns on soft music.
+mpe The fish in the tank seem to become peaceful!
+~
+> rand_prog 5~
+emote stretches slightly, exposing a strange ID Badge.
+~
+|
+#1042
+Scientist~
+The Head Scientist~
+A Scientist with an ID Badge stands here.
+~
+~
+3 0 0 Z
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+#1043
+Lazy Jogger~
+A Lazy Jogger~
+A Lazy Jogger leans agasnit the rail panting.
+~
+~
+3 0 0 Z
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+0 0 0 0 0 0 0 0
+262144 0 0 0 0 0 0 0
+> all_greet_prog 1000~
+if ispc($n)
+say Please stranger...go to the beach and buy me a drink....
+say I will reward you!
+emote pants and gasps for air!
+endif
+~
+> act_prog gives~
+if ovnuminv(1060) == 1
+mpat 4 drop drink
+mpat 4 mppurge drink
+say Aw, thanks man I was dying!
+mpwithdraw 5000
+give 5000 wulongs $n
+emote quickly gulps down all the liquid in the container!
+endif
+~
+|
+#1054
+Kid~
+A Kid~
+A Kid is here playing in the waves
+~
+~
+3 0 0 Z
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+10 10 10 15 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+0 0 0 0 0 0 0 0
+262144 0 0 0 0 0 0 0
+#1055
+Tanner~
+A Suntanner~
+A woman lies here suntanning.
+~
+~
+3 0 0 Z
+1 0 0 0d0+0 0d0+0
+2000 0
+8 8 2
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+0 0 0 0 0 0 0 0
+262144 0 0 0 0 0 0 0
+> rand_prog 3~
+emote looks up at you.
+say Your blocking my sun!
+~
+|
+#1060
+Standman~
+A Foodseller~
+A man stands behind the counter taking orders.
+~
+~
+3 0 0 Z
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+> all_greet_prog 1060~
+say I am busy so if ya gots an order tell me quick!
+~
+> rand_prog 10~
+emote gets a moments peace as their is no line.
+mpecho A flood of hungry people come from the beach!
+emote sighs and goes back to work.
+~
+|
+#1063
+Doorman~
+A Doorman~
+A Doorman stands here monitoring who enters the Hotel.
+~
+~
+3 0 0 Z
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+> all_greet_prog 1000~
+if ispc($n)
+say I am sorry, no vacancy try again later.
+bow $n
+else
+say Right this way!
+mptrans $i 1005
+mpecho &wThe Doorman ushers the person into the hotel quickly.
+endif
+~
+> rand_prog 10~
+whistle 
+~
+|
+#1066
+rat~
+A Rat~
+A disgusting Rat stands here!
+~
+~
+97 0 0 Z
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+> all_greet_prog 100~
+mphate $n
+mpkill $n
+~
+> fight_prog 10~
+growl $N
+emote jumps up and bites you!
+mpdamage $n 20
+~
+|
+#1093
+Mutant Monster~
+A Mutant~
+A ugly mutated person with fish like features stands here!
+~
+~
+1 0 -1000 Z
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+13 1 10 5 7 10 8
+0 0 0 0 0
+0 0 0 0 1 1 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+> all_greet_prog 1000~
+if ispc($n)
+mphate $n
+mpkill $n
+endif
+~
+> rand_prog 5~
+emote mumbles out words that aren't understandable.
+~
+|
+#1094
+Survivor~
+A Survivor~
+A man shakes in fear in the corner.
+~
+~
+3 0 0 Z
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+> all_greet_prog 100~
+emote looks up in fear.
+say Oh..oh my God, its a human!
+say Please, The Soukai Corporation has a hidden base here.
+say Please...please! Take them out.
+say Of course, If you give me some wulongs...
+say I might...tell ya where they're hiding.
+say ....2,000 Wulongs should do
+~
+> bribe_prog 2000~
+smile $n
+say G..go to the old house!
+say There is a secret wall...thats all I know!
+emote collapse to the ground in fear.
+~
+|
+#1114
+Lab Guard~
+A Guard~
+A Guard watches over the compound.
+~
+~
+3 0 0 Z
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+> all_greet_prog 100~
+emote checks for an ID Badge.
+mpforce $n give badge guard
+if ovnuminv(1036) == 1
+give badge $n
+bow $n
+say Hello.
+else
+mpkill $n
+mphate $n
+endif
+~
+> rand_prog 3~
+emote turns a paper over and start writting something.
+~
+|
+#1115
+Secretary~
+A Secretary~
+The Secretary sits at her desk.
+~
+~
+1 0 0 Z
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+#1125
+Director~
+The Director~
+The Director sits here doing paperwork.
+~
+~
+134217731 0 0 Z
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+> all_greet_prog 100~
+emote seems to ignore you.
+say If your business isn't urgent go away.
+~
+> death_prog 100~
+mpmload 1125
+mpforce 2.director mpoload 1125 1
+mpforce 2.director give key $n
+~
+|
+#1127
+Gojiro~
+Gojiro~
+The demonesque Gojiro stands here
+~
+~
+134217731 0 0 Z
+70 0 -75 14d10+700 7d4+2
+0 0
+8 8 0
+13 10 10 15 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 3
+14 14 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+> all_greet_prog 100~
+say Hello, I am Gojiro the greatest demon swordsman!
+emote swings his lethal Demon Sword in the air.
+say Attack me!
+~
+> death_prog 100~
+mpmload 1127
+mpforce 2.Gojiro say Please...kill the Director...
+mpforce 2.Gojiro say but do me one favor before you fight...
+mpforce 2.Gojiro emote gasps in pain
+mpforce 2.Gojiro say Just..say..my name..Gojiro..the...
+mpforce 2.Gojiro emote winces in pain
+mptrans $n 1137
+~
+|
+#1128
+Director~
+The Mutated Director~
+A Director stands here.
+~
+~
+134217731 0 0 Z
+60 0 -50 12d10+600 6d4+2
+0 0
+8 8 0
+13 10 10 15 14 10 12
+0 0 0 0 0
+0 0 0 0 1 1 3
+12 12 0 0 0 0 48 0
+0 0 0 0 0 0 0 0
+> all_greet_prog 100~
+mpe The Director injects himself with a bizarre liquid!
+say Now I am greater than Gojiro!
+say He was a stupid Prototype, I am the finished product!
+say You damn intruder, shall taste my power!
+mphate $n
+mpkill $n
+
+~
+> death_prog 100~
+mpmload 1128
+mpforce 2.Director say You...won...NO!!!!!
+mpforce 2.Director say Damn fool, with the last of my power...
+mpforce 2.Director grin $n
+mpforce 2.Director emote activates a self destruct for button
+mpe A timer sounds and a door opens revealing a secret elevator.
+mpforce 2.Director say No..no! Heh, actually I do enjoy my victims pain
+mpforce 2.Director say I and I alone now how to use the elevator!
+mpforce 2.Director say You will die with all of us!!!
+mea $n The Director shoves you in the elevator and locks it!
+mptrans $n 1129
+~
+|
+#1133
+crazy sci~
+A Crazy Scientist~
+A old scientist lays in one of the beds.
+~
+~
+1073741827 0 0 Z
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+> all_greet_prog 100~
+emote looks up at you and quickly turns away.
+~
+> rand_prog 10~
+emote starts to cry.
+say I...am..the monster...
+say My failure in experiments...I made...those creatures that wander...
+say I am the demon...not them...
+say God save my soul...
+~
+|
+#1134
+scientist~
+A Scientist~
+A Scientist stands here working hard.
+~
+~
+3 0 0 Z
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+> all_greet_prog 100~
+if ispc($n)
+say Hey, you....
+say You don't look familar around here, don't worry I wont turn you in.
+say I need your help, will you do it?
+endif
+~
+> speech_prog yes~
+say Thank you! My partner and I were working on project Gojiro.
+say He was suppose to be a hybrid of a man, being enhanced.
+say We got far into the project then the Director took him!
+say I believe he is being held in his private lab !
+say Please go to the Director and stop his madness!
+say I realize now the Gojiro project is madness, please help atone me!
+~
+|
+#1137
+Gdead~
+Gojiro~
+A dying Gojiro lies here.
+~
+~
+3 32 0 Z
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+10 10 10 10 10 10 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+> speech_prog p gojiro the greatest demon swordsman~
+smile $n
+say Yes...
+say I want you to know, I never wanted to be Gojiro.
+say They forced me into this, I killed so many...
+say Take these to kill the Director...
+mpoload 1127
+mpoload 1128
+give sword $n
+give armor $n
+say Redeem my evils.....
+mpforce $n south
+~
+|
+#1138
+Maid~
+A Maid~
+A Maid cleans up Gatz's messes
+~
+~
+1073759235 0 0 Z
+100 0 -150 20d10+1000 10d4+2
+0 0
+8 8 2
+18 18 18 18 18 18 10
+0 0 0 0 0
+0 0 0 0 1 1 0
+20 20 0 0 0 0 0 0
+262144 0 0 0 0 0 0 0
+> all_greet_prog 100~
+if name($n) == Gatz
+say Greetings Master, tell me what I can do to please you!
+hug gatz
+blush
+else
+say Gatz has told me so much about you
+bow $n
+endif
+~
+> speech_prog p my back hurts~
+if name($n) == Gatz
+emote sits down near Gatz and starts rubbing his back
+say Please Master, tell me when you feel better.
+smile Gatz
+else
+say Only my Gatz tells me what to do!
+slap $n
+endif
+~
+> speech_prog p thats good~
+if name($n) == Gatz
+bow gatz
+say Making you happy makes me so happy Master
+blush
+kiss Gatz
+endif
+~
+> speech_prog p I love you Maid~
+if name($n) == Gatz
+emote turns around and blushes madly!
+say I...I..love you too Master!
+kiss Gatz
+emote starts to cry tears of joy.
+else
+bang $n
+endif
+~
+|
+#1150
+ninja~
+a ninja~
+a ninja is here, kidnapping the president
+~
+~
+1073741825 0 0 Z
+75 0 -87 15d10+750 7d4+2
+0 0
+8 8 0
+22 10 10 22 10 10 10
+0 0 0 0 0
+0 0 0 0 0 0 0
+15 15 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+> death_prog 100~
+mpwithdraw 10000
+give 10000 wulongs $n
+mpgain $n 3 10000
+~
+|
+#0
+
+
+#OBJECTS
+#1000
+Pill~
+&WVenus Pill&w~
+A Pill with the letters "SC" on it lies here.~
+~
+19 0 1
+1 12 0 0
+1 15500 1550
+> use_prog 100~
+mea $n You are now protected from the Venus Sickness!
+mer $n $n is now protected from the Venus Sickness!
+~
+|
+#1015
+Remedy~
+&BOld Venus Remedy&w~
+An old bottle with a strange liquad sits here.~
+~
+9 0 16385
+0 0 0 0
+1 1000000 1000
+> use_prog 100~
+mea $n &wYou hold an &bOld Venus Remedy&w,
+mer $n &w$n holds an &bOld Venus Remedy&w,
+mea $n &BThe aroma of dead flowers radiates off of you!
+mer $n &BThe aroma of dead flowers radiates off $n, $e stinks!
+~
+|
+#1016
+pen~
+A Pen~
+A Pen lies here~
+~
+13 0 16385
+0 0 0 0
+1 0 0
+#1036
+Badge~
+ID Badge~
+A ID Badge lies here.~
+~
+13 0 1
+0 0 0 0
+1 0 0
+#1050
+Alphabetical apples mug~
+an Alphabetical Apples Mug~
+An Alphabetical Apples Mug is here.~
+~
+13 0 16385
+0 0 0 0
+4 105784 10578
+#1051
+King Cadet's Asparagus Mug~
+a King Cadet's Asparagus Mug~
+A King Cadet's Asparagus Mug is here.~
+~
+13 0 16385
+0 0 0 0
+4 484076 48407
+#1052
+Faust Sockeye Salmon Mug~
+a Faust Sockeye Salmon Mug~
+A Faust Sockeye Salmon Mug is here.~
+~
+13 0 16385
+0 0 0 0
+4 487389 48738
+#1053
+Ruby Red Punch Bowl~
+a Ruby Red Punch Bowl~
+A Ruby Red Punch Bowl is here.~
+~
+13 0 16385
+0 0 0 0
+7 826583 82658
+#1054
+Vintage Cookie Jar~
+a Vintage Cookie Jar~
+A Vintage Cookie Jar is here.~
+~
+13 8192 16385
+0 0 0 0
+16 986452 98645
+#1055
+Vintage Wine Decanter~
+a Vintage Wine Decanter~
+A Vintage Wine Decanter is here.~
+~
+13 0 16385
+0 0 0 0
+8 936816 93681
+#1056
+Cut Crystal Vase~
+a Cut Crystal Vase~
+A Cut Crystal Vase is here.~
+~
+13 0 16385
+0 0 0 0
+6 371257 37125
+#1057
+Akro Marble Donkey~
+a Akro Marble Donkey~
+A Akro Marble Donkey is here.~
+~
+13 0 16385
+0 0 0 0
+8 815590 81559
+#1058
+Stone Bears~
+a Stone Bears~
+A Stone Bears is here.~
+~
+13 0 16385
+0 0 0 0
+11 479364 47936
+#1059
+Ceramic Toothpick Holder~
+a Ceramic Toothpick Holder~
+A Ceramic Toothpick Holder is here.~
+~
+13 0 16385
+0 0 0 0
+10 825593 82559
+#1060
+Venus Splicer Drink~
+&pA Venus Splicer Drink&w~
+A famous Venus drink sits here!~
+~
+17 0 16385
+5 5 1 0
+1 3000 300
+#1061
+Venus Fishstix~
+&gVenus Fishstix&w~
+A Venus Fishstix is here.~
+~
+19 0 1
+0 0 0 0
+1 2300 230
+#1062
+Monk Door Stop~
+a Monk Door Stop~
+A Monk Door Stop is here.~
+~
+13 0 16385
+0 0 0 0
+18 816690 81669
+#1063
+Glass Chickens~
+a Glass Chickens~
+A Glass Chickens is here.~
+~
+13 0 16385
+0 0 0 0
+5 265938 26593
+#1064
+Elephant Planter~
+a Elephant Planter~
+A Elephant Planter is here.~
+~
+13 0 16385
+0 0 0 0
+7 719561 71956
+#1065
+Mammy Note Pad Holder~
+a Mammy Note Pad Holder~
+A Mammy Note Pad Holder is here.~
+~
+13 0 16385
+0 0 0 0
+4 816592 81659
+#1066
+Venutian Man Pie Bird~
+a Venutian Man Pie Bird~
+A Venutian Man Pie Bird is here.~
+~
+13 0 16385
+0 0 0 0
+2 284526 28452
+#1067
+Venutian Boy Salt Shaker~
+a Venutian Boy Salt Shaker~
+A Venutian Boy Salt Shaker is here.~
+~
+13 0 16385
+0 0 0 0
+4 39850 3985
+#1068
+Venutian Girl Pepper Shaker~
+a Venutian Girl Pepper Shaker~
+A Venutian Girl Pepper Shaker is here.~
+~
+13 0 16385
+0 0 0 0
+3 39850 3985
+#1069
+Aunt Jemima Statue~
+a Aunt Jemima Statue~
+A Aunt Jemima Statue is here.~
+~
+13 0 16385
+0 0 0 0
+7 618573 61857
+#1070
+Glass Venutian Hole Thermometer~
+a Glass Venutian Hole Thermometer~
+A Glass Venutian Hole Thermometer is here.~
+~
+13 0 16385
+0 0 0 0
+8 749562 74956
+#1071
+Kosh Venutian Wine Sampler~
+a Kosh Venutian Wine Sampler~
+A Kosh Venutian Wine Sampler is here.~
+~
+13 0 16385
+0 0 0 0
+6 719563 71956
+#1072
+Little Brown Jug~
+a Little Brown Jug~
+A Little Brown Jug is here.~
+~
+13 0 16385
+0 0 0 0
+6 300000 72294
+#1073
+Piggie Liquor Bottle~
+a Piggie Liquor Bottle~
+A Piggie Liquor Bottle is here.~
+~
+13 0 16385
+0 0 0 0
+4 198547 19854
+#1074
+blue towel~
+a Blue Venutian Towel~
+A beautiful Blue Venutian Towel rests folded neatly here.~
+~
+74 0 18433
+0 0 0 0
+2 20000 15000
+#1075
+Red Towel~
+a Red Venutian Towel~
+A beautiful Red Venutian Towel rests neatly folded here.~
+~
+74 0 18433
+0 0 0 0
+2 150000 15000
+#1090
+key~
+A Basement Key~
+A key is here.~
+~
+13 0 1
+0 0 0 0
+1 0 0
+#1091
+food green squishy~
+&z&ggreen squishy food&w~
+Some nasty looking squishy stuff is here.~
+~
+19 0 1
+0 0 0 0
+1 0 0
+> use_prog 100~
+mea $n &z&OEwwwww! It tastes so grosss!!!!!!!!
+mea $n &z&OBut wow....it makes you feel so much better!
+mprestore $n 300
+mer $n $n cringes as he eats some green stuff!
+~
+|
+#1092
+mutant claw~
+&z&OA mutant claw&w~
+A deformed looking claw is here.~
+~
+5 0 8193
+12 3 7 2
+3 300000 30000
+#1093
+blue shirt~
+&Ca blue shirt&w~
+A blue shirt has been tossed here.~
+~
+9 0 9
+13 13 0 0
+2 200000 8000
+#1094
+venus quencher~
+a venus quencher~
+A large drink has been placed here.~
+~
+17 0 1
+20 20 0 0
+1 0 0
+#1125
+Director's Key~
+a Directory's Key~
+A Directory's Key lies here.~
+~
+13 0 1
+0 0 0 0
+1 0 0
+#1126
+gatz cookie~
+Specially Made Gatz Cookie! Yum!~
+A special Gatz cookie lies here, what a waste!~
+~
+19 0 1
+0 0 0 0
+1 0 0
+#1127
+sword~
+&pGojiro's Sword&w~
+A sword that looks very used lies here.~
+~
+5 0 8193
+12 0 5 3
+1 0 0
+A
+18 1
+A
+19 1
+> use_prog 100~
+mea $n A voice in your head says '&z The Greatest Demon Swordsman&w'.
+mer $n $n wears &pGojiro's Sword&w.
+~
+> remove_prog 100~
+mea $n A voice in your head says '&zRemember my name&w'.
+~
+|
+#1128
+armor~
+&pGojiro's Armor&w~
+A armor that radiates sorrow lies here.~
+~
+9 0 9
+13 13 0 0
+1 0 0
+> rand_prog 75~
+exa $n
+if ovnumwear(1128) == 1
+mprestore $n 50
+mea $n You feel sorrow and sadness enter your soul.
+mea $n Gojiro's compassion heals you!
+mer $n $n looks slightly saddened because of something.
+endif
+~
+> use_prog 100~
+mea $n You wear &pGojiro's Armor&w.
+mea $n Remebering Gojiro's pain you feel saddened.
+mer $n $n wears &pGojiro's Armor&w.
+mer $n $n looks almost saddened by recent tragedies.
+~
+|
+#1129
+RP Certificate~
+A RP Ceritifcate for completeion of a RP Class~
+A very special ceritifcate lies here.~
+~
+9 0 16385
+5 5 0 0
+1 0 0
+#1130
+Silver~
+&zSilver Coin&w~
+&zA Silver Coin lies here.&w~
+~
+13 0 1
+0 0 0 0
+1 0 0
+#1131
+Gold~
+&YGold Coin&w~
+&YA Gold Coin lies here&w~
+~
+13 0 0
+0 0 0 0
+1 0 0
+#1132
+Sunglasses~
+&zPair of Sunglass&w~
+&zA Pair of Sunglass lies here.~
+~
+9 0 131073
+0 100 0 0
+1 0 0
+A
+56 0
+#0
+
+
+#ROOMS
+#1000
+&RVenus Landing Pad~
+This landing pad is well done, there is tourist info placed all around this
+area. This obviously is a very hot spot for tourism. There is a massive
+wave of people both young and old leaving and arriving on vacation, this
+area is very congested! 
+~
+0 52 0 0
+S
+#1001
+&RVenus Connector Route~
+Venus was plagued with the "Venus Disease" but do to Soukai Corporations
+tireless efforts they have made a pill to counter the effects of the
+disease. Now Venus is a hot spot for vacationing and tourism, boosting the
+economy here. 
+~
+0 0 0 0
+D0
+~
+~
+0 -1 1000
+D1
+~
+~
+0 -1 1032
+D2
+~
+~
+0 -1 1002
+D3
+~
+~
+0 -1 1007
+D6
+~
+~
+0 -1 2200
+D8
+~
+~
+0 -1 11647
+D9
+~
+~
+0 -1 1151
+S
+#1002
+&RPath to the Commerical Zone~
+Due to massive vacationing Venus has been designed to suit the needs of
+vistors. All major business have been pulled together and placed on one
+street.
+~
+0 0 0 0
+D0
+~
+~
+0 -1 1001
+D2
+~
+~
+0 -1 1003
+S
+#1003
+&RVenus Street~
+This is Venus Street called so because of its 'rich Venus history'.
+Although it is mainly just stores to buy souvenirs or other useless
+articles at a reasonable price. 
+~
+0 0 0 0
+D0
+~
+~
+0 -1 1002
+D2
+~
+~
+0 -1 1004
+S
+#1004
+&RVenus Street~
+Further down the street you can see a lighting system which only works at
+night, for those night owl shoppers. Seems everything is open late here
+and is tailored to the needs of visitors.  
+~
+0 0 0 0
+D0
+~
+~
+0 -1 1003
+D1
+~
+~
+0 -1 1140
+D2
+~
+~
+0 -1 1005
+D3
+~
+~
+0 -1 1013
+S
+#1005
+&RVenus Street~
+The street seems to be more and more congested with people. At times this
+street is so congested people simply go into shops to get away from the
+crowds, but suprisingly shop owners never complain.
+~
+0 0 0 0
+D0
+~
+~
+0 -1 1004
+D2
+~
+~
+0 -1 1006
+D3
+~
+~
+0 -1 1014
+S
+#1006
+&REnd of Venus Street~
+The end of the street is capped off with one of the galaxy's biggest malls!
+The Venus International Mall has imports from around the galaxy. Come in
+and enjoy some of the hippest stores ever! If tourists aren't baking in
+the sun, they are spending their retirement funds here!  
+~
+0 0 0 0
+D0
+~
+~
+0 -1 1005
+D1
+~
+~
+0 -1 1016
+D2
+~
+~
+0 -1 1017
+S
+#1007
+&RPath to the Industrial Zone~
+This is the way to Soukai Corporation's two facilities on Venus. Although
+tourism isn't as popular here, the R and D Lab can be toured. The Soukai
+Corporation prides itself on quality fish and likes to show the people how
+much they mean to them. 
+~
+0 0 0 0
+D1
+~
+~
+0 -1 1001
+D3
+~
+~
+0 -1 1008
+S
+#1008
+&RBushi Road~
+This road is named after an old word for Japanese warrior. The Soukai
+Corporation's founder had alot of Japanese heritage so he wanted to keep
+his ancient Japanese values alive in his company.
+~
+0 0 0 0
+D1
+~
+~
+0 -1 1007
+D3
+~
+~
+0 -1 1009
+S
+#1009
+&RBushi Road~
+Continuing down Bushi Road you can see the first of the two Soukai
+buildings ahead. These roads are well designed to accomodate traffic and
+people walking on them. This area, though, is much less crowded then the
+beach and stores. 
+~
+0 0 0 0
+D1
+~
+~
+0 -1 1008
+D7
+~
+~
+0 -1 1010
+S
+#1010
+&RSunshine Avenue~
+This street was named because of how the sun is positioned from this spot.
+It seems to hit the brightest right here, thus this was called Sunshine
+Avenue. To the north is the R and D lab for Soukai which is open to
+visitors.  
+~
+0 0 0 0
+D0
+~
+~
+0 -1 1035
+D3
+~
+~
+0 -1 1011
+D8
+~
+~
+0 -1 1009
+S
+#1011
+&RSunshine Avenue~
+The end of Sunshine Ave. is where the location of the main plant for the
+Soukai Corporation is located. They don't allow tourists there, but the R
+and D lab is open to them. Plus the fish smell could kill a horse so no
+tourists would want to go. 
+~
+0 0 0 0
+D0
+~
+~
+0 -1 1012
+D1
+~
+~
+0 -1 1010
+S
+#1012
+&RSoukai Factory Parking Lot~
+This is the parking lot for the Soukai Factory. An arrangement of cars are
+all parked her, but it seems that some more expensive cars are pulling
+further into the factory.
+~
+0 0 0 0
+D0
+~
+~
+0 -1 215
+D2
+~
+~
+0 -1 1011
+S
+#1013
+&ROld Venus Souvenirs~
+This shop professes to have 'Old Venus' things for sale. The walls here are
+covered with assorted crap that is suppose to symbolize Venus in all its
+splender and glory. 
+~
+0 0 0 0
+D1
+~
+~
+0 -1 1004
+S
+#1014
+&RVenus Nick Knacks+!~
+Nick Knacks doesn't come close to the amount of 'crap' that is everywhere
+here! The store is piled with absolutely everything one could possible not
+need and more! There are some stairs in the back leading to a Remedy shop,
+which actually might contain useful things!  
+~
+0 0 0 0
+D1
+~
+~
+0 -1 1005
+D4
+~
+~
+0 -1 1015
+S
+#1015
+&ROld Venus Remedies~
+This shop has the odor of old people and incense. Old witchcraft type
+objects are laid on shelves and books of ancient magics are on the walls.
+In the corner is an old women trying to pawn off some of her potions.
+~
+0 0 0 0
+D5
+~
+~
+0 -1 1014
+S
+#1016
+&RSoukai National Bank~
+As the Soukai Corporation grew, it decided it needed its own banking
+system. This bank is popular only on Venus and most people find it
+interesting to take home pens with the name of the bank on it.
+~
+0 256 0 0
+D3
+~
+~
+0 -1 1006
+S
+#1017
+&RVenus International Mall~
+Entering the mall you feel a blast of cold air hit you from the air
+conditioning. A beautiful fountain stands here performing little displays
+of water squirting occasionally, and there are fine stores all connected
+to shop at.  
+~
+0 0 0 0
+D0
+~
+~
+0 -1 1006
+D1
+~
+~
+0 -1 1019
+D3
+~
+~
+0 -1 1018
+S
+#1018
+&RResting Area~
+For the tourists that are tired out, the mall set up a resting area for
+those who need to wait. There is a waitress who will get food from the
+food court for you for a small fee, but all this is for your comfort.
+~
+0 0 0 0
+D1
+~
+~
+0 -1 1017
+D8
+~
+~
+0 -1 1020
+S
+#1019
+&RFood Court~
+The smell of good food hangs in the air. Lots of the Soukai Corporation's
+fish products are served here along with other Venus delicacies. 
+~
+0 0 0 0
+D3
+~
+~
+0 -1 1017
+D9
+~
+~
+0 -1 1020
+S
+#1020
+&RHallway~
+This hallway leads to where all the fun of the mall is: the shopping. The
+elevator will take you to different floors where you can shop to your
+heart's content.  
+~
+0 0 0 0
+D1
+~
+~
+0 -1 1143
+D2
+~
+~
+0 -1 1021
+D6
+~
+~
+0 -1 1019
+D7
+~
+~
+0 -1 1018
+S
+#1021
+&RThe Elevator~
+This elevator has a sleek black and metallic grey look to it. The control
+panel has buttons which light up when you press them! Maybe you should
+look at the control panel to see how to operate this thing?    
+~
+0 0 0 0
+D0
+~
+~
+0 -1 1020
+E
+panel~
+&WCommands for the elevator:
+Level 1 - say Level 1
+Level 2 - say Level 2
+Level 3 - say Level 3
+This elevator system has been brought to you by Soukai Corporation!
+~
+> speech_prog p level 1~
+mea $n You are already on that level!
+~
+> speech_prog p level 2~
+mea $n The elevator activates and moves you up a floor.
+mer $n The elevator activates and moves $n up a floor.
+mptrans $n 1022
+~
+> speech_prog p level 3~
+mer $n The elevator activates and moves $n up a floor.
+mea $n The elevator activates and moves you up a floor.
+mptrans $n 1027
+~
+|
+S
+#1022
+&RThe Elevator~
+This elevator has a sleek black and metallic grey look to it. The control
+panel has buttons which light up when you press them! Maybe you should
+look at the control panel to see how to operate this thing?   
+~
+0 0 0 0
+D0
+~
+~
+0 -1 1023
+E
+panel~
+&WCommands for the elevator:
+Level 1 - say Level 1
+Level 2 - say Level 2
+Level 3 - say Level 3
+This elevator system has been brought to you by Soukai
+Corporation!
+~
+> speech_prog p level 3~
+mea $n The elevator activates and moves you up a floor.
+mer $n The elevator activates and moves $n up a floor.
+mptrans $n 1027
+~
+> speech_prog p level 2~
+mea $n You are already on that floor!
+~
+> speech_prog p level 1~
+mea $n The elevator activites and takes you down a level.
+mer $n The elevator activates and moves $n down a floor.
+mptrans $n 1021
+~
+|
+S
+#1023
+&RHallway~
+The hallway is detailed nicely with pictures displaying Venus in all her
+splendor. There is shops to buy things all around here, most are over
+priced and want to take your money.
+~
+0 0 0 0
+D2
+~
+~
+0 -1 1022
+D6
+~
+~
+0 -1 1025
+D7
+~
+~
+0 -1 1024
+S
+#1024
+&RRed Hot Deals!~
+This place promises the best deals. They're so good, they say, that their
+deals are on fire! Unbelievable prices are here and you simply need to buy
+their products to feel the great deals, or so their ads say. 
+~
+0 0 0 0
+D1
+~
+~
+0 -1 1026
+D8
+~
+~
+0 -1 1023
+S
+#1025
+&RBig Bob's Cheapo Stuffo~
+Big Bob promises you 'cheap stuffo', whatever that means. He is constantly
+doing silly things to get customers into his store and often will do
+anything to keep you coming back to buy. 
+~
+0 0 0 0
+D3
+~
+~
+0 -1 1026
+D9
+~
+~
+0 -1 1023
+S
+#1026
+&RThe Real Venus Store, Real Cheap!~
+This store promises to sell you only 'real Venus' goods at very affordable
+prices. Althought they give no description or what a 'Real Venus' product
+looks like. 
+~
+0 0 0 0
+D1
+~
+~
+0 -1 1025
+D3
+~
+~
+0 -1 1024
+S
+#1027
+&RThe Elevator~
+This elevator has a sleek black and metallic grey look to it. The control
+panel has buttons which light up when you press them! Maybe you should
+look at the control panel to see how to operate this thing?    
+~
+0 0 0 0
+D0
+~
+~
+0 -1 1028
+E
+panel~
+&WCommands for the elevator:
+Level 1 - say Level 1
+Level 2 - say Level 2
+Level 3 - say Level 3
+This elevator system has been brought to you by Soukai
+Corporation!
+~
+> speech_prog p level 1~
+mea $n The elevator activites and takes you down a level.
+mer $n The elevator activates and moves $n down a floor.
+mptrans $n 1021
+~
+> speech_prog p level 2~
+mer $n The elevator activates and moves $n down a floor.
+mea $n The elevator activites and takes you down a level.
+mptrans $n 1022
+~
+> speech_prog p level 3~
+mea $n You are already on that floor!
+~
+|
+S
+#1028
+&RHallway~
+The hallway is detailed nicely with pictures displaying Venus in all her
+splendor. There is shops to buy things all around here, most are over
+priced and want to take your money.  
+~
+0 0 0 0
+D2
+~
+~
+0 -1 1027
+D6
+~
+~
+0 -1 1029
+D7
+~
+~
+0 -1 1031
+S
+#1029
+&RAccessories Plus!~
+This place claims to have the best accessories in all of the galaxy. The
+owner of the shop is always friendly and tries to set her prices to the
+best deals, at least thats what she tells everyone she meets.  
+~
+0 0 0 0
+D3
+~
+~
+0 -1 1030
+D9
+~
+~
+0 -1 1028
+S
+#1030
+&RBargain Bargain Bargain!~
+This stores has a promise to make the best bargains anyone on Venus or the
+whole universe itself has seen. The owner says he hurts himself to get the
+best prices and that all the other shops hate him for this reason.
+~
+0 0 0 0
+D1
+~
+~
+0 -1 1029
+D3
+~
+~
+0 -1 1031
+S
+#1031
+&RDeals n' Steals!~
+This store is loaded with things. The owner here promises that his things
+are so low you practically steal from him! Although the prices seem about
+even with the other stores.
+~
+0 0 0 0
+D1
+~
+~
+0 -1 1030
+D8
+~
+~
+0 -1 1028
+S
+#1032
+&RPath to the Residential Zone and Beach~
+This way leads to one of the more popular 'hot spots' on Venus: The Beach.
+The water is crystal clear and the beach sand is a brilliant white, this
+is all due to the Soukai Corporation's effort to beautify Venus.
+~
+0 0 0 0
+D1
+~
+~
+0 -1 1033
+D3
+~
+~
+0 -1 1001
+S
+#1033
+&RBeach Front Avenue~
+A cool beach breeze rolls gently by this strip and cools down the tired and
+hot vacationers on Venus. This area often has people jogging or running in
+the morning and fully enjoying the scenery. 
+~
+0 0 0 0
+D1
+~
+~
+0 -1 1034
+D3
+~
+~
+0 -1 1032
+S
+#1034
+&RBeach Front Avenue~
+The gentle sounds of the waves sound relaxing and calming, but there is a
+funny smell in the air that is awful. There seems to be a sewer drain that
+is partially open and it looks like you can go down there. 
+~
+0 0 0 0
+D1
+~
+~
+0 -1 1043
+D3
+~
+~
+0 -1 1033
+D5
+~
+~
+2049 -1 1044
+S
+#1035
+&RSoukai R and D Parking Lot~
+This parking lot is full of cars! There are a few people who are walking in
+and out of the building. Tour groups are held here and one can learn a
+great deal about Soukai from here, or at least what Soukai Corporation
+wants you to know. 
+~
+0 4 0 0
+D1
+~
+~
+0 -1 1036
+D2
+~
+~
+0 -1 1010
+S
+#1036
+&RSoukai Research and Development~
+This is the starting room for the R and D facility! From here you can get
+in for a small price and tour this area as long as you want!
+~
+0 4 0 0
+D3
+~
+~
+0 -1 1035
+S
+#1037
+&RLevel 1~
+This is the first level of the R and D Facility. There are signs that
+clearly mark where to go for vistors of the center, almost the entire
+building is open for vistors to check out!
+~
+0 4 0 0
+D0
+~
+~
+0 -1 1039
+D2
+~
+~
+0 -1 1038
+D3
+~
+~
+0 -1 1036
+S
+#1038
+&RLab~
+This lab is full of all the most modern lab equipment. A large fish tank is
+in the center of the room and a few scientists are around writing down
+various things.
+~
+0 4 0 0
+D0
+~
+~
+0 -1 1037
+S
+#1039
+&RStairs~
+These are plain gray stairs, you may go up or down. Up leads to more labs
+and down seems to lead to the janitor's area.
+~
+0 4 0 0
+D4
+~
+~
+0 -1 1040
+D5
+~
+~
+0 -1 1090
+S
+#1040
+&RHigher up the Stairs~
+The top of the stairs have a big sign that says "Lab 2 Ahead" and a door
+which leads south. You can hear the music coming from southward.
+~
+0 4 0 0
+D2
+~
+~
+0 -1 1041
+D5
+~
+~
+0 -1 1039
+S
+#1041
+&RLevel 2~
+The second level of the building has more art work than the first and seems
+to have been decorated by someone. Signs for vistors are more general in
+this area and less friendly to lost or confused people.
+~
+0 4 0 0
+D0
+~
+~
+0 -1 1040
+D1
+~
+~
+0 -1 1042
+S
+#1042
+&RLab~
+This lab seems to be almost barren or lab supplies. The fish smell is still
+here though, but there is only a small fish tank here. There are only a
+couple scientists in this room.
+~
+0 4 0 0
+D3
+~
+~
+0 -1 1041
+S
+#1043
+&RBeach Front Avenue~
+There is a small alcove here for people to sit and view the whole beach!
+Except that the beach is so crowded the sand is totally hidden! 
+~
+0 4 0 0
+D1
+~
+~
+0 -1 1045
+D3
+~
+~
+0 -1 1034
+S
+#1044
+&RThe Sewers~
+The smell is absolutely horrid down here! The grey brick stones look so
+old, this place doesn't look like it is from this century at all! The
+primitive sewer looks like it belongs on Old Venus!  
+~
+0 4 0 0
+D0
+~
+~
+0 -1 1065
+D4
+~
+~
+0 -1 1034
+S
+#1045
+&RBeach Front Avenue~
+This is a crossroads for two different destinations! To the south is the
+famous Venus Beach while to the east are the hotels and motels of Venus,
+although without a reservation years in advance there isn't a chance you
+can stay there! 
+~
+0 4 0 0
+D1
+~
+~
+0 -1 1046
+D2
+~
+~
+0 -1 1048
+D3
+~
+~
+0 -1 1043
+S
+#1046
+&RBeach Front Avenue~
+This is the way that leads to famous hotels and motels ranked very high on
+major 'must stay' lists! The gambling is very hot, and the drinking is
+even better and all for outrageous high prices!
+~
+0 4 0 0
+D1
+~
+~
+0 -1 1047
+D3
+~
+~
+0 -1 1045
+S
+#1047
+&RCorner of Beach Front Ave. and Hirotomi Dr.~
+This is the corner of two interesting streets. Suprisingly enough the
+hotels that are north claim to have 'beach front' views but clearly they
+aren't close enough to even see the sand!
+~
+0 4 0 0
+D0
+~
+~
+0 -1 1061
+D1
+~
+~
+0 -1 1251
+D2
+~
+~
+0 -1 4700
+D3
+~
+~
+0 -1 1046
+S
+#1048
+&RSteps down to the Beach~
+The steps down to the beach are often hard to use due to the massive
+amounts of people that are always either coming or going but the fresh
+ocean breeze is relaxing so no one seems to mind the rush.
+~
+0 4 0 0
+D0
+~
+~
+0 -1 1045
+D2
+~
+~
+0 -1 1049
+S
+#1049
+&REntrance to the Beach~
+The famous Venus Beach! Although, it looks to be TOO famous now. Over
+crowding has turned this spot into a tourist trap for rich people who
+flock here by the dozen in order to enjoy the fun and Sun that Venus has
+to offer.  
+~
+0 4 0 0
+D0
+~
+~
+0 -1 1048
+D2
+~
+~
+0 -1 1050
+D3
+~
+~
+0 -1 1060
+S
+#1050
+&RThe Beach~
+The sun, sand and gentle breeze makes this such a wonderful spot to relax.
+All except, of course, for the annoying vistors who believe its their
+right to do whatever they wish here!
+~
+0 4 0 0
+D0
+~
+~
+0 -1 1049
+D2
+~
+~
+0 -1 1051
+D3
+~
+~
+0 -1 1059
+S
+#1051
+&RThe Waterfront~
+The roar of the waves is deafening! The crystal blue water makes for a
+fantastic view of the sunrises and sunsets! The only bad part is the over
+crowding! People are everywhere, its easy to get stepped on or ran over
+here!
+~
+0 4 0 0
+D0
+~
+~
+0 -1 1050
+D3
+~
+~
+0 -1 1052
+S
+#1052
+&RThe Waterfront~
+The roar of the waves is deafening! The crystal blue water makes for a
+fantastic view of the sunrises and sunsets! The only bad part is the over
+crowding! People are everywhere, its easy to get stepped on or ran over
+here!
+~
+0 4 0 0
+D0
+~
+~
+0 -1 1059
+D1
+~
+~
+0 -1 1051
+D3
+~
+~
+0 -1 1053
+S
+#1053
+&RThe Waterfront~
+The roar of the waves is deafening! The crystal blue water makes for a
+fantastic view of the sunrises and sunsets! The only bad part is the over
+crowding! People are everywhere, its easy to get stepped on or ran over
+here!
+~
+0 4 0 0
+D0
+~
+~
+0 -1 1057
+D1
+~
+~
+0 -1 1052
+D3
+~
+~
+0 -1 1054
+S
+#1054
+&RThe Waterfront~
+The roar of the waves is deafening! The crystal blue water makes for a
+fantastic view of the sunrises and sunsets! The only bad part is the over
+crowding! People are everywhere, its easy to get stepped on or ran over
+here! 
+~
+0 4 0 0
+D0
+~
+~
+0 -1 1055
+D1
+~
+~
+0 -1 1053
+S
+#1055
+&RThe Beach~
+The sun, sand and gentle breeze makes this such a wonderful spot to relax.
+All except, of course, for the annoying vistors who believe its their
+right to do whatever they wish here!
+~
+0 4 0 0
+D0
+~
+~
+0 -1 1056
+D1
+~
+~
+0 -1 1057
+D2
+~
+~
+0 -1 1054
+S
+#1056
+&RThe back of the Beach~
+This is the end of the beach, and is rather empty. The rock to the north
+make a natural barrier for large waves that might happen in bad weather.
+This could actually be the only restful spot on the beach, if it weren't
+for all the traffic of people moving to the front of the beach
+~
+0 4 0 0
+D1
+~
+~
+0 -1 1058
+D2
+~
+~
+0 -1 1055
+S
+#1057
+&RThe Beach~
+The sun, sand and gentle breeze makes this such a wonderful spot to relax.
+All except, of course, for the annoying vistors who believe its their
+right to do whatever they wish here!
+~
+0 4 0 0
+D0
+~
+~
+0 -1 1058
+D1
+~
+~
+0 -1 1059
+D2
+~
+~
+0 -1 1053
+D3
+~
+~
+0 -1 1055
+S
+#1058
+&RThe back of the Beach~
+This is the end of the beach, and is rather empty. The rock to the north
+make a natural barrier for large waves that might happen in bad weather. 
+This could actually be the only restful spot on the beach, if it weren't
+for all the traffic of people moving to the front of the beach. 
+~
+0 4 0 0
+D1
+~
+~
+0 -1 1060
+D2
+~
+~
+0 -1 1057
+D3
+~
+~
+0 -1 1056
+S
+#1059
+&RThe Beach~
+The sun, sand and gentle breeze makes this such a wonderful spot to relax.
+All except, of course, for the annoying vistors who believe its their
+right to do whatever they wish here!
+~
+0 4 0 0
+D0
+~
+~
+0 -1 1060
+D1
+~
+~
+0 -1 1050
+D2
+~
+~
+0 -1 1052
+D3
+~
+~
+0 -1 1057
+S
+#1060
+&RBeach and Refreshment Stand~
+Since this is close to the entrance of the beach, there is a refreshment
+stand here serving all kinds of interesting food. Even though the names
+seem familiar, the taste of the food won't but people still flock here for
+drinks during the hot parts of the day. 
+~
+0 4 0 0
+D1
+~
+~
+0 -1 1049
+D2
+~
+~
+0 -1 1059
+D3
+~
+~
+0 -1 1058
+S
+#1061
+&RHirotomi Drive~
+This is the famous Hirotomi Drive, named after the founder of the Soukai
+Foundation: Hirotomi Soukai. It is unknown what he saw in Venus when he
+picked it to be the base of the Soukai Corporation but business has been
+good ever since. 
+~
+0 4 0 0
+D0
+~
+~
+0 -1 1062
+D2
+~
+~
+0 -1 1047
+S
+#1062
+&RHirotomi Drive~
+Starting into Hirotomi Drive this is also nick named "Hotel Street" because
+all major hotels are situated along here. This was arranged by the Venus
+Building committee who thought it would be easier for tourists if they
+clustered similar buildings together.
+~
+0 4 0 0
+D0
+~
+~
+0 -1 1063
+D2
+~
+~
+0 -1 1061
+S
+#1063
+&RHirotomi Drive~
+The famous "Big V Hotel and Casino" unfortunatly it is reservation only,
+although recent owner changes might change that policy to allow outsiders
+to enjoy the four star gambling in the near future. 
+~
+0 4 0 0
+D0
+~
+~
+0 -1 1064
+D2
+~
+~
+0 -1 1062
+S
+#1064
+&REnd of Hirotomi Drive~
+The end of Hirotomi Drive is littered with little cheap motels but even
+with their sub-standards they are constantly booked! Though the hotels or
+motels barely have anyone in them even in the late evening and early
+morning!
+~
+0 4 0 0
+D1
+~
+~
+0 -1 1138
+D2
+~
+~
+0 -1 1063
+S
+#1065
+&RThe Sewers~
+The light barely hits this area, so many of the sewer features are hidden.
+Noises of runny water and scurrying of little creatures echo through the
+damp tunnels. 
+~
+0 4 0 0
+D2
+~
+~
+0 -1 1044
+D7
+~
+~
+0 -1 1066
+S
+#1066
+&RThe Sewers~
+The light barely hits this area, so many of the sewer features are hidden.
+Noises of runny water and scurrying of little creatures echo through the
+damp tunnels. 
+~
+0 4 0 0
+D6
+~
+~
+0 -1 1067
+D8
+~
+~
+0 -1 1065
+S
+#1067
+&RThe Sewers~
+The light barely hits this area, so many of the sewer features are hidden.
+Noises of runny water and scurrying of little creatures echo through the
+damp tunnels. 
+~
+0 4 0 0
+D0
+~
+~
+0 -1 1068
+D9
+~
+~
+0 -1 1066
+S
+#1068
+&RThe Sewers~
+The light barely hits this area, so many of the sewer features are hidden.
+Noises of runny water and scurrying of little creatures echo through the
+damp tunnels.
+~
+0 4 0 0
+D0
+~
+~
+0 -1 1069
+D2
+~
+~
+0 -1 1067
+S
+#1069
+&RThe Sewers~
+The light barely hits this area, so many of the sewer features are hidden.
+Noises of runny water and scurrying of little creatures echo through the
+damp tunnels. 
+~
+0 4 0 0
+D2
+~
+~
+0 -1 1068
+D6
+~
+~
+0 -1 1070
+D9
+~
+~
+0 -1 1071
+S
+#1070
+&RThe Sewers~
+The light barely hits this area, so many of the sewer features are hidden.
+Noises of runny water and scurrying of little creatures echo through the
+damp tunnels. 
+~
+0 4 0 0
+D0
+~
+~
+0 -1 1078
+D9
+~
+~
+0 -1 1069
+S
+#1071
+&RThe Sewers~
+The light barely hits this area, so many of the sewer features are hidden.
+Noises of runny water and scurrying of little creatures echo through the
+damp tunnels. 
+~
+0 4 0 0
+D6
+~
+~
+0 -1 1069
+D7
+~
+~
+0 -1 1072
+S
+#1072
+&RThe Sewers~
+The light barely hits this area, so many of the sewer features are hidden.
+Noises of runny water and scurrying of little creatures echo through the
+damp tunnels. 
+~
+0 4 0 0
+D2
+~
+~
+0 -1 1073
+D8
+~
+~
+0 -1 1071
+S
+#1073
+&RThe Sewers~
+The light barely hits this area, so many of the sewer features are hidden.
+Noises of runny water and scurrying of little creatures echo through the
+damp tunnels. 
+~
+0 4 0 0
+D0
+~
+~
+0 -1 1072
+D3
+~
+~
+0 -1 1074
+S
+#1074
+&RThe Sewers~
+The light barely hits this area, so many of the sewer features are hidden.
+Noises of runny water and scurrying of little creatures echo through the
+damp tunnels. 
+~
+0 4 0 0
+D1
+~
+~
+0 -1 1073
+D2
+~
+~
+0 -1 1075
+S
+#1075
+&RThe Sewers~
+The light barely hits this area, so many of the sewer features are hidden.
+Noises of runny water and scurrying of little creatures echo through the
+damp tunnels. 
+~
+0 4 0 0
+D0
+~
+~
+0 -1 1074
+D5
+~
+~
+0 -1 1076
+S
+#1076
+&RSewer~
+This is the drain pipe for the whole city! A rushing rapid of waste and
+filth flow into an unknown area. Watch your footing or you might go with
+it! 
+~
+0 4 0 0
+D4
+~
+~
+0 -1 1075
+> entry_prog 100~
+mea $n You get caught in the rapid stream!
+mptrans $n 1077
+~
+|
+S
+#1077
+&bVenus Ocean~
+The ocean water is disturbingly warm and thick, which does make it easier
+to float in. There seems to be no fish here which is suprising considering
+that Soukai Corporation is famous for there fish.
+~
+0 4 0 0
+D4
+~
+~
+0 -1 1053
+S
+#1078
+&RThe Sewers~
+The light barely hits this area, so many of the sewer features are hidden.
+Noises of runny water and scurrying of little creatures echo through the
+damp tunnels. 
+~
+0 4 0 0
+D2
+~
+~
+0 -1 1070
+D6
+~
+~
+0 -1 1079
+D7
+~
+~
+0 -1 1080
+S
+#1079
+&RDead End~
+The light barely hits this area, so many of the sewer features are hidden.
+Noises of runny water and scurrying of little creatures echo through the
+damp tunnels. 
+~
+0 4 0 0
+D9
+~
+~
+0 -1 1078
+S
+#1080
+&RThe Sewers~
+The light barely hits this area, so many of the sewer features are hidden.
+Noises of runny water and scurrying of little creatures echo through the
+damp tunnels. 
+~
+0 4 0 0
+D0
+~
+~
+0 -1 1081
+D8
+~
+~
+0 -1 1078
+S
+#1081
+&RThe Sewers~
+The light barely hits this area, so many of the sewer features are hidden.
+Noises of runny water and scurrying of little creatures echo through the
+damp tunnels. 
+~
+0 4 0 0
+D0
+~
+~
+0 -1 1082
+D2
+~
+~
+0 -1 1080
+D7
+~
+~
+0 -1 1083
+S
+#1082
+&RThe Sewers~
+The light barely hits this area, so many of the sewer features are hidden.
+Noises of runny water and scurrying of little creatures echo through the
+damp tunnels. 
+~
+0 4 0 0
+D0
+~
+~
+0 -1 1085
+D2
+~
+~
+0 -1 1081
+S
+#1083
+&RThe Sewers~
+The light barely hits this area, so many of the sewer features are hidden.
+Noises of runny water and scurrying of little creatures echo through the
+damp tunnels. 
+~
+0 4 0 0
+D3
+~
+~
+0 -1 1084
+D8
+~
+~
+0 -1 1081
+S
+#1084
+&RDead End~
+The light barely hits this area, so many of the sewer features are hidden.
+Noises of runny water and scurrying of little creatures echo through the
+damp tunnels. 
+~
+0 4 0 0
+D1
+~
+~
+0 -1 1083
+S
+#1085
+&RThe Sewers~
+The light barely hits this area, so many of the sewer features are hidden.
+Noises of runny water and scurrying of little creatures echo through the
+damp tunnels. 
+~
+0 4 0 0
+D2
+~
+~
+0 -1 1082
+D6
+~
+~
+0 -1 1086
+S
+#1086
+&RThe Sewers~
+The light barely hits this area, so many of the sewer features are hidden.
+Noises of runny water and scurrying of little creatures echo through the
+damp tunnels. 
+~
+0 4 0 0
+D1
+~
+~
+0 -1 1087
+D9
+~
+~
+0 -1 1085
+S
+#1087
+&RThe Sewers~
+The light barely hits this area, so many of the sewer features are hidden.
+Noises of runny water and scurrying of little creatures echo through the
+damp tunnels. 
+~
+0 4 0 0
+D1
+~
+~
+0 -1 1088
+D3
+~
+~
+0 -1 1086
+S
+#1088
+&RDead End~
+Light leaks in from the roof! This is the end of the sewers but this area
+looks less like Venus. Looking up you can see almost an old city, which
+seems so run down and dirty.   
+~
+0 4 0 0
+D3
+~
+~
+0 -1 1087
+D4
+~
+~
+0 -1 1089
+S
+#1089
+&ROld Venus~
+This looks like Old Venus! The Soukai Corporation said that this area was
+destroyed when they rebuilt it! How can this be remotely possible? The
+Soukai Corporation might have something to hide here.  
+~
+0 4 0 0
+D1
+~
+~
+0 -1 1106
+D2
+~
+~
+0 -1 1092
+D5
+~
+~
+0 -1 1088
+S
+#1090
+&RBasement~
+The bottom of the stairs isnt fancy, this almost looks like a storage space
+for the janitors. There is a locked door to the south with is probably
+just a janitor's closet.
+~
+0 4 0 0
+D2
+~
+~
+3 1090 1091
+D4
+~
+~
+0 -1 1039
+S
+#1091
+&RSecret Elevator~
+This Elevator doesn't seem to go to anywhere in the compound, but some
+place else. There is a sign that says "say activate" but nothing else is
+listed. 
+~
+0 4 0 0
+D0
+~
+~
+0 -1 1090
+> speech_prog p activate~
+mptrans $n 1118
+mpat $n mea $n You arrive on at a secret location.
+~
+|
+S
+#1092
+&RAn Empty Street~
+This empty street looks like it could have been a commerical area at one
+point. To the west is a run down hospital but you can probably still get
+treated there.  
+~
+0 4 0 0
+D0
+~
+~
+0 -1 1089
+D2
+~
+~
+0 -1 1093
+D3
+~
+~
+0 -1 1094
+S
+#1093
+&RAn Empty Street~
+This empty street turns into a new area, an old sign says "Empire District"
+but no other information is listed to describe what could possible be
+there.  
+~
+0 4 0 0
+D0
+~
+~
+0 -1 1092
+D8
+~
+~
+0 -1 1095
+S
+#1094
+&RRun Down Hospital~
+The old hospital is full of primitive tools for treating wounds, it still
+looks like you could heal yourself here because the monsters around don't
+seem to come in.  
+~
+0 8389644 0 0
+D1
+~
+~
+0 -1 1092
+S
+#1095
+&REmpire District~
+The whole street seems to have little business, to the south you can see an
+old weapons and armor shop. A small sign still stands that says "Little
+Tom's Armory!" but the windows are destroyed and it doesn't look like it
+has anything left in there.
+~
+0 4 0 0
+D1
+~
+~
+0 -1 1097
+D2
+~
+~
+0 -1 1096
+D7
+~
+~
+0 -1 1093
+S
+#1096
+&RLittle Tom's Armory!~
+Nothing is left here but old faded posters and shelves. Some of the posters
+brag about low prices and other on the power of their ancient weapons. All
+the weapons and armor once sold here are now long gone.   
+~
+0 4 0 0
+D0
+~
+~
+0 -1 1095
+S
+#1097
+&REmpire District~
+There is only a blinking light, which remains a beacon for what this place
+once was and what it never will be again. This street seems to be in
+horrible shape, no one but the mutants could possibly live here.  
+~
+0 4 0 0
+D1
+~
+~
+0 -1 1098
+D3
+~
+~
+0 -1 1095
+S
+#1098
+&REmpire District~
+This is the end of the Empire District, to the south is an old club with a
+flashing neon light that says&B Jupiter Club&z but nothing else remains of
+this relic. 
+~
+0 4 0 0
+D2
+~
+~
+0 -1 1099
+D3
+~
+~
+0 -1 1097
+D6
+~
+~
+0 -1 1100
+S
+#1099
+&RRun Down Old Club~
+An old bar faces the north wall, and a stage is right near the side. An old
+piano sits in the corner ready to play a bar room tune. Old glasses line
+the back wall, but there is no booze left to drink. 
+~
+0 4 0 0
+D0
+~
+~
+0 -1 1098
+S
+#1100
+&RRedemption Street~
+This street has a old sign saying Redemption Street, a short description is
+left saying that it was a housing projects for the Venus people. 
+~
+0 4 0 0
+D0
+~
+~
+0 -1 1101
+D9
+~
+~
+0 -1 1098
+S
+#1101
+&RRedemption Street~
+An old run down building stands here, much too dangerous to enter. It
+stands like a stone giant, always watching over this area.  
+~
+0 0 0 0
+D0
+~
+~
+0 -1 1102
+D2
+~
+~
+0 -1 1100
+S
+#1102
+&RRedemption Street~
+There is a park which is just off the road here. Old playground equipment
+lies rusted there and there is a small water fountain that looks like no
+one should use it. 
+~
+0 0 0 0
+D2
+~
+~
+0 -1 1101
+D7
+~
+~
+0 -1 1103
+S
+#1103
+&RThe beginning of Redemption Street~
+This street has a old sign saying Redemption Street, a short description is
+left saying that it was a housing projects for the Venus people.
+~
+0 0 0 0
+D3
+~
+~
+0 -1 1104
+D8
+~
+~
+0 -1 1102
+S
+#1104
+&RA Street with No Name~
+This street is void of any visible landmarks of any kind. It seems to be
+just a road that leads to somewhere else.  
+~
+0 0 0 0
+D1
+~
+~
+0 -1 1103
+D3
+~
+~
+0 -1 1105
+S
+#1105
+&RA Street with No Name~
+To the south is a crossroads and it seems to be a more central part of this
+ancient city. There are two buildings visible from the south. 
+~
+0 0 0 0
+D1
+~
+~
+0 -1 1104
+D2
+~
+~
+0 -1 1107
+D3
+~
+~
+0 -1 1106
+S
+#1106
+&RA Street with No Name~
+This street is rather empty of any buildings or landmarks. It has nothing
+to give it a name or even a location.
+~
+0 0 0 0
+D1
+~
+~
+0 -1 1105
+D3
+~
+~
+0 -1 1089
+S
+#1107
+&RThe Crossroads~
+This path splits into two ways, to the southwest there is a sign thats says
+"Super Food Shopper!" in big letters and to the southeast is a front yard
+or a house. Both look like they haven't been used in awhile.
+~
+0 0 0 0
+D0
+~
+~
+0 -1 1105
+D8
+~
+~
+0 -1 1109
+D9
+~
+~
+0 -1 1108
+S
+#1108
+&RSuper Food Shopper!~
+The shelves are lined with food containers that are broken or empty. There
+is a poster on the wall that say "Best Prices in Town!" All the old cash
+registers no longer work and the doors are broken.
+~
+0 0 0 0
+D6
+~
+~
+0 -1 1107
+S
+#1109
+&RA front yard~
+The front yard has over grown weeds and grass. There is a small fence which
+runs the perimeter but that is broken in spots and the paint has mostly
+faded. 
+~
+0 0 0 0
+D2
+~
+~
+0 -1 1110
+D7
+~
+~
+0 -1 1107
+S
+#1110
+&ROld House~
+This house is in disturbing shape, it creaks and looks like it is going to
+fall apart any minute! You hear a loud rumbling noise coming from
+somewhere in the building, but you dont see any exits pointing to where it
+is coming from. 
+~
+0 0 0 0
+D0
+~
+~
+0 -1 1109
+D2
+~
+~
+2048 -1 1112
+D5
+~
+~
+0 -1 1111
+S
+#1111
+&RBasement~
+The basement is cold, and it is flooded with water and sludge. The septic
+tank must have burst years ago and it all ran into the basement. Drowned
+rats and other disturbing things float in the water.
+~
+0 0 0 0
+D4
+~
+~
+0 -1 1110
+S
+#1112
+&RSecret Elevator~
+This elevator seems to be in an odd place, there is no marking to tell who
+made it or where it goes but there is a sign on the wall that tells you
+how to operate it. 
+~
+0 0 0 0
+D0
+~
+~
+0 -1 1110
+E
+sign~
+&Wsay "Basement Level" - Basement
+say "Ground Level" - Top Level
+~
+> speech_prog p basement level~
+mptrans $n 1113
+mpat $n mea $n You arrive on the basement level.
+~
+|
+S
+#1113
+&RSecret Elevator~
+This elevator seems to be in an odd place, there is no marking to tell who
+made it or where it goes but there is a sign on the wall that tells you
+how to operate it.  
+~
+0 0 0 0
+D2
+~
+~
+0 -1 1114
+E
+sign~
+&Wsay "Basement Level" - Basement
+say "Ground Level" - Top Level
+~
+> speech_prog p ground level~
+mptrans $n 1112
+mpat $n mea $n You arrive on the ground level.
+~
+|
+S
+#1114
+&RHallway~
+This hallway seems to have been built for unknown reasons. This area looks
+like it is very expensive and has modern features, unlike the top level of
+this area. Guards randomly walk around checking for passes of some kind.
+~
+0 0 0 0
+D0
+~
+~
+0 -1 1113
+D3
+~
+~
+0 -1 1115
+D8
+~
+~
+0 -1 1116
+D9
+~
+~
+0 -1 1117
+S
+#1115
+&RSecretary's Office~
+In a busy lab much work needs to be done, the Secretary organizes
+everything that happens here. She hasn't the power to make decions but she
+knows more than most Scientists here. 
+~
+0 0 0 0
+D1
+~
+~
+0 -1 1114
+S
+#1116
+&RHallway to Stairs~
+This hallway is a pure white color, and seems to go only one way and thats
+to the stairs. Little information is given on the signs, they must assume
+you know where to go.  
+~
+0 0 0 0
+D2
+~
+~
+0 -1 1119
+D7
+~
+~
+0 -1 1114
+S
+#1117
+&RHallway~
+This hallway doesn't seem like it goes to any labs or anywhere special, but
+the only way to find out is going with the way this area is set up. 
+~
+0 0 0 0
+D2
+~
+~
+0 -1 1118
+D6
+~
+~
+0 -1 1114
+S
+#1118
+&RElevator~
+This Elevator doesn't seem to go to anywhere in the compound, but some
+place else. There is a sign that says "say activate" but nothing else is
+listed. 
+~
+0 0 0 0
+D0
+~
+~
+0 -1 1117
+> speech_prog p activate~
+mpsleep 3
+mptrans $n 1091
+mpat $n mea $n You arrive on at the location.
+~
+|
+S
+#1119
+&RTop of the Stairs~
+These are the stairs that lead to the different levels of this facility. It
+is hard to tell how deep they go because there are no markings on the
+stairs.  
+~
+0 0 0 0
+D0
+~
+~
+0 -1 1116
+D5
+~
+~
+0 -1 1120
+S
+#1120
+&RSubject Lab~
+This level is where all the scientists do there work for the Soukai
+Corporation. This floor has been kept a closely watched secret by Soukai
+for years. Only a select few know anything about this.
+~
+0 0 0 0
+D0
+~
+~
+0 -1 1123
+D4
+~
+~
+0 -1 1119
+D5
+~
+~
+0 -1 1121
+S
+#1121
+&RStaff Level~
+This is the level that was designed for Scientists to stay when not on
+shifts. Random exploring of the compound is strictly forbidden so
+employee's have little places to vist, so this is the hot spot for
+employees after their shift is over.
+~
+0 0 0 0
+D0
+~
+~
+0 -1 1124
+D4
+~
+~
+0 -1 1120
+D5
+~
+~
+0 -1 1122
+S
+#1122
+&RDirector's Personal Level~
+This level was designed specifically for the Director of this lab. Screams
+are often heard from this level but no one questions them, they are all
+afraid of the Director and his power. 
+~
+0 0 0 0
+D2
+~
+~
+0 -1 1125
+D4
+~
+~
+0 -1 1121
+S
+#1123
+&RDe-Tox Room~
+This room has showers to de-toxify scientists entering and leaving the
+labotory. This prevents outbreaks of anything infectious the scientists
+might have been working on.  
+~
+0 0 0 0
+D2
+~
+~
+0 -1 1120
+D3
+~
+~
+0 -1 1134
+S
+#1124
+&RStaff Meeting Room~
+When staff want to get together and just talk they come here. It is a
+rather quite room with various book on genetics availble to read and is a
+way to relax from the hard work Soukai Corporation gives them. 
+~
+0 0 0 0
+D0
+~
+~
+0 -1 1130
+D2
+~
+~
+0 -1 1121
+S
+#1125
+&RDirector's Office~
+The Director's Office does not look very fancy. It has plain looking walls
+and a even duller looking desk, but there is a strange door on the back
+wall but seems only the Director has a key for it. 
+~
+0 0 0 0
+D0
+~
+~
+0 -1 1122
+D2
+~
+~
+7 1125 1126
+S
+#1126
+&RTest Lab~
+This lab is dirty, most of the tools are covered in blood and need cleaning
+badly. A monitor on the wall catalogues all the progress made on the
+Gojiro Project. 
+~
+0 0 0 0
+D3
+~
+~
+0 -1 1127
+S
+#1127
+&RGojiro's Lair~
+This is the room Gojiro's skills were trained in. His developed armor and
+sword are built to be strong and devestating to opponents. He was truly
+built to be the ultimate warrior.  
+~
+0 4 0 0
+S
+#1128
+&RDirector's Secret Chamber~
+This room monitors the whole buildings work! The Director often hides here
+for protection just in case an emergency happens! This is the safest room
+in the whole building! 
+~
+0 4 0 0
+S
+#1129
+&REscape Elevator~
+This elevator is for the Director's use only. It is a special escape route
+for him but it is unknown where it leads to on Venus. 
+~
+0 12 0 0
+> rand_prog 20~
+mpe The loud speaker in the room makes an awkward clicking sound.
+mpe _lbl A voice says, 'You may have beaten me, but you are now stuck!'
+mpe _lbl A voice says, 'There is no way to help me! I mean...help you.'
+mpe _lbl A voice says, 'Just ignore that, I mean you are dead!'
+~
+> speech_prog p help me~
+mea $n The elevator hums to life and begins to move!
+mptrans $n 1001
+mpat $n mea $n You arrive at the surface and the elevator goes back down!
+~
+|
+S
+#1130
+&RStaff Dining Hall~
+The dining hall serves food 8 times a day due to odd shifts and other
+reasons. Surprisingly enough, they don't seem to ever serve fish here.
+~
+0 0 0 0
+D2
+~
+~
+0 -1 1124
+D7
+~
+~
+0 -1 1131
+S
+#1131
+&RStaff Game Room~
+Assorted game tables are all around here for the staff to play with to
+relax after their shifts. Chess, checkers and other old favorites are here
+along with Venus Poker which was invented here years ago.
+~
+0 0 0 0
+D3
+~
+~
+0 -1 1132
+D8
+~
+~
+0 -1 1130
+S
+#1132
+&RStaff Dormitory~
+There are three rows of nicely made beds here, all set up to house the
+staff of this base. They must live here in order to work on top secret
+projects to prevent leaks in information.  
+~
+0 0 0 0
+D0
+~
+~
+0 -1 1133
+D1
+~
+~
+0 -1 1131
+S
+#1133
+&RSick Bay~
+The white room is lined with beds for the sick scientists. There are nurses
+aiding them back to health and doctors administering drugs and other
+useful medical supplies 
+~
+0 8389632 0 0
+D2
+~
+~
+0 -1 1132
+S
+#1134
+&RLab 1~
+A typical looking lab, there is a large fish tank here full of mutated
+fish. A larger fish type creation stays near the bottom and rarely moves.
+~
+0 0 0 0
+D1
+~
+~
+0 -1 1123
+D3
+~
+~
+0 -1 1135
+S
+#1135
+&RLab 2~
+This lab has more specific types of unidentifiable devices that seem to
+examine creatures and other organisms at a close level. This lab is kept
+in very good shape and all the tools shine in the light. 
+~
+0 0 0 0
+D0
+~
+~
+0 -1 1136
+D1
+~
+~
+0 -1 1134
+S
+#1136
+&RTrial Lab~
+The scientists various work gets tested here. There are different objects
+around here to measure strength, mental abilites, and endurance. Wires
+dangle from the ceiling to monitor whomever is being tested here. 
+~
+0 0 0 0
+D2
+~
+~
+0 -1 1135
+S
+#1137
+&RGojiro's Lair~
+This is the room Gojiro's skills were trained in. His developed armor and
+sword are built to be strong and devistating to opponents. He was truly
+built to be the ultimate warrior. 
+~
+0 1028 0 0
+D2
+~
+~
+2048 -1 1128
+S
+#1138
+&RVenus Condo Homes&w~
+These apartments look to be decent living conditions.  With the high
+housing costs on Venus, this is the only complex that is currently
+renting.
+~
+0 12 0 0
+D0
+~
+~
+0 -1 1139
+D1
+~
+~
+0 -1 1142
+D2
+~
+~
+0 -1 1141
+D3
+~
+~
+0 -1 1064
+S
+#1139
+&pTree House&w~
+~
+0 1572876 0 0
+D2
+~
+~
+0 -1 1138
+S
+#1140
+&RHospital~
+The Hospital is always busy with constant flows of people who have problems
+due to them overexerting themselves while they party. The Hospital staff
+is large, though, to accomodate lots of patients. 
+~
+0 8389644 0 0
+D3
+~
+~
+0 -1 1004
+> rand_prog 100~
+if inroom($n) == 1140
+if hps($n) < 990
+mea $n _yel The doctor comes in and gives you a shot.
+mprestore $n 200
+endif
+if hps($n) >= 990
+mea $n _lbl A Nurse says 'This is a Hospital not a Hotel!'
+mptrans $n 1004
+mpat $n mpforce $n look
+endif
+endif
+~
+> entry_prog 100~
+if hps($n) > 990
+mea $n _lbl A Nurse says 'This is a Hospital not a Hotel!'
+mpforce $n west
+endif
+~
+|
+S
+#1141
+&BKatya's Apartment~
+~
+0 1572876 0 0
+D0
+~
+~
+0 -1 1138
+S
+#1142
+&RFurther Down the Hall&w~
+The apartments back here are a bit more cramped.  However, the fact that
+there is housing available is enough to deter the noises one may here
+from neighboring apartments.  
+~
+0 12 0 0
+D0
+~
+~
+0 -1 1149
+D2
+~
+~
+0 -1 1144
+D3
+~
+~
+0 -1 1138
+D6
+~
+~
+0 -1 1145
+D7
+~
+~
+0 -1 1148
+D8
+~
+~
+0 -1 1146
+D9
+~
+~
+0 -1 1147
+S
+#1143
+&RGood as New, Discount Repairs!&w~
+If it's broken, bring it here!  The bright neon signs say this is
+discounted repair, but that trick only works on the tourist.  The
+repair man is more than happy to take wulongs off of anyone.
+~
+0 4 0 0
+D3
+~
+~
+0 -1 1020
+S
+#1144
+&YS&Ct&Ya&Cr&Yw&Ci&Yn&Cd&Y'&Cs &YS&Ch&Ya&Cc&Yk&x~
+~
+0 1572876 0 0
+D0
+~
+~
+0 -1 1142
+S
+#1145
+&BJ&Rordan's &BP&Rimp &BP&Rad~
+~
+0 1572876 0 0
+D9
+~
+~
+0 -1 1142
+S
+#1146
+&RH&rouse &Rof &RS&rand &Rand &RF&rog~
+~
+0 1572876 0 0
+D7
+~
+~
+0 -1 1142
+S
+#1147
+Ryouka's place~
+~
+0 1572876 0 0
+D6
+~
+~
+0 -1 1142
+S
+#1148
+&RN&rathyrra's &GA&grmory~
+~
+0 1572876 0 0
+D8
+~
+~
+0 -1 1142
+S
+#1149
+&zLyth's House!!!!!!&w~
+~
+0 1572876 0 0
+D2
+~
+~
+0 -1 1142
+S
+#1150
+Floating in a void~
+~
+0 4 0 0
+S
+#0
+
+
+#RESETS
+M 1 1000 1 1000
+G 1 1000 1
+M 1 1002 1 1000
+D 0 1000 2 2
+M 1 1015 1 1015
+G 1 1015 1
+M 1 1014 1 1014
+G 1 1068 1
+G 1 1067 1
+G 1 1066 1
+M 1 1016 1 1016
+G 1 1016 1
+M 1 1024 1 1024
+G 1 1075 1
+G 1 1074 1
+M 1 1026 1 1026
+G 1 1064 1
+G 1 1070 1
+G 1 1065 1
+M 1 1025 1 1025
+G 1 1059 1
+G 1 1058 1
+G 1 1057 1
+M 1 1006 1 1023
+M 1 1005 1 1023
+M 1 1005 2 1028
+M 1 1006 2 1028
+M 1 1031 1 1031
+G 1 1052 1
+G 1 1051 1
+G 1 1050 1
+M 1 1030 1 1030
+G 1 1055 1
+G 1 1054 1
+G 1 1069 1
+M 1 1029 1 1029
+G 1 1073 1
+G 1 1072 1
+G 1 1071 1
+M 1 1013 1 1013
+G 1 1056 1
+G 1 1062 1
+G 1 1063 1
+M 1 1060 1 1060
+G 1 1061 1
+G 1 1060 1
+M 1 1063 1 1063
+M 1 1043 1 1043
+M 1 1034 1 1034
+D 0 1034 5 0
+M 1 1054 2 1054
+M 1 1054 2 1054
+M 1 1054 3 1052
+M 1 1054 4 1053
+M 1 1055 1 1055
+M 1 1055 3 1059
+M 1 1055 3 1057
+M 1 1001 1 1049
+M 1 1001 2 1001
+M 1 1005 3 1002
+M 1 1006 4 1002
+M 1 1006 4 1002
+M 1 1006 5 1004
+M 1 1005 5 1004
+M 1 1005 5 1004
+M 1 1005 8 1005
+M 1 1005 8 1005
+M 1 1005 8 1005
+M 1 1005 10 1032
+M 1 1005 10 1032
+M 1 1005 12 1046
+M 1 1005 12 1046
+M 1 1012 1 1012
+G 1 1090 1
+M 1 1038 1 1038
+D 0 1090 2 1
+M 1 1042 1 1042
+G 1 1036 1
+M 1 1066 1 1067
+M 1 1066 2 1069
+M 1 1066 3 1078
+M 1 1066 4 1082
+M 1 1094 1 1094
+M 1 1093 1 1093
+M 1 1093 2 1097
+M 1 1093 3 1099
+M 1 1093 4 1101
+M 1 1093 5 1103
+M 1 1093 6 1108
+M 1 1115 1 1115
+M 1 1114 1 1114
+M 1 1114 2 1119
+M 1 1114 3 1121
+M 1 1134 1 1134
+M 1 1133 1 1133
+M 1 1125 1 1125
+G 1 1125 1
+D 0 1125 2 2
+M 1 1127 1 1127
+M 1 1005 14 1007
+M 1 1005 14 1007
+M 1 1138 1 112
+D 0 112 7 0
+M 1 1137 1 1137
+M 1 1128 1 1128
+M 1 1036 1 1036
+M 1 1005 14 1033
+S
+
+
+#SHOPS
+ 1000    0  0  0  0  0   120  90         0 23    ; The Venus Greeter
+ 1013    0  0  0  0  0   120  90         0 23    ; A Old Woman
+ 1014    0  0  0  0  0   120  90         0 23    ; A Shoper Owner
+ 1015    0  0  0  0  0   120  90         0 23    ; A Old Woman
+ 1024    0  0  0  0  0   120  90         0 23    ; The Owner
+ 1025    0  0  0  0  0   120  90         0 23    ; Big Bob
+ 1026    0  0  0  0  0   120  90         0 23    ; The Owner
+ 1029    0  0  0  0  0   120  90         0 23    ; The Owner
+ 1030    0  0  0  0  0   120  90         0 23    ; The Shop Owner
+ 1031    0  0  0  0  0   120  90         0 23    ; The Owner
+ 1060    0  0  0  0  0   120  90         0 23    ; A Foodseller
+0
+
+
+#REPAIRS
+ 1035    0  9  5         125   1         0 23    ; Roy the Repairer
+ 1138   15  5  9         100   1         0 23    ; A Maid
+0
+
+
+#SPECIALS
+M  1001 spec_police
+M  1002 spec_police
+S
+
+
+#$

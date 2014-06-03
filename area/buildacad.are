@@ -1,0 +1,771 @@
+#AREA   Builder Academy~
+
+
+
+#AUTHOR Spike/Vic.~
+
+#RANGES
+502 515 502 515 0 0 0 0
+$
+
+#RESETMSG &YBuild, build, build!~
+
+#FLAGS
+0
+
+#ECONOMY 0 490000
+
+#MOBILES
+#0
+
+
+#OBJECTS
+#0
+
+
+#ROOMS
+#2000
+The Center of the Builder's Academy~
+This is the building academy, where one can learn all the basics of
+building. Just walk around, and read all of the descriptions carefully, as
+you may be tested on this material if you are a junior immortal.  Mastery
+of this knowledge and the proper use of it will ensure you a good job here
+at Code Red. 
+~
+0 0 1 0
+D0
+~
+~
+0 -1 2001
+D1
+~
+~
+0 -1 2006
+D2
+~
+~
+0 -1 2017
+D3
+~
+~
+0 -1 2012
+S
+#2001
+Room Editing Basics~
+The basic commands in editing rooms are redit and rstat.  These
+two commands will be some of the most often used of any other
+command in building.  Redit is the command used to actually edit
+the rooms.  Rstat shows the status of the rooms, what flags it has,
+ect.  The most basic parts of redit are the name and desc functions.
+To change the name of a room, do redit name <name of the room>
+In this room it would be: redit name Room Editing Basics
+Redit desc will put you into a buffer that you edit the rooms
+description with.  Be sure to do /c before editing the description,
+because if you don't there will be leftover text.
+~
+0 0 1 0
+D0
+~
+~
+0 -1 2002
+D2
+~
+~
+0 -1 2000
+S
+#2002
+Building Exits~
+The next important part of building rooms is creating exits so mortals can
+come and go.  If you rstat this room, you'll see that its vnum is 2002. 
+If you wanted to duplicate the exit to the north, you would do redit bexit
+n 2003, because the room to the north is 2003.  This puts in an exit in
+both rooms.  If you don't want an exit in both directions, do redit exit n
+2003, instead of bexit.  Also, to remove an exit, do redit exit <dir of
+exit you want to be deleted>.
+~
+0 0 1 0
+D0
+~
+~
+0 -1 2003
+D2
+~
+~
+0 -1 2001
+S
+#2003
+Room Flags~
+Room flags are VERY important, especially in SWR base muds like this.  They
+determine wether or not ships can take off or land in rooms, you can quit
+in an area, or you can hail a taxi to get to a hotel.  To see a list of
+redit flags, type redit flags.  Most of these flags should be self
+explanitory.  If you are having trouble with a certain flag, however, ask
+a higher imm. 
+~
+0 0 1 0
+D0
+~
+~
+0 -1 2004
+D2
+~
+~
+0 -1 2002
+S
+#2004
+Extra Descriptions~
+Extra descriptions are little pieces of building that tend to  spice things
+up a bit.  They are accessable by looking at a certain preset trigger
+text.  In this room, to look at the ed, type look sign.  To create an ed,
+you simply input redit ed <trigger text>, and it will put you into a
+buffer just like a description.  For example, this rooms ed was put in by
+redit ed sign.
+~
+0 0 1 0
+D0
+~
+~
+0 -1 2005
+D2
+~
+~
+0 -1 2003
+E
+sign~
+This is an extra description!
+~
+S
+#2005
+Tips on Rooms~
+Ok... some advice on rooms.  First off, don't make them too complicated or
+subtle.  Most mortal players don't like to solve problems, and therefore
+will say "your area sucks" if it has too many complicated puzzels in it. 
+If you're going to have an ed, it helps to make the trigger text a
+different color, so some one will see it.  Also, don't spread out rooms
+more than nessicary. Walking down a 100 vnum path is fricken annoying, and
+just not fun.
+~
+0 0 1 0
+D2
+~
+~
+0 -1 2004
+S
+#2006
+Mob Basics~
+Mobs, or mobiles are the creatures and NPC's of a game, creating more
+interaction and detail in muds.  They are created with the mcreate
+command.  Mcreate is used by doing mcreate vnum name. Example:  mcreate
+2000 new mob would create a mob using vnum 2000, with the trigger words
+"new" and "mob". 
+~
+0 0 1 0
+D1
+~
+~
+0 -1 2007
+D3
+~
+~
+0 -1 2000
+S
+#2007
+Mset is Your Friend!~
+Mset is the command that you use to edit mobs.  Typing mset
+will give you a list of subcommands that you can use from mset.
+These are the important ones:
+short:  Name shown when the mob does an action
+long:  Name shown when the mob is seen in a room
+level: The level of the mob
+align:  If the mob is good or evil
+money:  How much money the mob has
+sex:  Numerical value, the gender of a mob
+flags:  To be discussed later on
+Mset is used by doing "mset vnum <subcommand> value".  If you
+wanted
+to mset mob 2000 to be level 5, you would do "mset 2000 level
+5".
+~
+0 0 1 0
+D1
+~
+~
+0 -1 2008
+D3
+~
+~
+0 -1 2006
+S
+#2008
+Mob Flags~
+This room teaches about mob flags.  Here are some mob flags, and
+a breif synopsis about what they do...
+Sentinel:  Makes a mob stay in one damn place!
+Aggressive:  Attacks the mortals on sight
+Wimpy:  Makes a mob run around like a pansy if its life gets too low
+Stayarea:  The mob won't leave the area
+Practic:  Makes a practice mob.  Don't worry about this
+Nokill:  Instead of the mob dying, it runs away
+Droid:  Instead of "leaking guts" the mob will "leak oil", ect.
+Nocorpse:  The mob doesn't have a corpse.  Duh.
+Prototype:  When in prototype mode, the changes you make on the mob
+are permanant, otherwise they aren't.
+To set flags you do "mset vnum flags flag1 flag2, flag3", ect.
+Ex.  "mset 2000 droid nokill prototype"
+You can also remove flags by making them have the flag twice.
+~
+0 0 1 0
+D1
+~
+~
+0 -1 2009
+D3
+~
+~
+0 -1 2007
+S
+#2009
+Mob Specs~
+Specs are done by "mset vnum spec specname".  Different specs do very
+different things that progs would take a long time to accomplish. 
+Here
+are a list of what different important specs do.
+spec_customs_smut:  Confiscates porno
+spec_customs_weapons:  Confiscates weapons
+spec_customs_spice:  Confiscates drugs
+spec_customs_alcohol:  Confiscates alcohol
+spec_janitor:  Picks up items on the ground
+spec_police_attack:  Attacks people who are wanted
+spec_police_fine:  Fines half of the persons money if they are
+wanted
+Ex:  "mset 2000 spec spec_customs_weapons
+      mset 2000 spec2 spec_customs_spice"
+~
+0 0 1 0
+D1
+~
+~
+0 -1 2010
+D3
+~
+~
+0 -1 2008
+S
+#2010
+VIP:  Citizens and Such~
+VIP flags are what make planets capturable, and popular support swaying. 
+To make a mob a VIP do "mset vnum vip planet", where planet is the planet
+where that mob is on.  If the planet you are building doesn't have a vip
+flag, you will have to ask Rodger or Michael to put in a vip flag for that
+planet. 
+~
+0 0 1 0
+D1
+~
+~
+0 -1 2011
+D3
+~
+~
+0 -1 2009
+S
+#2011
+Shopkeeper Mobs~
+A more important aspect of building mobs is the shop.  A shop is, fairly
+obviously, a place where mobs sell items.  Making a shop is very easy:
+simply do makeshop <shopkeepervnum>.  This will make it so you can buy
+items from that mob.  In addition to this, however, it needs items it can
+sell.  It will add items to its inventory if you give it the item, but
+only if that item has a value, and it can't be have a prototype flag. 
+Once the mob has all of the items you want it to sell, do instaroom to set
+a reset for the room, and go about your building.
+~
+0 0 1 0
+D3
+~
+~
+0 -1 2010
+S
+#2012
+Object Basics~
+Objects are like mobs.  But different.  Basically, you use the same
+commands as mobs to edit them, except with an "o" in the beginning. For
+example, ocreate and oset.  So read up on the mobs section before coming
+here.  Objects, basically function as items for a mud that a player can
+interact with.  They have different types: weapons, armor, food, drinks,
+containers, spice, ect.  Go on west.  Read, my son.
+~
+0 0 1 0
+D1
+~
+~
+0 -1 2000
+D3
+~
+~
+0 -1 2013
+S
+#2013
+Osetting:  Badass Stuff~
+Osetting is basically what makes an object worthwhile.  One of the most
+important things to osetting is the type:  if you don't set the type, its
+type will default to trash.  Other good commands for oset:  short and
+long, like in mobs, have the same function.  Cost determines how much it
+sells for.  Wear determines what wearlocs it uses. **NOTE** You must set a
+take wearlock for all objects you want to be able to be picked up.  Flags
+are set exactly like mobs, and the prototype flag still applies. And
+another important part about osetting:  Values.  To set a value, do oset
+v0 (or another value, the number on the end corresponding to the number.) 
+For different types of items, this will set different things.  Do help
+itemvalues to see what the different values mean.
+~
+0 0 1 0
+D1
+~
+~
+0 -1 2012
+D3
+~
+~
+0 -1 2014
+S
+#2014
+Armor... Keeps the Morts From Getting Reamed~
+To create and armor, all you have to do is set an objects type to armor.
+After doing this, you need to set its wearlock (don't forget take!) and
+its armorclass.  If an armor is not worn, it is innefective, so don't
+forget to give it a wearlock!  Also, set the cost if you plan on having it
+sold in a shop. 
+~
+0 0 1 0
+D1
+~
+~
+0 -1 2013
+D3
+~
+~
+0 -1 2015
+S
+#2015
+Weapons:  In Turn, They Ream the Morts~
+Making weapons is fun, but also fairly difficult in relation to the other
+types of objects.  Beyond setting its type to weapon, you need to remember
+four other things:  condition, numdamdie, sizedamdie, and weapontype. In
+addition to THAT you need to set the number of charges in the weapon if if
+it is a blaster type.  Remember to NOT set numdamdie and sizedamdie too
+high, it will stir up a hella lot of trouble in the game if the morts get
+their hands on too powerful of a weapon, and then the builder will have to
+answer for it. 
+~
+0 0 1 0
+D1
+~
+~
+0 -1 2014
+D3
+~
+~
+0 -1 2016
+S
+#2016
+Mmmm... Food (and drinks)~
+You learn about two types in here:  Drinks and food.  Since we're playing
+SWR here, hunger is a huge issue, so you obviously need to put food in
+just about every area you create.  The type for food is, easily enough,
+food, while drinks are a little more tricky... they use "drinkcon",
+indicating that they are a container... that you drink from.  To set both
+of these, all you need to do is set v0 and v1 to 20 and 20 for food, and
+40 and 40 for drinkcons.  Simple as that.  Don't mess with the values, it
+won't do much.
+~
+0 0 1 0
+D1
+~
+~
+0 -1 2015
+S
+#2017
+Progs 101~
+Alright: Progs are the backbone of any good room. This area will show you
+how to make different types of progs so that your rooms aren't boring .
+This will help you become an advanced builder so that you can become as
+cool as Simon and Lavitz. 
+~
+0 0 1 0
+D0
+~
+~
+0 -1 2000
+D2
+~
+~
+0 -1 2018
+S
+#2018
+The Room of Many Progs~
+Hey builder-in-the-making. Go W E or S whichever type of prog floats your
+boat first.
+~
+0 0 1 0
+D0
+~
+~
+0 -1 2017
+D1
+~
+~
+0 -1 2020
+D2
+~
+~
+0 -1 2019
+D3
+~
+~
+0 -1 2021
+S
+#2019
+Mob Progs~
+Mobs commands so your mobs aren't as boring as something boring!
+help mpedit
+help mptriggers
+help mpcommands
+help mpstat
+~
+0 0 1 0
+D0
+~
+~
+0 -1 2018
+D1
+~
+~
+0 -1 2029
+D2
+~
+~
+0 -1 2028
+D3
+~
+~
+0 -1 2030
+S
+#2020
+Room Progs~
+Alright You Have Taken The Best and Easiest Type of Triggers. To Get
+started try these commands:
+help rpedit
+help rptriggers
+help rpcommands
+help rpstat
+~
+0 0 1 0
+D0
+~
+~
+0 -1 2026
+D1
+~
+~
+0 -1 2025
+D2
+~
+~
+0 -1 2027
+D3
+~
+~
+0 -1 2018
+S
+#2021
+Object Progs~
+Alright so you decided to make your objects interesting? Try these commands
+first:
+help opedit
+help opcommands
+help optriggers
+help opstat
+~
+0 0 1 0
+D1
+~
+~
+0 -1 2018
+D2
+~
+~
+0 -1 2023
+D3
+~
+~
+0 -1 2024
+D4
+~
+~
+0 -1 2022
+S
+#2022
+Wear Prog~
+What do you know? There is another &YSign &Chere for you to &Yexamine.&C
+The wear program is a simple prog like all item progs. opedit 2000 add
+wear 100 will create a program so that whenever an object, in this case
+object 2000 is worn it will  "Strap itself to your body" and restore the
+person who wears it 5000 hp. You can substitute these commmands for
+whatever mpcommands you would like. Like stated before the choice is up to
+you.  Have fun with the progs they shouldn't be hard and if you need any
+help just head to the offices of Simon and Lavitz they are sure to help
+you.
+~
+0 0 1 0
+D5
+~
+~
+0 -1 2021
+E
+sign~
+opedit 2000 add wear 100
+emote straps itself to your body and you feel stronger.
+mprestore $n 5000
+~
+S
+#2023
+Get Prog~
+What do you know? There is another &YSign &Chere for you to &Yexamine.&C
+The get prog on an item is very simple. opedit 2000 add get 100 accesses
+the prog and everytime the object with vnum 2000 is picked up it will
+both: say the message dictated by say, and it will do the action dictated
+by emote. If you so desire you can put in mpcommands such as mprestore and
+mpechoaround/at. The choice is up to you builder in training.
+~
+0 0 1 0
+D0
+~
+~
+0 -1 2021
+E
+sign~
+opedit 2000 add get 100
+say Hello $n nice of you to pick me up.
+emote glitters in the sunlight.
+~
+S
+#2024
+Basic Random Prog~
+What do you know? There is another &YSign &Chere for you to &Yexamine.&C
+The random program on an item is almost as simple as the get prog. opedit
+2000 add rand 100 will create a program so that at a random time (hence
+the rand prog) the actions of the prog are performed. In this case object
+2000 would both "Glitter in the sunlight" and restore the holder 1000 hp.
+You can substitute these commmands for whatever mpcommands you would like.
+Like stated before the choice is up to you.
+~
+0 0 1 0
+D1
+~
+~
+0 -1 2021
+E
+sign~
+opedit 2000 add rand 100
+emote glitters in the sunlight.
+mprestore $n 1000
+~
+S
+#2025
+Rand Prog~
+&CThere is another &YSign&C here for you to &YExamine.&C This prog shows
+how to make a random room prog. What will happen is at a random time the
+room will look through progs and any marked by rand will be executed. The
+command mprestore all 1000 shows that when the prog is executed the people
+within the room are healed.  The mpechoat $n will show the same message to
+everyone in the room saying they are being healed.
+~
+0 0 1 0
+D3
+~
+~
+0 -1 2020
+E
+sign~
+rpedit add rand 100
+mprestore $n 1000
+mpechoat $n Your wounds are healed by a small robot.
+~
+S
+#2026
+Speech Prog~
+There is a &YSign&C here for you to &Yexamine&C. After examining the
+program this desc will explain the basics. The command rpedit add speech
+'your msg' will add to the program what needs to be said to access the
+prog and will take you into the buffer. mpechoaround $n sends a msg to
+everyone in the room. Feel free to use as many or little as you want to
+get your message sent just don't go overboard. mpechoat $n will send a
+message to the speaker only this is good to use so the speaker knows the
+program worked like mpechoarounds use as many as needed. Make sure you do
+/l and check to see if your line has been cut off because if it was then
+your msg is cut off as well. mptrans $n vnum will transport the speaker to
+the designated vnum. Using help rptriggers you can see and test for
+yourself any other type of progs there are such as mprestore.
+~
+0 0 1 0
+D2
+~
+~
+0 -1 2020
+E
+sign~
+rpedit add speech R28
+mpechoaround $n $n Is sucked into a swirling vortex of colors.
+mpechoaround $n $e Disappears before your eyes.
+mpechoat $n You are sucked into a swirling vortex.
+mpechoat $n When you come to your surrondings have changed.
+mptrans $n 800
+~
+S
+#2027
+Allgreet Prog~
+There is another &YSign&C here for you to &YExamine.&C An allgreet prog is
+a very simple prog. All it will do is say and or do something when a
+person and/or mob enters the room. rpedit add entry 100 will access the
+prog and inside the buffer you can do either mpechoarounds or mpechoats to
+show the entering person or people already in the room a msg. You can also
+load a mob and or item using mpmload mobvnum and mpoload objvnum
+respectively.
+~
+0 0 1 0
+D0
+~
+~
+0 -1 2020
+E
+sign~
+rpedit add entry 100
+mechoat $n You feel a chill as you enter the room.
+~
+S
+#2028
+Bribe Prog~
+There is a &Ysign&C here for you to &Ylook&C at.  The prog detailed in the
+sign is a bribe prog, and would probably be prompted by a greet prog,
+saying something effective to "Give me 200 dollars to get healed." 
+Basically, the 200 after the add bribe means the mob is triggered by 200
+and only 200 dollars. Mea and Mer are abbreviated forms of mpechoat and
+mpecho around.  Mprestore, as you may have learned before, restores the
+character. 
+~
+0 0 1 0
+D0
+~
+~
+0 -1 2019
+E
+sign~
+mped 2000 add bribe 200
+say Ah, thanks for the money, I'll fix you right up.
+mea $n The man waves his hands at you, and you feel much better.
+mer $n The man waves his hands at $n, and they look restored.
+mprestore $n 10000
+~
+S
+#2029
+Death Prog~
+Remember to &Ylook&C at the &Ysign&C... This prog is triggered upon the
+death of a mob, and makes another mob instantaneously "repop". The mpmload
+stands for "mobile program mob load", and loads up the mob that is
+specified by the prog.  In this case, it would load up an exact duplicate
+of the mob before. 
+~
+0 0 1 0
+D3
+~
+~
+0 -1 2019
+E
+sign~
+mped 2000 add death 100
+mpecho &rThe battler screams its death cry, and another runs up
+mpecho &rto take its place...
+mpmload 2000
+~
+S
+#2030
+Quest Prog~
+Remember to &Ylook&C at the &Ysign&C.  This is a copy of the Montressor
+prog for the C01/Venus quest, involving smuggling a breifcase of crack. 
+This is a fairly complicated program, involving an ifcheck to see if the
+correct item is being given to Montressor. the "if ovnuminv (1013) == 1"
+checks the inventory of Montressor for that object, and if it is that
+object is in the vnum it withdraws 10000 dollars from the area economy
+(only works on installed areas), gives the money to the person who gave
+the item, and advances that persons smuggling experience 50000 points with
+the mpadvance function. After that, it drops the breifcase at Rodger's
+office using the mpat command, and purges the room with mppurge.  If the
+item was _not_ vnum 1013, then it does the drop all command.  Remember,
+any prog with an ifcheck needs to have endif at the end of the statement,
+or it will not run correctly.
+~
+0 0 1 0
+D1
+~
+~
+0 -1 2019
+E
+sign~
+mped montressor add act gives you a briefcase full of crack
+if ovnuminv (1013) == 1
+say Ah, you work for Benjamino.  Thank you.
+mpwithdraw 10000
+give 10000 dollars $n
+mpgain $n 4 50000
+mpat 999 drop crack
+mpat 999 mppurge
+else
+drop all
+endif
+~
+S
+#2031
+Simon's Office~
+~
+0 4 1 0
+D5
+~
+~
+0 -1 2000
+S
+#2032
+Lavitz's Office~
+~
+0 4 1 0
+D4
+~
+~
+0 -1 2000
+S
+#2033
+Floating in a void~
+~
+0 4 1 0
+S
+#0
+
+
+#RESETS
+O 1 100 1 2000
+S
+
+
+#SHOPS
+0
+
+
+#REPAIRS
+0
+
+
+#SPECIALS
+S
+
+
+#$

@@ -1,0 +1,25 @@
+#PLANET
+Name         Mars~
+Filename     mars~
+BaseValue    0
+Flags        0
+PopSupport   88.000000
+FrustLevel   2.000000
+Hospital     528
+Lowgang	   3202
+Highgang	   3205
+Starsystem   Mars~
+GovernedBy   RDS~
+FrustratedBy   WTS~
+Area         dayton.are~
+Area         daytonmall.are~
+Area         highway.are~
+Area         zephyr.are~
+Area         holiday.are~
+Area         rds.are~
+Area         shipquest.are~
+Area         newbschool.are~
+Area         guns.are~
+End
+
+#END

@@ -1,0 +1,757 @@
+#AREA   {PROTO} Funf's area in progress~
+
+
+
+#AUTHOR Funf~
+
+#RANGES
+0 0 0 0 0 0 0 0
+$
+
+#FLAGS
+0
+
+#ECONOMY 0 0
+
+#MOBILES
+#0
+
+
+#OBJECTS
+#13000
+camera~
+a camera~
+A security camera hangs from the ceiling.~
+~
+13 1073741824 0
+0 0 0 0
+1 0 0
+#0
+
+
+#ROOMS
+#13000
+&RWhite Tiger Syndicate Headquarters~
+~
+0 1073741828 1 0
+D6
+~
+~
+0 -1 13001
+D9
+~
+~
+0 -1 1001
+S
+#13001
+Floating in a void~
+~
+0 1073741828 1 0
+D6
+~
+~
+0 -1 13002
+D9
+~
+~
+0 -1 13000
+S
+#13002
+Floating in a void~
+~
+0 1073741828 1 0
+D0
+~
+~
+0 -1 13003
+D9
+~
+~
+0 -1 13001
+S
+#13003
+Floating in a void~
+~
+0 1073741828 1 0
+D1
+~
+~
+0 -1 13004
+D2
+~
+~
+0 -1 13002
+S
+#13004
+The Entrance~
+~
+0 1073741828 1 0
+D1
+~
+~
+0 -1 13005
+D3
+~
+~
+0 -1 13003
+S
+#13005
+Front Lobby~
+~
+0 1073741836 0 0
+D1
+~
+~
+0 -1 13006
+D3
+~
+~
+0 -1 13004
+S
+#13006
+Security Checkpoint~
+exa sign
+~
+0 1073741836 0 0
+D3
+~
+~
+0 -1 13005
+E
+security sign~
+Automatic Securty System Instructions
+ 
+Say 'let me pass' to continue.
+~
+> greet_prog 100~
+mea $n &CA Voice says 'Beginning Verification Process'&w
+mpsleep 5
+if clan($n) == "WTS"
+mea $n Have a nice day.
+mer $n $n walks foward past security.
+mptrans $n 13030
+mpat $n mpforce $n look
+else
+mea $n A Voice says 'Thou shall not enter sacred grounds.'
+mea $n You fall down an opening in the floor!
+mpdamage $n 100
+mptrans $n 13007
+mpat $n mpforce $n look
+endif
+~
+> speech_prog pass~
+mea $n _lbl A Voice says 'Beginning Verification Process'
+mpsleep 20
+if clan($n) == WTS
+mea $n _lbl A Voice says 'Have a nice day, $n.'
+mer $n $n walks foward past security.
+mptrans $n 13030
+mpat $n mpforce $n look
+else
+mea $n &CA Voice says '&WThou shall not enter sacred grounds.&C'&w
+mea $n You fall down an opening in the floor!
+mpdamage $n 100
+mptrans $n 13007
+mpat $n mpforce $n look
+endif
+~
+|
+S
+#13007
+The Pit~
+climb
+~
+0 1073741836 0 0
+D4
+~
+~
+67712 -1 13008
+S
+#13008
+Bottom of Elevator Shaft~
+~
+0 1073741836 0 0
+D3
+~
+~
+0 -1 13009
+D5
+~
+~
+0 -1 13007
+S
+#13009
+&WBasement Level 3~
+~
+0 1073741832 13 16
+D1
+~
+~
+0 -1 13008
+D3
+~
+~
+0 -1 13010
+S
+#13010
+&WBasement Level 3~
+~
+0 1073741832 13 16
+D1
+~
+~
+0 -1 13009
+D7
+~
+~
+0 -1 13011
+S
+#13011
+&WBasement Level 3~
+~
+0 1073741832 13 16
+D8
+~
+~
+0 -1 13010
+D9
+~
+~
+0 -1 13012
+S
+#13012
+&WBasement Level 3~
+~
+0 1073741832 13 16
+D3
+~
+~
+0 -1 13013
+D6
+~
+~
+0 -1 13011
+S
+#13013
+&WBasement Level 3~
+~
+0 1073741832 13 16
+D1
+~
+~
+0 -1 13012
+D7
+~
+~
+0 -1 13015
+D9
+~
+~
+0 -1 13014
+S
+#13014
+&WBasement Level 3~
+~
+0 1073741832 13 16
+D6
+~
+~
+0 -1 13013
+S
+#13015
+&WBasement Level 3~
+next level
+~
+0 1073741832 13 16
+D8
+~
+~
+0 -1 13013
+> speech_prog p next level~
+mea $n You are transported upward.
+mer $n $n is transported upward.
+mptrans $n 13016
+mpat $n mpforce $n look
+~
+|
+S
+#13016
+&WBasement Level 2~
+lower level
+~
+0 1073741836 0 0
+D1
+~
+~
+0 -1 13017
+> speech_prog p lower level~
+mea $n You are transported downward.
+mer $n $n is transported downward.
+mptrans $n 13015
+mpat $n mpforce $n look
+~
+|
+S
+#13017
+Floating in a void~
+~
+0 1073741836 0 0
+D3
+~
+~
+0 -1 13016
+S
+#13018
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13019
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13020
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13021
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13022
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13023
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13024
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13025
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13026
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13027
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13028
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13029
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13030
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13031
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13032
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13033
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13034
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13035
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13036
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13037
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13038
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13039
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13040
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13041
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13042
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13043
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13044
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13045
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13046
+&WCeremony Room~
+~
+0 1073741836 0 0
+D0
+~
+~
+0 -1 13048
+D6
+~
+~
+0 -1 13049
+D7
+~
+~
+0 -1 13047
+S
+#13047
+&WFirst Officer's Office~
+~
+0 1073741836 0 0
+D8
+~
+~
+0 -1 13046
+S
+#13048
+&WLeader's Office~
+~
+0 1073741836 0 0
+D2
+~
+~
+0 -1 13046
+S
+#13049
+&WSecond Officer's Office~
+~
+0 1073741836 0 0
+D9
+~
+~
+0 -1 13046
+S
+#13050
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13051
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13052
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13053
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13054
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13055
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13056
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13057
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13058
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13059
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13060
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13061
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13062
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13063
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13064
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13065
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13066
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13067
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13068
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13069
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13070
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13071
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13072
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13073
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13074
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13075
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13076
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13077
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13078
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13079
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13080
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13081
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13082
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13083
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13084
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13085
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13086
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13087
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13088
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13089
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13090
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13091
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13092
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13093
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13094
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13095
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13096
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13097
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13098
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#13099
+Floating in a void~
+~
+0 1073741836 0 0
+S
+#0
+
+
+#RESETS
+S
+
+
+#SHOPS
+0
+
+
+#REPAIRS
+0
+
+
+#SPECIALS
+S
+
+
+#$

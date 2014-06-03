@@ -1,0 +1,51 @@
+#SLAY
+Type		gun~
+Owner		Gatz~
+Color		0
+Cmessage	&RYou summon all of your powers together and slay $N in cold blood! 
+~
+Vmessage	&zYou hear an evil chuckle come from $n and he slowly morphs into a dark
+figure and small eyes open from all over his body. $n's arm slowly morphs
+into a wolf's head and charges at you. As you try to run in fear a gun
+comes out from the wolf's mouth and shoots you in cold blood!
+~
+Rmessage	&zYou hear an evil chuckle come from $n and he slowly morphs into a dark
+figure and small eyes open from all over his body. $n's arm slowly morphs
+into a wolf's head and charges at $N. As $N tries to run in fear a gun
+comes out from the wolf's mouth and shoots $N right in the back, slaying
+him instantly! 
+~
+End
+
+#SLAY
+Type		guts~
+Owner		Spike~
+Color		15
+Cmessage	&R"RIP AND TEAR AND TEAR AND RIP AND TEAR!  YOU ARE HUGE!  THAT MEANS YOU HAVE
+HUGE GUTS!  RIP AND TEAR YOUR GUTS!"
+ 
+&YYou profusely fuck $N up.
+~
+Vmessage	&R$n sprays on a bit of bloody eye, and says the following:
+ 
+&Y"RIP AND TEAR AND TEAR AND RIP AND TEAR!  YOU ARE HUGE!  THAT MEANS YOU HAVE
+HUGE GUTS!  RIP AND TEAR YOUR GUTS!"
+ 
+&R$n does just that, smearing your entrails about the ground.
+ 
+&YYou have been profusely fucked up.
+~
+Rmessage	&R$n takes some bloody eye and screams:
+ 
+&Y"RIP AND TEAR AND TEAR AND RIP AND TEAR!  YOU ARE HUGE!  THAT MEANS YOU HAVE
+HUGE GUTS!  RIP AND TEAR YOUR GUTS!"
+ 
+&R$n feraly begins to beat his fists into $N's chest, covering the entire room
+in a thick spatter of blood, severed veins and organs pumping all kinds of
+bodily fluids on the ground.
+ 
+&YYou realize that $N has been profusely fucked up.
+~
+End
+
+#END

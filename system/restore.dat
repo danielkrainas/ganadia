@@ -1,0 +1,122 @@
+#RESTORE
+Type         God Shine~
+Owner        Gatz~
+Cmessage     You un-veil the heavens and let the glory shine on $N!
+~
+Vmessage     &YThe heavens suddenly pull back and you feel filled with a new aura of
+help and praise. The Immortals are pleased that you are playing the MUD
+and restore your tired soul!
+~
+Rmessage     &WThe Immortal's mercy is shown through their restoration of $N!
+~
+Color        15
+Boost        1.000000
+End
+
+#RESTORE
+Type         Cookie~
+Owner        Spike~
+Cmessage     You restore $N!&YYou walk out in an apron and start handing out cookies!
+~
+Vmessage     &YSpike walks in wearing an apron and holding a tray of cookies!
+As you take and eat a cookie you begin to feel light headed... and... odd.
+You notice you are fully restored!  And fully stoned!
+~
+Rmessage     The Gods Restore $N!&Y$N accepts one of Spike's special cookies... uh oh.
+~
+Color        15
+Boost        1.000000
+End
+
+#RESTORE
+Type         tingle~
+Owner        Appledelhi~
+Cmessage     You heal $N
+~
+Vmessage     &WA strange sensation floats through your body. A bright light begins to
+float into view. You reach out for it, attempting to grasp the power
+within. As you reach your hands touch the surface, they tingle slightly.
+You feel brave, dipping your arm into the light, followed by your entire
+body. As you step through, your wounds begin to vanish, replaced by 
+healed flesh. The prescence of a higher being sweeps through your body. As
+suddenly as it started, it stops, and you are healed. 
+~
+Rmessage     A healing light spreads through $n.
+~
+Color        15
+Boost        1.000000
+End
+
+#RESTORE
+Type         die~
+Owner        Vincent~
+Cmessage     You restore $N!You force all to 'die'.
+~
+Vmessage     &WVincent forces you to 'die'.
+~
+Rmessage     The Gods Restore $N!~
+Color        15
+Boost        1.000000
+End
+
+#RESTORE
+Type         phoenix~
+Owner        Taille~
+Cmessage     You restore $N!~
+Vmessage     You feel a surge of energy course through you as the Gods restore you!~
+Rmessage     The Gods Restore $N!~
+Color        15
+Boost        1.000000
+End
+
+#RESTORE
+Type         moan~
+Owner        vincent~
+Cmessage     You restore $N!~
+Vmessage     You feel a surge of energy course through you as the Gods restore you!&WVincent forces you to 'moan'.
+~
+Rmessage     The Gods Restore $N!~
+Color        15
+Boost        1.000000
+End
+
+#RESTORE
+Type         1~
+Owner        Vincent~
+Cmessage     You restore $N!~
+Vmessage     You feel a surge of energy course through you as the Gods restore you!&WVincent forces you to 'grope self'.
+&zYou grope yourself - YUCK.
+~
+Rmessage     The Gods Restore $N!~
+Color        15
+Boost        1.000000
+End
+
+#RESTORE
+Type         apple~
+Owner        Any~
+Cmessage     You heal $N
+~
+Vmessage     Appledelhi Siniz Hesap Lufen walks into the room, in his hand a large bag.
+He opens the bag, and a large cloud of dust swirls about the room. As he
+closes the bag, the dust sucks itself back in. You feel strange and
+tingly....you are healed.
+~
+Rmessage     $N is restored
+~
+Color        15
+Boost        1.000000
+End
+
+#RESTORE
+Type         bigshot~
+Owner        Punch~
+Cmessage     You restore $N!~
+Vmessage     &z&O[&YBig Shot&z&O] &CPunch: Shucks Howdy! A restore!
+~
+Rmessage     The Gods Restore $N!~
+Color        15
+Boost        1.000000
+End
+
+#END
