@@ -22,6 +22,12 @@
 *.x86_64
 *.hex
 
+# Misc
+*~
+
 # Ganadia Specific
 player/**/*
+log/*
+src/swreality
+src/ganadia
 
